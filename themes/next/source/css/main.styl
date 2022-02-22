@@ -44,32 +44,23 @@ for $inject_mixin in hexo-config('injects.mixin')
 // --------------------------------------------------
 for $inject_style in hexo-config('injects.style')
   @import $inject_style;
-
-// 主页文章添加阴影效果
- .post {
-   margin-top: 60px;
-   margin-bottom: 60px;
-   padding: 25px;
-   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-  }
   //自定义回到顶部样式
-.back-to-top {
-  right: 60px;
-  width: 70px;  //图片素材宽度
-  height: 900px;  //图片素材高度
-  top: -900px;
-  bottom: unset;
-  transition: all .5s ease-in-out;
-  background: url("/images/scroll.png");
-
-  //隐藏箭头图标
-  > i {
-    display: none;
-  }
-
-  &.back-to-top-on {
+  .back-to-top {
+    right: 60px;
+    width: 70px;  //图片素材宽度
+    height: 900px;  //图片素材高度
+    top: -900px;
     bottom: unset;
-    top: 100vh < (900px + 200px) ? calc( 100vh - 900px - 200px ) : 0px;
+    transition: all .5s ease-in-out;
+    background: url("/images/scroll.png");
+
+    //隐藏箭头图标
+    > i {
+      display: none;
+    }
+
+    &.back-to-top-on {
+      bottom: unset;
+      top: 100vh < (900px + 200px) ? calc( 100vh - 900px - 200px ) : 0px;
+    }
   }
-}
