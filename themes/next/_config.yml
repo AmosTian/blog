@@ -256,10 +256,6 @@ passage_end_tag:
 
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
-symbols_count_time:
-  separated_meta: true
-  item_text_post: true
-  item_text_total: false
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
@@ -677,6 +673,27 @@ add_this_id:
 # Statistics and Analytics
 # See: https://theme-next.org/docs/third-party-services/statistics-and-analytics
 # ---------------------------------------------------------------
+# 统计
+# Show Views / Visitors of the website / page with busuanzi.
+# Get more information on http://ibruce.info/2015/04/04/busuanzi
+busuanzi_count:
+  enable: true
+  total_visitors: true
+  total_visitors_icon: user
+  total_views: true
+  total_views_icon: eye
+  post_views: true
+  post_views_icon: eye
+
+# Post wordcount display settings
+# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+symbols_count_time:
+  separated_meta: true #分隔符|
+  item_text_post: true #是否统计站点总字数
+  item_text_total: true #是否同级文章总字数
+  awl: 2 #平均每个字符的长度
+  wpm: 150 #words per minute
+
 
 # Google Analytics
 google_analytics:
@@ -717,17 +734,6 @@ firestore:
   collection: articles # Required, a string collection name to access firestore database
   apiKey: # Required
   projectId: # Required
-
-# Show Views / Visitors of the website / page with busuanzi.
-# Get more information on http://ibruce.info/2015/04/04/busuanzi
-busuanzi_count:
-  enable: false
-  total_visitors: true
-  total_visitors_icon: user
-  total_views: true
-  total_views_icon: eye
-  post_views: true
-  post_views_icon: eye
 
 
 # ---------------------------------------------------------------
