@@ -34,7 +34,26 @@ for $inject_mixin in hexo-config('injects.mixin')
 
 // Components
 @import "_common/components";
-//自定义回到顶部样式
+
+// Schemes Layer
+// --------------------------------------------------
+@import "_schemes/" + $scheme;
+
+
+// Custom Layer
+// --------------------------------------------------
+for $inject_style in hexo-config('injects.style')
+  @import $inject_style;
+
+// 主页文章添加阴影效果
+ .post {
+   margin-top: 60px;
+   margin-bottom: 60px;
+   padding: 25px;
+   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+  }
+  //自定义回到顶部样式
 .back-to-top {
   right: 60px;
   width: 70px;  //图片素材宽度
@@ -54,13 +73,3 @@ for $inject_mixin in hexo-config('injects.mixin')
     top: 100vh < (900px + 200px) ? calc( 100vh - 900px - 200px ) : 0px;
   }
 }
-
-// Schemes Layer
-// --------------------------------------------------
-@import "_schemes/" + $scheme;
-
-
-// Custom Layer
-// --------------------------------------------------
-for $inject_style in hexo-config('injects.style')
-  @import $inject_style;
