@@ -123,6 +123,7 @@ menu:
   archives: /archives/ || archive
   #about: /about/ || user
   essay: /categories/随笔// || pied-piper
+  dynamic-resume: /cv/dynamic-resume.html || cog     
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
