@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://auspicetian.github.io
+url: https://auspicetian.life
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -131,6 +131,13 @@ search:
   field: post
   format: html
   limit: 10000
+
+# 百度抓取
+# 自动生成sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/

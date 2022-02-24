@@ -123,7 +123,7 @@ menu:
   archives: /archives/ || archive
   #about: /about/ || user
   essay: /categories/随笔// || pied-piper
-  dynamic-resume: /cv/dynamic-resume.html || cog     
+  dynamic-resume: /dynamic-resume/ || cog     
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -480,10 +480,12 @@ yandex_site_verification:
 
 # Baidu Webmaster tools verification.
 # See: https://ziyuan.baidu.com/site
-baidu_site_verification:
+baidu_site_verification: 
+  enable: false
+  code: 
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
-baidu_push: false
+baidu_push: true
 
 
 # ---------------------------------------------------------------
