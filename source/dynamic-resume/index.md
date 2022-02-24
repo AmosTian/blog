@@ -9,7 +9,7 @@ type: "dynamic-resume"
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="" />
-  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600i&display=swap" rel="stylesheet" />
   <link href="/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/css/animate.css" rel="stylesheet" />

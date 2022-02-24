@@ -16,7 +16,7 @@ let textArr = [{
             text: '姓名：田兆吉'
         }, {
             name: 'div',
-            text: '年龄：23'
+            text: '年龄：24'
         }]
     }, {
         name: 'div',
@@ -44,7 +44,10 @@ let textArr = [{
         text: '专业：计算机科学与技术'
     }, {
         name: 'div',
-        text: '主修课程：C、C++、Java、HTML、CSS、JavaScript、Python、MySQL',
+        text: '主修课程：C、C++、Java、Python、数据结构、计算机组成原理、操作系统、计算机网络、JavaWeb',
+    }, {
+        name: 'div',
+        text: '英语水平：CET6',
     }]
 }, {
     name: 'h4',
@@ -55,11 +58,11 @@ let textArr = [{
     class: 'ul-list',
     children: [{
         name: 'li',
-        text: '熟练掌握',
+        text: '熟练使用',
         children: [{
             name: 'span',
             class: 'tag',
-            text: 'H5、CSS3、JS、C++、Python'
+            text: 'HTML、CSS、JavaScript、C++、Python'
         }]
     }, {
         name: 'li',
@@ -71,14 +74,14 @@ let textArr = [{
         }]
     }, {
         name: 'li',
-        text: '熟练掌握',
+        text: '熟悉',
         children: [{
             name: 'span',
             class: 'tag',
             text: 'Python数据处理'
         }, {
             name: 'span',
-            text: '，熟悉Git使用及原理'
+            text: '，Git使用及原理'
         }]
     }, {
         name: 'li',
@@ -87,10 +90,24 @@ let textArr = [{
             name: 'span',
             class: 'tag',
             text: 'MySQL数据库'
+        }]
+    },{
+        name: 'li',
+        text: '后端开发入门水平：',
+        children: [{
+            name: 'span',   
+            text: 'Java'
         }, {
             name: 'span',
-            text: '熟悉索引工作原理'
+            class: 'tag',
+            text: '、SpringBoot、Dubbo'
+        }, {
+            name: 'span',
+            text: '、ElasticSearch'
         }]
+    },{
+        name: 'li',
+        text: '个人博客：https://auspicetian.life'
     }]
 }, {
     name: 'h4',
@@ -102,7 +119,7 @@ let textArr = [{
     children: [{
         name: 'span',
         class: 'mr',
-        text: '2017.09 — 2020.01'
+        text: '2017.09 — 2021.06'
     }, {
         name: 'span',
         text: '本科学习阶段'
@@ -110,33 +127,27 @@ let textArr = [{
 }, {
     name: 'ul',
     class: 'ul-list',
-    children: [
-        // {
-    //     name: 'li',
-    //     text: '从大一新生，升任到清泽心雨技术总监，负责',
-    //     children: [{
-    //         name: 'span',
-    //         class: 'tag',
-    //         text: '带领新人、项目安排、产品优化'
-    //     }, {
-    //         name: 'span',
-    //         text: '，定期组织开展小程序研讨技术会，为组织奠定了技术基础'
-    //     }]
-    // }, 
+    children: [ 
     {
         name: 'li',
-        text: '2017年参加第一届天梯赛，团队优秀奖'
+        text: '学业优秀奖学金，优秀学生团员'
     },{
         name: 'li',
         text: '2018年参加蓝桥杯大赛，省赛三等奖'
     },{
         name: 'li',
-        text: '2019年小程序开发大赛，西北赛区三等奖'
-    }]
-}, {
+        text: '全国计算机能力挑战赛程序设计赛(C语言)三等奖'
+    },{
+        name: 'li',
+        text: '2020年高校微信小程序应用开发赛西北赛区二等奖'
+    },{
+        name: 'li',
+        text: '三又网上汉语学习平台软件著作权'
+    }
+]},{
     name: 'h4',
     class: 'text-title',
-    text: '高级项目'
+    text: '项目经历'
 }, {
     name: 'div',
     class: 'item-lv',
@@ -144,9 +155,74 @@ let textArr = [{
         name: 'ul',
         class: 'ul-list',
         children: [{
-            name: 'li',
             class: 'project-title',
-            text: '项目一：留言板项目（JSP开发）'
+            text: '一：基于SprintBoot和Dubbo框架的租房系统的设计与实现'
+        },  {
+            name: 'li',
+            text: '项目描述：房屋租赁的信息共享平台，前台为用户可见的WebAPP应用，基于',
+            children: [{
+                name: 'span',
+                class: 'tag',
+                text: 'ReactJS'
+            },{
+                name: 'span',
+                text: '实现。后台的前端页面使用layuimini模板，后端架构为'
+            },{
+                name: 'span',
+                class: 'tag',
+                text: 'SpringBoot+Dubbo'
+            },{
+                name: 'span',
+                text: '，'
+            },{
+                name: 'span',
+                class: 'tag',
+                text: 'GraphQL'
+            },{
+                name: 'span',
+                text: '风格查询接口，使用了'
+            },{
+                name: 'span',
+                class: 'tag',
+                text: 'ElasticSearch、Redis'
+            },{
+                name: 'span',
+                text: '加快数据的访问与搜索，数据库采用集群方案解决'
+            },{
+                name: 'span',
+                tag: '负载均衡'
+            }]
+        }, {
+            name: 'li',
+            text: '后端技术：SpringBoot+SpringMVC+Dubbo+Mybatis+ElasticStack'
+        }, {
+            name: 'li',
+            text: '前端架构：ReactJS+html+百度地图SDK'
+        }]
+    }, {
+        name: 'ul',
+        class: 'ul-list',
+        children: [{  
+            class: 'project-title',
+            text: '二：太原理工大学校园导览小程序'
+        }, {
+            name: 'li',
+            text: '技术方案：WXML,CSS,JavaScript',
+            children: [{
+                name: 'span',
+                class: 'tag',
+                text: ',腾讯地图服务'
+            }]
+        }, {
+            name: 'li',
+            text: '项目描述：标注太原理工大学三个校区全部地理坐标，方便新生更快了解校园，2019年实现2万用户，并持续增长。'
+        }]
+    },{
+        name: 'ul',
+        class: 'ul-list',
+        children: [{
+            class: 'project-title',
+            text: '三：留言板项目（JSP开发）'
         }, {
             name: 'li',
             text: '技术方案：Jsp、Servlet、JavaBean',
@@ -159,34 +235,37 @@ let textArr = [{
             name: 'li',
             text: '项目描述：交互式网页，方便客户端和服务端之间的信息传输。三大模块：用户注册和登录模块、用户管理模块、留言管理和显示模块。'
         }]
-    }, {
-        name: 'ul',
-        class: 'ul-list',
-        children: [{
-            name: 'li',
-            class: 'project-title',
-            text: '项目二：太原理工大学校园导览小程序'
-        }, {
-            name: 'li',
-            text: '技术方案：WXML,CSS,JavaScript',
-            children: [{
-                name: 'span',
-                class: 'tag',
-                text: '腾讯地图框架'
-            }]
-        }, {
-            name: 'li',
-            text: '项目描述：标注太原理工大学三个校区全部地理坐标，方便新生更快了解校园，2019年实现2万用户，并持续增长。在项目实现的过程中将熟悉微信小程序的完整流程。'
-        }]
     }]
-}, {
+},{
+    name: 'h4',
+    class: 'text-title',
+    text: '社团与社会实践'
+},{
+    name: 'ul',
+    class: 'ul-list',
+    children: [ 
+        {
+            name: 'li',
+            text: '参与创建并运营清泽心雨(校级组织)小程序站，期间进行经验分享、协调沟通、参与开发,并定期组织开展小程序研讨技术会，为组织奠定了技术基础'
+        },{
+            name: 'li',
+            text: '带领的9人团队分为三组，均在2020高校微信小程序应用开发赛西北赛区获得二等奖'
+        },
+        {
+            name: 'li',
+            text: '2019年暑期大学生"三下乡"社会实践活动优秀实践队员，2019-2020社会工作荣誉奖'
+        }
+    ]} ,{
     name: 'h4',
     class: 'text-title',
     text: '自我评价'
-}, {
+    }, {
     name: 'ul',
     class: 'ul-list',
-    children: [{
+    children: [ {
+        name: 'li',
+        text: '有独立分析和解决问题的能力，有较强的自学及动手能力，并善于接收新事物'
+    }, {
         name: 'li',
         text: '具有',
         children: [{
@@ -195,34 +274,9 @@ let textArr = [{
             text: '团队管理经验'
         }, {
             name: 'span',
-            text: '，拥有良好的'
-        }, {
-            name: 'span',
-            class: 'tag',
-            text: '团队协调能力'
-        }, {
-            name: 'span',
-            text: '，与同事配合极其默契'
+            text: '，拥有良好的人际交往、协调沟通能力以及团队精神'
         }]
-    }, {
-        name: 'li',
-        text: '有很强的',
-        children: [{
-            name: 'span',
-            class: 'tag',
-            text: '自学及动手能力'
-        }, {
-            name: 'span',
-            text: '，善于接受新事物，精通'
-        }, {
-            name: 'span',
-            class: 'tag',
-            text: '小程序'
-        }, {
-            name: 'span',
-            text: '开发'
-        }]
-    }, {
+    },{
         name: 'li',
         text: '性格随和、诚恳稳重、身体素质较好、适应环境能力强'
     }]
@@ -265,9 +319,9 @@ let style = `
 `
 let balloon = `
     <div class="balloon-wrap">
-        <img src="images/balloon.png" id="bg-balloon-small">
-        <img src="images/balloon.png" id="bg-balloon-large">
-        <img src="images/logo.png" id="bg-balloon-logo">
+        <img src="/images/balloon.png" id="bg-balloon-small">
+        <img src="/images/balloon.png" id="bg-balloon-large">
+        <img src="/images/logo.png" id="bg-balloon-logo">
     </div>
     <div class="connect" style="width: 100%; display: flex;"></div>`
 let line = `
