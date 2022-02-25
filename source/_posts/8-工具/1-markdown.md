@@ -1,14 +1,14 @@
 ---
 title: markdown语法
-date: 2021-05-27
 top: 1
 categories:
--	工具
+  - 工具
 tags:
--	工具
--	markdown
+  - 工具
+  - markdown
 mathjax: true
-
+abbrlink: 4046760165
+date: 2021-05-27 00:00:00
 ---
 
 >   markdown常用语法归纳
