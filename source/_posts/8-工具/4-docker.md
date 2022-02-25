@@ -3,17 +3,18 @@ title: docker
 date: '‎2021‎-03‎-‎01‏‎ 12:48:05'
 top: 2
 categories:
--	工具
+  - 工具
 tags:
   - 工具
   - docker
+abbrlink: 4065722285
 ---
 
 # 1. 简介
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/4-docker.assets/image-20210301133636893.png" alt="image-20210301133636893" style="zoom:50%;" />
+<img src="4-docker/image-20210301133636893.png" alt="image-20210301133636893" style="zoom:50%;" />
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/4-docker.assets/image-20210301134238784.png" alt="image-20210301134238784" style="zoom:67%;" />
+<img src="4-docker/image-20210301134238784.png" alt="image-20210301134238784" style="zoom: 50%;" />
 
 **Docker是开源的应用容器引擎**；基于GO语言
 

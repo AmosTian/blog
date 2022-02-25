@@ -3,9 +3,11 @@ title: IDEA安装与使用
 top: 2
 categories:
   - 工具
-  - IDEA
+  - 编程工具
 tags:
   - 工具
+  - 编程工具
+
 abbrlink: 2432801061
 date: 2021-02-04 08:52:47
 updated: 2022-01-22 18:37:10
