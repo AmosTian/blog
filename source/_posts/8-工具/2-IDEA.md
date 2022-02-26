@@ -14,6 +14,8 @@ updated: 2022-01-22 18:37:10
 ---
 
 >   本文参考尚硅谷IDEA，所涉及图片大部分为笔记中内容
+>
+>   学习视频：[尚硅谷IDEA教程(idea经典之作，idea安装，idea使用)_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1PW411X75p?spm_id_from=333.999.0.0)
 
 <!--more-->
 

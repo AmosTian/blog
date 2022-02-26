@@ -10,13 +10,19 @@ tags:
 abbrlink: 4065722285
 ---
 
+>   **Docker是开源的应用容器引擎**；基于GO语言
+>
+>   学习视频：[【尚硅谷】Docker迅速入门丨零基础学docker 周阳主讲_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Ls411n7mx)
+
+<!--more-->
+
 # 1. 简介
+
+
 
 <img src="4-docker/image-20210301133636893.png" alt="image-20210301133636893" style="zoom:50%;" />
 
 <img src="4-docker/image-20210301134238784.png" alt="image-20210301134238784" style="zoom: 50%;" />
-
-**Docker是开源的应用容器引擎**；基于GO语言
 
 **运行中的镜像称为容器**
 
