@@ -1,6 +1,7 @@
 ---
 title: vscode配置
 date: '‎2022-01‎-‎23‏‎ ‏‎8:12:28'
+updated: '‎2022-01‎-‎23‏‎ ‏‎8:12:28'
 top: 2
 categories:
   - 工具
@@ -136,11 +137,11 @@ https://winlibs.com/
 
 1.  查看版本
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220128084046173.png" alt="image-20220128084046173" style="zoom:67%;" />
+<img src="5-vscode配置/image-20220128084046173.png" alt="image-20220128084046173" style="zoom:67%;" />
 
 2.  配置环境变量
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220128084314786.png" alt="image-20220128084314786" style="zoom:67%;" />
+<img src="5-vscode配置/image-20220128084314786.png" alt="image-20220128084314786" style="zoom:67%;" />
 
 3.  编写程序，测试编译器
 
@@ -156,19 +157,19 @@ https://winlibs.com/
     }
     ```
 
-    <img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220128085328237.png" alt="image-20220128085328237" style="zoom:50%;" />
+    <img src="5-vscode配置/image-20220128085328237.png" alt="image-20220128085328237" style="zoom:50%;" />
 
 ### 3.1.3 vsc使用自己下载的编译器
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220128090141457.png" alt="image-20220128090141457" style="zoom: 50%;" />
+<img src="5-vscode配置/image-20220128090141457.png" alt="image-20220128090141457" style="zoom: 50%;" />
 
 -   GDB为自己下载的编译器
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220128090235051.png" alt="image-20220128090235051" style="zoom: 50%;" />
+<img src="5-vscode配置/image-20220128090235051.png" alt="image-20220128090235051" style="zoom: 50%;" />
 
 -   此时，生成 *launch.json* 和 *tasks.json* 两个配置文件
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220128090412986.png" alt="image-20220128090412986" style="zoom:50%;" />
+<img src="5-vscode配置/image-20220128090412986.png" alt="image-20220128090412986" style="zoom:50%;" />
 
 #### launch.json
 
@@ -188,7 +189,7 @@ g++ test.cpp -o test.exe //用g++编译器将 test.cpp 链接成 test.exe
 
 报错：没有找得到 `PrintHello()` 的定义
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220130081651729.png" alt="image-20220130081651729" style="zoom:50%;" />
+<img src="5-vscode配置/image-20220130081651729.png" alt="image-20220130081651729" style="zoom:50%;" />
 
 ```c
 g++ test.cpp hello.cpp -o test.exe //用g++编译器将test.cpp和hello.cpp链接成一个可执行文件
@@ -249,7 +250,7 @@ D--链接-->E
 
 2.  使用cmake调试
 
-    <img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220130092710294.png" alt="image-20220130092710294" style="zoom:50%;" />
+    <img src="5-vscode配置/image-20220130092710294.png" alt="image-20220130092710294" style="zoom:50%;" />
 
     ![image-20220130092512560](5-vscode配置/image-20220130092512560.png)
 
@@ -265,7 +266,7 @@ D--链接-->E
     }
     ```
 
-    <img src="../../../../AuspiceTian-v1/6-随笔/1-工具/5-vscode环境搭建/3-C++.assets/image-20220130093340417.png" alt="image-20220130093340417" style="zoom: 50%;" />
+    <img src="5-vscode配置/image-20220130093340417.png" alt="image-20220130093340417" style="zoom: 50%;" />
 
 **注**
 

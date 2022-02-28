@@ -1,6 +1,7 @@
 ---
 title: git
 date: '‎2021‎-01‎-‎25‏‎ 10:40:29'
+updated: '‎2021‎-01‎-‎25‏‎ 10:40:29'
 top: 3
 categories:
   - 工具
@@ -459,7 +460,7 @@ git stash pop  #弹出存储，并删除
 
 >   协同开发的过程
 
-<img src="../../../../AuspiceTian-v1/6-随笔/1-工具/git&github.assets/image-20210129193239370.png" alt="image-20210129193239370" style="zoom:50%;" />
+<img src="3-git/image-20210129193239370-1645839661540.png" alt="img" style="zoom:67%;" />
 
 -   master为线上分支
 -   develop为本地主分支
