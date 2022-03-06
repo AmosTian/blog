@@ -425,7 +425,7 @@ font:
 
   # Global font settings used for all elements inside <body>.
   global:
-    external: true
+    external: false
     family: Comfortaa
     size:
 
@@ -443,7 +443,7 @@ font:
 
   # Font settings for posts (.post-body).
   posts: #文章字体
-    external: true
+    external: false
     family: ZCOOL KuaiLe
 
   # Font settings for <code> and code blocks.
