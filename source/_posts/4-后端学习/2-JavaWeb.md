@@ -1,10 +1,11 @@
 ---
 title: JSP与Servlet
+top: 3
 categories:
-  - 后端开发
+  - 后端学习
   - JSP&Servlet
 tags:
-  - 后端开发
+  - 后端学习
   - JSP&Servlet
 top: 2
 mathjax: true
@@ -24,6 +25,24 @@ Web是分布式应用框架
 JSP(JavaServer Page)：服务器端的脚本语言，以Java和Servlet为基础的动态网页生成技术
 
 -   由HTML代码和嵌入其中的Java程序段组成
+
+>   JavaBean的应用范围
+>
+>   三大组件
+>
+>   JSP运行机制
+>
+>   JavaBean的四种作用范围
+>
+>   Cookie，session
+>
+>   JDBC连接过程
+>
+>   MVC，Dao
+>
+>   两种页面跳转方式：请求转发和重定向
+>
+>   三种页面间数据共享方式：重写URL，共享Session，使用Cookie
 
 <!--more-->
 
@@ -45,10 +64,10 @@ JSP(JavaServer Page)：服务器端的脚本语言，以Java和Servlet为基础�
 
 ### 万维网(World Wide Web)
 
-|       |                                          |
-| ----- | ---------------------------------------- |
-| Inter | 是众多相互链接的计算机以及网络设备的集合 |
-| WWW   | 是Internet上一种分布式应用结构           |
+|          |                                          |
+| -------- | ---------------------------------------- |
+| Internet | 是众多相互链接的计算机以及网络设备的集合 |
+| WWW      | 是Internet上一种分布式应用结构           |
 
 Internet采用超文本和超媒体的信息组织方式，将信息的链接扩散到整个Internet上
 
@@ -58,9 +77,9 @@ Internet采用超文本和超媒体的信息组织方式，将信息的链接扩
 
 ## 1.2 特征
 
-1.  Web使用超文本技术的HTML表示信息资源以及建立资源之间的链接
-2.  Web使用同一资源定位器定位Web服务器中信息资源的位置(Uniform Resource Locator,URL)
-3.  Web使用HTTP协议定义与客户端与Web服务器之间的通信
+1.  使用超文本技术的HTML表示信息资源以及建立资源之间的链接
+2.  使用统一资源定位器定位Web服务器中信息资源的位置(Uniform Resource Locator,URL)
+3.  使用HTTP协议定义与客户端与Web服务器之间的通信
 
 ## 1.3 技术沿革
 
@@ -205,9 +224,379 @@ JavaBean可以向JSP页面输出特定的数据
 
 ![image-20220227222922951](2-JavaWeb/image-20220227222922951.png)
 
-# 3. JSP
 
-## 3.1 JSP运行机制
+
+# 3. JavaWeb三大组件
+
+## 3.0 概述
+
+>   JavaWeb的三大组件，都需要web.xml进行注册（特殊：Listener活化、钝化、绑定、解绑用JavaBean实现）
+
+Servlet：处理请求
+
+Filter：对一些请求(Request)在访问Web应用之前进行预处理 或 对服务器的响应(Response)进行修改
+
+Listener是Servlet的监听器，可以监听客户端的请求、服务端的操作等
+
+-   `javax.servlet.*`:包含所有Servlet类实现的基本接口和继承的基本类
+-   ` javax.servlet.http.*` :包含编写基于HTTP协议的Servlet所需的基类  
+
+## 3.1 servlet
+
+>   Servlet是使用Java语言编写的并且在 **包含着Java虚拟机的Web服务器端加载运行** 的程序，**能根据客户端的HTTP请求类型选择的Servlet方法处理请求并做出响应**
+
+<img src="2-JavaWeb/servlet执行机制.png" alt="servlet执行机制" style="zoom: 33%;" />
+
+Servlet可以访问包括JDBC在内几乎所有的JDK API，支持HTTP协议与客户端进行通信
+
+**Servlet与Applet区别**
+
+-   Servlet运行在服务器端， Applet运行在客户端
+-   Servlet装入Web服务器并在Web服务器上执行， Applet装入Web浏览器并在Web浏览器内执行  
+
+### 3.1.1 Servlet作用
+
+1.  创建并返回一个包含基于客户请求性质的、动态内容完整的HTML页面
+    创建可嵌入到现有HTML页面中的一部分HTML页面(HTML片段)
+2.  读取客户端发来的隐藏数据、显式数据
+3.  与其他服务器资源进行通信(包括数据库和Java应用程序)
+4.  通过状态码和响应头向客户端发送隐藏数据
+
+### 3.1.2 Servlet生命周期  
+
+始于被装入Web服务器内存时，并在Web服务器终止或重新装入Servlet时结束。（不包含内存回收动作）  
+
+<img src="2-JavaWeb/Servlet在web服务器上的运行过程.png" alt="Servlet在web服务器上的运行过程" style="zoom:67%;" />
+
+#### 1) 加载
+
+Web服务器负责加载和实例化Servlet
+该工作时机：在Web服务器启动时完成，也可以在Web服务器收到请求时完成，或者在二者之间  
+
+#### 2) 初始化  
+
+初始化Servlet(读取配置信息，初始化参数)，这些动作在生命周期中只需要执行一次。
+由Servlet的 `init()` 方法负责执行完成。  
+
+#### 3) 调用  
+
+对于发送到Web服务器端的客户机请求， Web服务器创建针对于该请求的 **ServletRequest类型的请求对象** 和 **ServletResponse类型的响应对象** 。
+
+Web服务器调用Servlet的service方法，用于传递请求对象和响应对象。
+
+-   service()方法从request获得请求信息，处理该请求并用响应对象的方法将响应返回给客户机。
+
+    service()方法根据客户端请求方式调用自身相应的方法(doGet和doPost)处理请求
+
+-   请求对象：获得客户端发出请求的相关信息
+    响应对象： Servlet建立响应头和响应代码，并可以写入响应内容返回客户端(提供将响应信息返回给浏览器的通信途径)
+
+#### 4) 销毁
+
+当服务器不在需要Servlet对象时或需要重新装入Servlet的新实例时， Web服务器会调用Servlet的 `destory()` ，销毁Servlet自行释放占用的系统资源。  
+
+### 3.1.3 Java Servlet API  
+
+ `javax.servlet.Servlet` 是Servlet体系结构的核心  
+
+| Servlet实现   | javax.servlet.Servlet、javax.servlet.GenericServlet、javax.http.HttpServlet |
+| ------------- | ------------------------------------------------------------ |
+| Servlet配置   | javax.servlet.ServletConfig                                  |
+| Servlet异常   | javax.servlet.ServletException、javax.servlet.UnavaliableException |
+| 请求和响应    | javax.servlet.ServletRequest、javax.servlet.servletResponse、  javax.servlet.http.HttpServletRequest、javax.servlet.http.HttpServletResponse |
+| 会话跟踪      | javax.servlet.http.HttpSession、javax.servlet.http.HttpSessionBindingListener、  javax.servlet.http.HttpSessionBindingEvent |
+| Servlet上下文 | javax.servlet.servletContext                                 |
+| Servlet协作   | javax.servletRequestDispatcher                               |
+| 其他          | javax.servlet.http.Cookie、javax.servlet.http.HttpUtils      |
+
+#### A. 实现Servlet  
+
+三种方法
+1) 实现Servlet接口
+2) 继承GenericServlet类
+3) 继承HttpServlet类  
+
+```java
+public class Servlet 类名 extends HttpServlet{
+    /* 初始化Servlet对象 */
+    public void init() throws ServletException{}
+    
+    /* Servlet处理业务的核心方法，自动执行，根据请求方式调用doXxx()方法 */
+    protected void service(HttpServletRequest request,HttpServetResponse response)throws ServletException,IOException{}
+    
+    /* 处理GET方式的HTTP请求 */
+    protected void doGet(HttpServletRequest request,HttpServetResponse response)throws ServletException,IOException{}
+    
+    /* 处理POST方式的HTTP请求 */
+    protected void doPost(HttpServletRequest request,HttpServetResponse response)throws ServletException,IOException{}
+}
+
+/* 销毁Servlet对象 */
+public void destory(){
+```
+
+1.  `public void init()`
+
+    **仅执行一次 `init()` 方法**，即在Web服务器装入Servlet程序时执行该方法。
+
+    init方法两种形式,无参init()和init(ServletConfig config)，重写该方法，可以初始化成员变量
+
+2.  `public String getInitParameter(String name)`
+
+    该方法返回指定**初始化参数name的数值**，不存在则返回null
+
+    用来读取web.xml文件中定义的Servlet初始化参数
+
+3.  `public Enumeriation getInitParameterNames()`
+
+    返回Servlet的所有**初始化参数名称**
+
+4.  `public void service(HttpServletRequest req,HttpResponse req)`
+
+    客户每请求一次 `HttpServlet` 对象，该对象的 `service()`方法就调用一次
+
+    默认的service()方法执行时总是调用与HTTP请求方式相对应的doXxx()方法
+
+5.  `public void destory()`
+
+    整个生命周期只执行一次，**Web服务器停止且卸载Servlet时执行该方法**
+
+6.  `public String getServletInfo()`
+
+    提供有关**Servlet的信息**
+
+#### B. 创建Servlet
+
+1) 扩展HTTPServlet抽象类
+
+2) 重写适当方法，例如覆盖doGet()、doPost()方法
+
+3) 配置Servlet
+
+- 在Web应用的配置文件web.xml中添加对应的配置信息
+
+- 初始化参数需要在创建Servlet时进行配置，使用ServletConfig对象的getInitparameter()方法获取指定参数及参数值
+
+    在Servlet中直接使用注解方法配置
+
+| 属性名      | 描述              |
+| ----------- | ----------------- |
+| description | Servlet的描述信息 |
+| displayName | Servlet的显示名称 |
+| initParams  | Servlet初始化参数 |
+| name        | Servlet名称       |
+| urlPatterns | Servlet的访问URL  |
+| value       | Servlet的访问URL  |
+
+```java
+@WebServlet(name="",value="")
+@WebServlet("/urlPattern")
+@WebServlet(name="",urlPatterns={"",""})
+@WebServlet(name="",value={"",""})
+```
+
+4)如果有HTTP请求信息，获取该信息，用HttpServletRequest对象检索表单数据或URL上的查询字段
+
+5)生成HTTP响应。HttpServletResponse对象生成响应，并将其返回到客户机上。
+
+用PrintWriter的print()方法输出内容返回给客户端
+
+基于request和response对象可以创建out,session 和application内置对象
+
+```java
+PrintWriter out = response.getWriter();
+HttpSession session = request.getSession();
+ServletContext application = request.getServletServletContext();
+```
+
+#### C. 调用Servlet
+
+1.  通过URL调用Servlet
+
+    ```
+    http://localhost:8090/url?para=date
+    ```
+
+2.  通过HTML表单FORM调用Servlet
+
+    ```html
+    <form action="Servlet的URL" method="post|get" name="">
+    ```
+
+## 3.2 Filter
+
+>   Filter(过滤器)：在执行Web应用的其他逻辑之前首先运行，并做一些预处理，可以修改HTTP请求和响应等，但不能产生一个HTTP响应
+
+![FIiter在Web中的作用](2-JavaWeb/FIiter在Web中的作用.png)
+
+### 3.2.1 Filter完成的工作
+
+1.  在执行Servlet之前首先执行Filter程序，并为之作为一些预处理
+2.  根据程序需要修改请求和响应
+3.  在Servlet被调用Servlet后截获Servlet的执行
+
+### 3.2.2 Filter API
+
+1.  Filter接口
+
+    Filter提供了三个方法，分别是init(),doFilter(),destory()
+
+    -   doFilter(ServletRequest request,ServletResponse,FilterChain chain)
+
+        Filter的核心方法，通过该方法对请求和响应进行处理，Filter通过参数 `FilterChain对象` ，将控制权转移给下一个Filter
+        
+        ```java
+        doFilter(){ 
+            
+            //放行请求
+            chain.doFilter(req,res);
+        }
+        ```
+
+2.  FilterChain接口
+
+    通过FilterChain调用过滤链中的下一个过滤器，如果是最后一个Filter,则下一个目标是调用目标资源
+
+    Filter实质：
+
+    当接收到Servlet请求时，回溯FilterChain，依次对目标资源进行处理
+
+3.  FilterConfig接口
+
+    获取过滤器名，初始化参数以及活动的Servlet上下文
+
+| String  getFilterName()                    | 返回web.xml文件中定义的该过滤器名称                          |
+| ------------------------------------------ | ------------------------------------------------------------ |
+| ServletContext  getServletContext()        | 返回调用者所处的Servlet上下文                                |
+| String  getInitParameter(String name)      | 返回过滤器初始化参数值的字符串形式，当参数不存在时，返回null |
+| publicEnumeration  getInitParameterNames() | 以Enumeration形式返回过滤器所有的初始化参数值                |
+
+### 3.2.3 配置
+
+```xml
+<filter>
+    <filter-name></filter-name>
+    <filter-class></filter-class>
+</filter>
+
+<filter-mapping>
+	<filter-name></filter-name>
+    <url-pattern></url-pattern>
+</filter-mapping>
+
+<!--
+url-pattern的三种方式
+1. 精确匹配-直接拦截指定路径（/pics/hh.jsp）
+2. 路径匹配-拦截路径下所有请求（/pics/*）
+3. 后缀匹配-拦截所有该后缀的请求（*.jsp）
+-->
+```
+
+多个Filter的访问顺序
+
+![image-20210205083513423](2-JavaWeb/image-20210205083513423.png)
+
+## 3.3 Listener
+
+通过Listener监听Web服务其中的某一个执行动作，并根据其要求作出相应的响应
+
+**Servlet共包含8个Listener接口，分为三类**
+
+### 3.3.1 使用
+
+>   实现对应的监听器接口 -> 配置 web.xml
+
+-   JavaBean要实现的接口：HttpSessionActivitionListener,HttpSessionBindingListener
+
+### 3.3.2 监听对象
+
+>   ServeletRequest(2),HttpSession(4),ServletContext(2)
+
+-   ServeletRequest：访问请求监听器，属性变化监听器
+
+-   HttpSession：活化钝化监听器、解绑绑定监听器
+
+-   ServletContext（生命周期监听器）
+
+    监听服务器的启动、停止——ServletContext对象的创建与销毁
+
+    一个Web项目对应一个ServletContext，代表当前项目的信息
+
+    可以作为最大的域对象，项目运行期间共享数据
+
+#### A. 与ServletContext有关的Listener接口
+
+**ServletContextListener:实现ServletContext的启动和销毁监听**
+
+|                          |                                |
+| ------------------------ | ------------------------------ |
+| contextInitialized()方法 | 创建ServletContext时触发       |
+| contextDestoryed()方法   | 销毁ServletContext时触发该方法 |
+
+**ServletContextAttributeListener:实现application范围属性的变化监听**
+
+|                     |                                 |
+| ------------------- | ------------------------------- |
+| attributeReplaced() | 监听application范围的属性的替换 |
+| attributeRemoved()  | 监听application范围属性的移除   |
+| attributeAdded()    | 监听application范围的属性的添加 |
+
+#### B. HttpSession有关的Listner接口
+
+**ServletContextListener:实现ServletContext的启动和销毁监听**
+
+|                          |                                |
+| ------------------------ | ------------------------------ |
+| contextInitialized()方法 | 创建ServletContext时触发       |
+| contextDestoryed()方法   | 销毁ServletContext时触发该方法 |
+
+参数为HttpSessionEvent类型对象，其方法getSession()方法可以获得session对象
+
+**ServletContextAttributeListener:实现application范围属性的变化监听**
+
+|                     |                           |
+| ------------------- | ------------------------- |
+| attributeReplaced() | 监听session范围属性的替换 |
+| attributeRemoved()  | 监听session范围属性的移除 |
+| attributeAdded()    | 监听session范围属性的添加 |
+
+参数HttpSessionBindingEvent类型对象，getName()方法，获取属性名称
+
+SevletContextAttributeEvent对象的getValue()方法，获取属性的值
+
+**HttpSessionBindingEventListener:监听HttpSession对象的绑定状态**
+
+|                |                             |
+| -------------- | --------------------------- |
+| valueUnbound() | 调用removeAttribute()时触发 |
+| valueBound()   | 调用setAttribute()时触发    |
+
+**HttpSessionActivationlIstener**:监听绑定在HttpSession对象中的JavaBean状态
+
+|                  |                                                             |
+| ---------------- | ----------------------------------------------------------- |
+| sessionDidActive | 当绑定到HttpSession对象中的JavaBean对象被反序化时触发此方法 |
+
+#### C. ServletRequest有关的Listener接口
+
+**ServletRequestListener:用于监听ServletRequest对象的变化**
+
+|                      |                          |
+| -------------------- | ------------------------ |
+| requestInitialized() | 初始化ServletRequest对象 |
+| requestDestoryed()   | 销毁ServletRequest对象   |
+
+**ServletRequestAttributeListener:用于监听ServletRequest对象属性的变化**
+
+|                     |                          |
+| ------------------- | ------------------------ |
+| attributeRemoved()  | 用于属性修改时触发该方法 |
+| attributeReplaced() | 用于属性修改时触发该方法 |
+| attributeAdded()    | 用于属性增加时触发该方法 |
+
+# 4. JSP
+
+## 4.1 JSP运行机制
 
 ![image-20220227205027378](2-JavaWeb/image-20220227205027378.png)
 
@@ -217,15 +606,13 @@ JavaBean可以向JSP页面输出特定的数据
 
 3.  将此Servlet编译为中间代码文件(_jsp.java，\_jsp.class) 并加载运行，将执行结果以HTML页面的形式发送至客户端
 
-    客户机再次请求该页面时，直接执行常驻内存的字节码文件相应客户端
-
-4.  客户端请求完成后，将中间文件代码常驻服务器内存
+4.  客户端请求完成后，将中间文件代码常驻服务器内存，客户机再次请求该页面时，直接执行常驻内存的字节码文件
 
 JSP实际上是Servlet技术的扩展，便于支持HTML和XML页面
 
-## 3.2 JSP页面基本结构
+## 4.2 JSP页面基本结构
 
-### 3.2.1 JSP注释
+### 4.2.1 JSP注释
 
 ```jsp
 <!-- -->
@@ -249,7 +636,7 @@ JSP实际上是Servlet技术的扩展，便于支持HTML和XML页面
 
  都不能看见这个注释
 
-### 3.2.2 JSP声明
+### 4.2.2 JSP声明
 
 ```jsp
 <%! 声明语句; %>
@@ -270,7 +657,7 @@ JSP页面转化为Java类时，将声明的变量与方法转换为类变量与�
 
 表达式在服务器运算后将结果转化为字符串，并且输出到JSP页面
 
-### 3.2.4 JSP程序段
+### 4.2.4 JSP程序段
 
 ```jsp 
 <% %>
@@ -284,7 +671,7 @@ JSP页面转化为Java类时，将声明的变量与方法转换为类变量与�
 
 Java程序段中声明的变量，对该页面后继的所有程序段以及表达式都有效
 
-### 3.2.5 JSP指令
+### 4.2.5 JSP指令
 
 负责提供**JSP页面的相关信息**以及**设置JSP页面的属性**  
 
@@ -326,7 +713,7 @@ Java程序段中声明的变量，对该页面后继的所有程序段以及表�
 -   uri:指定自定义标签文件的路径
 -   prefix:指定自定义标签的前缀  
 
-### 3.2.6 JSP动作
+### 4.2.6 JSP动作
 
 #### `<jsp:include>`
 
@@ -406,9 +793,7 @@ Java程序段中声明的变量，对该页面后继的所有程序段以及表�
 -   class:所引用的javaBean的完整包路径
 -   scope:指定该javaBean的作用域以及id变量名的有效作用域  
 
-### 3.2.7 作用范围
-
-同一个类 `JavaBean` 的共享范围
+## 4.3JavaBean的作用范围
 
 **page**：当前页面有效（用户间、页面不共享）
 
@@ -427,13 +812,13 @@ Java程序段中声明的变量，对该页面后继的所有程序段以及表�
 
 -   对于同一id名称，此时在Web应用的每一个页面都共享同一个JavaBean，不同用户访问也是同一个JavaBean
 
-## 3.3 JSP内置对象
+## 4.4 JSP内置对象
 
 不用声明就可在JSP页面中直接使用的对象
 
 <img src="2-JavaWeb/JSP内置对象.png" alt="JSP内置对象" style="zoom: 33%;" />
 
-### 3.3.1 request
+### 4.4.1 request
 
 #### HTTP协请求报文4部分
 
@@ -467,7 +852,7 @@ request对象**获取客户端的请求信息**，以获取通过HTTP协议传�
 
 利用getParameter()、setAttribute(),getAttribute()等方法**实现在两个页面间传递数据**
 
-|	|	|
+|                                                  |                                                       |
 | ------------------------------------------------ | ----------------------------------------------------- |
 | String  getHeader()                              | 获取HTTP协议的头文件信息                              |
 | BufferedReader  getReader()                      | 以字符码的形式返回请求体                              |
@@ -500,7 +885,7 @@ request对象**获取客户端的请求信息**，以获取通过HTTP协议传�
 | boolean  isSecure()      | 判断客户机是否以安全的访问方式访问服务器    |
 | String  getServerName()  | 获取服务器名称，域名或IP地址                |
 
-### 3.3.2 response
+### 4.4.2 response
 
 #### HTTP响应报文
 
@@ -546,7 +931,7 @@ request对象**获取客户端的请求信息**，以获取通过HTTP协议传�
 
 **操作**
 
-| |	|
+|                                             |                                  |
 | ------------------------------------------- | -------------------------------- |
 | void  flushBuffer()                         | 清空缓存区                       |
 | int  getBufferSize()                        | 取得缓存区的大小                 |
@@ -582,15 +967,7 @@ sendRedirect
 	response.setDateHeader("Expires",0);
  ```
 
-#### cookie
-
-Cookie是保存在客户端某个目录下的文本数据，由服务器生成该数据，返回给客户端。
-
-键值对组成
-
-客户端的Cookie通过HTTP头信息发送给服务器
-
-### 3.3.3 page
+### 4.4.3 page
 
 代表的是当前正在运行的JSP页面
 
@@ -601,21 +978,22 @@ Cookie是保存在客户端某个目录下的文本数据，由服务器生成�
 | class  getClass() | 获取page对象的类     |
 | int  hashCode()   | 获取page对象的hash码 |
 
-### 3.3.4 pageContext
+### 4.4.4 pageContext
 
 代表当前页面的所有属性和对象，可以通过该对象提供的方法获取其他内置对象
 
 #### 获取其他内置对象
+
 |                                     |
-| ----------------------------------- | -------------------------------------------------- ||
-| ServletRequest  getRequest()        | 返回当前页中的request对象                          |
-| ServletResponse  getResponse()      | 返回当前页中的response对象                         |
-| Object  getPage()                   | 返回当前页的page对象                               |
-| ServletContext  getServletContext() | 获取servletContext对象，该对象在所有页面共享       |
-| JSPWriter  getOut()                 | 返回当前客户端响应使用的JSPWriter数据流，即OUT对象 |
-| HttpSession  getSession()           | 返回当前页中的HttpSession对象，即Session对象       |
-| ServletConfig  getServletConfig()   | 返回当前页中的ServletConfig对象                    |
-| Exception  getException()           | 获取当前网页的异常对象                             |
+| ----------------------------------- |
+| ServletRequest  getRequest()        |
+| ServletResponse  getResponse()      |
+| Object  getPage()                   |
+| ServletContext  getServletContext() |
+| JSPWriter  getOut()                 |
+| HttpSession  getSession()           |
+| ServletConfig  getServletConfig()   |
+| Exception  getException()           |
 
 
 #### 方法
@@ -626,7 +1004,7 @@ Cookie是保存在客户端某个目录下的文本数据，由服务器生成�
 | void  forward(String url)                  | 将当前页面重影响到另一个页面或Servlet对象 |
 | Object  findAttribute(String name)         | 查找在所有范围内属性名为name 的属性       |
 
-### 3.3.5 out
+### 4.4.5 out
 
 向JSP页面输出各种类型数据，并管理Web服务器上的输出缓存区。输出包括(文本内容,HTML标签，JS脚本)
 
@@ -642,9 +1020,9 @@ Cookie是保存在客户端某个目录下的文本数据，由服务器生成�
 | int  getBufferSize()   | 返回缓冲区大小                                              |
 | int  getRemaining()    | 返回缓冲区剩余空间大小                                      |
 
-### 3.3.6 session
+### 4.4.6 session
 
-**跟踪用户状态**:指在一段时间内每个用户与Web应用的一连串相关的交互过程，保存每个用户的用户信息和会话状态。
+>   **跟踪用户状态**:指在一段时间内用户与Web应用的交互过程中，保存每个用户的用户信息和会话状态
 
 -   由web容器自动创建，当初次登录Web应用时，分配唯一的用户表示session id，
 
@@ -653,9 +1031,19 @@ Cookie是保存在客户端某个目录下的文本数据，由服务器生成�
 #### Web中跟踪用户状态的四种方法
 
 1.  使用session
+
 2.  在HTML表单中，加入隐藏字段，包含与跟踪用户状态的数据
+
 3.  重写URL
+
 4.  使用cookie传送
+
+    客户端的Cookie通过HTTP头信息发送给服务器，用于唯一标识浏览器用户
+
+    Cookie是保存在客户端某个目录下的文本数据，由服务器生成该数据，返回给客户端。
+
+    键值对组成
+
 
 #### 方法
 
@@ -673,7 +1061,7 @@ Cookie是保存在客户端某个目录下的文本数据，由服务器生成�
 | void  removeAttribute(String name)         | 删除                                             |
 | void  setMaxInactiveInterval(int time)     | 设置两次请求最大时间间隔为time                   |
 
-### 3.3.7 application
+### 4.4.7 application
 
 **application**对象保存的是**Web应用**中的共享数据，被**所有用户**共享使用
 
@@ -695,7 +1083,7 @@ Cookie是保存在客户端某个目录下的文本数据，由服务器生成�
 | int  getMinorVersion()                   | 返回服务器支持的Servlet API此版本号    |
 | void  setAttribute(String name,value k)  | 设置name的属性值为k                    |
 
-### 3.3.8 config
+### 4.4.8 config
 
 用于读取Web应用的初始化参数
 
@@ -789,7 +1177,7 @@ web.xml配置文件中的**元素名称及其顺序**有严格规定。
 | ServetContext getServletContext()    | 返回当前Servlet的上下文    |
 | String getServletName()              | 返回当前Servlet的名称      |
 
-### 3.3.9 exception
+### 4.4.9 exception
 
 处理JSP页面执行时发生的异常
 
@@ -806,313 +1194,6 @@ web.xml配置文件中的**元素名称及其顺序**有严格规定。
 | String getMessage()    | 返回异常信息                       |
 | void printStackTrace() | 以标准错误的形式输出错误及跟踪信息 |
 | String toString()      | 以字符串形式返回异常信息           |
-
-# 4. servlet
-
-Servlet是使用Java语言编写的并且在**服务器端执行**的程序，可以动态生成Web页面，Servlet由**包含在Java虚拟机的Web服务器** 进行加载并运行
-
-Servlet可以访问包括JDBC在内几乎所有的JDK API
-
-支持HTTP协议与客户端进行通信，能根据客户端的HTTP请求类型选择的Servlet方法处理请求并做出响应。
-
-<img src="2-JavaWeb/servlet执行机制.png" alt="servlet执行机制" style="zoom: 33%;" />
-
-**Servlet与Applet区别**
-
--   Servlet运行在服务器端， Applet运行在客户端
--   Servlet装入Web服务器并在Web服务器上执行， Applet装入Web浏览器并在Web浏览器内执行  
-
-Filter主要针对用户的某些特定请求(Request)在访问Web应用之前进行预处理或对服务器的响应(Response)进行修改
-Listener是Servlet的监听器，可以监听客户端的请求、服务端的操作等。
-
--   `javax.servlet.*`:包含所有Servlet类实现的基本接口和继承的基本类
--   ` javax.servlet.http.*` :包含编写基于HTTP协议的Servlet所需的基类  
-
-## 4.1 Servlet作用
-
-1.  创建并返回一个包含基于客户请求性质的、动态内容完整的HTML页面
-    创建可嵌入到现有HTML页面中的一部分HTML页面(HTML片段)
-2.  读取客户端发来的隐藏数据
-    读取客户端发来的显式数据
-3.  与其他服务器资源进行通信(包括数据库和Java应用程序)
-4.  通过状态码和响应头向客户端发送隐藏数据
-
-## 4.2 Servlet生命周期  
-
-始于被装入Web服务器内存时，并在Web服务器终止或重新装入Servlet时结束。（不包含内存回收动作）  
-
-<img src="2-JavaWeb/Servlet在web服务器上的运行过程.png" alt="Servlet在web服务器上的运行过程" style="zoom:67%;" />
-
-### 1) 加载
-
-Web服务器负责加载和实例化Servlet
-该工作时机：在Web服务器启动时完成，也可以在Web服务器收到请求时完成，或者在二者之间  
-
-### 2) 初始化  
-
-初始化Servlet(读取配置信息，初始化参数)，这些动作在生命周期中只需要执行一次。
-由Servlet的init()方法负责执行完成。  
-
-### 3) 调用  
-
-对于发送到Web服务器端的客户机请求， Web服务器创建针对于该请求的 **ServletRequest类型的请求对象** 和 **ServletResponse类型的响应对象** 。
-
-Web服务器调用Servlet的service方法，用于传递请求对象和响应对象。
-
--   service()方法从request获得请求信息，处理该请求并用响应对象的方法将响应返回给客户机。
-
-    service()方法根据客户端请求方式调用自身相应的方法(doGet和doPost)处理请求
-
--   请求对象：获得客户端发出请求的相关信息
-    响应对象： Servlet建立响应头和响应代码，并可以写入响应内容返回客户端(提供将响应信息返回给浏览器的通信途径)
-
-### 4) 销毁
-
-当服务器不在需要Servlet对象时或需要重新装入Servlet的新实例时， Web服务器会调用Servlet的destory()，销毁Servlet自行释放占用的系统资源。  
-
-## 4.3 Java Servlet API  
-
- `javax.servlet.Servlet` 是Servlet体系结构的核心  
-
-| Servlet实现   | javax.servlet.Servlet、javax.servlet.GenericServlet、javax.http.HttpServlet |
-| ------------- | ------------------------------------------------------------ |
-| Servlet配置   | javax.servlet.ServletConfig                                  |
-| Servlet异常   | javax.servlet.ServletException、javax.servlet.UnavaliableException |
-| 请求和响应    | javax.servlet.ServletRequest、javax.servlet.servletResponse、  javax.servlet.http.HttpServletRequest、javax.servlet.http.HttpServletResponse |
-| 会话跟踪      | javax.servlet.http.HttpSession、javax.servlet.http.HttpSessionBindingListener、  javax.servlet.http.HttpSessionBindingEvent |
-| Servlet上下文 | javax.servlet.servletContext                                 |
-| Servlet协作   | javax.servletRequestDispatcher                               |
-| 其他          | javax.servlet.http.Cookie、javax.servlet.http.HttpUtils      |
-
-### 4.3.1 实现Servlet  
-
-三种方法
-1) 实现Servleth接口
-2) 继承GenericServlet类
-3) 继承HttpServlet类  
-
-```java
-public class Servlet 类名 extends HttpServlet{
-    /* 初始化Servlet对象 */
-    public void init() throws ServletException{}
-    
-    /* Servlet处理业务的核心方法，自动执行，根据请求方式调用doXxx()方法 */
-    protected void service(HttpServletRequest request,HttpServetResponse response)throws ServletException,IOException{}
-    
-    /* 处理GET方式的HTTP请求 */
-    protected void doGet(HttpServletRequest request,HttpServetResponse response)throws ServletException,IOException{}
-    
-    /* 处理POST方式的HTTP请求 */
-    protected void doPost(HttpServletRequest request,HttpServetResponse response)throws ServletException,IOException{}
-}
-
-/* 销毁Servlet对象 */
-public void destory(){
-```
-
-1.  `public void init()`
-
-    **仅执行一次 `init()` 方法**，即在Web服务器装入Servlet程序时执行该方法。
-
-    init方法两种形式,无参init()和init(ServletConfig config)，重写该方法，可以初始化成员变量
-
-2.  `public String getInitParameter(String name)`
-
-    该方法返回指定**初始化参数name的数值**，不存在则返回null
-
-    用来读取web.xml文件中定义的Servlet初始化参数
-
-3.  `public Enumeriation getInitParameterNames()`
-
-    返回Servlet的所有**初始化参数名称**
-
-4.  `public void service(HttpServletRequest req,HttpResponse req)`
-
-    客户每请求一次 `HttpServlet` 对象，该对象的 `service()`方法就调用一次
-
-    默认的service()方法执行时总是调用与HTTP请求方式相对应的doXxx()方法
-
-5.  `public void destory()`
-
-    整个生命周期只执行一次，**Web服务器停止且卸载Servlet时执行该方法**
-
-6.  `public String getServletInfo()`
-
-    提供有关**Servlet的信息**
-
-### 4.3.2 创建Servlet
-
-1) 扩展HTTPServlet抽象类
-
-2) 重写适当方法，例如覆盖doGet()、doPost()方法
-
-3) 配置Servlet
-
-- 在Web应用的配置文件web.xml中添加对应的配置信息
-
-- 初始化参数需要在创建Servlet时进行配置，使用ServletConfig对象的getInitparameter()方法获取指定参数及参数值
-
-    在Servlet中直接使用注解方法配置
-
-| 属性名      | 描述              |
-| ----------- | ----------------- |
-| description | Servlet的描述信息 |
-| displayName | Servlet的显示名称 |
-| initParams  | Servlet初始化参数 |
-| name        | Servlet名称       |
-| urlPatterns | Servlet的访问URL  |
-| value       | Servlet的访问URL  |
-
-```java
-@WebServlet(name="",value="")
-@WebServlet("/urlPattern")
-@WebServlet(name="",urlPatterns={"",""})
-@WebServlet(name="",value={"",""})
-```
-
-4)如果有HTTP请求信息，获取该信息，用HttpServletRequest对象检索表单数据或URL上的查询字段
-
-5)生成HTTP响应。HttpServletResponse对象生成响应，并将其返回到客户机上。
-
-用PrintWriter的print()方法输出内容返回给客户端
-
-基于request和response对象可以创建out,session 和application内置对象
-
-```java
-PrintWriter out = response.getWriter();
-HttpSession session = request.getSession();
-ServletContext application = request.getServletServletContext();
-```
-
-### 4.3.3 调用Servlet
-
-1.  通过URL调用Servlet
-
-    ```
-    http://localhost:8090/url?para=date
-    ```
-
-2.  通过HTML表单FORM调用Servlet
-
-    ```html
-    <form action="Servlet的URL" method="post|get" name="">
-    ```
-
-## 4.4 Filter
-
-Filter(过滤器)：在执行Web应用的其他逻辑之前首先运行，并做一些预处理，可以修改HTTP请求和响应等，但不能产生一个HTTP响应
-
-![FIiter在Web中的作用](2-JavaWeb/FIiter在Web中的作用.png)
-
-### 4.4.1 Filter完成的工作
-
-1.  在执行Servlet之前首先执行Filter程序，并为之作为一些预处理
-2.  根据程序需要修改请求和响应
-3.  在Servlet被调用Servlet后截获Servlet的执行
-
-### 4.4.2 Filter API
-
-1.  Filter接口
-
-    Filter提供了三个方法，分别是init(),doFilter(),destory()
-
-    -   doFilter(ServletRequest request,ServletResponse,FilterChain chain)
-
-        Filter的核心方法，通过该方法对请求和响应进行处理，Filter通过参数FilterChain对象，将控制权转移给下一个Filter
-
-2.  FilterChain接口
-
-    通过FilterChain调用过滤链中的下一个过滤器，如果是最后一个Filter,则下一个目标是调用目标资源
-
-    Filter实质：
-
-    当接收到Servlet请求时，回溯FilterChain，依次对目标资源进行处理
-
-3.  FilterConfig接口
-
-    获取过滤器名，初始化参数以及活动的Servlet上下文
-
-| String  getFilterName()                    | 返回web.xml文件中定义的该过滤器名称                          |
-| ------------------------------------------ | ------------------------------------------------------------ |
-| ServletContext  getServletContext()        | 返回调用者所处的Servlet上下文                                |
-| String  getInitParameter(String name)      | 返回过滤器初始化参数值的字符串形式，当参数不存在时，返回null |
-| publicEnumeration  getInitParameterNames() | 以Enumeration形式返回过滤器所有的初始化参数值                |
-
-## 4.5 Listener
-
-通过Listener监听Web服务其中的某一个执行动作，并根据其要求作出相应的响应
-
-**Servlet共包含8个Listener接口，分为三类**
-
-### 4.5.1 与ServletContext有关的Listener接口
-
-**ServletContextListener:实现ServletContext的启动和销毁监听**
-
-|                          |                                |
-| ------------------------ | ------------------------------ |
-| contextInitialized()方法 | 创建ServletContext时触发       |
-| contextDestoryed()方法   | 销毁ServletContext时触发该方法 |
-
-**ServletContextAttributeListener:实现application范围属性的变化监听**
-
-|                     |                                 |
-| ------------------- | ------------------------------- |
-| attributeReplaced() | 监听application范围的属性的替换 |
-| attributeRemoved()  | 监听application范围属性的移除   |
-| attributeAdded()    | 监听application范围的属性的添加 |
-
-### 4.5.2 HttpSession有关的Listner接口
-
-**ServletContextListener:实现ServletContext的启动和销毁监听**
-
-|                          |                                |
-| ------------------------ | ------------------------------ |
-| contextInitialized()方法 | 创建ServletContext时触发       |
-| contextDestoryed()方法   | 销毁ServletContext时触发该方法 |
-
-参数为HttpSessionEvent类型对象，其方法getSession()方法可以获得session对象
-
-**ServletContextAttributeListener:实现application范围属性的变化监听**
-
-|                     |                           |
-| ------------------- | ------------------------- |
-| attributeReplaced() | 监听session范围属性的替换 |
-| attributeRemoved()  | 监听session范围属性的移除 |
-| attributeAdded()    | 监听session范围属性的添加 |
-
-参数HttpSessionBindingEvent类型对象，getName()方法，获取属性名称
-
-SevletContextAttributeEvent对象的getValue()方法，获取属性的值
-
-**HttpSessionBindingEventListener:监听HttpSession对象的绑定状态**
-
-|                |                             |
-| -------------- | --------------------------- |
-| valueUnbound() | 调用removeAttribute()时触发 |
-| valueBound()   | 调用setAttribute()时触发    |
-
-**HttpSessionActivationlIstener**:监听绑定在HttpSession对象中的JavaBean状态
-
-|                  |                                                             |
-| ---------------- | ----------------------------------------------------------- |
-| sessionDidActive | 当绑定到HttpSession对象中的JavaBean对象被反序化时触发此方法 |
-
-### 4.5.3 ServletRequest有关的Listener接口
-
-**ServletRequestListener:用于监听ServletRequest对象的变化**
-
-|                      |                          |
-| -------------------- | ------------------------ |
-| requestInitialized() | 初始化ServletRequest对象 |
-| requestDestoryed()   | 销毁ServletRequest对象   |
-
-**ServletRequestAttributeListener:用于监听ServletRequest对象属性的变化**
-
-|                     |                          |
-| ------------------- | ------------------------ |
-| attributeRemoved()  | 用于属性修改时触发该方法 |
-| attributeReplaced() | 用于属性修改时触发该方法 |
-| attributeAdded()    | 用于属性增加时触发该方法 |
 
 # 5. JDBC
 
@@ -1146,17 +1227,19 @@ Java应用程序通过JDBC API 和 JDBC Manager API 进行通信
 
 <img src="2-JavaWeb/JDBC访问数据库.png" alt="JDBC访问数据库" style="zoom: 50%;" />
 
+#### 0). 环境
+
+首先应将加载数据库的JDBC驱动程序(jar包)复制到Web应用程序的WEB-INF\lib目录下
+
 #### 1). 加载驱动
 
->   利用Class类的方法 forName(String driverName)加载JDBC驱动，不同数据库的JDBC驱动名不同
+>   通过反射机制创建数据库驱动程序实例
 
 -   MySQL驱动类名为 `com.mysql.jdbc.Driver`
 
     ```java
     Class.forName("com.mysql.jdbc.Driver")
     ```
-
-首先应将加载数据库的JDBC驱动程序(jar包)复制到Web应用程序的WEB-INF\lib目录下
 
 #### 2). 建立与数据库的连接
 
@@ -1191,8 +1274,6 @@ result = ststement.executeUpdate("DELETE FROM userdb where ");
 ```
 
 ##### PreparedStatement 执行动态SQL语句
-
-executeQuery()和executeUpdate()方法都不带参数，setXxx为参数赋值
 
 ```java
 #查询
@@ -1255,7 +1336,7 @@ while(re.next()){
 
 ```java
 int result = 0;
-String sql = ""DELETE FROM userdb WHERE username='Allen'";
+String sql = "DELETE FROM userdb WHERE username='Allen'";
 result = statement.executeUpdate(sql);
 
 if(result > 0)
@@ -1465,17 +1546,17 @@ jdbc:子协议://主机名:端口号/数据库名(可选)
 
 MVC模式按功能对各种对象进行分割(这些对象用来维护和表现数据的)，目的是将各对象的耦合程度减小到最小
 
-**Model模型**：用于封装与应用程序的业务逻辑相关的数据以及数据处理方法。
+**Model模型**：*访问数据，处理数据*。用于封装与应用程序的业务逻辑相关的数据以及数据处理方法。
 
 当模型发生改变时，会通知视图，并且为视图提供查询模型相关状态的能力；
 
 为控制器提供访问封装在模型内部的应用程序的能力
 
-**View视图**：从模型获得数据并制定这些数据如何表现。
+**View视图**：*接受请求，可视化响应*。从模型获得数据并制定这些数据如何表现。
 
 当模型变化时，视图负责维持数据表现的一致性，视图同时负责将用户需求通知控制器
 
-**Controller控制器**：用于控制应用程序的流程。
+**Controller控制器**：*业务流程控制，决定数据流方向——用哪个模型处理数据*  用于控制应用程序的流程。
 
 处理事件并做出响应。事件包括用户的行为和数据模型上的改变
 
@@ -1516,6 +1597,13 @@ JSP负责视图和控制器双重功能，JavaBean负责业务处理逻辑
 
 ![JSPModel2](2-JavaWeb/JSPModel2.png)
 
+演进式开发
+
+-   Alibaba PHP-->个人网站
+-   用户量大-->Java
+-   去IOE -->Mysql-->AliSql,AliRedis
+-   All in one --> 微服务
+
 特点：
 
 -   有利于代码复用
@@ -1528,17 +1616,51 @@ JSP负责视图和控制器双重功能，JavaBean负责业务处理逻辑
 
 ### 6.2.1 目标
 
--   数据存储逻辑的分离
+-   数据存储与逻辑处理的分离
 
--   数据访问底层实现的分离
-
-    DAO模式将数据访问划分为抽象层和实现层，从而分离了数据使用和数据访问的实现细节
+    DAO模式将数据访问划分为接口层和实现层，从而分离了数据使用和数据访问的实现细节
 
 -   数据抽象 
 
     DAO模式通过对底层数据封装，为业务层提供一个面向对象的接口，使得业务逻辑开发人员可以面向业务的实体进行编码
 
-### 6.2.2 实现DAO模式的步骤
+### 6.2.2 MVC与Dao
+
+#### model ——dao,service
+
+数据层，数据Dao Value Object
+
+-   保存数据状态
+
+-   pojo:User
+    -   vo:UserVo
+    -   dto:
+
+服务层,行为Service
+
+-   业务逻辑
+
+#### view——jsp
+
+显示页面
+
+#### controller——servlet
+
+接受请求，委托模型层处理，完毕后返回给视图，由视图展示
+
+-   取得表单数据
+-   调用业务逻辑
+-   转向指定的页面
+
+![image-20210217090905674](2-JavaWeb/image-20210217090905674.png)
+
+1.  用户发请求
+2.  Servlet接受请求数据，并调用对应的数据业务逻辑方法
+3.  业务处理完毕，返回更新后的数据给Servlet
+4.  servlet转向JSP，由JSP来渲染页面
+5.  响应给前端更新后的页面
+
+### 6.2.3 实现DAO模式的步骤
 
 #### 数据库连接类
 
@@ -1641,7 +1763,7 @@ String id= request.getParameter("id");
 
 session对象的setAttribute(String name,Object object)方法可以设置在会话期间共享的数据属性的名称和值
 
- session过期时间设置
+session过期时间设置
 
 ```xml
 <session-config>
