@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: AuspiceTian
+title: AmosTian
 subtitle: ''
 description: '知道的越多，不知道的越多'
 keywords:
-author: AuspiceTian
+author: AmosTian
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
@@ -152,5 +152,5 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:AuspiceTian/AuspiceTian.github.io.git
+  repo: git@github.com:AmosTian/AmosTian.github.io.git
   branch: master

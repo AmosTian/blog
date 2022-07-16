@@ -4,7 +4,6 @@ top: 1
 categories:
   - Web项目
   - 构建工具
-  - maven
 tags:
   - 后端学习
   - 构建工具

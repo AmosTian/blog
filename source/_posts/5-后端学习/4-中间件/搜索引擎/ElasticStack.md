@@ -34,23 +34,9 @@ ELK(旧称呼),由ElasticSearch、Logstash、Kibana组成，及新加入的Beats
 
 ![image-20210425144937271](ElasticStack/image-20210425144937271.png)
 
-**ElasticSearch**
-
-基于Java，是开源分布式搜索引擎，特点有：分布式、零配置、自动发现，索引自动分片、索引副本机制、restful风格接口，多数据源、自动搜索负载
-
-**Logstash**
-
-基于Java，可以用于手机，分析和存储日志的工具
-
-由于与Beats功能部分重叠，现用于数据处理
-
-**Kibana**
-
-基于nodejs，开源免费工具，Kibana可以为Logstash和ElasticSearch提供的日志分析友好的web界面，可以汇总、分析和搜索重要数据日志
-
 **Beats**
 
-采集系统监控数据的代理agent，是在被监控服务器上以客户端形式运行的数据收集器的统称。可以直接把数据发送给ElasticSearch或者通过LogStash发送给ElasticSearch，然后进行后续的数据分析活动
+采集系统监控数据的代理，是在被监控服务器上以客户端形式运行的数据收集器的统称。可以直接把数据发送给ElasticSearch或者通过LogStash发送给ElasticSearch，然后进行后续的数据分析活动
 
 Beats组成
 
@@ -60,6 +46,20 @@ Beats组成
 -   Metricbeat：可定期获取外部系统的监控指标信息，其可以监控、收集 Apache、HAProxy、MongoDB 、MySQL、Nginx、PostgreSQL、Redis、System、Zookeeper等服务；  
 -   Winlogbeat：用于监控、收集Windows系统的日志信息；
 
+**Logstash**
+
+基于Java，可以用于手机，分析和存储日志的工具
+
+由于与Beats功能部分重叠，现用于数据处理
+
+**ElasticSearch**
+
+基于Java，是开源分布式搜索引擎，特点有：分布式、零配置、自动发现，索引自动分片、索引副本机制、restful风格接口，多数据源、自动搜索负载
+
+**Kibana**
+
+基于nodejs，开源免费工具，Kibana可以为Logstash和ElasticSearch提供的日志分析友好的web界面，可以汇总、分析和搜索重要数据日志
+
 ##  Beats——日志采集
 
 ![image-20210513093107064](ElasticStack/image-20210513093107064-164899599080057.png)
@@ -68,7 +68,7 @@ Beats组成
 
 ### FileBeat
 
-![image-20210513093443731](ElasticStack/image-20210513093443731-164899599080158.png)
+<img src="ElasticStack/image-20210513093443731-164899599080158.png" alt="image-20210513093443731" style="zoom: 50%;" />
 
 #### 架构
 

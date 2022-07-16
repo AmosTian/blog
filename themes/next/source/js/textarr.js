@@ -13,10 +13,10 @@ let textArr = [{
         name: 'div',
         children: [{
             name: 'div',
-            text: '姓名：田兆吉'
+            text: '姓名：AmosTian'
         }, {
             name: 'div',
-            text: '年龄：24'
+            text: '年龄：23'
         }]
     }, {
         name: 'div',
@@ -283,7 +283,7 @@ let textArr = [{
 }]
 let style = `
     /*
-    * 面试官您好，我是田兆吉
+    * 面试官您好，我是AmosTian
     * 特此准备了一份在线简历
     * 先准备一些样式
     */

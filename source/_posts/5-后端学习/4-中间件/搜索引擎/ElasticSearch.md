@@ -18,7 +18,7 @@ ElasticSearch是一个基于Lucene的搜索服务器。提供了一个分布式�
 
 <!--more-->
 
-# ES概述与安装
+# ES简介与安装
 
 ## ES简介
 
@@ -142,7 +142,7 @@ Edge：Elasticvue
 
 ![image-20210426180507897](ElasticSearch/image-20210426180507897-16489738468441.png)
 
-## 基本概念
+# 相关概念
 
 > 映射
 
@@ -176,15 +176,15 @@ Edge：Elasticvue
 - ElasticSearch的索引可看做MongoDB的一个集合， 存储的数据结构为 **json**
 - ElasticSearch 可以把索引存放在一台机器或者 **分布** 在多台服务器，每个索引有一个或 **多个分片** （shard），每个分片可以有  **多个副本**（replica）
 
-## RESTfulAPI
+# 基本操作
 
-### 创建非结构化索引
+## 创建非结构化索引
 
 在Lucene中，创建索引是需要定义字段名称以及字段的类型的 (ES底层为Lucene)
 
-在Elasticsearch中提供了非结构化的索引，就是不需要创建索引结构，即可写入数据到索引中——在Elasticsearch底层会进行结构化操作，此操作对用户是透明的
+在Elasticsearch中提供了非结构化的索引，就是不需要创建索引结构，即可写入数据到索引中——在Elasticsearch底层会进行结构化操作（自动类型判断），此操作对用户是透明的
 
-#### 可视化工具创建
+### 可视化工具创建索引
 
 ![image-20210507113949826](ElasticSearch/image-20210507113949826-16489767310543.png)
 
@@ -199,7 +199,7 @@ The index 'test' was successfully created.
 
 ![image-20210507114717604](ElasticSearch/image-20210507114717604-16489767495124.png)
 
-#### API创建
+### API创建
 
 ```json
 /*请求*/
@@ -216,17 +216,21 @@ PUT http://8.140.130.91:9200/haoke
 }
 ```
 
-![image-20210507120635950](ElasticSearch/image-20210507120635950-16489768793615.png)
+<img src="ElasticSearch/image-20210507120635950-16489768793615.png" alt="image-20210507120635950" style="zoom: 67%;" />
 
 ![image-20210507120647717](ElasticSearch/image-20210507120647717-16489768906096.png)
 
-### 删除索引
+## 删除索引
+
+```json
+DELETE [链接/索引名]
+```
+
+
 
 <img src="ElasticSearch/image-20210507121132446-16489769424257.png" alt="image-20210507121132446" style="zoom:50%;" />
 
-### 插入数据
-
-`POST http://8.140.130.91/{索引}/{类型}/{id}`
+## 插入数据
 
 **关于id的生成**
 
@@ -246,7 +250,7 @@ POST http://8.140.130.91:9200/haoke/user/1001
 }
 ```
 
-![image-20210507124339044](ElasticSearch/image-20210507124339044-16489770672328.png)
+<img src="ElasticSearch/image-20210507124339044-16489770672328.png" alt="image-20210507124339044" style="zoom:67%;" />
 
 ![image-20210507124558507](ElasticSearch/image-20210507124558507-16489771106699.png)
 
@@ -281,11 +285,13 @@ POST http://8.140.130.91:9200/haoke/user
 
 ![image-20210507124706289](ElasticSearch/image-20210507124706289-164897712776410.png)
 
-### 更新数据
+## 更新数据
 
-在Elasticsearch中，文档数据是不为修改的，但是可以通过覆盖的方式进行更新
+**在Elasticsearch中，文档数据是不能修改的**，但是可以通过覆盖的方式进行更新
 
-**全部更新**
+---
+
+**全部覆盖**
 
 ```json
 #请求
@@ -322,11 +328,7 @@ PUT http://8.140.130.91:9200/haoke/user/1001
 
 ---
 
-**局部更新**
-
-1.  修改
-2.  删除旧文档
-3.  索引新文档
+**局部覆盖**
 
 ```json
 # 请求
@@ -359,7 +361,7 @@ POST http://8.140.130.91:9200/haoke/user/1001/_update
 
 ![image-20210507125539717](ElasticSearch/image-20210507125539717-164897785937112.png)
 
-### 删除数据
+## 删除数据
 
 在Elasticsearch中，删除文档数据，只需要发起DELETE请求即可
 
@@ -392,7 +394,7 @@ DELETE http://8.140.130.91:9200/haoke/user/1001
 
 ES将在添加更多索引时，才会在后台进行删除内容的清理
 
-### 搜索数据
+## 搜索数据
 
 ![image-20210507130819823](ElasticSearch/image-20210507130819823-164897795638114.png)
 
@@ -566,7 +568,7 @@ GET http://8.140.130.91:9200/haoke/user/_search?q=age:20
 }
 ```
 
-### DSL搜索
+## DSL搜索
 
 Elasticsearch提供丰富且灵活的查询语言叫做**DSL查询(Query DSL)**  
 
@@ -626,9 +628,11 @@ POST http://8.140.130.91:9200/haoke/user/_search
 
 查询年龄大于30岁的男性用户  
 
-**must**
+多条件组合 `bool`
 
-filter if
+必要条件：`must`
+
+过滤：`filter`
 
 ```json
 # 请求
@@ -687,7 +691,7 @@ POST http://8.140.130.91:9200/haoke/user/_search
 
 ---
 
-**全文搜索**
+**多关键字查询**
 
 ```json
 # 请求
@@ -745,7 +749,7 @@ POST http://8.140.130.91:9200/haoke/user/_search
 }
 ```
 
-### 高亮显示
+## 高亮显示
 
 ```json
 # 请求
@@ -818,7 +822,7 @@ POST http://8.140.130.91:9200/haoke/user/_search
 }
 ```
 
-### 聚合
+## 聚合
 
 类似SQL中的group by操作
 
@@ -924,13 +928,13 @@ POST http://8.140.130.91:9200/haoke/user/_search
 }
 ```
 
-## ES核心
+# ES核心
 
-### 文档
+## 文档
 
 文档以JSON格式进行存储，可以是复杂的结构
 
-#### 元数据(metadata)
+### 元数据(metadata)
 
 一个文档不只是数据。它还包括了元数据(metadata)——关于文档的信息。三个必须的元数据结点是
 
@@ -960,9 +964,9 @@ POST http://8.140.130.91:9200/haoke/user/_search
 
 id : 字符串与 `_index` 和 `_type` 组合时，就可以在ES中唯一标识一个文档。当创建一个文档，你可以自定义 `_id` （支持PUT方式），也可以让ES自动生成32位长度（只能POST方式）
 
-### 查询响应
+## 查询响应
 
-#### 格式化JSON结果——pretty
+### 格式化JSON结果——pretty
 
 在查询url后添加pretty参数
 
@@ -971,7 +975,7 @@ id : 字符串与 `_index` 和 `_type` 组合时，就可以在ES中唯一标识
 http://8.140.130.91:9200/haoke/user/1005?pretty
 ```
 
-#### 指定查询字段
+### 指定查询字段
 
 在响应的数据中，可以指定某些需要的字段进行返回
 
@@ -1021,7 +1025,7 @@ GET http://8.140.130.91:9200/haoke/user/iAA3RXkB81AnlYu4GXV6/_source?_source=id,
 }
 ```
 
-### 判断文档是否存在
+## 判断文档是否存在
 
 只是判断文档是否存在，不查询文档内容
 
@@ -1039,11 +1043,11 @@ HEAD http://8.140.130.91:9200/haoke/user/1
 
 > 查询结果只是表示查询时刻存在与否，并不代表之后是否存在
 
-### 批量操作
+## 批量操作
 
 减少网络请求
 
-#### 批量查询
+### 批量查询
 
 ```json
 # 请求
@@ -1127,7 +1131,7 @@ POST http://8.140.130.91:9200/haoke/user/_mget
 }
 ```
 
-#### _bulk 操作
+### _bulk 操作
 
 在ES中，支持批量修改，都是通过 `_bulk` 的api完成
 
@@ -1141,20 +1145,19 @@ POST http://8.140.130.91:9200/haoke/user/_mget
 # 最后一行是需要回车的
 ```
 
-##### 批量插入
+#### 批量插入
 
 ```json
 # 请求
 POST http://8.140.130.91:9200/haoke/user/_bulk
 
 # 请求体
-{"create":{"_index":"haoke","_type":"user","_id":2001}}
+{"create":{"_index":"haoke","_type":"user","_id":2001}}# 指明索引、类型、标识
 {"id":2001,"name":"name1","age": 20,"sex": "男"}
 {"create":{"_index":"haoke","_type":"user","_id":2002}}
 {"id":2002,"name":"name2","age": 20,"sex": "男"}
 {"create":{"_index":"haoke","_type":"user","_id":2003}}
 {"id":2003,"name":"name3","age": 20,"sex": "男"}
-
 
 # 返回
 {
@@ -1218,7 +1221,7 @@ POST http://8.140.130.91:9200/haoke/user/_bulk
 
 ![image-20210507205331017](ElasticSearch/image-20210507205331017-164899000726818.png)
 
-##### 批量删除
+#### 批量删除
 
 ```json
 # 请求
@@ -1290,14 +1293,15 @@ POST http://8.140.130.91:9200/haoke/user/_bulk
 }
 ```
 
-##### 批量操作的性能
+#### 批量操作的性能
 
--   整个批量请求需要被加载到接受我们请求节点的内存里，所以请求越大，给其它请求可用的内存就越小。有一个最佳的bulk请求大小。超过这个大小，性能不再提升而且可能降低。
--   最佳大小，当然并不是一个固定的数字。它完全取决于你的硬件、你文档的大小和复杂度以及索引和搜索的负载。
+整个批量请求需要被加载到接受我们请求节点的内存里，所以请求越大，给其它请求可用的内存就越小。有一个最佳的bulk请求大小。超过这个大小，性能不再提升而且可能降低。
+
+-   最佳大小：当然并不是一个固定的数字。它完全取决于你的硬件、你文档的大小和复杂度以及索引和搜索的负载。
 -   幸运的是，这个最佳点(sweetspot)还是容易找到的：试着批量索引标准的文档，随着大小的增长，当性能开始降低，说明你每个批次的大小太大了。开始的数量可以在1000~5000个文档之间，如果你的文档非常大，可以使用较小的批次。
 -   通常着眼于你请求批次的物理大小是非常有用的。一千个1kB的文档和一千个1MB的文档大不相同。一个好的批次最好保持在5-15MB大小间
 
-### 分页
+## 分页
 
 和sql使用 `limit` 关键字返回只有一页的结果一样，ES接收 `from` 和 `size` 参数
 
@@ -1329,11 +1333,11 @@ GET /_search?size=5&from=10
 
 可以看到在分布式系统中，排序结果的花费随着分页的深入而成倍增长。这也是为什么网络搜索引擎中任何语句不能返回多于1000个结果的原因  
 
-### 映射
+## 映射
 
 我们创建的索引以及插入数据，都是由Elasticsearch进行自动判断类型，有些时候我们是需要进行明确字段类型的，否则，自动判断的类型和实际需求是不相符的。
 
-#### 自动判断的规则
+### 自动判断的规则
 
 | JSON type                        | Field type |
 | -------------------------------- | ---------- |
@@ -1343,7 +1347,7 @@ GET /_search?size=5&from=10
 | String, valid date: "2014-09-15" | "date"     |
 | String: "foo bar"                | "string"   |
 
-#### ES中文支持
+### ES中文支持
 
 | 类型名         | 表示的数据类型                |
 | -------------- | ----------------------------- |
@@ -1353,11 +1357,11 @@ GET /_search?size=5&from=10
 | Boolean        | boolean                       |
 | Date           | date                          |
 
--   string类型在ElasticSearch 旧版本中使用较多，从ElasticSearch 5.x开始不再支持string，由 `text` 和 `keyword` 类型替代  
+-   string类型在ElasticSearch 旧版本中使用较多，从ElasticSearch 5.x开始不再支持string，由 `text` 和 `keyword` 类型替代
     -   `text` 类型，当一个字段是要被**全文搜索**的，比如：Email内容、产品描述，应该使用text类型。设置text类型以后，**字段内容会被分析**，在生成倒排索引以前，字符串会被分析器分成一个一个**词项**。**text类型的字段不用于排序，很少用于聚合**
     -   `keyword` 类型，适用于**索引结构化的字段**，比如：email地址、主机名、状态码和标签。如果字段需要进行过滤(比如查找已发布博客中status属性为published的文章)、排序、聚合。**keyword类型的字段只能通过精确值搜索到**。  
 
-#### 创建明确的索引
+### 创建明确的索引
 
 ```json
 # 请求
@@ -1399,7 +1403,7 @@ PUT http://8.140.130.91:9200/test
 }
 ```
 
-#### 查看索引
+### 查看索引
 
 ```shell
 GET http://8.140.130.91:9200/test/_mapping
@@ -1407,7 +1411,7 @@ GET http://8.140.130.91:9200/test/_mapping
 
 <img src="ElasticSearch/image-20210507214605259-164899228966020.png" alt="image-20210507214605259" style="zoom:67%;" />
 
-#### 插入数据
+### 插入数据
 
 ```json
 # 请求
@@ -1431,11 +1435,11 @@ POST http://8.140.130.91:9200/test/_bulk
 
 ![image-20210507215242424](ElasticSearch/image-20210507215242424-164899243882022.png)
 
-### 结构化查询
+## 结构化查询
 
-#### 给定值查询
+### 给定值查询
 
-##### term查询
+#### term查询
 
 `term` 主要用于 **精确匹配值** ，比如数字，日期，布尔值或 `not_analyzed` 的字符串（未经分析的文本数据类型）
 
@@ -1493,7 +1497,7 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-#### 同一字段多值查询
+### 同一字段多值查询
 
 `terms` 跟 `term` 类似，但 `term` 允许指定多个匹配条件。如果某个字段指定了多个值，那么文档需要一起去做匹配
 
@@ -1553,7 +1557,7 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-#### 给定范围查询
+### 给定范围查询
 
 `range` 过滤允许我们按照指定范围查找一批数据
 
@@ -1638,7 +1642,7 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-#### exists查询
+### exists查询
 
 `exists` 查询可用于查找文档中是否包含指定字段或没有某个字段，类似与SQL语句中的 `IS_NULL`
 
@@ -1657,9 +1661,9 @@ POST http://8.140.130.91:9200/test/person/_search
 
 <img src="ElasticSearch/image-20210507220717470-164899315674723.png" alt="image-20210507220717470" style="zoom:67%;" />
 
-#### match查询
+### match查询
 
-`match` 查询是一个标准查询，不管你需要 **全文本查询** 还是 **精确查询** 基本上都要用到它
+`match` 查询是一个标准查询，不管你需要 **全文本查询** 还是 **精确查询** 基本上都能用到它
 
 -   如果你使用 `match` 查询一个全文本字段(text类型)，它会在真正查询之前用分析器先分析 match 一下查询字符  
 -   如果用 match 下指定了一个确切值，在遇到数字，日期，布尔值或者 not_analyzed 的字符串时，它将为你搜索你给定的值
@@ -1671,7 +1675,7 @@ POST http://8.140.130.91:9200/test/person/_search
 { "match": { "tag": "full_text" }}
 ```
 
-#### bool查询——查询组合
+### bool查询——查询组合
 
 `bool` 查询可以用来合并多个条件查询结果的布尔逻辑，它包含一下操作符：  
 
@@ -1692,7 +1696,7 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-### 过滤查询
+## 过滤查询
 
 ES支持过滤查询，如term、range、match等
 
@@ -1758,9 +1762,9 @@ POST http://8.140.130.91:9200/test/person/_search
 
 **做精确匹配搜索时，最好用过滤语句，因为过滤语句可以缓存数据**
 
-## 分词器
+# 分词器
 
-### Standard
+## Standard
 
 标准分词器，按照单词切分，结果转化为小写，**英文**
 
@@ -1796,7 +1800,7 @@ POST http://8.140.130.91:9200/_analyze
 }
 ```
 
-### Simple
+## Simple
 
 按照非单词切分，并且做小写处理 **英文 空格或特殊符号**
 
@@ -1853,7 +1857,7 @@ POST http://8.140.130.91:9200/_analyze
 }
 ```
 
-### Whitespace
+## Whitespace
 
 Whitespace按照空格切分
 
@@ -1890,7 +1894,7 @@ POST http://8.140.130.91:9200/_analyze
 }
 ```
 
-### Stop
+## Stop
 
 去除语气助词，空格+simple
 
@@ -1946,7 +1950,7 @@ POST http://8.140.130.91:9200/_analyze
 }
 ```
 
-### keyword
+## keyword
 
 Keyword分词器，意思是传入就是关键词，不做分词处理 
 
@@ -1974,7 +1978,7 @@ POST http://8.140.130.91:9200/_analyze
 }
 ```
 
-### 中文分词
+## 中文分词
 
 常用中文分词器，IK、jieba（python）、THULAC
 
@@ -2059,7 +2063,7 @@ POST http://8.140.130.91:9200/_analyze
 }
 ```
 
-#### IK分词器冷更新
+### IK分词器冷更新
 
 ```shell
 # 进入容器
@@ -2353,9 +2357,9 @@ POST http://8.140.130.91:9200/_analyze
 }
 ```
 
-## 全文搜索
+# 全文搜索
 
-### 倒排索引
+## 倒排索引
 
 > 正排索引
 
@@ -2400,7 +2404,7 @@ POST http://8.140.130.91:9200/_analyze
 
 实际上，索引系统还可以记录更多的信息，在单词对应的倒排列表不仅记录了文档编号，还记载了词频（TF）。词频用于计算查询和文档相似度是很重要的一个计算因子
 
-### 全文搜索
+## 全文搜索
 
 -   相关性（Relevance）：评价查询与其结果间的相关程度，并根据这种相关程度对结果排名的一种能力。这种计算方式可以是TF/IDF方法、地理位置邻近、模糊相似、或其他算法
 -   分析（Analysis）：他是将文本块转换为有区别的、规范化的token的过程，目的是为了创建倒排索引以及查询倒排索引
@@ -2470,7 +2474,7 @@ POST http://8.140.130.91:9200/test1/_bulk
 
 ![image-20210508210723675](ElasticSearch/image-20210508210723675-164899537657424.png)
 
-#### 单词搜索
+### 单词搜索
 
 ```json
 POST http://8.140.130.91:9200/test/person/_search
@@ -2552,13 +2556,13 @@ POST http://8.140.130.91:9200/test/person/_search
 
 3. 查找匹配文档
 
-   用 `term查询` 在倒排索引中查找 “音乐” ，然后获取一组包含该项的文档、
+   用 `term查询` 在倒排索引中查找 “音乐” ，然后获取一组包含该项的文档
 
 4. 为每个文档评分
 
    用 `term查询` 计算每个文档相关度评分 `_score` ，这是种将 `词频(term frequency，词“音乐”在相关文档的hobby字段中出现的频率)` 和 `反向文档频率(inverse document frequency，词 “音乐” 在所有文档的hobby字段中出现的频率)` 
 
-##### 多词搜索
+#### 多词搜索
 
 ```json
 POST http://8.140.130.91:9200/test/person/_search
@@ -2662,7 +2666,7 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-##### 关键词之间的逻辑关系——operator
+#### 关键词之间的逻辑关系——operator
 
 ```json
 POST http://8.140.130.91:9200/test/person/_search
@@ -2856,9 +2860,13 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-#### 组合搜索
+### 组合搜索
 
 使用 `bool组合查询` 
+
+---
+
+搜索结果必须包含篮球，不能包含音乐，如果包含了游泳，相似度更高
 
 ```json
 POST http://8.140.130.91:9200/test/person/_search
@@ -2891,11 +2899,8 @@ POST http://8.140.130.91:9200/test/person/_search
         }
     }
 }
-```
 
->   搜索结果必须包含篮球，不能包含音乐，如果包含了游泳，相似度更高
-
-```json
+# 返回
 {
     "took": 12,
     "timed_out": false,
@@ -2948,6 +2953,8 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
+---
+
 >   评分计算规则
 >
 >   bool查询会为每个文档计算相关度评分 `_score` ,在将所有匹配的 `must` 和 `should` 语句的分数 `_score` 求和，最后除以 `must` 和 `should` 语句的总数
@@ -2956,9 +2963,7 @@ POST http://8.140.130.91:9200/test/person/_search
 
 默认情况下 `should` 中的内容不是必须匹配的，如果查询语句中没有 `must` ,则至少匹配其中一个；
 
----
-
-也可以通过 `minimum_should_match` 参数控制
+`should` 的匹配个数也可以通过 `minimum_should_match` 参数控制
 
 ```json
 POST http://8.140.130.91:9200/test/person/_search
@@ -3033,7 +3038,7 @@ POST http://8.140.130.91:9200/test/person/_search
 
 ![image-20210508215930479](ElasticSearch/image-20210508215930479-164899544438325.png)
 
-#### 权重
+### 权重
 
 我们可能需要对某些词增加权重来影响该条数据的得分
 
@@ -3152,7 +3157,7 @@ POST http://8.140.130.91:9200/test/person/_search
 
 由于受权重影响，评分不同
 
-### 短语匹配
+## 短语匹配
 
 在ES中，短语匹配意味着不仅仅是词要匹配，并且词的顺序也要一致
 
@@ -3318,13 +3323,13 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-## ES集群
+# ES集群
+
+## 概念
 
 ### 集群&节点
 
-ES的集群是由多个节点组成的，同一 `cluster.name` 的节点同属一个集群，并可用于区分其他集群
-
-节点，通过修改节点配置文件 `elasticsearch.yml` 的 `nde.name` 指定节点名
+ES的集群是由多个节点组成的，同一 `cluster.name` 的节点同属一个集群，并可用于区分其他集群节点，通过修改节点配置文件 `elasticsearch.yml` 的 `node.name` 指定节点名
 
 在ES中，节点主要有四种
 
@@ -3342,7 +3347,18 @@ ES的集群是由多个节点组成的，同一 `cluster.name` 的节点同属�
 -   部落节点
     -   当一个结点配置 `tribe.*` 时，可以链接多个集群，在所有连接的集群上执行搜索和其他操作
 
-### 使用 docker 搭建集群
+### 分片和副本
+
+为了将数据添加到Elasticsearch，我们需要**索引(index)**——一个存储关联数据的地方。实际上，索引只是一个用来指向一个或多个**分片(shards)**的**逻辑命名空间(logical namespace)**
+
+-   一个 **分片(shard)** 是一个最小级别“工作单元(work unit)”，他只是保存了索引中所有数据的一部分
+-   分片就是一个 **Lucene实例** ，并且他本身就是一个完整的搜索引擎。应用程序不会和他直接通信
+-   分片可以是 **主分片(primary shard)** 或者 **复制分片(replica shard)**
+-   索引中的每个文档属于一个单独的主分片（**数据存储在主分片**），所以主分片的数量决定了索引能存储多少数据
+-   复制分片只是主分片的一个副本，可以防止硬件故障造成的数据丢失，同时可以提供读请求，比如搜索或者从别的shard取回文档
+-   当索引创建完成，主分片数量就已经确定，复制分片可随时调整
+
+## 使用 docker 搭建集群
 
 ```shell
 # 创建节点配置文件目录
@@ -3461,7 +3477,7 @@ GET http://8.140.130.91:9200/_cluster/health
 | yellow | 所有主要分片可用，但不是所有复制分片都可用 |
 | red    | 不是所有的主要分片都可用                   |
 
-#### Exception BindTransportException[Failed to bind to
+### Exception BindTransportException[Failed to bind to
 
 ```yml
 cluster.name: es-haoke-cluster
@@ -3490,18 +3506,7 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
 
-### 分片和副本
-
-为了将数据添加到Elasticsearch，我们需要**索引(index)**——一个存储关联数据的地方。实际上，索引只是一个用来指向一个或多个**分片(shards)**的**逻辑命名空间(logical namespace)**
-
--   一个 **分片(shard)** 是一个最小级别“工作单元(work unit)”，他只是保存了索引中所有数据的一部分
--   分片就是一个 **Lucene实例** ，并且他本身就是一个完整的搜索引擎。应用程序不会和他直接通信
--   分片可以是 **主分片(primary shard)** 或者 **复制分片(replica shard)**
--   索引中的每个文档属于一个单独的主分片（**数据存储在主分片**），所以主分片的数量决定了索引能存储多少数据
--   复制分片只是主分片的一个副本，可以防止硬件故障造成的数据丢失，同时可以提供读请求，比如搜索或者从别的shard取回文档
--   当索引创建完成，主分片数量就已经确定，复制分片可随时调整
-
-### 故障转移
+## 故障转移
 
 1.  所有结点的 `node.master` 设置为 true
 2.  创建新结点
@@ -3531,7 +3536,7 @@ chmod 777 /data/es-cluster-data/node03/data/ -R
 
 <img src="ElasticSearch/image-20210509164244573-164899551189031.png" alt="image-20210509164244573" style="zoom:67%;" />
 
-可见 node02被选为主节点
+可见 node02 被选为主节点
 
 ---
 
@@ -3539,7 +3544,7 @@ chmod 777 /data/es-cluster-data/node03/data/ -R
 
 <img src="ElasticSearch/image-20210509164344803-164899551189032.png" alt="image-20210509164344803" style="zoom:50%;" />
 
-#### 停止data节点
+### 停止data节点
 
 ```shell
 docker stop es-node01
@@ -3558,7 +3563,7 @@ docker stop es-node01
 
 <img src="ElasticSearch/image-20210509164817460-164899551189035.png" alt="image-20210509164817460" style="zoom:67%;" />
 
-#### data节点重新启动
+### data节点重新启动
 
 ```shell
 docker start es-node01
@@ -3568,7 +3573,7 @@ docker start es-node01
 
 数据节点重启后，重新加入了集群，并且重新分配了节点信息
 
-#### 停止master节点
+### 停止master节点
 
 ```shell
 docker stop es-node02
@@ -3582,7 +3587,7 @@ docker stop es-node02
 
 一段时间后，es-node02节点从es节点中移除，集群状态变为绿色
 
-#### 恢复 master节点
+### 恢复 master节点
 
 ```shell
 docker start es-node02
@@ -3592,9 +3597,9 @@ docker start es-node02
 
 ![image-20210509172344050](ElasticSearch/image-20210509172344050-164899551189140.png)
 
-发现 node02 已经加入不到原集群，这就是集群中的 ==脑裂问题==
+发现 node02 已经加入不到原集群，这就是集群中的 
 
-##### 脑裂问题
+#### 脑裂问题
 
 ![image-20210509180824897](ElasticSearch/image-20210509180824897-164899551189141.png)
 
@@ -3604,7 +3609,7 @@ docker start es-node02
 -   设置 `minimum_master_nodes` 的大小为2
     -   官方推荐 ： `(N/2)+1` N为集群中节点数
 
-##### 测试
+#### 测试
 
 ```yml
 cluster.name: es-haoke-cluster
@@ -3633,7 +3638,7 @@ http.cors.allow-origin: "*"
 
 此时node03被作为数据节点加入集群
 
-### 分布式文档
+## 分布式文档
 
 在ES中，会采用计算的方式来决定文档存储到哪个节点，计算公式
 
@@ -3646,9 +3651,9 @@ shard = hash(routing) % number_of_primary_shards
 >
 >   因为主节点数会参与到文档存储分片号的运算过程，所以索引创建后主分片数便不能修改
 
-#### 文档的写操作
+### 文档的写操作
 
-写操作：新建、索引和删除请求都是**写**(write)操作，它们必须在主分片上成功完成才能复制到相关的复制分片上
+写操作：新建索引和删除请求都是**写**(write)操作，它们必须在主分片上成功完成才能复制到相关的复制分片上
 
 <img src="ElasticSearch/image-20210509191608395-164899551189146.png" alt="image-20210509191608395" style="zoom:67%;" />
 
@@ -3658,19 +3663,19 @@ shard = hash(routing) % number_of_primary_shards
 
 客户端接收到成功响应时，文档的修改已经被应用于主分片和所有的复制分片
 
-#### 搜索文档（单个文档）
+### 搜索文档（单个文档）
 
 文档能够从主分片或任意一个分片检索
 
 ![image-20210509192114272](ElasticSearch/image-20210509192114272-164899551189147.png)
 
-1.  客户端给 `主节点Node 1` 发送 get请求
+1.  客户端给 `主节点Node_1` 发送 get请求
 2.  节点使用文档的 `_id` 确定文档属于分片 `0` 。轮询查找节点，分片 `0` 对应的复制分片在三个节点上都有。此时转发请求到 `node 2`
 3.  `node 2` 返回文档(document) 给 `node1` ，然后返回给客户端
 
-对于读请求，为了平衡负载，请求节点会为每个请求选择不同的分片——它会循环所有分片副本
+对于读请求，为了负载均衡，请求节点会为每个请求选择不同的分片——它会循环所有分片副本
 
-#### 全文搜索
+### 全文搜索
 
 分布式文档分散在各个节点上，这是就是全文搜索
 
@@ -3694,7 +3699,7 @@ shard = hash(routing) % number_of_primary_shards
 2.  每个分片加载document并且根据需要丰富（*enrich*）它们，然后再将document返回协调节点。
 3.  一旦所有的document都被取回，协调节点会将结果返回给客户端。  
 
-## Java客户端
+# Java客户端
 
 在ES中，为java提供了两种客户端，一种是REST风格的客户端，一种是JAVA API的客户端
 
@@ -3731,9 +3736,9 @@ PUT  http://8.140.130.91:9200/haoke/house/_bulk
 
 ```
 
-### REST低级客户端
+## REST低级客户端
 
-#### 1. 创建工程
+### 1. 创建工程
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3783,7 +3788,7 @@ PUT  http://8.140.130.91:9200/haoke/house/_bulk
 </project>
 ```
 
-#### 2. 编写测试用例 
+### 2. 编写测试用例 
 
 ```java
 package com.es.rest;
@@ -3844,7 +3849,9 @@ public class TestRest {
         System.out.println(EntityUtils.toString(response.getEntity()));
 
         /*
-        * HTTP/1.1 200 OK
+        * 
+        HTTP/1.1 200 OK
+        
         {
           "cluster_name" : "es-haoke-cluster",
           "status" : "green",
@@ -4005,7 +4012,7 @@ public class TestRest {
 }
 ```
 
-### REST高级客户端
+## REST高级客户端
 
 ```xml
 <dependency>
@@ -4217,13 +4224,13 @@ public class TestHighLevelREST {
 }
 ```
 
-### Spring Data ElasticSearch
+## SpringBoot ElasticSearch
 
 Spring Data项目对Elasticsearch做了支持，其目的就是简化对Elasticsearch的操作
 
 https://spring.io/projects/spring-data-elasticsearch
 
-#### 相关依赖
+### 相关依赖
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4260,7 +4267,7 @@ https://spring.io/projects/spring-data-elasticsearch
 </project>
 ```
 
-#### 配置文件
+### 配置文件
 
 ```properties
 spring.application.name=example-elasticsearch
@@ -4269,7 +4276,7 @@ spring.data.elasticsearch.cluster-name=es-haoke-cluster
 spring.data.elasticsearch.cluster-nodes=8.140.130.91:9300,8.140.130.91:9301,8.140.130.91:9302
 ```
 
-#### 启动类
+### 启动类
 
 ```java
 package com.elasticsearch;
@@ -4285,7 +4292,7 @@ public class MyMainApplication {
 }
 ```
 
-#### 新增数据
+### 新增数据
 
 ```java
 package com.elasticsearch.pojo;
@@ -4344,7 +4351,7 @@ public class TestSpringEs {
 
 >   先新建索引，再插入数据，才能保证分片数正确
 
-#### 批量插入数据
+### 批量插入数据
 
 ```java
 @Test
@@ -4367,7 +4374,7 @@ public void bulk(){
 
 ![image-20210510152044283](ElasticSearch/image-20210510152044283-164899551189353.png)
 
-#### 局部更新数据
+### 局部更新数据
 
 ```java
 /*
@@ -4393,7 +4400,7 @@ public void update(){
 
 ![image-20210510152901607](ElasticSearch/image-20210510152901607-164899551189354.png)
 
-#### 删除数据
+### 删除数据
 
 ```java
 /*
@@ -4409,7 +4416,7 @@ public void delete(){
 
 ![image-20210510152641489](ElasticSearch/image-20210510152641489-164899551189355.png)
 
-#### 搜索
+### 搜索
 
 ```java
 /*

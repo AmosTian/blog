@@ -18,7 +18,7 @@ type: "dynamic-resume"
   <link rel="stylesheet" href="/css/basic.css">
   <link rel="stylesheet" href="/css/fishc.css">
     <style id="styleContent"></style>
-  <title>AuspiceTian</title>
+  <title>AmosTian</title>
 </head>
 <body id="body">
     <div class="resume">
