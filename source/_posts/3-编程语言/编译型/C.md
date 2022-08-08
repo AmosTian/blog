@@ -16,7 +16,6 @@ updated: 2022-8-8 21:31:56
 >
 >   非常接近自然语言，程序执行效率高
 >
->   学习参考：https://edu.csdn.net/course/detail/31452
 
 <!--more-->
 
