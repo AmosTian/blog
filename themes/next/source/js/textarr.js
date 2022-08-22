@@ -217,45 +217,8 @@ let textArr = [{
             name: 'li',
             text: '项目描述：标注太原理工大学三个校区全部地理坐标，方便新生更快了解校园，2019年实现2万用户，并持续增长。'
         }]
-    },{
-        name: 'ul',
-        class: 'ul-list',
-        children: [{
-            class: 'project-title',
-            text: '三：留言板项目（JSP开发）'
-        }, {
-            name: 'li',
-            text: '技术方案：Jsp、Servlet、JavaBean',
-            children: [{
-                name: 'span',
-                class: 'tag',
-                text: 'mysql5.0、Tomcat v7.0'
-            }]
-        }, {
-            name: 'li',
-            text: '项目描述：交互式网页，方便客户端和服务端之间的信息传输。三大模块：用户注册和登录模块、用户管理模块、留言管理和显示模块。'
-        }]
     }]
-},{
-    name: 'h4',
-    class: 'text-title',
-    text: '社团与社会实践'
-},{
-    name: 'ul',
-    class: 'ul-list',
-    children: [ 
-        {
-            name: 'li',
-            text: '参与创建并运营清泽心雨(校级组织)小程序站，期间进行经验分享、协调沟通、参与开发,并定期组织开展小程序研讨技术会，为组织奠定了技术基础'
-        },{
-            name: 'li',
-            text: '带领的9人团队分为三组，均在2020高校微信小程序应用开发赛西北赛区获得二等奖'
-        },
-        {
-            name: 'li',
-            text: '2019年暑期大学生"三下乡"社会实践活动优秀实践队员，2019-2020社会工作荣誉奖'
-        }
-    ]} ,{
+} ,{
     name: 'h4',
     class: 'text-title',
     text: '自我评价'

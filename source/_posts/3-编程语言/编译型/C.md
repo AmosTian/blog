@@ -4889,11 +4889,3 @@ void destoryList(Node *head){
 }
 ```
 
-
-
-
-
-
-
-
-
