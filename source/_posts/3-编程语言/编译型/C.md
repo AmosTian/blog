@@ -2,9 +2,11 @@
 title: C
 categories:
   - 编程语言
+  - 编译型语言
   - C
 tags:
   - 编程语言
+  - 编译型语言
   - C
 abbrlink: 1037565863
 mathjax: true
