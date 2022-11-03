@@ -1,7 +1,7 @@
 ---
 title: vscode配置
-date: ‎2022-01‎-‎23‏‎ ‏‎8:12:28
-updated: 2022-01‎-‎23‏‎ ‏‎8:12:28
+date: '‎2022-01‎-‎23‏‎ ‏‎8:12:28'
+updated: '2022-01‎-‎23‏‎ ‏‎8:12:28'
 top: 2
 categories:
   - 工具
@@ -9,7 +9,7 @@ categories:
 tags:
   - 工具
   - 编程工具
-abbrlink: 4065722285
+abbrlink: 2022795773
 ---
 
 >   配置vscode的 `Python` , `C++` 的编译环境
