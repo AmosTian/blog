@@ -1,5 +1,5 @@
 ---
-title: ssh: connect to host github.com port 22: Connection timed out
+title: ssh-connect to host github.com port 22: Connection timed out
 categories:
   - 问题
   - git推送
