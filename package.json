@@ -17,7 +17,7 @@
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
     "babel-preset-es2015": "^6.24.1",
     "css-what": "^6.1.0",
-    "hexo": "^6.0.0",
+    "hexo": "^6.3.0",
     "hexo-abbrlink": "^2.2.1",
     "hexo-asset-image": "github:CodeFalling/hexo-asset-image",
     "hexo-deployer-git": "^3.0.0",
