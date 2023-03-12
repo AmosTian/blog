@@ -21,6 +21,7 @@ type: "dynamic-resume"
   <title>AmosTian</title>
 </head>
 <body id="body">
+
     <div class="resume">
         <pre id="codeEdit" class="language-css" onscroll="toggleScrollBar(event)"></pre>
         <div id="resume" onscroll="toggleScrollBar(event)"></div>

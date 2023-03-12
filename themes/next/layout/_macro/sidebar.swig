@@ -22,7 +22,7 @@
           {{ __('sidebar.overview') }}
         </li>
       </ul>
-
+      
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
         {%- if display_toc %}
@@ -43,7 +43,7 @@
           <span>0%</span>
         </div>
       {%- endif %}
-
+      {% include '../_custom/sidebar.swig' %}
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

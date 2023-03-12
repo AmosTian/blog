@@ -34,10 +34,13 @@ custom_file_path:
   #style: source/_data/styles.styl
 
 
+
+
 # ---------------------------------------------------------------
 # Site Information Settings
 # See: https://theme-next.org/docs/getting-started/
 # ---------------------------------------------------------------
+
 
 favicon:
   small: /images/favicon.png
@@ -1033,3 +1036,4 @@ vendors: #cdn加速
 css: css
 js: js
 images: images
+

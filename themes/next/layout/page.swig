@@ -39,8 +39,9 @@
                 max_font   : theme.tagcloud.max,
                 amount     : theme.tagcloud.amount,
                 color      : true,
-                start_color: theme.tagcloud.start,
-                end_color  : theme.tagcloud.end})
+                start_color: '#FF9900',
+                end_color  : '#0099FF'
+                })
               }}
             </div>
           </div>
