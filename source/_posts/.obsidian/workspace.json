@@ -11,8 +11,12 @@
             "id": "cc63bba9185ee387",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "未命名.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "未命名.md"
+              }
             }
           }
         ]
@@ -140,9 +148,10 @@
   },
   "active": "5d2c54ee46f94f40",
   "lastOpenFiles": [
-    "未命名/image-20230314000739518.png",
-    "未命名/image-20230314000703499.png",
+    "未命名/image-20230314001337226.png",
     "未命名",
-    "未命名.md"
+    "未命名.md",
+    "未命名/image-20230314000739518.png",
+    "未命名/image-20230314000703499.png"
   ]
 }
