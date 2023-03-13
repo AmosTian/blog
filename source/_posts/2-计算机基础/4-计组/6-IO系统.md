@@ -2,11 +2,11 @@
 title: 6. IO系统
 categories:
   - 计算机基础
-  - 计组
+  - 组成原理
 tags:
   - 计算机基础
-  - 计组
-top: 7
+  - 组成原理
+top: 39
 mathjax: true
 abbrlink: 2715153091
 date: 2022-07-05 07:10:37

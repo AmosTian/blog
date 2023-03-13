@@ -1,5 +1,6 @@
 ---
 title: hexo+NexT博客
+top: 86
 categories:
   - 工具
   - 博客搭建

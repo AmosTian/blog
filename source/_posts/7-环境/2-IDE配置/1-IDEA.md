@@ -1,6 +1,6 @@
 ---
 title: IDEA安装与使用
-top: 2
+top: 81
 categories:
   - 环境
   - IDE配置

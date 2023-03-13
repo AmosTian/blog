@@ -1,6 +1,6 @@
 ---
 title: ReactJS
-top: 2
+top: 45
 categories:
   - 开发
   - 前端工程
@@ -13,7 +13,7 @@ abbrlink: 1473435732
 date: 2022-03-31 21:39:36
 ---
 
-> 前置知识：[JavaScript&ES6](https://auspicetian.github.io/posts/2797554274/)
+> 前置知识：[JavaScript&ES6](https://amostian.github.io/posts/2797554274/)
 
 <!--more-->
 
@@ -97,7 +97,29 @@ tyarn add umi --dev
 
 在Umi中，约定的目录结构如下：
 
-![20180227170500252](2-ReactJS/20180227170500252.jpg)
+```
+.
+    ├── dist/                          // 默认的 build 输出目录
+    ├── mock/                          // mock 文件所在目录，基于 express
+    ├── config/
+        ├── config.js                  // umi 配置，同 .umirc.js，二选一
+    └── src/                           // 源码目录，可选
+        ├── layouts/index.js           // 全局布局
+        ├── pages/                     // 页面目录，里面的文件即路由
+            ├── .umi/                  // dev 临时目录，需添加到 .gitignore
+            ├── .umi-production/       // build 临时目录，会自动删除
+            ├── document.ejs           // HTML 模板
+            ├── 404.js                 // 404 页面
+            ├── page1.js               // 页面 1，任意命名，导出 react 组件
+            ├── page1.test.js          // 用例文件，umi test 会匹配所有 .test.js 和 .e2e.js 结尾的文件
+            └── page2.js               // 页面 2，任意命名
+        ├── global.css                 // 约定的全局样式文件，自动引入，也可以用 global.less
+        ├── global.js                  // 可以在这里加入 polyfill
+        ├── app.js                     // 运行时配置文件
+    ├── .umirc.js                      // umi 配置，同 config/config.js，二选一
+    ├── .env                           // 环境变量
+    └── package.json
+```
 
 在config.js文件中输入，以便后面使用：
 
@@ -335,8 +357,6 @@ export default Test;
 #### 生命周期
 
 组件运行过程中，存在不同的阶段。React为这些阶段提供了钩子方法(生命周期方法lifestyle methods)，允许开发者自定义每个阶段自动执行的函数。
-
-![未命名文件](2-ReactJS/未命名文件.png)
 
 ```jsx
 import React from 'react'; //第一步，导入React
@@ -1425,8 +1445,6 @@ export default UserList;
 ## Ant Design Pro
 
 ### 简介
-
-![img](2-ReactJS/44953195-581e3d80-aec4-11e8-8dcb-54b9db38ec11.png)
 
 [源码地址](https://github.com/ant-design/ant-design-pro)
 

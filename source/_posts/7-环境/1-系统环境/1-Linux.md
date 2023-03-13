@@ -1,5 +1,6 @@
 ---
 title: 1-Linux基本语法
+top: 78
 categories:
   - 环境
   - 系统环境

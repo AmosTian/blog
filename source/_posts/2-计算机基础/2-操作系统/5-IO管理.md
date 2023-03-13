@@ -1,12 +1,12 @@
 ---
-title: IO管理
+title: 5.IO管理
+top: 25
 categories:
   - 计算机基础
-  - OS
+  - 操作系统
 tags:
   - 计算机基础
-  - OS
-top: 3
+  - 操作系统
 mathjax: true
 abbrlink: 151330232
 date: 2022‎-‎3‎-‎12‎ ‏‎15:17:48

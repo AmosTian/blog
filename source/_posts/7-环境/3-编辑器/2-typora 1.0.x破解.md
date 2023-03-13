@@ -1,6 +1,6 @@
 ---
 title: typora 1.0.x破解
-top: 3
+top: 85
 categories:
   - 环境
   - 编辑器
