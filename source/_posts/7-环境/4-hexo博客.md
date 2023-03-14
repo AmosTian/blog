@@ -2,10 +2,10 @@
 title: hexo+NexT博客
 top: 86
 categories:
-  - 工具
+  - 环境
   - 博客搭建
 tags:
-  - 工具
+  - 环境
   - 博客搭建
 abbrlink: 234958276
 date: 2022-11-04 13:36:47

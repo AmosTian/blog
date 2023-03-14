@@ -11,8 +11,12 @@
             "id": "95d1aa639f141a9f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "7-环境/2-IDE配置/1-IDEA.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "7-环境/2-IDE配置/1-IDEA.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "7-环境/2-IDE配置/1-IDEA.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "7-环境/2-IDE配置/1-IDEA.md"
+              }
             }
           }
         ]
@@ -139,8 +147,14 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "95d1aa639f141a9f",
+  "active": "88d4faa2b3764260",
   "lastOpenFiles": [
+    "7-环境/1-系统环境/2-git.md",
+    "7-环境/1-系统环境/1-Linux.md",
+    "7-环境/4-hexo博客.md",
+    "3-编程语言/编译型/C.md",
+    "3-编程语言/编译型/Java/2.注解与反射.md",
+    "3-编程语言/编译型/Java/1.JavaSE概要.md",
     "请问吃v.md",
     "查实的.md",
     "未命名",
