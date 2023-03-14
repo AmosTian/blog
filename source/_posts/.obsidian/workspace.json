@@ -1,22 +1,18 @@
 {
   "main": {
-    "id": "3234162666967145",
+    "id": "6ddc1e263760259c",
     "type": "split",
     "children": [
       {
-        "id": "9b73d7c47c220c21",
+        "id": "39daf63e762dfe1b",
         "type": "tabs",
         "children": [
           {
-            "id": "cc63bba9185ee387",
+            "id": "95d1aa639f141a9f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "未命名.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -25,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "3c4eb902d2823f10",
+    "id": "d3434c4e4e170470",
     "type": "split",
     "children": [
       {
-        "id": "6d1508bd0332bba2",
+        "id": "6044139792420821",
         "type": "tabs",
         "children": [
           {
-            "id": "5d2c54ee46f94f40",
+            "id": "88d4faa2b3764260",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +39,7 @@
             }
           },
           {
-            "id": "2ce667cfb8bb20f6",
+            "id": "8c001106a0445448",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +54,7 @@
             }
           },
           {
-            "id": "7a7f397e8bc8544e",
+            "id": "f1cc509e4d1e711c",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -72,20 +68,19 @@
     "width": 300
   },
   "right": {
-    "id": "66a1ab3b0f2f0f20",
+    "id": "92a7799d24944037",
     "type": "split",
     "children": [
       {
-        "id": "3feb6688f525e73d",
+        "id": "3e70d788d88f80cf",
         "type": "tabs",
         "children": [
           {
-            "id": "47c25a0e7c7475eb",
+            "id": "4e7ccf0e11ad0bbf",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "未命名.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +92,18 @@
             }
           },
           {
-            "id": "abb30f127dd2e7e8",
+            "id": "53c7afb18b59dca1",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "未命名.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "3cdbf50a4392f1f8",
+            "id": "96bd6dff57466d63",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,13 +114,11 @@
             }
           },
           {
-            "id": "fb85dccc20dacd95",
+            "id": "8305995ff5bfef7b",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "未命名.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -143,15 +135,13 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "remotely-save:Remotely Save": false
     }
   },
-  "active": "5d2c54ee46f94f40",
+  "active": "95d1aa639f141a9f",
   "lastOpenFiles": [
-    "未命名/image-20230314001337226.png",
-    "未命名",
     "未命名.md",
-    "未命名/image-20230314000739518.png",
-    "未命名/image-20230314000703499.png"
+    "amostian"
   ]
 }
