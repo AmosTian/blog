@@ -35,6 +35,7 @@ updated: 2022-8-8 21:31:56
 - 几乎所有的编辑器都是C编写的
 
 ## 1.1 C语言发展史
+
 $FORTRAN\rightarrow ALGOL\rightarrow CPL \rightarrow BCPL\rightarrow B\rightarrow C\rightarrow C++$
 
 BCPL与B语言：精炼、接近硬件，但过于简单，无数据类型

@@ -1,1 +1,10 @@
-{}
+{
+  "open-with-default-app:show": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ]
+}

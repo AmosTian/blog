@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "39daf63e762dfe1b",
+        "id": "5c78e976564385d1",
         "type": "tabs",
         "children": [
           {
-            "id": "95d1aa639f141a9f",
+            "id": "33db58c705f70c41",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "7-环境/2-IDE配置/1-IDEA.md",
+                "file": "7-环境与工具/3-工具/3-zotera.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,6 +43,16 @@
             }
           },
           {
+            "id": "bead9abd41d6b72b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "7-环境与工具/3-工具/3-zotera.md"
+              }
+            }
+          },
+          {
             "id": "8c001106a0445448",
             "type": "leaf",
             "state": {
@@ -65,11 +75,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "92a7799d24944037",
@@ -85,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "7-环境/2-IDE配置/1-IDEA.md",
+                "file": "7-环境与工具/3-工具/3-zotera.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "7-环境/2-IDE配置/1-IDEA.md",
+                "file": "7-环境与工具/3-工具/3-zotera.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -120,12 +131,12 @@
             }
           },
           {
-            "id": "8305995ff5bfef7b",
+            "id": "f8661ee2c11a0013",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "7-环境/2-IDE配置/1-IDEA.md"
+                "file": "7-环境与工具/3-工具/3-zotera.md"
               }
             }
           }
@@ -147,20 +158,53 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "88d4faa2b3764260",
+  "active": "33db58c705f70c41",
   "lastOpenFiles": [
-    "7-环境/1-系统环境/2-git.md",
-    "7-环境/1-系统环境/1-Linux.md",
-    "7-环境/4-hexo博客.md",
-    "3-编程语言/编译型/C.md",
-    "3-编程语言/编译型/Java/2.注解与反射.md",
-    "3-编程语言/编译型/Java/1.JavaSE概要.md",
-    "请问吃v.md",
-    "查实的.md",
+    "3-zotera/image-20230321235548736.png",
+    "3-zotera/image-20230321234001731.png",
+    "3-zotera/image-20230321233949384.png",
+    "3-zotera/image-20230321233645536.png",
+    "3-zotera/image-20230321233524322.png",
+    "3-zotera/image-20230321233258415.png",
+    "3-zotera/image-20230321232530135.png",
+    "3-zotera/image-20230321232347047.png",
+    "3-zotera/image-20230321231602289.png",
+    "3-zotera/image-20230321231550179.png",
+    "3-zotera/image-20230321231525809.png",
+    "3-zotera",
+    "7-环境与工具/4-hexo博客.md",
+    "7-环境与工具/3-工具/3-zotera.md",
+    "7-环境与工具/3-工具/2-typora 1.0.x破解.md",
+    "7-环境与工具/3-工具/1-markdown.md",
+    "7-环境与工具/2-IDE配置/3-navicat破解.md",
+    "7-环境与工具/2-IDE配置/2-vscode配置.md",
+    "7-环境与工具/2-IDE配置/1-IDEA.md",
+    "7-环境与工具/1-系统环境/3-docker.md",
+    "3-docker",
+    "7-环境与工具/1-系统环境/2-git.md",
+    "7-环境与工具/1-系统环境/1-Linux.md",
+    "8-随笔/工具",
+    "8-随笔/阅读归纳/3-读论文.md",
+    "8-随笔/阅读归纳/1-打铁选手的自我鞭策.md",
+    "8-随笔/阅读归纳/2-本科.md",
+    "2-计算机基础/4-计组/1-数的表示与计算.md",
+    "4-算法/1-数据结构与算法- C语言版/0-数学基础.md",
+    "4-算法/1-数据结构与算法- C语言版",
+    "2-计算机基础/4-计组/0-计算机系统概述.md",
+    "5-开发/2-JavaWeb.md",
+    "5-开发/3-项目构建工具/1-maven.md",
+    "2-JavaWeb",
+    "5-开发/1-前端工程/2-layui.md",
+    "2-layui",
+    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel.md",
+    "5-开发/1-前端工程/3-微信小程序/1-微信小程序笔记.md",
+    "4-算法/0-编程能力.md",
+    "3-编程语言/解释型/Python/1.Python-简介.md",
+    "3-编程语言/解释型/1-JavaScript.md",
+    "2-计算机基础/2-操作系统/5-IO管理.md",
+    "未命名.canvas",
     "未命名",
-    "查实的/image-20230314134833768.png",
     "查实的",
-    "image-20220912234201837.png",
     "amostian"
   ]
 }

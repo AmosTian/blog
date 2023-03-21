@@ -17,7 +17,7 @@ date: 2022-03-18 16:41:48
 
 <!--more-->
 
-#  	layui
+# layui
 
 ## 常用组件
 
@@ -359,7 +359,9 @@ layui-col-space30
 </ul>
 ```
 
-<img src="2-layui/image-20210427204240480.png" alt="image-20210427204240480" style="zoom:50%;" />
+![](image-20230314204201745.png)
+
+
 
 ##### 垂直导航
 
@@ -379,7 +381,9 @@ layui-col-space30
 </ul>
 ```
 
-<img src="2-layui/image-20210427210356452.png" alt="image-20210427210356452" style="zoom:50%;" />
+![](image-20230314204215021.png)
+
+
 
 ##### 侧边导航
 
@@ -399,7 +403,9 @@ layui-col-space30
 </ul>
 ```
 
-<img src="2-layui/image-20210427210526122.png" alt="image-20210427210526122" style="zoom:67%;" />
+![](image-20230314204319415.png)
+
+
 
 ##### 导航主题
 
@@ -419,7 +425,7 @@ layui-col-space30
 </span>
 ```
 
-<img src="2-layui/image-20210427211049818.png" alt="image-20210427211049818" style="zoom: 67%;" />
+![](image-20230314204355005.png)
 
 你还可以通过设置属性 *lay-separator="-"* 来自定义分隔符。如： 首页- 国际新闻- 亚太地区- 正文
 
@@ -557,8 +563,6 @@ layui-col-space30
 
 **基本属性**
 
-
-
 | 属性名            | 属性值                                                    | 备注                                       |
 | :---------------- | :-------------------------------------------------------- | :----------------------------------------- |
 | lay-even          | 无                                                        | 用于开启 *隔行* 背景，可与其它属性一起使用 |
@@ -668,7 +672,8 @@ autocomplete 表单元素是否自动填充 off |
     </select>
     ```
 
-    <img src="2-layui/image-20210427220514626.png" alt="image-20210427220514626" style="zoom:67%;" />
+    ![](image-20230314204914103.png)
+
 
 -   通过设定属性 *lay-search* 来开启搜索匹配功能——模糊匹配
 
@@ -681,7 +686,9 @@ autocomplete 表单元素是否自动填充 off |
     </select>
     ```
 
-    <img src="2-layui/image-20210427221418177.png" alt="image-20210427221418177" style="zoom: 67%;" />
+   ![](image-20230314205020108.png)
+
+
 
 ##### 复选框
 
@@ -692,7 +699,9 @@ autocomplete 表单元素是否自动填充 off |
 <input type="checkbox" name="" title="禁用" disabled> 
 ```
 
-<img src="2-layui/image-20210427222340416.png" alt="image-20210427222340416" style="zoom:67%;" />
+![](image-20230314205044582.png)
+
+
 
 ```html
 原始风格：
@@ -734,7 +743,7 @@ checkbox复选框的“变种”，通过设定 *lay-skin="switch"* 形成了开
 <input type="radio" name="sex" value="" title="中性" disabled>
 ```
 
-<img src="2-layui/image-20210427223111562.png" alt="image-20210427223111562" style="zoom:67%;" />
+![](image-20230314205159229.png)
 
 -   属性*title*可自定义文本
 -   属性*disabled*开启禁用
@@ -778,7 +787,6 @@ checkbox复选框的“变种”，通过设定 *lay-skin="switch"* 形成了开
 
 -   *class="layui-inline"*：定义外层行内
 -   *class="layui-input-inline"*：定义内层行内
-
 
 
 ##### 忽略美化渲染
@@ -878,7 +886,8 @@ layer.open({
 })
 ```
 
-<img src="2-layui/image-20210428115413496.png" alt="image-20210428115413496" style="zoom:50%;" />
+![](image-20230314205405839.png)
+
 
 ```html
 /* tips */
@@ -893,7 +902,7 @@ layer.open({
 })
 ```
 
-<img src="2-layui/image-20210428121206433.png" alt="image-20210428121206433" style="zoom:67%;" />
+![](image-20230314205438148.png)
 
 ##### aera - 宽高
 
@@ -915,13 +924,16 @@ layer.open({
 信息框默认不显示图标。当你想显示图标时，默认皮肤可以传入0-6如果是加载层，可以传入0-2。
 ```
 
-1.  ```js
-    layer.alert("很高兴见到你",{icon:6})
-    ```
+1.  
+```js
+layer.alert("很高兴见到你",{icon:6})
+```
 
-<img src="2-layui/image-20210428121529114.png" alt="image-20210428121529114" style="zoom:67%;" />
+![](image-20230314205721811.png)
 
-2.  ```js
+
+2. 
+```js
     layer.msg('?',{
         time: 0,//不自动关闭
         btn:['是','否'],//按钮
@@ -935,13 +947,14 @@ layer.open({
     })
     ```
 
-    ![image-20210428121809776](2-layui/image-20210428121809776.png)
+![image-20210428121809776](2-layui/image-20210428121809776.png)
 
-3.  ```js
-    layer.msg('常用的弹出层')
-    ```
+3.  
+```js
+layer.msg('常用的弹出层')
+```
 
-    ![image-20210428121856561](2-layui/image-20210428121856561.png)
+![image-20210428121856561](2-layui/image-20210428121856561.png)
 
 4.  ```js
     layer.msg('玩命加载中...',function(){
@@ -950,7 +963,8 @@ layer.open({
     })
     ```
 
-    ![image-20210428122003556](2-layui/image-20210428122003556.png)![image-20210428122010546](2-layui/image-20210428122010546.png)
+![image-20210428122003556](2-layui/image-20210428122003556.png)
+![image-20210428122010546](2-layui/image-20210428122010546.png)
 
 #### 日期和时间组件
 
@@ -1006,73 +1020,82 @@ layer.open({
 
 2.  type - 控件选择类型
 
-    ```
-    类型：String，默认值：date
-    ```
+```
+类型：String，默认值：date
+```
 
     用于单独提供不同的选择器类型，可选值如下表：
 
-    | type可选值 | 名称           | 用途                                       |
-    | :--------- | :------------- | :----------------------------------------- |
-    | year       | 年选择器       | 只提供年列表选择                           |
-    | month      | 年月选择器     | 只提供年、月选择                           |
-    | date       | 日期选择器     | 可选择：年、月、日。type默认值，一般可不填 |
-    | time       | 时间选择器     | 只提供时、分、秒选择                       |
-    | datetime   | 日期时间选择器 | 可选择：年、月、日、时、分、秒             |
+| type可选值 | 名称           | 用途                                       |
+| :--------- | :------------- | :----------------------------------------- |
+| year       | 年选择器       | 只提供年列表选择                           |
+| month      | 年月选择器     | 只提供年、月选择                           |
+| date       | 日期选择器     | 可选择：年、月、日。type默认值，一般可不填 |
+| time       | 时间选择器     | 只提供时、分、秒选择                       |
+| datetime   | 日期时间选择器 | 可选择：年、月、日、时、分、秒             |
 
-    ```js
-    //年范围选择
-    laydate.render({ 
-      elem: '#test'
-      ,type: 'year'
-      ,range: true //或 range: '~' 来自定义分割字符
-    });
-    ```
+```js
+//年范围选择
+laydate.render({ 
+  elem: '#test'
+  ,type: 'year'
+  ,range: true //或 range: '~' 来自定义分割字符
+});
+```
 
-    <img src="2-layui/image-20210428154843531.png" alt="image-20210428154843531" style="zoom:67%;" />
+![](image-20230314210713829.png)
 
-    ```js
-    //年月范围选择
-    laydate.render({ 
-      elem: '#test'
-      ,type: 'month'
-      ,range: true //或 range: '~' 来自定义分割字符
-    });
-    ```
 
-    <img src="2-layui/image-20210428154913275.png" alt="image-20210428154913275" style="zoom:67%;" />
 
-    ```js
-    //日期范围选择
-    laydate.render({ 
-      elem: '#test'
-      ,range: true //或 range: '~' 来自定义分割字符
-    });
-    ```
+```js
+//年月范围选择
+laydate.render({ 
+  elem: '#test'
+  ,type: 'month'
+  ,range: true //或 range: '~' 来自定义分割字符
+});
+```
 
-    <img src="2-layui/image-20210428154944938.png" alt="image-20210428154944938" style="zoom:67%;" />
+![](image-20230314210749017.png)
 
-    ```js
-    //时间范围选择
-    laydate.render({ 
-      elem: '#test'
-      ,type: 'time'
-      ,range: true //或 range: '~' 来自定义分割字符
-    });
-    ```
 
-    <img src="2-layui/image-20210428155020028.png" alt="image-20210428155020028" style="zoom:67%;" />
 
-    ```html
-    //日期时间范围选择
-    laydate.render({ 
-      elem: '#test'
-      ,type: 'datetime'
-      ,range: true //或 range: '~' 来自定义分割字符
-    });
-    ```
+```js
+//日期范围选择
+laydate.render({ 
+  elem: '#test'
+  ,range: true //或 range: '~' 来自定义分割字符
+});
+```
 
-    <img src="2-layui/image-20210428155057391.png" alt="image-20210428155057391" style="zoom:67%;" />
+![](image-20230314210845064.png)
+
+
+
+```js
+//时间范围选择
+laydate.render({ 
+  elem: '#test'
+  ,type: 'time'
+  ,range: true //或 range: '~' 来自定义分割字符
+});
+```
+
+![](image-20230314210930419.png)
+
+
+```html
+//日期时间范围选择
+laydate.render({ 
+  elem: '#test'
+  ,type: 'datetime'
+  ,range: true //或 range: '~' 来自定义分割字符
+});
+```
+
+![](image-20230314211238371.png)
+
+
 
 3.  format - 自定义格式
 
@@ -1082,31 +1105,31 @@ layer.open({
 
     通过日期时间各自的格式符和长度，来设定一个你所需要的日期格式。layDate 支持的格式如下：
 
-    | 格式符 | 说明                                             |
-    | :----- | :----------------------------------------------- |
-    | yyyy   | 年份，至少四位数。如果不足四位，则前面补零       |
-    | y      | 年份，不限制位数，即不管年份多少位，前面均不补零 |
-    | MM     | 月份，至少两位数。如果不足两位，则前面补零。     |
-    | M      | 月份，允许一位数。                               |
-    | dd     | 日期，至少两位数。如果不足两位，则前面补零。     |
-    | d      | 日期，允许一位数。                               |
-    | HH     | 小时，至少两位数。如果不足两位，则前面补零。     |
-    | H      | 小时，允许一位数。                               |
-    | mm     | 分钟，至少两位数。如果不足两位，则前面补零。     |
-    | m      | 分钟，允许一位数。                               |
-    | ss     | 秒数，至少两位数。如果不足两位，则前面补零。     |
-    | s      | 秒数，允许一位数。                               |
+| 格式符 | 说明                                             |
+| :----- | :----------------------------------------------- |
+| yyyy   | 年份，至少四位数。如果不足四位，则前面补零       |
+| y      | 年份，不限制位数，即不管年份多少位，前面均不补零 |
+| MM     | 月份，至少两位数。如果不足两位，则前面补零。     |
+| M      | 月份，允许一位数。                               |
+| dd     | 日期，至少两位数。如果不足两位，则前面补零。     |
+| d      | 日期，允许一位数。                               |
+| HH     | 小时，至少两位数。如果不足两位，则前面补零。     |
+| H      | 小时，允许一位数。                               |
+| mm     | 分钟，至少两位数。如果不足两位，则前面补零。     |
+| m      | 分钟，允许一位数。                               |
+| ss     | 秒数，至少两位数。如果不足两位，则前面补零。     |
+| s      | 秒数，允许一位数。                               |
 
     通过上述不同的格式符组合成一段日期时间字符串，可任意排版
 
-    | 格式                        | 示例值                      |
-    | :-------------------------- | :-------------------------- |
-    | yyyy-MM-dd HH:mm:ss         | 2017-08-18 20:08:08         |
-    | yyyy年MM月dd日 HH时mm分ss秒 | 2017年08月18日 20时08分08秒 |
-    | yyyyMMdd                    | 20170818                    |
-    | dd/MM/yyyy                  | 18/08/2017                  |
-    | yyyy年M月                   | 2017年8月                   |
-    | M月d日                      | 8月18日                     |
+| 格式                        | 示例值                      |
+| :-------------------------- | :-------------------------- |
+| yyyy-MM-dd HH:mm:ss         | 2017-08-18 20:08:08         |
+| yyyy年MM月dd日 HH时mm分ss秒 | 2017年08月18日 20时08分08秒 |
+| yyyyMMdd                    | 20170818                    |
+| dd/MM/yyyy                  | 18/08/2017                  |
+| yyyy年M月                   | 2017年8月                   |
+| M月d日                      | 8月18日                     |
 
 4.  value - 初始值
 
@@ -1163,7 +1186,8 @@ layer.open({
 </html>
 ```
 
- <img src="2-layui/image-20210428160206351.png" alt="image-20210428160206351" style="zoom:67%;" />
+![](image-20230314211341719.png)
+
 
 ##### 基本参数
 
@@ -1284,9 +1308,9 @@ layui.use('table', function(){
 
 在一段 table 容器中配置好相应的参数，由 table 模块内部自动对其完成渲染
 
-1.  带有 *class="layui-table"* 的 *<table>* 标签。
-2.  对标签设置属性 *lay-data=""* 用于配置一些基础参数
-3.  在 *<th>* 标签中设置属性*lay-data=""*用于配置表头信息
+1.  带有 `class="layui-table"` 的 `<table>` 标签。
+2. 对标签设置属性 `lay-data=""` 用于配置一些基础参数
+3. 在 `<th>` 标签中设置属性 `lay-data=\"\"` 用于配置表头信息
 
 ```html
 <table class="layui-table" lay-data="{height:315, url:'/demo/table/user/', page:true, id:'test'}" lay-filter="test">
@@ -1409,9 +1433,16 @@ table.render({
 | type | String  | 设定列类型。可选值有：<br />normal（常规列，无需设定）<br />checkbox（复选框列）<br />radio（单选框列，layui 2.4.0 新增）numbers（序号列）<br />space（空列） | 任意一个可选值 |
 | hide | Boolean | 是否初始隐藏列，默认：false。layui 2.4.0 新增                | true           |
 
-<img src="2-layui/image-20210428180342715.png" alt="image-20210428180342715" style="zoom:67%;" />![image-20210428180410586](2-layui/image-20210428180410586.png)
+![](image-20230314212001585.png)
 
-<img src="2-layui/image-20210428180342715.png" alt="image-20210428180342715" style="zoom:67%;" />![image-20210428180410586](2-layui/image-20210428180410586.png)
+
+![image-20210428180410586](2-layui/image-20210428180410586.png)
+
+![](image-20230314212132907.png)
+
+
+
+![image-20210428180410586](2-layui/image-20210428180410586.png)
 
 ##### 工具栏
 
@@ -1455,7 +1486,7 @@ table.render({
 </script>
 ```
 
-<img src="2-layui/image-20210428181858722.png" alt="image-20210428181858722" style="zoom: 67%;" />
+![](image-20230314212255226.png)
 
 ![image-20210428182214316](2-layui/image-20210428182214316.png)
 

@@ -248,7 +248,8 @@ Listener是Servlet的监听器，可以监听客户端的请求、服务端的�
 
 >   Servlet是使用Java语言编写的并且在 **包含着Java虚拟机的Web服务器端加载运行** 的程序，**能根据客户端的HTTP请求类型选择的Servlet方法处理请求并做出响应**
 
-<img src="2-JavaWeb/servlet执行机制.png" alt="servlet执行机制" style="zoom: 33%;" />
+![](image-20230314235110204.png)
+
 
 Servlet可以访问包括JDBC在内几乎所有的JDK API，支持HTTP协议与客户端进行通信
 
@@ -269,7 +270,8 @@ Servlet可以访问包括JDBC在内几乎所有的JDK API，支持HTTP协议与�
 
 始于被装入Web服务器内存时，并在Web服务器终止或重新装入Servlet时结束。（不包含内存回收动作）  
 
-<img src="2-JavaWeb/Servlet在web服务器上的运行过程.png" alt="Servlet在web服务器上的运行过程" style="zoom:67%;" />
+![](image-20230314235144961.png)
+
 
 #### 1) 加载
 
@@ -819,7 +821,7 @@ Java程序段中声明的变量，对该页面后继的所有程序段以及表�
 
 不用声明就可在JSP页面中直接使用的对象
 
-<img src="2-JavaWeb/JSP内置对象.png" alt="JSP内置对象" style="zoom: 33%;" />
+![](image-20230314235454730.png)
 
 ### 4.4.1 request
 
@@ -987,17 +989,14 @@ sendRedirect
 
 #### 获取其他内置对象
 
-|                                     |
-| ----------------------------------- |
-| ServletRequest  getRequest()        |
-| ServletResponse  getResponse()      |
-| Object  getPage()                   |
-| ServletContext  getServletContext() |
-| JSPWriter  getOut()                 |
-| HttpSession  getSession()           |
-| ServletConfig  getServletConfig()   |
-| Exception  getException()           |
-
+- ServletRequest  getRequest()        
+- ServletResponse  getResponse()      
+- Object  getPage()                   
+- ServletContext  getServletContext() 
+- JSPWriter  getOut()                 
+- HttpSession  getSession()           
+- ServletConfig  getServletConfig()   
+- Exception  getException()           
 
 #### 方法
 
@@ -1198,7 +1197,7 @@ web.xml配置文件中的**元素名称及其顺序**有严格规定。
 | void printStackTrace() | 以标准错误的形式输出错误及跟踪信息 |
 | String toString()      | 以字符串形式返回异常信息           |
 
-# <span id="JDBC">5. JDBC</span>
+# 5. JDBC
 
 ## 5.1 概述
 
@@ -1208,7 +1207,9 @@ web.xml配置文件中的**元素名称及其顺序**有严格规定。
 
 通过JDBC就可以连接任何提供了JDBC驱动程序的数据库系统
 
-<img src="2-JavaWeb/JDBC.png" alt="JDBC" style="zoom: 67%;" />
+![](image-20230314235817852.png)
+
+
 
 Java应用程序通过JDBC API 和 JDBC Manager API 进行通信
 
@@ -1228,7 +1229,9 @@ Java应用程序通过JDBC API 和 JDBC Manager API 进行通信
 
 (5) 关闭连接
 
-<img src="2-JavaWeb/JDBC访问数据库.png" alt="JDBC访问数据库" style="zoom: 50%;" />
+![](image-20230314235850701.png)
+
+
 
 #### 0). 环境
 
@@ -1446,7 +1449,7 @@ jdbc:子协议://主机名:端口号/数据库名(可选)
 
 **方法**
 
-|||
+| | |
 | ------------------------- | ------------------------------------------------------------ |
 | void  addBatch()          | 将一组参数添加到此PreparedStatement对象的批处理命令中        |
 | void  clearParamenters()  | 立即清除当前参数值                                           |
@@ -1494,21 +1497,21 @@ jdbc:子协议://主机名:端口号/数据库名(可选)
 
 1.  在WEB应用的META-INF下新建context.xml文件，配置数据源
 
-    ```xml
-    <?xml version="1.0" enconding="utf-8">
-             <Context>
-                     <resource name="dbpool" 
-                     type="javax.sql.DataSource"
-                     auth="Container"
-                     driverClassName="com.mysql.jdbc.Driver"
-                     url = "jdbc:mysql://localhost:3306/test"
-                     username="root"
-                     passward="123"
-                     maxActive="5"
-                     maxIdle="2"
-                     maxWait="6000"/>
-             </Context>
-    ```
+```xml
+<?xml version="1.0" enconding="utf-8">
+	 <Context>
+			 <resource name="dbpool" 
+			 type="javax.sql.DataSource"
+			 auth="Container"
+			 driverClassName="com.mysql.jdbc.Driver"
+			 url = "jdbc:mysql://localhost:3306/test"
+			 username="root"
+			 passward="123"
+			 maxActive="5"
+			 maxIdle="2"
+			 maxWait="6000"/>
+	 </Context>
+```
 
     **Resource**元素的属性
 
@@ -1545,7 +1548,9 @@ jdbc:子协议://主机名:端口号/数据库名(可选)
 
 ### 6.1.1 概述
 
-<img src="2-JavaWeb/MVC.png" alt="MVC" style="zoom: 33%;" />
+![](image-20230315000037454.png)
+
+
 
 MVC模式按功能对各种对象进行分割(这些对象用来维护和表现数据的)，目的是将各对象的耦合程度减小到最小
 
@@ -1578,8 +1583,7 @@ MVC模式按功能对各种对象进行分割(这些对象用来维护和表现�
 
 但维护困难，代码可读性差，程序和页面耦合度高，致使程序不易扩展，分工不明确，开发效率低。
 
- <img src="2-JavaWeb/MVC框架模式 (1).png" alt="MVC框架模式 (1)" style="zoom:67%;" />
-
+![](image-20230315000105665.png)
 
 
 #### JSP Model1
@@ -1588,7 +1592,8 @@ JSP页面负责调用模型组件以响应客户请求，并将处理结果返�
 
 JSP负责视图和控制器双重功能，JavaBean负责业务处理逻辑
 
-<img src="2-JavaWeb/JSPModel1.png" alt="JSPModel1" style="zoom: 33%;" />
+![](image-20230315000130622.png)
+
 
 #### JSP     Model2
 
@@ -1714,7 +1719,6 @@ RequestDispatcher dispatcher = request.getRequestDispatcher("target.jsp");
 dispatcher.forward(request,response);
 ```
 
-<img src="2-JavaWeb/请求转发与重定向.png" alt="请求转发与重定向" style="zoom:50%;" />
 
 ### 6.3.2 重定向
 
@@ -1841,22 +1845,22 @@ ${expression}
 
 ### 7.2.1 EL运算符
 
-| ?:——条件语句 |
-| -------- |
-| +        |
-| *        |
-| /或div——除法 |
-| %或mod——取余 |
-| ==或eq   |
-| !=或ne——不等于 |
-| <或lt    |
-| >或gt    |
-| <=或le   |
-| >=或ge   |
-| &&或and  |
-| $\mid$ ——或or |
-| !或not   |
-| empty    |
+| ?:——条件语句 |  |
+| -------- |--- |
+| +        | |
+| *        | |
+| /或div——除法 | |
+| %或mod——取余 | |
+| `==` 或 `eq`   | |
+| !=或ne——不等于 | |
+| <或lt    | |
+| >或gt    | |
+| <=或le   | |
+| >=或ge   | |
+| &&或and  | |
+| $\mid$ ——或or | |
+| !或not   | |
+| empty    | |
 
 表达式中操作符要与操作数用空格分隔
 
@@ -1900,8 +1904,6 @@ ${JavaBean对象名称.属性名称}
 （5）当一些文件被Java程序读取时，需要进行从字节到字符的转换
 
 （6）当Java应用程序向一些文件存储数据时需要进行从字符到字节的转换
-
- 
 
 转换过程中使用的编码方式与字节原有的编码不一致时，中文信息就会出现乱码
 

@@ -21,6 +21,10 @@ date: 2023-03-12 22:50:12
 
 > 我是参考这篇文章做的，可以实现导出静态的excle，如果有更多的需求可以在此基础上自行拓展。
 
+​
+[代码链接]([https://download.csdn.net/download/qq_40479037/87577399](https://download.csdn.net/download/qq_40479037/87577399 "https://download.csdn.net/download/qq_40479037/87577399"))
+
+
 ## **前言**
 
 我们团队的小程序开发用知晓云作为后台（知晓云、云开发、bmob云之类，不需要后台开发接口只需要用后端云api操作云上的数据库），接到了一个需要在小程序端导出excle文件的项目。
