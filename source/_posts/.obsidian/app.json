@@ -1,5 +1,6 @@
 {
   "useMarkdownLinks": true,
-  "attachmentFolderPath": "3-zotera",
-  "alwaysUpdateLinks": true
+  "attachmentFolderPath": "1-概述",
+  "alwaysUpdateLinks": true,
+  "showLineNumber": true
 }

@@ -46,9 +46,9 @@ D-->分页
 
 layui是一款采用自身模块规范编写的前端UI框架，遵循原生HTML/CSS/JS的书写与组织形式，门槛低。由国人开发，16年出厂的框架，和Bootstrap有些相似，但该框架极大的好处就是定义了很多前后端交互的样式接口，后端则按照定义好的接口规则返回数据，即可完成页面的展示，极大减少了后端人员的成本
 
-官网：[Layui - 经典开源模块化前端 UI 框架](https://www.layui.com/)
+官网：[Layui - 经典开源模块化前端 UI 框架](2-layui/https://www.layui.com/)
 
-文档：[Layui 开发使用文档 - 入门指南](https://www.layui.com/doc/)
+文档：[Layui 开发使用文档 - 入门指南](2-layui/https://www.layui.com/doc/)
 
 #### 特点 
 
@@ -108,7 +108,6 @@ layui.use(['layer', 'form'], function(){
 
 ##### 布局规则
 
-![image-20210427140048696](2-layui/image-20210427140048696.png)
 
 ![image-20210427140056973](2-layui/image-20210427140056973.png)
 
@@ -293,13 +292,13 @@ layui-col-space30
 
 #### 图标
 
-[字体图标 - 页面元素 - Layui](https://www.layui.com/doc/element/icon.html)
+[字体图标 - 页面元素 - Layui](2-layui/https://www.layui.com/doc/element/icon.html)
 
 #### 导航
 
 导航一般指页面引导性频道集合，多以菜单的形式呈现，可应用于头部和侧边，是整个网页画龙点晴般的存在。面包屑结构简单，支持自定义分隔符。千万不要忘了加载 *element*模块。虽然大部分行为都是在加载完该模块后自动完成的，但一些交互操作，如呼出二级菜单等，需借助element模块才能使用。
 
->   依赖加载模块：[element](https://www.layui.com/doc/modules/element.html)
+>   依赖加载模块：[element](2-layui/https://www.layui.com/doc/modules/element.html)
 
 实现步骤：
 
@@ -359,7 +358,7 @@ layui-col-space30
 </ul>
 ```
 
-![](image-20230314204201745.png)
+![](2-layui/image-20230314204201745.png)
 
 
 
@@ -381,7 +380,7 @@ layui-col-space30
 </ul>
 ```
 
-![](image-20230314204215021.png)
+![](2-layui/image-20230314204215021.png)
 
 
 
@@ -403,7 +402,7 @@ layui-col-space30
 </ul>
 ```
 
-![](image-20230314204319415.png)
+![](2-layui/image-20230314204319415.png)
 
 
 
@@ -425,7 +424,7 @@ layui-col-space30
 </span>
 ```
 
-![](image-20230314204355005.png)
+![](2-layui/image-20230314204355005.png)
 
 你还可以通过设置属性 *lay-separator="-"* 来自定义分隔符。如： 首页- 国际新闻- 亚太地区- 正文
 
@@ -433,7 +432,7 @@ layui-col-space30
 
 导航菜单可应用于头部和侧边，Tab选项卡提供多套风格，支持响应式，支持删除选项卡等功能。面包屑结构简单，支持自定义分隔符。
 
->   依赖加载组件：[element](https://www.layui.com/doc/modules/element.html) （请注意：必须加载element模块，相关功能才能正常使用，详见：内置组件 - 常用元素操作）
+>   依赖加载组件：[element](2-layui/https://www.layui.com/doc/modules/element.html) （请注意：必须加载element模块，相关功能才能正常使用，详见：内置组件 - 常用元素操作）
 
 **实现步骤**
 
@@ -597,7 +596,7 @@ layui-col-space30
 
 在一个容器中设定 *class="layui-form"* 来标识一个表单元素块，通过规范好的HTML结构及CSS类，来组装成各式各样的表单元素，并通过内置的 *form模块* 来完成各种交互。
 
->   依赖加载模块：[form](https://www.layui.com/doc/modules/form.html) （请注意：如果不加载form模块，select、checkbox、radio等将无法显示，并且无法使用form相关功能）
+>   依赖加载模块：[form](2-layui/https://www.layui.com/doc/modules/form.html) （请注意：如果不加载form模块，select、checkbox、radio等将无法显示，并且无法使用form相关功能）
 
 1.  在一个容器中设定 `class="layui-form"` 来标识一个表单元素块
 
@@ -672,7 +671,7 @@ autocomplete 表单元素是否自动填充 off |
     </select>
     ```
 
-    ![](image-20230314204914103.png)
+    ![](2-layui/image-20230314204914103.png)
 
 
 -   通过设定属性 *lay-search* 来开启搜索匹配功能——模糊匹配
@@ -686,7 +685,7 @@ autocomplete 表单元素是否自动填充 off |
     </select>
     ```
 
-   ![](image-20230314205020108.png)
+   ![](2-layui/image-20230314205020108.png)
 
 
 
@@ -699,7 +698,7 @@ autocomplete 表单元素是否自动填充 off |
 <input type="checkbox" name="" title="禁用" disabled> 
 ```
 
-![](image-20230314205044582.png)
+![](2-layui/image-20230314205044582.png)
 
 
 
@@ -743,7 +742,7 @@ checkbox复选框的“变种”，通过设定 *lay-skin="switch"* 形成了开
 <input type="radio" name="sex" value="" title="中性" disabled>
 ```
 
-![](image-20230314205159229.png)
+![](2-layui/image-20230314205159229.png)
 
 -   属性*title*可自定义文本
 -   属性*disabled*开启禁用
@@ -803,9 +802,9 @@ checkbox复选框的“变种”，通过设定 *lay-skin="switch"* 形成了开
 
 *layer* 已然成为网页弹出层的首先交互方案
 
->   模块加载名称：*layer*，独立版本：[layer.layui.com](http://layer.layui.com/)
+>   模块加载名称：*layer*，独立版本：[layer.layui.com](2-layui/http://layer.layui.com/)
 
-[layer弹层组件开发文档 - Layui](https://www.layui.com/doc/modules/layer.html)
+[layer弹层组件开发文档 - Layui](2-layui/https://www.layui.com/doc/modules/layer.html)
 
 ##### 使用场景
 
@@ -813,7 +812,7 @@ checkbox复选框的“变种”，通过设定 *lay-skin="switch"* 形成了开
 
 | 场景                | 用前准备                                                     | 调用方式                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| 1. 作为独立组件使用 | 如果你只是单独想使用 layer，你可以去 [layer](http://layer.layui.com/) 独立版本官网下载组件包。你需要在你的页面引入*jQuery*1.8以上的任意版本，并引入*layer.js*。 | 通过script标签引入layer.js后，直接用即可。 参考：[快速上手](http://layer.layui.com/hello.html) |
+| 1. 作为独立组件使用 | 如果你只是单独想使用 layer，你可以去 [layer](2-layui/http://layer.layui.com/) 独立版本官网下载组件包。你需要在你的页面引入*jQuery*1.8以上的任意版本，并引入*layer.js*。 | 通过script标签引入layer.js后，直接用即可。 参考：[快速上手](2-layui/http://layer.layui.com/hello.html) |
 | 2. layui 模块化使用 | 如果你使用的是 layui，那么你直接在官网下载 layui 框架即可，无需引入 jQuery 和 layer.js，但需要引入*layui.css*和*layui.js* | 通过*layui.use('layer', callback)*加载模块                   |
 
 ##### 基本参数
@@ -886,7 +885,7 @@ layer.open({
 })
 ```
 
-![](image-20230314205405839.png)
+![](2-layui/image-20230314205405839.png)
 
 
 ```html
@@ -902,7 +901,7 @@ layer.open({
 })
 ```
 
-![](image-20230314205438148.png)
+![](2-layui/image-20230314205438148.png)
 
 ##### aera - 宽高
 
@@ -929,7 +928,7 @@ layer.open({
 layer.alert("很高兴见到你",{icon:6})
 ```
 
-![](image-20230314205721811.png)
+![](2-layui/image-20230314205721811.png)
 
 
 2. 
@@ -1043,7 +1042,7 @@ laydate.render({
 });
 ```
 
-![](image-20230314210713829.png)
+![](2-layui/image-20230314210713829.png)
 
 
 
@@ -1056,7 +1055,7 @@ laydate.render({
 });
 ```
 
-![](image-20230314210749017.png)
+![](2-layui/image-20230314210749017.png)
 
 
 
@@ -1068,7 +1067,7 @@ laydate.render({
 });
 ```
 
-![](image-20230314210845064.png)
+![](2-layui/image-20230314210845064.png)
 
 
 
@@ -1081,7 +1080,7 @@ laydate.render({
 });
 ```
 
-![](image-20230314210930419.png)
+![](2-layui/image-20230314210930419.png)
 
 
 ```html
@@ -1093,7 +1092,7 @@ laydate.render({
 });
 ```
 
-![](image-20230314211238371.png)
+![](2-layui/image-20230314211238371.png)
 
 
 
@@ -1186,7 +1185,7 @@ laydate.render({
 </html>
 ```
 
-![](image-20230314211341719.png)
+![](2-layui/image-20230314211341719.png)
 
 
 ##### 基本参数
@@ -1300,9 +1299,9 @@ layui.use('table', function(){
 
 | 方式                                                         | 机制                   | 适用场景                                                     |
 | :----------------------------------------------------------- | :--------------------- | :----------------------------------------------------------- |
-| [方法渲染](https://www.layui.com/doc/modules/table.html#methodRender) | 用JS方法的配置完成渲染 | （推荐）无需写过多的 HTML，在 JS 中指定原始元素，再设定各项参数即可。 |
-| [自动渲染](https://www.layui.com/doc/modules/table.html#autoRender) | HTML配置，自动渲染     | 无需写过多 JS，可专注于 HTML 表头部分                        |
-| [转换静态表格](https://www.layui.com/doc/modules/table.html#parseTable) | 转化一段已有的表格元素 | 无需配置数据接口，在JS中指定表格元素，并简单地给表头加上自定义属性即可 |
+| [方法渲染](2-layui/https://www.layui.com/doc/modules/table.html#methodRender) | 用JS方法的配置完成渲染 | （推荐）无需写过多的 HTML，在 JS 中指定原始元素，再设定各项参数即可。 |
+| [自动渲染](2-layui/https://www.layui.com/doc/modules/table.html#autoRender) | HTML配置，自动渲染     | 无需写过多 JS，可专注于 HTML 表头部分                        |
+| [转换静态表格](2-layui/https://www.layui.com/doc/modules/table.html#parseTable) | 转化一段已有的表格元素 | 无需配置数据接口，在JS中指定表格元素，并简单地给表头加上自定义属性即可 |
 
 **自动渲染**
 
@@ -1418,13 +1417,13 @@ table.render({
   tableObj.reload(options); //重载表格
 ```
 
-[table 数据表格文档 - Layui](https://www.layui.com/doc/modules/table.html#options)
+[table 数据表格文档 - Layui](2-layui/https://www.layui.com/doc/modules/table.html#options)
 
 ##### 工具 - 分页
 
 | 参数 | 类型           | 说明                                                         | 示例值          |
 | ---- | -------------- | ------------------------------------------------------------ | --------------- |
-| page | Boolean/Object | 开启分页（默认：false） 注：从 layui 2.2.0 开始，支持传入一个对象，里面可包含 [laypage](https://www.layui.com/doc/modules/laypage.html#options) 组件所有支持的参数（jump、elem除外） | {theme: '#c00'} |
+| page | Boolean/Object | 开启分页（默认：false） 注：从 layui 2.2.0 开始，支持传入一个对象，里面可包含 [laypage](2-layui/https://www.layui.com/doc/modules/laypage.html#options) 组件所有支持的参数（jump、elem除外） | {theme: '#c00'} |
 
 ##### cols - 表头参数
 
@@ -1433,12 +1432,12 @@ table.render({
 | type | String  | 设定列类型。可选值有：<br />normal（常规列，无需设定）<br />checkbox（复选框列）<br />radio（单选框列，layui 2.4.0 新增）numbers（序号列）<br />space（空列） | 任意一个可选值 |
 | hide | Boolean | 是否初始隐藏列，默认：false。layui 2.4.0 新增                | true           |
 
-![](image-20230314212001585.png)
+![](2-layui/image-20230314212001585.png)
 
 
 ![image-20210428180410586](2-layui/image-20210428180410586.png)
 
-![](image-20230314212132907.png)
+![](2-layui/image-20230314212132907.png)
 
 
 
@@ -1486,7 +1485,7 @@ table.render({
 </script>
 ```
 
-![](image-20230314212255226.png)
+![](2-layui/image-20230314212255226.png)
 
 ![image-20210428182214316](2-layui/image-20210428182214316.png)
 
@@ -1612,7 +1611,7 @@ table.on('edit(test)',functionobj(){
 
 | 语法                            | 说明                                                         | 适用场景       |
 | ------------------------------- | ------------------------------------------------------------ | -------------- |
-| table.reload(ID, options, deep) | 参数 *ID* 即为基础参数id对应的值，见：[设定容器唯一ID](https://www.layui.com/doc/modules/table.html#id) 参数 *options* 即为各项基础参数 参数 *deep*：是否采用深度重载（即参数深度克隆，也就是重载时始终携带初始时及上一次重载时的参数），默认 false 注意：deep 参数为 layui 2.6.0 开始新增。 | 所有渲染方式   |
+| table.reload(ID, options, deep) | 参数 *ID* 即为基础参数id对应的值，见：[设定容器唯一ID](2-layui/https://www.layui.com/doc/modules/table.html#id) 参数 *options* 即为各项基础参数 参数 *deep*：是否采用深度重载（即参数深度克隆，也就是重载时始终携带初始时及上一次重载时的参数），默认 false 注意：deep 参数为 layui 2.6.0 开始新增。 | 所有渲染方式   |
 | tableIns.reload(options, deep)  | 参数同上 tableIns 可通过 var tableIns = table.render() 得到  | 仅限方法级渲染 |
 
 ```html
@@ -1647,7 +1646,7 @@ $(document).on('click','#searchBtn',function(data){
 
 ## LayuiMini
 
-[layuimini - 基于Layui的后台管理系统前端模板 (99php.cn)](http://layuimini.99php.cn/)
+[layuimini - 基于Layui的后台管理系统前端模板 (99php.cn)](2-layui/http://layuimini.99php.cn/)
 
 
 
