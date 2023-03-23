@@ -14,11 +14,11 @@ date: 2022-03-15 21:49:17
 
 > 前置知识：
 >
-> [Spring](https://auspicetian.github.io/posts/1821512031/)
+> [Spring](https://amostian.github.io/posts/1821512031/)
 >
-> [Mybatis](https://auspicetian.github.io/posts/3381441825/)
+> [Mybatis](https://amostian.github.io/posts/3381441825/)
 >
-> [SpringMVC](https://auspicetian.github.io/posts/2920256992/)
+> [SpringMVC](https://amostian.github.io/posts/2920256992/)
 >
 > 学习视频：https://www.bilibili.com/video/BV1PE411i7CV?spm_id_from=333.337.search-card.all.click
 
@@ -256,7 +256,7 @@ server.port=8081
 
 >   需求：定义一个注解，让使用了这个注解的应用程序自动化地注入一些类或者做一些底层的事情
 
-<img src="4-SpringBoot/image-20210223122012223.png" alt="image-20210223122012223" style="zoom:67%;" />
+![](4-SpringBoot/image-20210223122012223.png)
 
 在应用程序的入口加上 `@EnableMyConfig` 注解。这样的话，MyConfig就被注入进来了
 
@@ -410,8 +410,6 @@ org.springframework.boot.autoconfigure.MessageSourceAutoConfiguration,\
 -   查找并加载所有可用的初始化器，设置到initializers属性中
 -   找出所有的而应用程序监听器，设置到listeners属性中
 -   _推断并设置main方法的定义类，找出运行的主类_
-
-![图片](5-SpringBoot/640)
 
 ### 总结
 
@@ -1162,7 +1160,7 @@ ThresholdFilter为系统定义的拦截器，例如我们用ThresholdFilter来�
 
 ##### `<loger>`
 
-`<loger>`用来设置某一个包或者具体的某一个类的日志打印级别、以及指定<appender>。
+`<loger>`用来设置某一个包或者具体的某一个类的日志打印级别、以及指定 `<appender>`。
 
 -   name:用来指定受此loger约束的某一个包或者具体的某一个类。
 
@@ -1172,12 +1170,11 @@ ThresholdFilter为系统定义的拦截器，例如我们用ThresholdFilter来�
 
 -   addtivity:是否向上级loger传递打印信息。默认是true
 
-```xml
+```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="10 seconds">
     <contextName>logback-spring</contextName>
     <property name="logging.path" value="myLogs"/>
-
     <!--0. 日志格式和颜色渲染 -->
     <!-- 彩色日志依赖的渲染类 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
@@ -1580,86 +1577,86 @@ spring-boot-starter-thymeleaf
 
 1.  Variable Expressions: `${...}`：获取变量值
 
-    -   ```java
-        /* 
-         * Access to properties using the point (.). Equivalent to calling property getters.
-         */
-        ${person.father.name}
-        
-        /*
-         * Access to properties can also be made by using brackets ([]) and writing 
-         * the name of the property as a variable or between single quotes.
-         */
-        ${person['father']['name']}
-        
-        /*
-         * If the object is a map, both dot and bracket syntax will be equivalent to 
-         * executing a call on its get(...) method.
-         */
-        ${countriesByCode.ES}
-        ${personsByName['Stephen Zucchini'].age}
-        
-        /*
-         * Indexed access to arrays or collections is also performed with brackets, 
-         * writing the index without quotes.
-         */
-        ${personsArray[0].name}
-        
-        /*
-         * Methods can be called, even with arguments.
-         */
-        ${person.createCompleteName()}
-        ${person.createCompleteNameWithSeparator('-')}
+```java
+/* 
+ * Access to properties using the point (.). Equivalent to calling property getters.
+ */
+${person.father.name}
+
+/*
+ * Access to properties can also be made by using brackets ([]) and writing 
+ * the name of the property as a variable or between single quotes.
+ */
+${person['father']['name']}
+
+/*
+ * If the object is a map, both dot and bracket syntax will be equivalent to 
+ * executing a call on its get(...) method.
+ */
+${countriesByCode.ES}
+${personsByName['Stephen Zucchini'].age}
+
+/*
+ * Indexed access to arrays or collections is also performed with brackets, 
+ * writing the index without quotes.
+ */
+${personsArray[0].name}
+
+/*
+ * Methods can be called, even with arguments.
+ */
+${person.createCompleteName()}
+${person.createCompleteNameWithSeparator('-')}
         ```
 
     -   内置的基本对象
 
-        ```html
-        #ctx: the context object.
-        #vars: the context variables.
-        #locale: the context locale.
-        
-        <!--(only in Web Contexts)-->
-        #request:  the HttpServletRequest object.
-        #response: the HttpServletResponse object.
-        #session: the HttpSession object.
-        #servletContext: the ServletContext object.
-        ```
+```html
+#ctx: the context object.
+#vars: the context variables.
+#locale: the context locale.
+
+<!--(only in Web Contexts)-->
+#request:  the HttpServletRequest object.
+#response: the HttpServletResponse object.
+#session: the HttpSession object.
+#servletContext: the ServletContext object.
+```
 
     -   内置的工具对象
 
-        ```html
-        #execInfo: information about the template being processed.
-        
-        #messages: methods for obtaining externalized messages inside variables expressions, in the same way as they would be obtained using #{…} syntax.
-        
-        #uris: methods for escaping parts of URLs/URIs
-        
-        #conversions: methods for executing the configured conversion service (if any).
-        
-        #dates: methods for java.util.Date objects: formatting, component extraction, etc.
-        
-        #calendars: analogous to #dates, but for java.util.Calendar objects.
-        
-        #numbers: methods for formatting numeric objects.
-        #strings: methods for String objects: contains, startsWith, prepending/appending, etc.
-        
-        #objects: methods for objects in general.
-        
-        #bools: methods for boolean evaluation.
-        
-        #arrays: methods for arrays.
-        
-        #lists: methods for lists.
-        
-        #sets: methods for sets.
-        
-        #maps: methods for maps.
-        
-        #aggregates: methods for creating aggregates on arrays or collections.
-        
-        #ids: methods for dealing with id attributes that might be repeated (for example, as a result of an iteration).
-        ```
+```html
+#execInfo: information about the template being processed.
+
+#messages: methods for obtaining externalized messages inside variables expressions, in the same way as they would be obtained using #{…} syntax.
+
+#uris: methods for escaping parts of URLs/URIs
+
+#conversions: methods for executing the configured conversion service (if any).
+
+#dates: methods for java.util.Date objects: formatting, component extraction, etc.
+
+#calendars: analogous to #dates, but for java.util.Calendar objects.
+
+#numbers: methods for formatting numeric objects.
+#strings: methods for String objects: contains, startsWith, prepending/appending, etc.
+
+#objects: methods for objects in general.
+
+#bools: methods for boolean evaluation.
+
+#arrays: methods for arrays.
+
+#lists: methods for lists.
+
+#sets: methods for sets.
+
+#maps: methods for maps.
+
+#aggregates: methods for creating aggregates on arrays or collections.
+
+#ids: methods for dealing with id attributes that might be repeated (for example, as a result of an iteration).
+```
 
 2.  Selection Variable Expressions: `*{...}`:配合th:object使用
 
@@ -2551,24 +2548,24 @@ public void addInterceptors(InterceptorRegistry registry) {
 
     HTTP请求方式区分对资源的CRUD操作
 
-    |      | 普通CRUD(URI区分资源操作) | RestfulCRUD()        |
-    | ---- | ------------------------- | -------------------- |
-    | 查询 | getEmp                    | emp————Get方式       |
-    | 添加 | addEmp?XXX                | emp————POST方式      |
-    | 修改 | updateEmp?XXX             | emp/{id}——PUT方式    |
-    | 删除 | deleteEmp?id=             | emp/{id}——DELETE方式 |
+|      | 普通CRUD(URI区分资源操作) | RestfulCRUD()        |
+| ---- | ------------------------- | -------------------- |
+| 查询 | getEmp                    | emp————Get方式       |
+| 添加 | addEmp?XXX                | emp————POST方式      |
+| 修改 | updateEmp?XXX             | emp/{id}——PUT方式    |
+| 删除 | deleteEmp?id=             | emp/{id}——DELETE方式 |
 
 2.  实验的请求架构
 
-    |                                    | 请求URI  | 请求方式 |
-    | ---------------------------------- | -------- | -------- |
-    | 查询所有员工                       | emps     | GET      |
-    | 查询某个员工                       | emp/{id} | GET      |
-    | 跳转添加页面                       | emp      | GET      |
-    | 添加员工                           | emp      | POST     |
-    | 跳转修改页面(查出员工进行信息回显) | emp/{id} | GET      |
-    | 修改员工                           | emp      | PUT      |
-    | 删除员工                           | emp/{id} | GET      |
+|                                    | 请求URI  | 请求方式 |
+| ---------------------------------- | -------- | -------- |
+| 查询所有员工                       | emps     | GET      |
+| 查询某个员工                       | emp/{id} | GET      |
+| 跳转添加页面                       | emp      | GET      |
+| 添加员工                           | emp      | POST     |
+| 跳转修改页面(查出员工进行信息回显) | emp/{id} | GET      |
+| 修改员工                           | emp      | PUT      |
+| 删除员工                           | emp/{id} | GET      |
 
 ##### R——列表页面
 
@@ -3770,7 +3767,7 @@ Servlet3规则:Shared Lobraries/runntimes pluggability
 
     ![image-20210303195936200](5-SpringBoot/image-20210303195936200.png)
 
-    3.  ServletContainerInitializer扫描由@HandlesTypes标注的类，存到 onStartup方法中的Set<Class<?>>,并为这些WebApplicationInitializer类型的类创建实例
+    3.  ServletContainerInitializer扫描由@HandlesTypes标注的类，存到 onStartup方法中的`Set<Class<?>>` ,并为这些WebApplicationInitializer类型的类创建实例
 
         ![image-20210303210945785](5-SpringBoot/image-20210303210945785.png)
 
@@ -4050,10 +4047,3 @@ public class MyController {
 ![image-20210307214921663](5-SpringBoot/image-20210307214921663.png)
 
 #### Durid
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@ abbrlink: 1821512031
 date: 2022-3-14 16:54:03
 updated: 2022-3-17 17:55:00
 ---
-> 前置知识：[JSP&Servlet](https://auspicetian.life/posts/3113518366/)
+> 前置知识：[JSP&Servlet](https://amostian.github.io/posts/3113518366/)
 >
 > 学习视频：https://www.bilibili.com/video/BV1WE411d7Dv?spm_id_from=333.999.0.0
 
@@ -113,7 +113,7 @@ updated: 2022-3-17 17:55:00
 
 #### 原先
 
-<img src="2-Spring/image-20220314111805347.png" alt="image-20220314111805347" style="zoom: 67%;" />
+![](2-Spring/image-20220314111805347.png)
 
 1.  UserDao接口
 
@@ -183,7 +183,7 @@ updated: 2022-3-17 17:55:00
 
 #### IoC雏形
 
-<img src="2-Spring/image-20220314165215057.png" alt="image-20220314165215057" style="zoom:67%;" />
+![](2-Spring/image-20220314165215057.png)
 
 1.  UserDao接口
 
@@ -828,7 +828,7 @@ public class AppConfig {
 
 在代理类调用目标类之前和之后做一些预处理和后处理操作，用来扩展一些不属于目标类的功能
 
-<img src="2-Spring/image-20220314193342081.png" alt="image-20220314193342081" style="zoom:50%;" />
+![](2-Spring/image-20220314193342081.png)
 
 比如：可以在方法开始和结束前记录日志；在方法执行前进行额外的参数校验；进行事务管理，权限校验
 
@@ -1013,7 +1013,7 @@ public class AppConfig {
     }
     ```
 
-<img src="2-Spring/image-20210214215736440.png" alt="image-20210214215736440" style="zoom:67%;" />
+![](2-Spring/image-20210214215736440.png)
 
 #### 静态代理特点
 
@@ -1161,7 +1161,7 @@ public class AppConfig {
 
 ---
 
-<img src="2-Spring/image-20210215103016617.png" alt="image-20210215103016617" style="zoom:67%;" />
+![](2-Spring/image-20210215103016617.png)
 
 1.  抽象角色-->接口
 
@@ -1283,7 +1283,7 @@ public class AppConfig {
 -   切入点(pointcut) *通知的插入位置* ：切面指定地点
 -   连接点(JointPoint)：切入点对应的执行点
 
-<img src="2-Spring/image-20210215120206238.png" alt="image-20210215120206238" style="zoom: 67%;" />
+![](2-Spring/image-20210215120206238.png)
 
 ### AOP与动态代理的对应
 
@@ -1297,7 +1297,7 @@ public class AppConfig {
 
 ### 日志切面
 
-<img src="2-Spring/image-20210214215112706.png" alt="image-20210214215112706" style="zoom:67%;" />
+![](2-Spring/image-20210214215112706.png)
 
 #### 方法一：实现切入点通知
 
@@ -1439,7 +1439,7 @@ name-pattern(param-pattern) throws-pattern?)
 
 ##### 测试
 
-<img src="2-Spring/image-20210215121353022.png" alt="image-20210215121353022" style="zoom:50%;" />
+![](2-Spring/image-20210215121353022.png)
 
 ####  方法二：自定义通知接口
 
@@ -1780,7 +1780,7 @@ public class AppConfig{
 
 执行后，
 
-<img src="2-Spring/image-20220317155941256.png" alt="image-20220317155941256" style="zoom:67%;" />
+![](2-Spring/image-20220317155941256.png)
 
 #### 属性填充
 

@@ -14,7 +14,7 @@ date: 2022-03-18 15:43:52
 
 > 前置知识：
 >
-> [微服务](https://auspicetian.github.io/posts/1175195952/)
+> [微服务](https://amostian.github.io/posts/1175195952/)
 
 Dubbo是高性能的RPC框架，主要目的是支持远程调用
 
@@ -79,7 +79,7 @@ RPC(Remote Procedure Call Protocal)——远程过程调用协议
 
 ### Dubbo架构
 
-<img src="6-Dubbo/image-20210531003814441.png" alt="image-20210531003814441" style="zoom: 50%;" />
+![](6-Dubbo/image-20210531003814441.png)
 
 | 节点        | 角色说明                                       |
 | ----------- | ---------------------------------------------- |
@@ -150,7 +150,7 @@ docker run -d --name zk -p 2181:2181 zookeeper:3.4
 
 **服务提供方子模块**
 
-<img src="6-Dubbo/image-20210312092519632.png" alt="image-20210312092519632" style="zoom:50%;" />
+![](6-Dubbo/image-20210312092519632.png)
 
 ### 2. 导入依赖
 
@@ -383,7 +383,7 @@ public class DubboProvider {
 
 ### 1. 创建工程
 
-<img src="6-Dubbo/image-20210312151405295.png" alt="image-20210312151405295" style="zoom:50%;" />
+![](6-Dubbo/image-20210312151405295.png)
 
 ### 2. 导入依赖
 
@@ -431,7 +431,7 @@ dubbo.registry.client = zkclient
 
 ### 4. 编写测试用例
 
-<img src="6-Dubbo/image-20210312152423425.png" alt="image-20210312152423425" style="zoom:67%;" />
+![](6-Dubbo/image-20210312152423425.png)
 
 ```java
 package com.mydubbo;
@@ -679,7 +679,7 @@ mvn --projects dubbo-admin-server spring-boot:run
 
 ##### 修改线程接口配置
 
-<img src="6-Dubbo/image-20210314170024694.png" alt="image-20210314170024694" style="zoom: 50%;" />
+![](6-Dubbo/image-20210314170024694.png)
 
 ##### 将项目设置为多线程模式
 
@@ -687,7 +687,7 @@ idea默认的是单例模式
 
 ![image-20210314170133787](6-Dubbo/image-20210314170133787.png)
 
-<img src="6-Dubbo/image-20210314170205546.png" alt="image-20210314170205546" style="zoom:50%;" />
+![](6-Dubbo/image-20210314170205546.png)
 
 ##### 跑一下 看控制台输出
 

@@ -2303,7 +2303,7 @@ umi dev
 
 编译后的目录如下：
 
-<img src="1-JavaScript/image-20210530164746315.png" alt="image-20210530164746315" style="zoom: 67%;" />
+![](1-JavaScript/image-20210530164746315.png)
 
 运行结果如下：
 

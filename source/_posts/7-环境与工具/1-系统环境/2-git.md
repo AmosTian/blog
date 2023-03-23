@@ -34,13 +34,14 @@ abbrlink: 1368285564
 
 >   集中式版本控制——SVN
 
-<img src="2-git/image-20210125151928336-1645686277244.png" alt="image-20210125151928336" style="zoom:67%;" />
+![](2-git/image-20210125151928336.png)
+
 
 -   原始文件与修改都保存在服务器
 
 >   分布式版本控制——git
 
-<img src="2-git/image-20210125152243538.png" alt="image-20210125152243538" style="zoom:67%;" />
+![](2-git/image-20210125152243538.png)
 
 -   原始文件与版本信息在每台主机上都有保存
 
@@ -50,17 +51,17 @@ abbrlink: 1368285564
 
 ## 2.1 git 本地库
 
-<img src="2-git/image-20210125164601165-1645686329105.png" alt="image-20210125164601165" style="zoom: 50%;" />
+![](2-git/image-20210125164601165-1645686329105.png)
 
 ## 2.2 git 远程库——代码托管中心
 
 >    通过远程库实现团队内协作
 
-<img src="2-git/image-20210125165012272.png" alt="image-20210125165012272" style="zoom:67%;" />
+![](2-git/image-20210125165012272.png)
 
 >    通过远程库实现跨团队协作
 
-<img src="2-git/image-20210125165215216.png" alt="image-20210125165215216" style="zoom:50%;" />
+![](2-git/image-20210125165215216.png)
 
 <div style="page-break-after:always"></div>
 
@@ -252,7 +253,7 @@ git log --oneline --decorate --graph --all
 
 查看可追踪的所有分支的所有版本信息
 
-<img src="2-git/image-20210128190954789.png" alt="image-20210128190954789" style="zoom: 50%;" />
+![](2-git/image-20210128190954789.png)
 
 #### 6. 查看所有版本信息——git reflog
 
@@ -395,7 +396,7 @@ git checkout -b [branch] [remotename]/[branch]
 -   创建新的分支[branch]与远程跟踪分支 [remotename]/[branch] 同步
     -   远程库必须是配置的签名用户有访问权限的库
 
-```shell
+```
 git checkout --track origin/serverfix
 ```
 
@@ -462,7 +463,8 @@ git stash pop  #弹出存储，并删除
 
 >   协同开发的过程
 
-<img src="2-git/image-20210129193239370-1645839661540.png" alt="img" style="zoom:67%;" />
+![](2-git/image-20210129193239370.png)
+
 
 -   master为线上分支
 -   develop为本地主分支
@@ -652,7 +654,7 @@ git update-index [参数] [文件模式] [blob] [文件名]
     -   100755，表示一个可执行文件
     -   120000，表示一个符号链接  
 
-<img src="2-git/image-20210129190706880-1645540708879.png" alt="image-20210129190706880" style="zoom:50%;" />
+![](2-git/image-20210129190706880.png)
 
 ##### 将目录树对象读入暂存区
 
@@ -662,7 +664,7 @@ git read-tree --prefix=bak [父tree的hash]
 
 -   lib：保存子 **tree** 的目录
 
-<img src="2-git/image-20210129190725971-1645540708879.png" alt="image-20210129190725971" style="zoom:50%;" />
+![](2-git/image-20210129190725971.png)
 
 ##### 将暂存区中的 `blob` 生成 `tree`
 
@@ -697,17 +699,17 @@ git commit-tree [子tree的hash] -p [父tree的hash]
 -   [分支名]：指向分支的最新版本(指向的是提交对象`commit` ，理解为分支指针)
 -   HEAD：指向当前活动分支的最新版本(指向的是分支指针，理解为分支指针的指针)
 
-<img src="2-git/image-20210126161036604-1645540708879.png" alt="image-20210126161036604" style="zoom: 50%;" />
+![](2-git/image-20210126161036604.png)
 
 >   HEAD指针带动分支版本移动
 
-<img src="2-git/image-20210126161637421-1645540708880.png" alt="image-20210126161637421" style="zoom: 50%;" />
+![](2-git/image-20210126161637421.png)
 
 >   HEAD指针指向活动分支的最新版本
 
-<img src="2-git/image-20210126161703846-1645540708880.png" alt="image-20210126161703846" style="zoom: 50%;" />
+![](2-git/image-20210126161703846.png)
 
-<img src="2-git/image-20210126161653644-1645540708880.png" alt="image-20210126161653644" style="zoom:50%;" />
+![](2-git/image-20210126161653644.png)
 
 
 

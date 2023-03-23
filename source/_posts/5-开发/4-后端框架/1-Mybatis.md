@@ -8,12 +8,13 @@ tags:
   - 开发
   - 后端框架
   - Mybatis
+mathjax: true
 abbrlink: 3381441825
-date: 2022-03-14 11:21:08
+date: '2022‎-‎02‎-‎18‎ ‏‎22:39:43'
 ---
 
-> 前置知识：[JDBC](https://auspicetian.github.io/posts/3113518366/#JDBC)
->
+前置知识：[JDBC](https://amostian.github.io/posts/3113518366/#JDBC)
+
 > 学习视频：https://www.bilibili.com/video/BV1NE411Q7Nx?spm_id_from=333.999.0.0
 
 Mybatis——一种ORM框架：将Java中的Bean映射为数据库的记录
@@ -106,7 +107,7 @@ public static void connectionTest(){
 }
 ```
 
-<img src="1-Mybatis/image-20210208082558625.png" alt="image-20210208082558625" style="zoom: 67%;" />
+![](1-Mybatis/image-20210208082558625.png)
 
 #### JDBC存在的问题
 
@@ -210,7 +211,7 @@ SqlSession 提供了在数据库执行 SQL 命令所需的所有方法。
 >
 >   将接口与xml进行绑定
 
-<img src="1-Mybatis/image-20220314120820412.png" alt="image-20220314120820412" style="zoom:67%;" />
+![](1-Mybatis/image-20220314120820412.png)
 
 ## Mybatis示例程序
 
@@ -236,8 +237,7 @@ insert into user(id,user_name,pwd) values
 ```
 
 ### 2. 新建项目
-
-<img src="1-Mybatis/image-20210206111857575.png" alt="image-20210206111857575" style="zoom: 67%;" />
+![](1-Mybatis/image-20210206111857575.png)
 
 ### 3. 删除src，使项目成为父工程
 
@@ -277,7 +277,7 @@ insert into user(id,user_name,pwd) values
 
 ### 5. 新建模块
 
-<img src="1-Mybatis/image-20210206190244388.png" alt="image-20210206190244388" style="zoom:67%;" />
+![](1-Mybatis/image-20210206190244388.png)
 
 ### 6. 获取数据库连接对象
 
@@ -318,13 +318,13 @@ insert into user(id,user_name,pwd) values
 -   useUnicode：保证中文不乱码
 -   characterEncoding：编码格式
 
-<img src="1-Mybatis/image-20210206191308775.png" alt="image-20210206191308775" style="zoom: 50%;" />
+![](1-Mybatis/image-20210206191308775.png)
 
 #### b. 编写MyBatis工具类
 
 新建dao包，utils包
 
-<img src="1-Mybatis/image-20210206195714994.png" alt="image-20210206195714994" style="zoom:67%;" />
+![](1-Mybatis/image-20210206195714994.png)
 
 ```java
 public class MyBatisUtils {
@@ -350,8 +350,7 @@ public class MyBatisUtils {
     }
 }
 ```
-
-<img src="1-Mybatis/image-20210206200137588.png" alt="image-20210206200137588" style="zoom:50%;" />
+![](1-Mybatis/image-20210206200137588.png)
 
 ### 7. 编写代码
 
@@ -425,7 +424,7 @@ public interface UserDao{
 
 >   由 UserDaoImpl 转化为 Mapper 配置文件
 
-<img src="1-Mybatis/image-20210206202907744.png" alt="image-20210206202907744" style="zoom:67%;" />
+![](1-Mybatis/image-20210206202907744.png)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -454,7 +453,7 @@ public interface UserDao{
 
 新建 测试类
 
-<img src="1-Mybatis/image-20210206203325407.png" alt="image-20210206203325407" style="zoom:67%;" />
+![](1-Mybatis/image-20210206203325407.png)
 
 >   编写测试代码
 
@@ -498,13 +497,12 @@ public class UserDaoTest {
 
 #### org.apache.ibatis.io不存在——IDEA2020.1
 
-<img src="1-Mybatis/image-20210206205522726.png" alt="image-20210206205522726" style="zoom:67%;" />
+![](1-Mybatis/image-20210206205522726.png)
 
-<img src="1-Mybatis/image-20210206205548135-1647232699571.png" alt="image-20210206205548135" style="zoom:67%;" />
-
+![](1-Mybatis/image-20210206205548135.png)
 ![image-20210206205604845](1-Mybatis/image-20210206205604845.png)
 
-<img src="1-Mybatis/image-20210206205634563-1647232734870.png" alt="image-20210206205634563" style="zoom:67%;" />
+![](1-Mybatis/image-20210206205634563-1647232734870.png)
 
 #### class not found:ClassTest
 
@@ -512,7 +510,7 @@ public class UserDaoTest {
 
 ![image-20210206205955252](1-Mybatis/image-20210206205955252.png)
 
-<img src="1-Mybatis/image-20210206211214901-1647232796247.png" alt="image-20210206211214901" style="zoom:67%;" />
+![](1-Mybatis/image-20210206211214901-1647232796247.png)
 
 #### Type interface com.kuang.dao.UserDao is not known to the MapperRegistry
 
@@ -590,7 +588,7 @@ Maven默认的资源（自己配置的xml）位置在resources目录下，当前
 
 ![image-20210207112807899](1-Mybatis/image-20210207112807899.png)
 
-1.  Java代码执行时，传递通配符%%
+1.  Java代码执行时，传递通配符 `%%`
 
     ![image-20210207112822496](1-Mybatis/image-20210207112822496.png)
 
@@ -606,11 +604,11 @@ Maven默认的资源（自己配置的xml）位置在resources目录下，当前
 
 ### insert
 
-<img src="1-Mybatis/image-20210207084909027.png" alt="image-20210207084909027" style="zoom:67%;" />
+![](1-Mybatis/image-20210207084909027.png)
 
-<img src="1-Mybatis/image-20210207084937941.png" alt="image-20210207084937941" style="zoom:67%;" />
+![](1-Mybatis/image-20210207084937941.png)
 
-<img src="1-Mybatis/image-20210207085754701.png" alt="image-20210207085754701" style="zoom:67%;" />
+![](1-Mybatis/image-20210207085754701.png)
 
 >   并没有新增
 
@@ -618,15 +616,14 @@ Maven默认的资源（自己配置的xml）位置在resources目录下，当前
 
 ### 更新
 
-<img src="1-Mybatis/image-20210207091642333.png" alt="image-20210207091642333" style="zoom:67%;" />
+![](1-Mybatis/image-20210207091642333.png)
 
-<img src="1-Mybatis/image-20210207092339618.png" alt="image-20210207092339618" style="zoom:67%;" />
-
+![](1-Mybatis/image-20210207092339618.png)
 ![image-20210207092318487](1-Mybatis/image-20210207092318487.png)
 
 ### 删除
 
-<img src="1-Mybatis/image-20210207095729945.png" alt="image-20210207095729945" style="zoom: 67%;" />
+![](1-Mybatis/image-20210207095729945.png)
 
 ![image-20210207095738765](1-Mybatis/image-20210207095738765.png)
 
@@ -648,17 +645,15 @@ Maven默认的资源（自己配置的xml）位置在resources目录下，当前
 
 -   若使用实体类作为参数传递，当字段过多时，一个实体类的每个属性都必须设置值
 
-1.  <img src="1-Mybatis/image-20210207104814371.png" alt="image-20210207104814371" style="zoom:67%;" />
+1.  ![](1-Mybatis/image-20210207104814371.png)
+    ![](1-Mybatis/image-20210207105024762.png)
 
-    <img src="1-Mybatis/image-20210207105024762.png" alt="image-20210207105024762" style="zoom:67%;" />
+    ![](1-Mybatis/image-20210207105034430.png)
 
-    <img src="1-Mybatis/image-20210207105034430.png" alt="image-20210207105034430" style="zoom:67%;" />
+2.  ![](1-Mybatis/image-20210207105704320.png)
+    ![](1-Mybatis/image-20210207105722243.png)
 
-2.  <img src="1-Mybatis/image-20210207105704320.png" alt="image-20210207105704320" style="zoom:67%;" />
-
-    <img src="1-Mybatis/image-20210207105722243.png" alt="image-20210207105722243" style="zoom:67%;" />
-
-    <img src="1-Mybatis/image-20210207105734309.png" alt="image-20210207105734309" style="zoom:67%;" />
+    ![](1-Mybatis/image-20210207105734309.png)
 
 ### Plugin——通用Mapper 
 
@@ -705,7 +700,7 @@ db_pwd=2017002231
 
 3.  使用属性
 
-    <img src="1-Mybatis/image-20210207154555649-1647233042238.png" alt="image-20210207154555649" style="zoom:67%;" />
+    ![](1-Mybatis/image-20210207154555649-1647233042238.png)
 
 ### 设置Settings
 
@@ -755,34 +750,34 @@ db_pwd=2017002231
 
 2.  配置log4j.properties资源
 
-    ```properties
-    # 将等级为DEBUG的日志信息输出到console和file两个目的地，console和file的定义在下面的代码
-    log4j.rootLogger = debug,console,file
-    
-    # 控制台处处的相关配置
-    log4j.appender.console = org.apache.log4j.ConsoleAppender
-    log4j.appender.console.Target = System.out
-    log4j.appender.console.Threshold=DEBUG
-    log4j.appender.console.layout = org.apache.log4j.PatternLayout
-    log4j.appender.console.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
-    
-    # 文件输出的相关设置
-    log4j.appender.file = org.apache.log4j.RollingFileAppender
-    log4j.appender.file.File = ./logs/log.log
-    log4j.appender.file.MaxFileSize=10mb
-    log4j.appender.file.Threshold = DEBUG
-    log4j.appender.file.layout = org.apache.log4j.PatternLayout
-    log4j.appender.file.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
-    
-    # 日志输出级别
-    log4j.logger.org.mybatis=DEBUG
-    log4j.logger.java.sql=DEBUG
-    log4j.logger.java.sql.Statement=DEBUG
-    log4j.logger.java.sql.ResultSet=DEBUG
-    log4j.logger.java.sql.PreparedStatement=DEBUG
-    ```
+```properties
+# 将等级为DEBUG的日志信息输出到console和file两个目的地，console和file的定义在下面的代码
+log4j.rootLogger = debug,console,file
 
-    ![image-20210208100717667](1-Mybatis/image-20210208100717667.png)
+# 控制台处处的相关配置
+log4j.appender.console = org.apache.log4j.ConsoleAppender
+log4j.appender.console.Target = System.out
+log4j.appender.console.Threshold=DEBUG
+log4j.appender.console.layout = org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+# 文件输出的相关设置
+log4j.appender.file = org.apache.log4j.RollingFileAppender
+log4j.appender.file.File = ./logs/log.log
+log4j.appender.file.MaxFileSize=10mb
+log4j.appender.file.Threshold = DEBUG
+log4j.appender.file.layout = org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+# 日志输出级别
+log4j.logger.org.mybatis=DEBUG
+log4j.logger.java.sql=DEBUG
+log4j.logger.java.sql.Statement=DEBUG
+log4j.logger.java.sql.ResultSet=DEBUG
+log4j.logger.java.sql.PreparedStatement=DEBUG
+```
+
+![image-20210208100717667](1-Mybatis/image-20210208100717667.png)
 
 ###### 程序中使用log4j
 
@@ -900,7 +895,7 @@ MyBatis 可以配置成适应多种环境，**但每个 SqlSessionFactory 实例
 
 | Alias                  | Mapped Type                                                  |
 | ---------------------- | ------------------------------------------------------------ |
-| _普通数据类型          | 普通数据类型(int,short,long,byte,double,float,boolean)       |
+| `_普通数据类型`          | 普通数据类型(int,short,long,byte,double,float,boolean)       |
 | 小写首字母(数据类型名) | 首字母大写的数据类型(基本数据类型 + Date,Object,Map,HashMap,List,ArrayList,Collection,Iterator) |
 | Integer,int            | BigDecimal                                                   |
 | decimal,bigdecimal     | Integer                                                      |
@@ -911,7 +906,7 @@ MyBatis 可以配置成适应多种环境，**但每个 SqlSessionFactory 实例
 
 -   mybatis-plus
 
-    <img src="1-Mybatis/image-20210207162351334.png" alt="image-20210207162351334" style="zoom:67%;" />
+    ![](1-Mybatis/image-20210207162351334.png)
 
 -   通用mapper
 
@@ -977,7 +972,7 @@ public class User {
 }
 ```
 
-<img src="1-Mybatis/image-20210207175216987.png" alt="image-20210207175216987" style="zoom:67%;" />
+![](1-Mybatis/image-20210207175216987.png)
 
 #### 解决思路：起别名
 
@@ -995,7 +990,7 @@ from user where id=#{id};
 
 在 `Mybatis` 中，使用 `ResultMap` 做结果映射，**只需要将有差异的属性与字段映射即可**
 
-<img src="1-Mybatis/image-20210207180425898.png" alt="image-20210207180425898" style="zoom:67%;" />
+![](1-Mybatis/image-20210207180425898.png)
 
 -   property：POJO中的属性
 -   column：数据库中的字段
@@ -1012,7 +1007,7 @@ from user where id=#{id};
 
 -   返回的结果是一个个体，其中某个属性是个体集
 
-<img src="1-Mybatis/image-20210208172419385.png" alt="image-20210208172419385" style="zoom:67%;" />
+![](1-Mybatis/image-20210208172419385.png)
 
 ```sql
 create table teacher(
@@ -1051,7 +1046,7 @@ insert into student(id,user_name,tid) values(5,"小王",2);
 
 ##### 联表查询
 
-<img src="1-Mybatis/image-20210209124325478.png" alt="image-20210209124325478" style="zoom: 67%;" />
+![](1-Mybatis/image-20210209124325478.png)
 
 ```mysql
 select s.id as sid,s.user_name as sname,t.id as tid,t.user_name as tname
@@ -1059,7 +1054,7 @@ from student as s,teacher as t
 where s.tid=t.id
 ```
 
-<img src="1-Mybatis/image-20210209122411485.png" alt="image-20210209122411485" style="zoom:50%;" />
+![](1-Mybatis/image-20210209122411485.png)
 
 1.  接口
 
@@ -1100,7 +1095,7 @@ where s.tid
 in (select t.id from teacher as t);
 ```
 
-<img src="1-Mybatis/image-20210209115950995.png" alt="image-20210209115950995" style="zoom: 67%;" />
+![](1-Mybatis/image-20210209115950995.png)
 
 1.  定义接口
 
@@ -1137,7 +1132,7 @@ in (select t.id from teacher as t);
     </select>
     ```
 
-3.  <img src="1-Mybatis/image-20210209122232420.png" alt="image-20210209122232420" style="zoom: 67%;" />
+3.  ![](1-Mybatis/image-20210209122232420.png)
 
 #### Collection
 
@@ -1171,7 +1166,7 @@ from teacher t,student s
 where t.id=s.tid and t.id=1;
 ```
 
-<img src="1-Mybatis/image-20210209204055412.png" alt="image-20210209204055412" style="zoom:67%;" />
+![](1-Mybatis/image-20210209204055412.png)
 
 1.  定义接口
 
@@ -1212,7 +1207,7 @@ from student s
 where tid=1;
 ```
 
-<img src="1-Mybatis/image-20210209210915039.png" alt="image-20210209210915039" style="zoom:67%;" />
+![](1-Mybatis/image-20210209210915039.png)
 
 1.  定义接口
 
@@ -1306,7 +1301,7 @@ public class TestBlog {
 
 ##### IF
 
-<img src="1-Mybatis/image-20210210075622840.png" alt="image-20210210075622840" style="zoom: 50%;" />
+![](1-Mybatis/image-20210210075622840.png)
 
 1.  接口
 
@@ -1450,11 +1445,10 @@ public class TestBlog {
 </select>
 ```
 
--   The *prefixOverrides* attribute takes a pipe delimited list of text to override, where whitespace is relevant.前缀Overrides 属性采用管道分隔文本列表来重写，其中空白是相关的。（最好写上，替换后可能会出问题）
-    -   The result is the removal of anything specified in the *prefixOverrides* attribute
-    -   and the insertion of anything in the *prefix* attribute
-
-```xml
+-   The _prefixOverrides_ attribute takes a pipe delimited list of text to override, where whitespace is relevant.前缀Overrides 属性采用管道分隔文本列表来重写，其中空白是相关的。（最好写上，替换后可能会出问题）
+    -   The result is the removal of anything specified in the _prefixOverrides_ attribute
+    -   and the insertion of anything in the _prefix_ attribute
+```
 <trim prefix="SET" suffixOverrides=",">
   ...
 </trim>
@@ -1750,32 +1744,32 @@ A[缓存merCached缓存服务器]-->B[读写分离,主从复制]
 
     -   将实体类序列化，否则保错
 
-        ```
-        java.io.NotSerializableException: com.kuang.pojo.User
-        ```
+	```
+	java.io.NotSerializableException: com.kuang.pojo.User
+	```
 
-        ```java
-        package com.kuang.pojo;
-        
-        import lombok.AllArgsConstructor;
-        import lombok.Data;
-        import lombok.NoArgsConstructor;
-        
-        import java.io.Serializable;
-        
-        @Data
-        @AllArgsConstructor
-        @NoArgsConstructor
-        public class User implements Serializable {
-            private Integer id;
-            private String user_name;
-            private String pwd;
-        }
-        ```
+	```java
+	package com.kuang.pojo;
+	
+	import lombok.AllArgsConstructor;
+	import lombok.Data;
+	import lombok.NoArgsConstructor;
+	
+	import java.io.Serializable;
+	
+	@Data
+	@AllArgsConstructor
+	@NoArgsConstructor
+	public class User implements Serializable {
+		private Integer id;
+		private String user_name;
+		private String pwd;
+	}
+	```
 
 ##### 缓存原理
 
-<img src="1-Mybatis/image-20210210150921574.png" alt="image-20210210150921574" style="zoom:67%;" />
+![](1-Mybatis/image-20210210150921574.png)
 
 查找顺序:
 
@@ -2008,7 +2002,7 @@ public interface UserMapper{
 
 ### MtbatisPlus架构
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/mybatis-plus-framework.jpg" alt="framework" style="zoom: 33%;" />
+![mybatis-plus-framework](1-Mybatis/mybatis-plus-framework.jpg)
 
 通过简单语句，生成SQL语句，交给MyBatis执行
 
@@ -2039,9 +2033,9 @@ INSERT INTO `user` (`id`, `name`, `age`, `email`) VALUES ('4', 'Sandy', '21','te
 INSERT INTO `user` (`id`, `name`, `age`, `email`) VALUES ('5', 'Billie', '24','test5@baomidou.com');
 ```
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210314204516487.png" alt="image-20210314204516487" style="zoom:67%;" />
+![image-20210314204516487](1-Mybatis/image-20210314204516487.png)
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210314204628680.png" alt="image-20210314204628680" style="zoom: 80%;" />
+![image-20210314204628680](../6-Java项目/毕设项目/2-后台系统/image-20210314204628680.png)
 
 #### 2. 创建工程及导入依赖
 
@@ -2385,11 +2379,11 @@ public void testSelectById(){
 
 #### 模糊查询——like
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210315151754735.png" alt="image-20210315151754735" style="zoom:67%;" />
+![image-20210315151754735](1-Mybatis/image-20210315151754735-16795908856582.png)
 
 #### 条件查询
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210315152015275.png" alt="image-20210315152015275" style="zoom:67%;" />
+![image-20210315152015275](1-Mybatis/image-20210315152015275-16795908732831.png)
 
 https://mp.baomidou.com/guide/wrapper.html#abstractwrapper
 
@@ -2438,9 +2432,9 @@ public class User {
 
 根据id修改，只修改指定的字段
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210315160030971.png" alt="image-20210315160030971" style="zoom: 67%;" />
+![](1-Mybatis/image-20210315160030971.png)
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210315160145501.png" alt="image-20210315160145501"  />
+![image-20230324005623639](1-Mybatis/image-20230324005623639.png)
 
 #### 分页查询
 
@@ -2464,7 +2458,7 @@ public MybatisPlusInterceptor mybatisPlusInterceptor() {
 }
 ```
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210315161531596.png" alt="image-20210315161531596" style="zoom:67%;" />
+![](1-Mybatis/image-20210315161531596.png)
 
 ### 配置
 
@@ -2502,6 +2496,5 @@ https://mp.baomidou.com/guide/config.html#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE
 -   @AllArgsConstructor  ：注解在类上；为类提供一个全参的构造方法  
 -   @Builder  ：使用Builder模式构建对象  
 
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210315164144612-1647603458260.png" alt="image-20210315164144612" style="zoom:50%;" />
-
-<img src="../../5-Java项目/毕设项目/2-后台系统/image-20210315164534629-1647603602487.png" alt="image-20210315164534629" style="zoom:67%;" />
+![](1-Mybatis/image-20210315164144612.png)
+![](1-Mybatis/image-20210315164534629.png)

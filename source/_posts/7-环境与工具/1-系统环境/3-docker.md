@@ -21,11 +21,9 @@ abbrlink: 4065722285
 
 # 1. 简介
 
+![](3-docker/image-20210301133636893.png)
 
-
-<img src="3-docker/image-20210301133636893.png" alt="image-20210301133636893" style="zoom:50%;" />
-
-<img src="3-docker/image-20210301134238784.png" alt="image-20210301134238784" style="zoom: 50%;" />
+![](3-docker/image-20210301134238784.png)
 
 **运行中的镜像称为容器**
 
@@ -422,7 +420,7 @@ dfc9e2f59780   hello-world     "/hello"                 7 hours ago      Exited 
 docker run --name mysql01 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Aa12345+ -d mysql
 ```
 
-<img src="3-docker/image-20210304175557916.png" alt="image-20210304175557916" style="zoom:67%;" />
+![](3-docker/image-20210304175557916.png)
 
 #### mysql配置文件
 

@@ -1,5 +1,4 @@
 ---
-title: 图像DCT算法的实现
 categories:
   - 算法
   - 杂项
@@ -200,7 +199,9 @@ double *TMatrix(double *M, int n){
 ```
 
 **运行截图**
-![1586049535546](图像DCT算法的实现/1586049535546.png)
+
+![](图像DCT算法的实现/image-20230323232704487.png)
+
 
 
 ## 反变换
@@ -369,13 +370,15 @@ double *TMatrix(double *M, int n){
 }
 ```
 
-![Alt text](图像DCT算法的实现/1586050317009.png)
+![](图像DCT算法的实现/image-20230323232713005.png)
 
 # DCT大作业
 
 ## 流程图
 
-<img src="图像DCT算法的实现/dctProcess.png" alt="dctProcess" style="zoom:33%;" />
+![](图像DCT算法的实现/image-20230323232725034.png)
+
+
 
 ## 代码
 
@@ -580,7 +583,9 @@ double *TMatrix(double *M, int n){
 }
 ```
 
-![Alt text](图像DCT算法的实现/capture.png)
+![](图像DCT算法的实现/image-20230323232732987.png)
+
+
 
 ## DCT系数特点
 

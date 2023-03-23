@@ -1180,7 +1180,7 @@ favicon:
 
 ### 12.1.4 文章结束标志
 
-![1548274181405](1548274181405.png)
+![](4-hexo博客/image-20230324014410229.png)
 
 在路径 `\themes\next\layout\_macro` 中新建 `passage-end-tag.swig` 文件，并添加以下内容
 
@@ -1390,11 +1390,13 @@ auto_excerpt:
 read_more_btn: true #显示阅读全文按钮
 ```
 
-![1548340204881](1548340204881.png)
+![](4-hexo博客/image-20230324015007044.png)
+
+
 
 ### 12.1.9 修改文章链接样式
 
-![img](5308475-8cc4fc18c399af7e.gif)
+![5308475-8cc4fc18c399af7e](4-hexo博客/5308475-8cc4fc18c399af7e.gif)
 
 修改文件 `themes\next\source\css\_common\components\post\post.styl`，在末尾添加如下css样式，：
 
@@ -1572,9 +1574,9 @@ https://github.com/theme-next/hexo-theme-next/pull/1540/commits/ec521c927dc10255
 
 主题目录：
 
-![image-20230219233016205](image-20230219233016205.png)
+![image-20230219233016205](4-hexo博客/image-20230219233016205.png)
 
-![image-20230219232927545](image-20230219232927545.png)
+![image-20230219232927545](4-hexo博客/image-20230219232927545.png)
 
 ```js
 const navItems = document.querySelectorAll('.post-toc li');
@@ -1601,12 +1603,6 @@ const navItems = document.querySelectorAll('.post-toc li');
     });
 ```
 
-
-
-
-
-
-
 ## 12.6 统计功能
 
 1. 安装插件，在hexo根目录下执行
@@ -1624,7 +1620,7 @@ const navItems = document.querySelectorAll('.post-toc li');
 
 ## 12.7 鼠标点击特效
 
-![img](5308475-78e64c0a80bb559e-16675764477622.gif)
+![5308475-78e64c0a80bb559e-16675764477622](4-hexo博客/5308475-78e64c0a80bb559e-16675764477622.gif)
 
 1. 在`/themes/next/source/js/src`下新建文件 clicklove.js ，接着把下面的代码拷贝粘贴到 clicklove.js 文件中：
 
@@ -1639,7 +1635,7 @@ const navItems = document.querySelectorAll('.post-toc li');
    <script type="text/javascript" src="/js/src/clicklove.js"></script>
    ```
 
-![img](2017-12-18-084649.png)
+![2017-12-18-084649](4-hexo博客/2017-12-18-084649.png)
 
 1. 跟那个红心是差不多的，首先在`themes/next/source/js/src`里面建一个叫`fireworks.js`的文件，代码如下：
 
@@ -1672,7 +1668,7 @@ const navItems = document.querySelectorAll('.post-toc li');
 
 
 
-![img](5308475-ef603580be708882.gif)
+![5308475-ef603580be708882](4-hexo博客/5308475-ef603580be708882.gif)
 
 上面这种只是其中一种动态背景，新版的Next主题集成了该功能，
 
@@ -1739,7 +1735,7 @@ canvas_sphere: false
 
 ### 12.8.3 随机三角丝带
 
-![随机三角丝带](evan-you.png)
+![evan-you](4-hexo博客/evan-you.png)
 
 点击下方按钮下载相应的脚本，并置于 themes\next\source\js\ 目录下：
 
@@ -1836,7 +1832,7 @@ evanyou: true
 
 ## 12.9 回到顶部
 
-![回到顶部](back-to-top.gif)
+![back-to-top](4-hexo博客/back-to-top.gif)
 
 原理很简单，将 back-to-top 按钮添加图片背景，并添加 CSS3 动效即可。
 
@@ -1844,7 +1840,7 @@ evanyou: true
 
 你可以点击下方按钮下载本站所使用的小猫上吊素材（ 小猫咪这么可爱，当然要多放点孜然啦…）
 
-![scroll](scroll.png)
+![scroll](4-hexo博客/scroll.png)
 
 然后在自定义样式文件中添加如下代码：
 
@@ -1917,7 +1913,7 @@ show_date_time();
 
 
 
-![image-20230220102113001](image-20230220102113001.png)
+![image-20230220102113001](4-hexo博客/image-20230220102113001.png)
 
 百度收录
 

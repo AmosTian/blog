@@ -624,8 +624,7 @@ public void testQuery(){
 }
 ```
 
-<img src="MongoDB/image-20210401215740605.png" alt="image-20210401215740605" style="zoom:50%;" />
-
+![](MongoDB/image-20210401215740605.png)
 #### 新增数据
 
 ```java

@@ -1,6 +1,6 @@
 {
   "useMarkdownLinks": true,
-  "attachmentFolderPath": "1-概述",
+  "attachmentFolderPath": "./4-hexo博客",
   "alwaysUpdateLinks": true,
   "showLineNumber": true
 }

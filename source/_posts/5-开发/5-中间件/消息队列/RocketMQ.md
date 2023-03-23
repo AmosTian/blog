@@ -283,7 +283,7 @@ enablePropertyFilter=true
 ```
 
 ![image-20210404003149274](RocketMQ/image-20210404003149274.png)
-
+![](Pasted%20image%2020230323235854.png)
 ![image-20210404003205974](RocketMQ/image-20210404003205974.png)
 
 ### 部署RocketMQ的管理工具
@@ -1273,7 +1273,7 @@ foxiswho/rocketmq:broker-4.3.2
 
 - listenPort：与客户端交互的端口(+1，-2)
 
-<img src="RocketMQ/image-20210405171437768.png" alt="image-20210405171437768" style="zoom:67%;" />
+![](RocketMQ/image-20210405171437768.png)
 
 ```shell
 #broker02配置文件
@@ -1758,4 +1758,3 @@ public RocketMQLocalTransactionState executeLocalTransaction(Message message, Ob
 ```
 
 ![image-20210406172655036](RocketMQ/image-20210406172655036.png)
-

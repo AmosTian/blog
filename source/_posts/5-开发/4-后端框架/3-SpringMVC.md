@@ -14,9 +14,9 @@ date: 2022-03-14 21:37:02
 
 > 前置知识：
 >
-> [Spring](https://auspicetian.github.io/posts/1821512031/)
+> [Spring](https://amostian.github.io/posts/1821512031/)
 >
-> [Mybatis](https://auspicetian.github.io/posts/3381441825/)
+> [Mybatis](https://amostian.github.io/posts/3381441825/)
 >
 > 学习视频：https://www.bilibili.com/video/BV1aE41167Tu?spm_id_from=333.999.0.0
 
@@ -161,11 +161,11 @@ MVC模式做的事：
 
 **Typical context hierarchy in Spring Web MVC**
 
-<img src="3-SpringMVC/mvc-context-hierarchy.png" alt="mvc-context-hierarchy" style="zoom:67%;" />
+![](3-SpringMVC/mvc-context-hierarchy.png)
 
 **Single root context in Spring Web MVC**
 
-<img src="3-SpringMVC/mvc-root-context.png" alt="mvc-root-context" style="zoom:67%;" />
+![](3-SpringMVC/mvc-root-context.png)
 
 ### SpringMVC原理
 
@@ -175,7 +175,7 @@ MVC模式做的事：
 
 **以请求为驱动，围绕一个中心Servlet（DispatcherServlet）分派请求及提供其他功能，DispatcherServlet继承自HttpServlet基类**
 
-<img src="3-SpringMVC/image-20210218091804127.png" alt="image-20210218091804127" style="zoom:67%;" />
+![](3-SpringMVC/image-20210218091804127.png)
 
 1.  用户发出请求，`前置控制器DispatcherServet` 接受请求，并根据配置信息拦截相应请求
 

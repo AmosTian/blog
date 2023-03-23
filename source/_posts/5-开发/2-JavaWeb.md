@@ -248,7 +248,7 @@ Listener是Servlet的监听器，可以监听客户端的请求、服务端的�
 
 >   Servlet是使用Java语言编写的并且在 **包含着Java虚拟机的Web服务器端加载运行** 的程序，**能根据客户端的HTTP请求类型选择的Servlet方法处理请求并做出响应**
 
-![](2/javaweb/image-20230314235110204.png)
+![](2-JavaWeb/image-20230314235110204.png)
 
 
 Servlet可以访问包括JDBC在内几乎所有的JDK API，支持HTTP协议与客户端进行通信

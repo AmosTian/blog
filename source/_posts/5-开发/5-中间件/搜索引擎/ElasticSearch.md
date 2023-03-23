@@ -216,7 +216,7 @@ PUT http://8.140.130.91:9200/haoke
 }
 ```
 
-<img src="ElasticSearch/image-20210507120635950-16489768793615.png" alt="image-20210507120635950" style="zoom: 67%;" />
+![](ElasticSearch/image-20210507120635950-16489768793615.png)
 
 ![image-20210507120647717](ElasticSearch/image-20210507120647717-16489768906096.png)
 
@@ -228,7 +228,7 @@ DELETE [链接/索引名]
 
 
 
-<img src="ElasticSearch/image-20210507121132446-16489769424257.png" alt="image-20210507121132446" style="zoom:50%;" />
+![](ElasticSearch/image-20210507121132446-16489769424257.png)
 
 ## 插入数据
 
@@ -250,7 +250,7 @@ POST http://8.140.130.91:9200/haoke/user/1001
 }
 ```
 
-<img src="ElasticSearch/image-20210507124339044-16489770672328.png" alt="image-20210507124339044" style="zoom:67%;" />
+![](ElasticSearch/image-20210507124339044-16489770672328.png)
 
 ![image-20210507124558507](ElasticSearch/image-20210507124558507-16489771106699.png)
 
@@ -388,7 +388,7 @@ DELETE http://8.140.130.91:9200/haoke/user/1001
 
 如果删除一条不存在的数据，会响应404
 
-<img src="ElasticSearch/image-20210507125811825-164897792877613.png" alt="image-20210507125811825" style="zoom:50%;" />
+![](ElasticSearch/image-20210507125811825-164897792877613.png)
 
 删除一个文档，数据不会立即从磁盘上移除，只是被标记为已删除。
 
@@ -1409,7 +1409,7 @@ PUT http://8.140.130.91:9200/test
 GET http://8.140.130.91:9200/test/_mapping
 ```
 
-<img src="ElasticSearch/image-20210507214605259-164899228966020.png" alt="image-20210507214605259" style="zoom:67%;" />
+![](ElasticSearch/image-20210507214605259-164899228966020.png)
 
 ### 插入数据
 
@@ -1431,7 +1431,7 @@ POST http://8.140.130.91:9200/test/_bulk
 
 ```
 
-<img src="ElasticSearch/image-20210507215028083-164899242267321.png" alt="image-20210507215028083" style="zoom:67%;" />
+![](ElasticSearch/image-20210507215028083-164899242267321.png)
 
 ![image-20210507215242424](ElasticSearch/image-20210507215242424-164899243882022.png)
 
@@ -1659,7 +1659,7 @@ POST http://8.140.130.91:9200/test/person/_search
 }
 ```
 
-<img src="ElasticSearch/image-20210507220717470-164899315674723.png" alt="image-20210507220717470" style="zoom:67%;" />
+![](ElasticSearch/image-20210507220717470-164899315674723.png)
 
 ### match查询
 
@@ -3441,7 +3441,7 @@ docker start es-node02 && docker logs -f es-node02
 
 新建索引
 
-<img src="ElasticSearch/image-20210509115719489-164899551189029.png" alt="image-20210509115719489" style="zoom:67%;" />
+![](ElasticSearch/image-20210509115719489-164899551189029.png)
 
 ![image-20210509122504123](ElasticSearch/image-20210509122504123-164899551189030.png)
 
@@ -3534,7 +3534,7 @@ docker create --name es-node03 --net host -v /data/es-cluster-data/node03/elasti
 chmod 777 /data/es-cluster-data/node03/data/ -R
 ```
 
-<img src="ElasticSearch/image-20210509164244573-164899551189031.png" alt="image-20210509164244573" style="zoom:67%;" />
+![](ElasticSearch/image-20210509164244573-164899551189031.png)
 
 可见 node02 被选为主节点
 
@@ -3542,7 +3542,7 @@ chmod 777 /data/es-cluster-data/node03/data/ -R
 
 创建haoke 索引
 
-<img src="ElasticSearch/image-20210509164344803-164899551189032.png" alt="image-20210509164344803" style="zoom:50%;" />
+![](ElasticSearch/image-20210509164344803-164899551189032.png)
 
 ### 停止data节点
 
@@ -3561,7 +3561,7 @@ docker stop es-node01
 
 过一段时间，发现节点列表中没有node01，副本节点分配到了node02和node03，集群状态回复到绿色
 
-<img src="ElasticSearch/image-20210509164817460-164899551189035.png" alt="image-20210509164817460" style="zoom:67%;" />
+![](ElasticSearch/image-20210509164817460-164899551189035.png)
 
 ### data节点重新启动
 
@@ -3569,8 +3569,7 @@ docker stop es-node01
 docker start es-node01
 ```
 
-<img src="ElasticSearch/image-20210509165101969-164899551189036.png" alt="image-20210509165101969" style="zoom:67%;" />
-
+![](ElasticSearch/image-20210509165101969-164899551189036.png)
 数据节点重启后，重新加入了集群，并且重新分配了节点信息
 
 ### 停止master节点
@@ -3624,7 +3623,7 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
 
-<img src="ElasticSearch/image-20210509184112616-164899551189142.png" alt="image-20210509184112616" style="zoom:67%;" />
+![](ElasticSearch/image-20210509184112616-164899551189142.png)
 
 让node03宕机
 
@@ -3655,7 +3654,7 @@ shard = hash(routing) % number_of_primary_shards
 
 写操作：新建索引和删除请求都是**写**(write)操作，它们必须在主分片上成功完成才能复制到相关的复制分片上
 
-<img src="ElasticSearch/image-20210509191608395-164899551189146.png" alt="image-20210509191608395" style="zoom:67%;" />
+![](ElasticSearch/image-20210509191608395-164899551189146.png)
 
 1.  客户端给 `node1(master节点)` 发送新建、索引或删除请求
 2.  节点使用文档的 `_id` 确定文档属于分片 `0` ，master节点转发请求到 `node3`,分片 `0` 的主分片位于这个节点上
@@ -3703,7 +3702,7 @@ shard = hash(routing) % number_of_primary_shards
 
 在ES中，为java提供了两种客户端，一种是REST风格的客户端，一种是JAVA API的客户端
 
-<img src="ElasticSearch/image-20210509225131894-164899551189250.png" alt="image-20210509225131894" style="zoom:67%;" />
+![](ElasticSearch/image-20210509225131894-164899551189250.png)
 
 - java low level REST Client
 
@@ -4345,7 +4344,7 @@ public class TestSpringEs {
 }
 ```
 
-<img src="ElasticSearch/image-20210510151247187-164899551189251.png" alt="image-20210510151247187" style="zoom:67%;" />
+![](ElasticSearch/image-20210510151247187-164899551189251.png)
 
 ![image-20210510151503323](ElasticSearch/image-20210510151503323-164899551189352.png)
 

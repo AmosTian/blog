@@ -68,7 +68,7 @@ Beats组成
 
 ### FileBeat
 
-<img src="ElasticStack/image-20210513093443731-164899599080158.png" alt="image-20210513093443731" style="zoom: 50%;" />
+![](ElasticStack/image-20210513093443731-164899599080158.png)
 
 #### 架构
 
@@ -136,7 +136,7 @@ setup.template.settings:
 ./filebeat -e -c haoke.yml
 ```
 
-<img src="ElasticStack/image-20210513125239139-164899599080160.png" alt="image-20210513125239139" style="zoom:67%;" />
+![](ElasticStack/image-20210513125239139-164899599080160.png)
 
 -   @metadata ：元数据信息
 -   message：输入的信息
@@ -232,7 +232,7 @@ setup.template.settings:
 
 ![image-20210513150244484](ElasticStack/image-20210513150244484-164899599080265.png)
 
-<img src="ElasticStack/image-20210513154611347-164899599080266.png" alt="image-20210513154611347" style="zoom:67%;" />
+![](ElasticStack/image-20210513154611347-164899599080266.png)
 
 #### Module
 
@@ -430,7 +430,7 @@ processors:
 
 ![image-20210513161351173](ElasticStack/image-20210513161351173-164899599080373.png)
 
-<img src="ElasticStack/image-20210513162152746-164899599080374.png" alt="image-20210513162152746" style="zoom:67%;" />
+![](ElasticStack/image-20210513162152746-164899599080374.png)
 
 ![image-20210513162556974](ElasticStack/image-20210513162556974-164899599080375.png)
 
