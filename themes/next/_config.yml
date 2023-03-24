@@ -513,6 +513,7 @@ math:
     enable: true
     # See: https://mhchem.github.io/MathJax-mhchem/
     mhchem: true
+    engine: mathjax
     cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "7-环境与工具/4-hexo博客.md",
+                "file": "1-数学/4-离散数学/3-代数系统.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "7-环境与工具/4-hexo博客.md"
+                "file": "1-数学/4-离散数学/3-代数系统.md"
               }
             }
           },
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "7-环境与工具/4-hexo博客.md",
+                "file": "1-数学/4-离散数学/3-代数系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "7-环境与工具/4-hexo博客.md",
+                "file": "1-数学/4-离散数学/3-代数系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "7-环境与工具/4-hexo博客.md"
+                "file": "1-数学/4-离散数学/3-代数系统.md"
               }
             }
           }
@@ -157,14 +157,25 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "88d4faa2b3764260",
+  "active": "e0d673d3506549c5",
   "lastOpenFiles": [
+    "1-数学/4-离散数学/3-代数系统/image-20220302091945575.png",
+    "1-数学/4-离散数学/3-代数系统.md",
+    "1-数学/4-离散数学/3-代数系统/image-20230324114928551.png",
+    "1-数学/4-离散数学/4-图论.md",
+    "1-数学/4-离散数学/2-集合论.md",
+    "1-数学/2-矩阵论/8.常用矩阵总结.md",
+    "1-数学/4-离散数学/1-数理逻辑.md",
+    "7-环境与工具/4-hexo博客.md",
+    "3-编程语言/编译型/C++/1.类型转换与函数.md",
+    "1.类型转换与函数/image-20230323215552372.png",
+    "1.类型转换与函数/image-20230323215608816.png",
+    "1.类型转换与函数",
     "7-环境与工具/4-hexo博客/image-20230324015007044.png",
     "7-环境与工具/4-hexo博客/image-20230324015000117.png",
     "7-环境与工具/4-hexo博客/image-20230324014956201.png",
     "7-环境与工具/4-hexo博客/image-20230324014410229.png",
     "7-环境与工具/3-工具/3-zotera.md",
-    "7-环境与工具/4-hexo博客.md",
     "7-环境与工具/3-工具/2-typora 1.0.x破解.md",
     "7-环境与工具/3-工具/1-markdown.md",
     "7-环境与工具/2-IDE配置/3-navicat破解.md",
@@ -182,26 +193,15 @@
     "5-开发/6-Java项目/毕设项目/1-前端.md",
     "5-开发/4-后端框架/4-微服务.md",
     "5-开发/4-后端框架/5-SpringBoot.md",
-    "5-开发/4-后端框架/6-Dubbo.md",
-    "5-开发/4-后端框架/3-SpringMVC.md",
-    "5-开发/4-后端框架/1-Mybatis.md",
-    "5-开发/4-后端框架/2-Spring.md",
-    "5-开发/5-中间件/缓存库/MongoDB.md",
-    "5-开发/4-后端框架/0-学习路线.md",
     "5-开发/4-后端框架/1-Mybatis/image-20210314204628680.png",
     "5-开发/4-后端框架/1-Mybatis/image-20210314204516487.png",
     "5-开发/4-后端框架/1-Mybatis/mybatis-plus-framework.jpg",
-    "5-开发/4-后端框架/1-Mybatis/image-20210315151754735-16795908856582.png",
-    "5-开发/4-后端框架/1-Mybatis/image-20210315152015275-16795908732831.png",
-    "5-开发/4-后端框架/1-Mybatis/image-20210315151754735.png",
-    "5-开发/4-后端框架/1-Mybatis/image-20210315152015275.png",
     "1-Mybatis",
     "2/javaweb",
     "2",
     "3-编程语言/编译型/C++/1.类型转换与函数",
     "C",
     "C++",
-    "1.类型转换与函数",
     "6-应用层",
     "6. 应用层",
     "2-计算机基础/3-计算机网络/9-IP",
