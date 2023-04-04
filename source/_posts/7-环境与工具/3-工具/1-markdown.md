@@ -1,5 +1,5 @@
 ---
-title: markdown语法
+title: markdown常用语法归纳
 top: 84
 categories:
   - 环境与工具
@@ -7,10 +7,8 @@ categories:
 tags:
   - 环境与工具
   - 工具
-mathjax: true
-abbrlink: 4046760165
-date: 2021-05-27 00:00:00
-updated: 2021-05-27 00:00:00
+abbrlink: 2361300520
+date: 2022-03-26 22:52:00
 ---
 
 >   markdown常用语法归纳
@@ -162,11 +160,11 @@ var foo = "bar";
 
 小图像应该显示在他们的实际大小。
 
-![](octocat.png)
+![octocat](1-markdown/octocat.png)
 
 大图片应该总是按比例缩小并适合内容容器。
 
-![touxiang](touxiang.png)
+![touxiang](1-markdown/touxiang.png)
 
 ## Mermaid Test
 

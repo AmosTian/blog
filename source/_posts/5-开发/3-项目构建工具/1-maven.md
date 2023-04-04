@@ -1181,5 +1181,3 @@ java.util.logging.ConsoleHandler.encoding = GBK
 ##### eclipse中执行Maven命令是严格按照Maven规则
 
 >   项目中的依赖必须在Maven中找到
-
-![image-20210201195018571](1-maven.assets/image-20210201195018571.png)

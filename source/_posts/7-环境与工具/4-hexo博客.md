@@ -70,7 +70,7 @@ npm config set registry https://registry.npm.taobao.org
 hexo init 你的用户名.github.io
 ```
 
-![image-20221104152601824](image-20221104152601824.png)
+![image-20221104152601824](4-hexo博客/image-20221104152601824.png)
 
 ## 1.7 安装NexT主题
 
@@ -200,7 +200,7 @@ deploy:
 
 启动成功，默认在 `http://localhost:4000` 就能打开博客
 
-![image-20221104152624293](image-20221104152624293.png)
+![image-20221104152624293](4-hexo博客/image-20221104152624293.png)
 
 ### 1.7.6 NexT主题个性化
 
@@ -556,7 +556,7 @@ symbols_count_time:
 
 某一篇文章要归类或者打标签，只需要在抬头配置对应属性即可，如本篇文章所述：
 
-![image-20221104154856753](image-20221104154856753.png)
+![image-20221104154856753](4-hexo博客/image-20221104154856753.png)
 
 这两个页面是NexT自动维护的，只要文章按照规矩来就不会报错
 
@@ -727,7 +727,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 > 一定要记得修改为相对路径，否则无法正常显示图片
 
-![image-20221104195219599](image-20221104195219599.png)
+![image-20221104195219599](4-hexo博客/image-20221104195219599.png)
 
 # 6. 点击图片放大
 
@@ -735,7 +735,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 效果如图：
 
-![image-20221104202725373](image-20221104202725373.png)
+![image-20221104202725373](4-hexo博客/image-20221104202725373.png)
 
 ## 6.1 切换到lib目录
 
@@ -886,7 +886,7 @@ posts.data = posts.data.sort(function(a, b) {
 
 如图：
 
-![image-20221105084546307](image-20221105084546307.png)
+![image-20221105084546307](4-hexo博客/image-20221105084546307.png)
 
 # 10. Hexo添加helper-live2d动态模型插件
 
@@ -1051,7 +1051,7 @@ gulp.task('minify-js', function (done) {
 // 压缩 public/images 目录内图片(Version<3)
 // gulp.task('minify-images', function () {
 //     gulp.src('./public/images/**/*.*')
-//         .pipe(imagemin({
+//         .pipe(4-hexo博客/imagemin({
 //             optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
 //             progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
 //             interlaced: false, //类型：Boolean 默认：false 隔行扫描gif进行渲染
@@ -1063,7 +1063,7 @@ gulp.task('minify-js', function (done) {
 // 压缩 public/images 目录内图片(Version>3)
 gulp.task('minify-images', function (done) {
     gulp.src('./public/images/**/*.*')
-        .pipe(imagemin([
+        .pipe(4-hexo博客/imagemin([
             imageminGifsicle({interlaced: true}),
             mozjpeg({progressive: true}),
             optipng({optimizationLevel: 5}),
@@ -1102,7 +1102,7 @@ gulp.task('default', gulp.series(gulp.parallel('minify-html', 'minify-css', 'min
 
 目前问题：
 
-![image-20221106204418219](image-20221106204418219.png)
+![image-20221106204418219](4-hexo博客/image-20221106204418219.png)
 
 ## 11.2 hexo-neat
 
@@ -1150,7 +1150,7 @@ neat_js:
 
 在 `hexo g` 时自动调用
 
-![image-20230220093858522](image-20230220093858522.png)
+![image-20230220093858522](4-hexo博客/image-20230220093858522.png)
 
 # 12. NexT主题优化
 
@@ -1463,10 +1463,6 @@ read_more_btn: true #显示阅读全文按钮
 
 hexo 颜色配置：https://hexo.io/zh-cn/docs/helpers.html#tagcloud
 
-
-
-
-
 ## 12.2 添加懒加载
 
 [lazylod](https://github.com/theme-next/theme-next-jquery-lazyload)可以在用户不查看的时候，不加载相关部分，从而提升网站加载速度：
@@ -1531,10 +1527,6 @@ local_search:
   # unescape html strings to the readable one
   unescape: false
 ```
-
-
-
-
 
 ## 12.5. 侧边栏目录
 
@@ -1665,8 +1657,6 @@ const navItems = document.querySelectorAll('.post-toc li');
 转载：http://yearito.cn/posts/hexo-theme-beautify.html
 
 ### 12.8.1 粒子漂浮聚合
-
-
 
 ![5308475-ef603580be708882](4-hexo博客/5308475-ef603580be708882.gif)
 

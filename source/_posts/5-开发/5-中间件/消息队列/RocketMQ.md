@@ -283,7 +283,6 @@ enablePropertyFilter=true
 ```
 
 ![image-20210404003149274](RocketMQ/image-20210404003149274.png)
-![](Pasted%20image%2020230323235854.png)
 ![image-20210404003205974](RocketMQ/image-20210404003205974.png)
 
 ### 部署RocketMQ的管理工具
@@ -1022,7 +1021,7 @@ RocketMQ中的消息数据存储，采用了零拷贝技术（mmap + write方式
 
 - 每次读取消息队列先读取ConsumerQueue，然后再通过consumerQueue中拿到消息主体
 
-<img src="RocketMQ/image-20210405124721190.png" alt="image-20210405124721190" style="zoom:67%;" />
+![image-20210405124721190](RocketMQ/image-20210405124721190.png)
 
 ### 同步刷盘和异步刷盘
 
@@ -1043,7 +1042,7 @@ flushDiskType=ASYNC_FLUSH——异步
 
 flushDiskType=SYNC_FLUSH——同步
 
-<img src="RocketMQ/image-20210405160528768.png" alt="image-20210405160528768" style="zoom:67%;" />
+![image-20210405160528768](RocketMQ/image-20210405160528768.png)
 
 ## 重试策略
 

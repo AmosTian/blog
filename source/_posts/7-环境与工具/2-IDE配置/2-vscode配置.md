@@ -1,4 +1,6 @@
 ---
+abbrlink: 0
+---
 title: vscode配置
 date: '‎2022-01‎-‎23‏‎ ‏‎8:12:28'
 updated: '2022-01‎-‎23‏‎ ‏‎8:12:28'
@@ -10,7 +12,6 @@ tags:
   - 环境与工具
   - IDE配置
 abbrlink: 2022795773
----
 
 >   配置vscode的 `Python` , `C++` 的编译环境
 
@@ -22,15 +23,15 @@ abbrlink: 2022795773
 
 ### 2.1.1 安装python环境
 
-![image-20220123093416506](image-20220123093416506.png)
+![image-20220123093416506](2-vscode配置/image-20220123093416506.png)
 
 ### 2.1.2 创建vscode-python文件夹
 
-<img src="2-vscode配置/image-20220123093921230.png" alt="image-20220123093921230" style="zoom:67%;" />
+![image-20220123093921230](2-vscode配置/image-20220123093921230.png)
 
 #### 裸配置
 
-<img src="2-vscode配置/image-20220123094715834.png" alt="image-20220123094715834" style="zoom:50%;" />
+![image-20220123094715834](2-vscode配置/image-20220123094715834.png)
 
 如图，与在命令行运行无区别
 
@@ -38,11 +39,11 @@ abbrlink: 2022795773
 
 ### 2.1.3 code插件运行.py
 
-![image-20220123100607753](image-20220123100607753.png)
+![image-20220123100607753](2-vscode配置/image-20220123100607753.png)
 
 #### 添加配置文件
 
-![image-20220123100627944](image-20220123100627944.png)
+![image-20220123100627944](2-vscode配置/image-20220123100627944.png)
 
 ##### program
 
@@ -58,24 +59,24 @@ code宏定义：选中那个文件 *F5* 运行那个文件
 
 -   设置断点后， *F5* 运行至断点处
 
-![image-20220123101910568](image-20220123101910568.png)
+![image-20220123101910568](2-vscode配置/image-20220123101910568.png)
 
 -   *F10* 从断点处逐行执行
 
-    ![image-20220123102101638](image-20220123102101638.png)
+    ![image-20220123102101638](2-vscode配置/image-20220123102101638.png)
 
-    ![image-20220123102117563](image-20220123102117563.png)
+    ![image-20220123102117563](2-vscode配置/image-20220123102117563.png)
 
 ## 2.2 跨文件夹调用
 
-![image-20220123105703824](image-20220123105703824.png)
+![image-20220123105703824](2-vscode配置/image-20220123105703824.png)
 
 ```python
 import sys
 sys.path.append("./") # 将当前文件夹添加到系统目录中
 ```
 
-![image-20220123105921463](image-20220123105921463.png)
+![image-20220123105921463](2-vscode配置/image-20220123105921463.png)
 
 ## 2.3 conda管理python环境
 
@@ -85,7 +86,7 @@ sys.path.append("./") # 将当前文件夹添加到系统目录中
 conda info -e
 ```
 
-![image-20220123121403098](image-20220123121403098.png)
+![image-20220123121403098](2-vscode配置/image-20220123121403098.png)
 
 ### 2.3.2 新建环境conda
 
@@ -93,7 +94,7 @@ conda info -e
 conda create -n [env_name] python=3.xx
 ```
 
-<img src="2-vscode配置/image-20220123121541983.png" alt="image-20220123121541983" style="zoom: 67%;" />
+![image-20220123121541983](2-vscode配置/image-20220123121541983.png)
 
 ### 2.3.3 使用conda环境
 
@@ -101,7 +102,9 @@ conda create -n [env_name] python=3.xx
 conda activate [env_name]
 ```
 
-<img src="2-vscode配置/image-20220123121740761.png" alt="image-20220123121740761" style="zoom:67%;" />![image-20220123121906318](image-20220123121906318.png)
+![image-20220123121740761](2-vscode配置/image-20220123121740761.png)
+
+![image-20220123121906318](2-vscode配置/image-20220123121906318.png)
 
 
 
@@ -115,13 +118,13 @@ conda activate [env_name]
 
 https://winlibs.com/
 
-1.  查看版本
+1. 查看版本
 
-<img src="2-vscode配置/image-20220128084046173.png" alt="image-20220128084046173" style="zoom:67%;" />
+   ![image-20220128084046173](2-vscode配置/image-20220128084046173.png)
 
-2.  配置环境变量
+2. 配置环境变量
 
-<img src="2-vscode配置/image-20220128084314786.png" alt="image-20220128084314786" style="zoom:67%;" />
+   ![image-20230404001539796](2-vscode配置/image-20230404001539796.png)
 
 3.  编写程序，测试编译器
 
@@ -137,7 +140,7 @@ https://winlibs.com/
     }
     ```
 
-    <img src="2-vscode配置/image-20220128085328237.png" alt="image-20220128085328237" style="zoom:50%;" />
+    ![image-20220128085328237](2-vscode配置/image-20220128085328237.png)
 
 ### 3.1.3 vsc使用自己下载的编译器
 
@@ -145,23 +148,23 @@ https://winlibs.com/
 
 -   GDB为自己下载的编译器
 
-<img src="2-vscode配置/image-20220128090235051.png" alt="image-20220128090235051" style="zoom: 50%;" />
+![image-20220128090235051](2-vscode配置/image-20220128090235051.png)
 
 -   此时，生成 *launch.json* 和 *tasks.json* 两个配置文件
 
-<img src="2-vscode配置/image-20220128090412986.png" alt="image-20220128090412986" style="zoom:50%;" />
+![image-20220128090412986](2-vscode配置/image-20220128090412986.png)
 
 #### launch.json
 
-![image-20220128092616888](image-20220128092616888.png)
+![image-20220128092616888](2-vscode配置/image-20220128092616888.png)
 
 #### task.json
 
-![image-20220128093308852](image-20220128093308852.png)
+![image-20220128093308852](2-vscode配置/image-20220128093308852.png)
 
 ## 3.2 多文件编译
 
-![image-20220130081506606](image-20220130081506606.png)
+![image-20220130081506606](2-vscode配置/image-20220130081506606.png)
 
 ```shell
 g++ test.cpp -o test.exe //用g++编译器将 test.cpp 链接成 test.exe
@@ -169,11 +172,13 @@ g++ test.cpp -o test.exe //用g++编译器将 test.cpp 链接成 test.exe
 
 报错：没有找得到 `PrintHello()` 的定义
 
-<img src="2-vscode配置/image-20220130081651729.png" alt="image-20220130081651729" style="zoom:50%;" />
+解决方法
 
 ```c
 g++ test.cpp hello.cpp -o test.exe //用g++编译器将test.cpp和hello.cpp链接成一个可执行文件
 ```
+
+![image-20220130081651729](2-vscode配置/image-20220130081651729.png)
 
 ### 3.2.1 C/C++编译过程
 
@@ -200,14 +205,14 @@ D--链接-->E
 
 3.  将cmake添加到环境变量或修改 cmaketools的配置文件
 
-    ![image-20220130090602724](image-20220130090602724.png)
+    ![image-20220130090602724](2-vscode配置/image-20220130090602724.png)
 
-4.  目录下新建 `CMakeLists.txt` 
+4.  项目目录下新建 `CMakeLists.txt` 
 
     ```
     project(#项目名)
     
-    aux_source_directory(目录 定义为变量名)
+    aux_source_directory(代码目录 定义为变量名)
     
     add_executable(#项目名 #目标目录)
     ```
@@ -224,15 +229,17 @@ D--链接-->E
 
 ### 3.2.3 cmake构建项目
 
+重启一下vscode就会出现1
+
 1.  选择 cmake 的编译器
 
-    ![image-20220130091927245](image-20220130091927245.png)
+    ![image-20220130091927245](2-vscode配置/image-20220130091927245.png)
 
 2.  使用cmake调试
 
-    <img src="2-vscode配置/image-20220130092710294.png" alt="image-20220130092710294" style="zoom:50%;" />
+    这里需要选择一下编译器版本
 
-    ![image-20220130092512560](image-20220130092512560.png)
+    ![image-20220130092710294](2-vscode配置/image-20220130092710294.png)
 
 3.  修改配置文件，使 F5 调用cmake调试
 
@@ -246,10 +253,14 @@ D--链接-->E
     }
     ```
 
-    <img src="2-vscode配置/image-20220130093340417.png" alt="image-20220130093340417" style="zoom: 50%;" />
+    ![image-20220130093340417](2-vscode配置/image-20220130093340417.png)
+    
+    ![image-20220130092512560](2-vscode配置/image-20220130092512560.png)
+
+![image-20230404002357292](2-vscode配置/image-20230404002357292.png)
 
 **注**
 
 新增文件，需要变动重新保存一下CMakeLists.txt文件，刷新缓冲
 
-![image-20220130085851956](image-20220130085851956.png)
+![image-20220130085851956](2-vscode配置/image-20220130085851956.png)

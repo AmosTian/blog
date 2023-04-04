@@ -107,7 +107,7 @@ Spring Cloud：为开发者提供了微服务动态访问与控制的开发工�
 
 ##### 修改主类位置
 
-![image-20210225121311369](4-SpringBoot/image-20210225121311369.png)
+![image-20210225121311369](5-SpringBoot/image-20210225121311369.png)
 
 >   重启idea后解决
 
@@ -130,7 +130,7 @@ Spring Cloud：为开发者提供了微服务动态访问与控制的开发工�
 </profiles>
 ```
 
-![image-20210225103909848](4-SpringBoot/image-20210225103909848.png)
+![image-20210225103909848](5-SpringBoot/image-20210225103909848.png)
 
 #### 1. 新建Project
 
@@ -246,9 +246,9 @@ server.port=8081
 </build>
 ```
 
-![image-20210225112938454](4-SpringBoot/image-20210225112938454.png)
+![image-20210225112938454](5-SpringBoot/image-20210225112938454.png)
 
-![image-20210225113002016](4-SpringBoot/image-20210225113002016.png)
+![image-20210225113002016](5-SpringBoot/image-20210225113002016.png)
 
 ## 自动装配
 
@@ -256,7 +256,7 @@ server.port=8081
 
 >   需求：定义一个注解，让使用了这个注解的应用程序自动化地注入一些类或者做一些底层的事情
 
-![](4-SpringBoot/image-20210223122012223.png)
+![](5-SpringBoot/image-20210223122012223.png)
 
 在应用程序的入口加上 `@EnableMyConfig` 注解。这样的话，MyConfig就被注入进来了
 
@@ -1485,7 +1485,7 @@ protected void addResourceHandlers(ResourceHandlerRegistry registry) {
 -   static        ：静态资源，图片
 -   public       :公共资源
 
-_> localhost:8080/webjars/**
+> localhost:8080/webjars/**
 
 **优先级**
 
@@ -1607,56 +1607,58 @@ ${personsArray[0].name}
  */
 ${person.createCompleteName()}
 ${person.createCompleteNameWithSeparator('-')}
-        ```
-
-    -   内置的基本对象
-
-```html
-#ctx: the context object.
-#vars: the context variables.
-#locale: the context locale.
-
-<!--(only in Web Contexts)-->
-#request:  the HttpServletRequest object.
-#response: the HttpServletResponse object.
-#session: the HttpSession object.
-#servletContext: the ServletContext object.
 ```
 
-    -   内置的工具对象
+- 内置的基本对象
 
-```html
-#execInfo: information about the template being processed.
+  ```
+  #ctx: the context object.
+  #vars: the context variables.
+  #locale: the context locale.
+  
+  <!--(only in Web Contexts)-->
+  #request:  the HttpServletRequest object.
+  #response: the HttpServletResponse object.
+  #session: the HttpSession object.
+  #servletContext: the ServletContext object.
+  ```
 
-#messages: methods for obtaining externalized messages inside variables expressions, in the same way as they would be obtained using #{…} syntax.
+  
 
-#uris: methods for escaping parts of URLs/URIs
+- 内置的工具对象
 
-#conversions: methods for executing the configured conversion service (if any).
-
-#dates: methods for java.util.Date objects: formatting, component extraction, etc.
-
-#calendars: analogous to #dates, but for java.util.Calendar objects.
-
-#numbers: methods for formatting numeric objects.
-#strings: methods for String objects: contains, startsWith, prepending/appending, etc.
-
-#objects: methods for objects in general.
-
-#bools: methods for boolean evaluation.
-
-#arrays: methods for arrays.
-
-#lists: methods for lists.
-
-#sets: methods for sets.
-
-#maps: methods for maps.
-
-#aggregates: methods for creating aggregates on arrays or collections.
-
-#ids: methods for dealing with id attributes that might be repeated (for example, as a result of an iteration).
-```
+  ```
+  #execInfo: information about the template being processed.
+  
+  #messages: methods for obtaining externalized messages inside variables expressions, in the same way as they would be obtained using #{…} syntax.
+  
+  #uris: methods for escaping parts of URLs/URIs
+  
+  #conversions: methods for executing the configured conversion service (if any).
+  
+  #dates: methods for java.util.Date objects: formatting, component extraction, etc.
+  
+  #calendars: analogous to #dates, but for java.util.Calendar objects.
+  
+  #numbers: methods for formatting numeric objects.
+  #strings: methods for String objects: contains, startsWith, prepending/appending, etc.
+  
+  #objects: methods for objects in general.
+  
+  #bools: methods for boolean evaluation.
+  
+  #arrays: methods for arrays.
+  
+  #lists: methods for lists.
+  
+  #sets: methods for sets.
+  
+  #maps: methods for maps.
+  
+  #aggregates: methods for creating aggregates on arrays or collections.
+  
+  #ids: methods for dealing with id attributes that might be repeated (for example, as a result of an iteration).
+  ```
 
 2.  Selection Variable Expressions: `*{...}`:配合th:object使用
 
@@ -1724,7 +1726,7 @@ All these features can be combined and nested:
 
 ##### redirect
 
-_>底层也是response.sendredirect 实现页面重定向
+> 底层也是response.sendredirect 实现页面重定向
 
 ![image-20210228194341578](5-SpringBoot/image-20210228194341578.png)
 
@@ -2425,7 +2427,7 @@ public class LoginController {
 }
 ```
 
-_>考虑到刷新页面 `重新提交表单`问题
+> 考虑到刷新页面 `重新提交表单`问题
 
 ![image-20210227113118384](5-SpringBoot/image-20210227113118384.png)
 
@@ -2454,9 +2456,9 @@ public class LoginController {
 }
 ```
 
-_>新问题：直接输入地址，会跳转到目标页面
+> 新问题：直接输入地址，会跳转到目标页面
 
-_>解决：使用拦截器，拦截非法请求
+> 解决：使用拦截器，拦截非法请求
 
 ##### 拦截器进行登录检查
 
@@ -3010,9 +3012,11 @@ public String delete(@PathVariable("id") Integer id){
 
 #### 涉及到的组件
 
-1.  ErrorPageCustomizer![image-20210301122623056](5-SpringBoot/image-20210301122623056.png)
+1. ErrorPageCustomizer
 
-    系统出现错误以后，来到 `/error请求` 进行处理
+   ![image-20210301122623056](5-SpringBoot/image-20210301122623056.png)
+
+   系统出现错误以后，来到 `/error请求` 进行处理
 
 2.  BasicErrorController
 
@@ -3152,9 +3156,13 @@ _>如何变成错误请求自适应响应
 
 ![image-20210301200549284](5-SpringBoot/image-20210301200549284.png)
 
-原因_>状态码，2开头表示请求成功，之前的错误视图都是4开头
+原因
 
-响应页面设置状态码_>从HttpRequest中获取状态码
+> 状态码，2开头表示请求成功，之前的错误视图都是4开头
+
+响应页面设置状态码
+
+> 从HttpRequest中获取状态码
 
 ![image-20210301201247349](5-SpringBoot/image-20210301201247349.png)
 

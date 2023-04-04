@@ -636,30 +636,30 @@ mvn --projects dubbo-admin-server spring-boot:run
 
 ![image-20210314164759981](6-Dubbo/image-20210314164759981.png)
 
-### 服务的负载均衡
+## 服务的负载均衡
 
 在集群负载均衡时，Dubbo 提供了多种均衡策略，缺省为 random 随机调用  
 
 [文档](https://dubbo.apache.org/zh/docs/v2.7/user/examples/loadbalance/)
 
-#### 负载均衡策略
+### 负载均衡策略
 
-##### Random LoadBalance
+#### Random LoadBalance
 
 -   **随机**，按权重设置随机概率。
 -   在一个截面上碰撞的概率高，但**调用量越大分布越均匀**，而且按概率使用权重后也比较均匀，有利于动态调整提供者权重。
 
-##### RoundRobin LoadBalance
+#### RoundRobin LoadBalance
 
 -   **轮询**，按公约后的权重设置轮询比率。
 -   **存在慢的提供者累积请求的问题**，比如：第二台机器很慢，但没挂，当请求调到第二台时就卡在那，久而久之，所有请求都卡在调到第二台上。
 
-##### LeastActive LoadBalance
+#### LeastActive LoadBalance
 
 -   **最少活跃调用数**，相同活跃数的随机，活跃数指 *调用前后计数差* 。
 -   **使慢的提供者收到更少请求**，因为越慢的提供者的调用前后计数差会越大。
 
-##### ConsistentHash LoadBalance
+#### ConsistentHash LoadBalance
 
 -   **一致性 Hash**，相同参数的请求总是发到同一提供者
 -   当某一台提供者挂时，原本发往该提供者的请求，基于虚拟节点，平摊到其它提供者，不会引起剧烈变动。
@@ -667,7 +667,7 @@ mvn --projects dubbo-admin-server spring-boot:run
 -   缺省只对第一个参数 Hash，如果要修改，请配置 `<dubbo:parameter key="hash.arguments" value="0,1" />`
 -   缺省用 160 份虚拟节点，如果要修改，请配置 `<dubbo:parameter key="hash.nodes" value="320" />`
 
-#### 指定负载均衡策略
+### 指定负载均衡策略
 
 消费者注解
 

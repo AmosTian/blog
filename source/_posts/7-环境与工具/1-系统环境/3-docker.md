@@ -33,7 +33,7 @@ abbrlink: 4065722285
 
 容器更多的用于表示软件的一个标准化单元。由于容器的标准化，因此它可以无视基础设施（Infrastructure）的差异，部署到任何一个地方。另外，Docker也为容器提供更强的业界的隔离兼容
 
-![img](20201122210138538.png)
+![20201122210138538](3-docker/20201122210138538.png)
 
 ### 1.1.1 Docker和虚拟机技术的区别
 
@@ -58,15 +58,15 @@ abbrlink: 4065722285
 
 ## 1.2 核心概念
 
-![image-20210301130955652](image-20210301130955652.png)
+![image-20210301130955652](3-docker/image-20210301130955652.png)
 
-| 概念                     | 解释                                                 |
-| ------------------------ | ---------------------------------------------------- |
-| docker主机(Host)         | 安装了Docker程序的机器(Docker直接安装在操作系统之上) |
-| docker客户端(Client)     | 连接docker主机进行操作                               |
-| docker注册中心(Registry) | 用于保存各种打包好的软件镜像                         |
-| docker镜像(Images)       | 软件打包好的镜像；放在docker仓库中                   |
-| docker容器(Controller)   | 镜像启动后的实例称为一个容器                         |
+| 概念                        | 解释                                                 |
+| --------------------------- | ---------------------------------------------------- |
+| docker主机(Host)            | 安装了Docker程序的机器(Docker直接安装在操作系统之上) |
+| docker客户端(Client)        | 连接docker主机进行操作                               |
+| docker注册中心(Registry)    | 用于保存各种打包好的软件镜像                         |
+| docker镜像(3-docker/images) | 软件打包好的镜像；放在docker仓库中                   |
+| docker容器(Controller)      | 镜像启动后的实例称为一个容器                         |
 
 **容器是独立运行的一个或一组应用**(环境)
 
@@ -289,7 +289,7 @@ systemctl restart docker
 docker info
 ```
 
-![image-20210304111632077](image-20210304111632077.png)
+![image-20210304111632077](3-docker/image-20210304111632077.png)
 
 <div style="page-break-after:always" />
 
@@ -376,7 +376,7 @@ docker import [包名].tar wangye/tf-deeplab-gpu:1.1
 
 1.  配置安全组——开放端口
 
-    ![image-20210304124045081](image-20210304124045081.png)
+    ![image-20210304124045081](3-docker/image-20210304124045081.png)
 
 2.  进入容器的文件夹
 
@@ -467,8 +467,8 @@ docker start percona
 chmod -R 777 /data 
 ```
 
-![image-20210314200457516](image-20210314200457516.png)
+![image-20210314200457516](3-docker/image-20210314200457516.png)
 
 测试:
 
-![image-20210314201157658](image-20210314201157658.png)
+![image-20210314201157658](3-docker/image-20210314201157658.png)

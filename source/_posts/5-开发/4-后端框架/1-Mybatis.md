@@ -23,7 +23,7 @@ Mybatis——一种ORM框架：将Java中的Bean映射为数据库的记录
 
 Mybatis运行过程——工厂模式
 
-**#{}**与\${}——三点区别
+`#{}` 与 `${}` ——三点区别
 
 动态Sql
 
@@ -691,7 +691,7 @@ db_pwd=2017002231
 
 2.  通过 `<properties/>` 声明引用属性
 
-    ![image-20210207152911277](1-Mybatis/image-20210207152911277-1647233042238.png)
+    ![image-20210207152911277](1-Mybatis/image-20210207152911277.png)
 
     ```xml
     <!-- properties引用属性变量 -->
@@ -1423,7 +1423,7 @@ public class TestBlog {
 
 3.  测试
 
-    ![image-20210210091940713](1-Mybatis/image-20210210091940713.png)
+    ![](1-Mybatis/image-20210210085112288.png)
 
     ![image-20210210092020504](1-Mybatis/image-20210210092020504.png)
 

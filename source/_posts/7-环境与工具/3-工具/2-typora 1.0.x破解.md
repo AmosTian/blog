@@ -54,17 +54,15 @@ pip install -r requirements.txt
 python typora.py "D:\Typora\resources\app.asar" workstation\outfile\
 ```
 
-<img src="2-typora 1.0.x破解/image-20220326230223435.png" alt="image-20220326230223435" style="zoom: 67%;" />
+![](2-typora 1.0.x破解/image-20220326230223435.png)
 
 ## 4. 替换解压缩出来的许可证
 
 用克隆下来的typoraCracker文件中的example\patch\License.js替换workstation\outfile\dec_app\License.js
 
-<img src="2-typora 1.0.x破解/image-20220326230502811-16786363202572.png" alt="image-20220326230502811" style="zoom:50%;" />
+![](2-typora 1.0.x破解/image-20220326230502811-16786363202572.png)
 
-
-
-<img src="2-typora 1.0.x破解/image-20220326230550390.png" alt="image-20220326230550390" style="zoom:67%;" />
+![](2-typora 1.0.x破解/image-20220326230550390.png)
 
 ## 5. 打包app.asar
 
@@ -77,9 +75,9 @@ python typora.py -u workstation\outfile\dec_app workstation\outappasar
 
 打包完后，在 **typoraCracker\workstation\outappasar** 会出现一个 **app.asar** 文件。
 
-<img src="2-typora 1.0.x破解/image-20220326231032685.png" alt="image-20220326231032685" style="zoom: 80%;" />
+![](2-typora 1.0.x破解/image-20220326231032685.png)
 
-<img src="2-typora 1.0.x破解/image-20220326231108477.png" alt="image-20220326231108477" style="zoom:67%;" />
+![](2-typora 1.0.x破解/image-20220326231108477.png)
 
 ## 6. 将打包好的app.asar替换到resources文件夹
 
@@ -96,7 +94,7 @@ cd "你的typoraCracker文件夹所在地址"
 node example/keygen.js
 ```
 
-<img src="2-typora 1.0.x破解/image-20220326231123426-16786363541481.png" alt="image-20220326231123426" style="zoom:67%;" />
+![](2-typora 1.0.x破解/image-20220326231123426-16786363541481.png)
 
 ## 8. 打开typro激活
 
