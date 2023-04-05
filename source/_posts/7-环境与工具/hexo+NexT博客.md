@@ -70,7 +70,7 @@ npm config set registry https://registry.npm.taobao.org
 hexo init 你的用户名.github.io
 ```
 
-![image-20221104152601824](4-hexo博客/image-20221104152601824.png)
+![image-20221104152601824](hexo+NexT博客/image-20221104152601824.png)
 
 ## 1.7 安装NexT主题
 
@@ -200,7 +200,7 @@ deploy:
 
 启动成功，默认在 `http://localhost:4000` 就能打开博客
 
-![image-20221104152624293](4-hexo博客/image-20221104152624293.png)
+![image-20221104152624293](hexo+NexT博客/image-20221104152624293.png)
 
 ### 1.7.6 NexT主题个性化
 
@@ -556,7 +556,7 @@ symbols_count_time:
 
 某一篇文章要归类或者打标签，只需要在抬头配置对应属性即可，如本篇文章所述：
 
-![image-20221104154856753](4-hexo博客/image-20221104154856753.png)
+![image-20221104154856753](hexo+NexT博客/image-20221104154856753.png)
 
 这两个页面是NexT自动维护的，只要文章按照规矩来就不会报错
 
@@ -727,7 +727,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 > 一定要记得修改为相对路径，否则无法正常显示图片
 
-![image-20221104195219599](4-hexo博客/image-20221104195219599.png)
+![image-20221104195219599](hexo+NexT博客/image-20221104195219599.png)
 
 # 6. 点击图片放大
 
@@ -735,7 +735,7 @@ hexo.extend.filter.register('after_post_render', function(data){
 
 效果如图：
 
-![image-20221104202725373](4-hexo博客/image-20221104202725373.png)
+![image-20221104202725373](hexo+NexT博客/image-20221104202725373.png)
 
 ## 6.1 切换到lib目录
 
@@ -886,7 +886,7 @@ posts.data = posts.data.sort(function(a, b) {
 
 如图：
 
-![image-20221105084546307](4-hexo博客/image-20221105084546307.png)
+![image-20221105084546307](hexo+NexT博客/image-20221105084546307.png)
 
 # 10. Hexo添加helper-live2d动态模型插件
 
@@ -1102,7 +1102,7 @@ gulp.task('default', gulp.series(gulp.parallel('minify-html', 'minify-css', 'min
 
 目前问题：
 
-![image-20221106204418219](4-hexo博客/image-20221106204418219.png)
+![image-20221106204418219](hexo+NexT博客/image-20221106204418219.png)
 
 ## 11.2 hexo-neat
 
@@ -1150,7 +1150,7 @@ neat_js:
 
 在 `hexo g` 时自动调用
 
-![image-20230220093858522](4-hexo博客/image-20230220093858522.png)
+![image-20230220093858522](hexo+NexT博客/image-20230220093858522.png)
 
 # 12. NexT主题优化
 
@@ -1180,7 +1180,7 @@ favicon:
 
 ### 12.1.4 文章结束标志
 
-![](4-hexo博客/image-20230324014410229.png)
+![](hexo+NexT博客/image-20230324014410229.png)
 
 在路径 `\themes\next\layout\_macro` 中新建 `passage-end-tag.swig` 文件，并添加以下内容
 
@@ -1390,13 +1390,13 @@ auto_excerpt:
 read_more_btn: true #显示阅读全文按钮
 ```
 
-![](4-hexo博客/image-20230324015007044.png)
+![](hexo+NexT博客/image-20230324015007044.png)
 
 
 
 ### 12.1.9 修改文章链接样式
 
-![5308475-8cc4fc18c399af7e](4-hexo博客/5308475-8cc4fc18c399af7e.gif)
+![5308475-8cc4fc18c399af7e](5308475-8cc4fc18c399af7e.gif)
 
 修改文件 `themes\next\source\css\_common\components\post\post.styl`，在末尾添加如下css样式，：
 
@@ -1566,9 +1566,9 @@ https://github.com/theme-next/hexo-theme-next/pull/1540/commits/ec521c927dc10255
 
 主题目录：
 
-![image-20230219233016205](4-hexo博客/image-20230219233016205.png)
+![image-20230219233016205](hexo+NexT博客/image-20230219233016205.png)
 
-![image-20230219232927545](4-hexo博客/image-20230219232927545.png)
+![image-20230219232927545](hexo+NexT博客/image-20230219232927545.png)
 
 ```js
 const navItems = document.querySelectorAll('.post-toc li');
@@ -1612,7 +1612,7 @@ const navItems = document.querySelectorAll('.post-toc li');
 
 ## 12.7 鼠标点击特效
 
-![5308475-78e64c0a80bb559e-16675764477622](4-hexo博客/5308475-78e64c0a80bb559e-16675764477622.gif)
+![5308475-78e64c0a80bb559e-16675764477622](5308475-78e64c0a80bb559e-16675764477622.gif)
 
 1. 在`/themes/next/source/js/src`下新建文件 clicklove.js ，接着把下面的代码拷贝粘贴到 clicklove.js 文件中：
 
@@ -1627,7 +1627,7 @@ const navItems = document.querySelectorAll('.post-toc li');
    <script type="text/javascript" src="/js/src/clicklove.js"></script>
    ```
 
-![2017-12-18-084649](4-hexo博客/2017-12-18-084649.png)
+![2017-12-18-084649](2017-12-18-084649.png)
 
 1. 跟那个红心是差不多的，首先在`themes/next/source/js/src`里面建一个叫`fireworks.js`的文件，代码如下：
 
@@ -1658,7 +1658,7 @@ const navItems = document.querySelectorAll('.post-toc li');
 
 ### 12.8.1 粒子漂浮聚合
 
-![5308475-ef603580be708882](4-hexo博客/5308475-ef603580be708882.gif)
+![5308475-ef603580be708882](5308475-ef603580be708882.gif)
 
 上面这种只是其中一种动态背景，新版的Next主题集成了该功能，
 
@@ -1725,7 +1725,7 @@ canvas_sphere: false
 
 ### 12.8.3 随机三角丝带
 
-![evan-you](4-hexo博客/evan-you.png)
+![evan-you](evan-you.png)
 
 点击下方按钮下载相应的脚本，并置于 themes\next\source\js\ 目录下：
 
@@ -1822,7 +1822,7 @@ evanyou: true
 
 ## 12.9 回到顶部
 
-![back-to-top](4-hexo博客/back-to-top.gif)
+![back-to-top](back-to-top.gif)
 
 原理很简单，将 back-to-top 按钮添加图片背景，并添加 CSS3 动效即可。
 
@@ -1830,7 +1830,7 @@ evanyou: true
 
 你可以点击下方按钮下载本站所使用的小猫上吊素材（ 小猫咪这么可爱，当然要多放点孜然啦…）
 
-![scroll](4-hexo博客/scroll.png)
+![scroll](scroll.png)
 
 然后在自定义样式文件中添加如下代码：
 
@@ -1903,7 +1903,7 @@ show_date_time();
 
 
 
-![image-20230220102113001](4-hexo博客/image-20230220102113001.png)
+![image-20230220102113001](hexo+NexT博客/image-20230220102113001.png)
 
 百度收录
 
