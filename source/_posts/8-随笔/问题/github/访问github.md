@@ -44,7 +44,7 @@ ssh: connect to host github.com port 22: Connection timed out
    Hostname ssh.github.com
    PreferredAuthentications publickey
    IdentityFile ~/.ssh/id_rsa
-   Port 443
+   Port 443 
    ```
 
 3. 执行 `ssh -T git@github.com` ，输入 `yes` 即可。
