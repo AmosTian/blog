@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md",
+                "file": "6-AI/1-数学基础/1.高数.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md"
+                "file": "6-AI/1-数学基础/1.高数.md"
               }
             }
           },
@@ -104,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md",
+                "file": "6-AI/1-数学基础/1.高数.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md",
+                "file": "6-AI/1-数学基础/1.高数.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +144,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md"
+                "file": "6-AI/1-数学基础/1.高数.md"
               }
             }
           }
@@ -168,23 +168,24 @@
   },
   "active": "bead9abd41d6b72b",
   "lastOpenFiles": [
-    "2-计算机基础/4-计算机组成原理/1-数的表示与计算.md",
-    "8-随笔/英语/ob单词/1.索引.md",
-    "7-环境与工具/4-信息检索/1.检索概念.md",
-    "5-开发/6-AI/DeepLearning/行人重识别/0666EDCB.png",
+    "9-读书/计算机系统概论Yale.patt/2-第二章.md",
     "5-开发/6-AI/DeepLearning/行人重识别.md",
+    "5-开发/6-AI/DeepLearning/行人重识别/0666EDCB.png",
     "5-开发/6-AI/DeepLearning/行人重识别/image-20221210091633314.png",
-    "5-开发/6-AI/DeepLearning/行人重识别/image-20221210091402988.png",
     "5-开发/6-AI/DeepLearning/行人重识别/image-20221210091641758.png",
+    "5-开发/6-AI/DeepLearning/行人重识别/image-20221210091402988.png",
     "5-开发/6-AI/DeepLearning/行人重识别/image-20221210085904250.png",
-    "5-开发/6-AI/DeepLearning/行人重识别/image-20221210085436122.png",
-    "5-开发/6-AI/DeepLearning/行人重识别/image-20221210084748878.png",
     "5-开发/6-AI/DeepLearning/行人重识别/image-20221210085732521.png",
     "5-开发/6-AI/DeepLearning/行人重识别/image-20221210085632071.png",
+    "5-开发/6-AI/DeepLearning/行人重识别/image-20221210085436122.png",
+    "5-开发/6-AI/DeepLearning/行人重识别/image-20221210084748878.png",
     "5-开发/6-AI/DeepLearning/行人重识别/image-20221209235454043.png",
     "5-开发/6-AI/DeepLearning/行人重识别",
     "5-开发/6-AI/DeepLearning",
     "5-开发/6-AI",
+    "2-计算机基础/4-计算机组成原理/1-数的表示与计算.md",
+    "8-随笔/英语/ob单词/1.索引.md",
+    "7-环境与工具/4-信息检索/1.检索概念.md",
     "7-环境与工具/4-信息检索/2.检索工具.md",
     "7-环境与工具/4-信息检索/未命名.md",
     "7-环境与工具/hexo+NexT博客.md",
@@ -206,7 +207,6 @@
     "8-随笔/英语/ob单词/subject.md",
     "8-随笔/英语/ob单词/recruit.md",
     "8-随笔/英语/ob单词/time.md",
-    "8-随笔/英语/ob单词/thorough.md",
     "8-随笔/英语/ob单词/1.索引/202307041031534794.txt",
     "8-随笔/英语/ob单词/1.索引/202307041028444753.txt",
     "8-随笔/英语/ob单词/1.索引/202307041027434792.txt",
