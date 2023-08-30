@@ -26,4 +26,4 @@ In the future, I will continue to learn the following
 - ⚡Machine Learning: some theoretical and implementation of practice models
 - ⚡Some strange tricks: such as how to build a blog, how to crack software, etc.
 
-😄Right now I'm learning: C++ and databases.
+😄Right now I'm learning: C++ and AI.
