@@ -6,7 +6,8 @@ tags:
   - 面试题
   - Java
 mathjax: true
-date: 2023-8-20 09:49:04
+abbrlink: 2295017169
+date: 2023-08-20 09:49:04
 ---
 
 [TOC]
@@ -505,7 +506,7 @@ public static Boolean valueOf(boolean b) {
 -   浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递
 -   深拷贝：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容
 
-<img src="2-Java/image-20210603130853438.png" alt="image-20210603130853438" style="zoom:67%;" />
+![image-20210603130853438](2-Java/image-20210603130853438.png)
 
 #### Java是值传递的
 
@@ -792,7 +793,7 @@ LinkedHashMap 在此基础上，增加了双向链表，使得上述结构可以
 
 [参考链接](http://www.cnblogs.com/chengxiao/p/6842045.html )
 
-<img src="2-Java/image-20210603135559227.png" alt="image-20210603135559227" style="zoom:67%;" />
+![image-20210603135559227](2-Java/image-20210603135559227.png)
 
 ![image-20210603135653449](2-Java/image-20210603135653449.png)
 
@@ -833,24 +834,3 @@ LinkedHashMap 在此基础上，增加了双向链表，使得上述结构可以
 4.  综上， `equals()` 被覆盖过，则 `hashCode()` 也必须被覆盖
 
 当把对象加入 `HashSet` 时，`HashSet` 会先计算对象的 `hashcode` 值来判断对象加入的位置，同时会与已经加入元素的 `hashcode` 值比较。如果没有相符的 `hashcode` ，`HashSet` 会假设对象没有重复出现。如果发现有相同的 `hashcode` ，则会调用 `equals()` 方法来检查 `hashcode` 相等的对象真的相同。如果两者相同，则不会加入。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
