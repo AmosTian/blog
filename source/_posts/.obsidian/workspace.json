@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md",
+                "file": "11-分布式/分布式存储/2.ceph集群部署.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md"
+                "file": "11-分布式/分布式存储/2.ceph集群部署.md"
               }
             }
           },
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md",
+                "file": "11-分布式/分布式存储/2.ceph集群部署.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md",
+                "file": "11-分布式/分布式存储/2.ceph集群部署.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "9-读书/计算机系统概论Yale.patt/2-第二章.md"
+                "file": "11-分布式/分布式存储/2.ceph集群部署.md"
               }
             }
           }
@@ -165,12 +165,14 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "88d4faa2b3764260",
+  "active": "d3c92004e906ca2e",
   "lastOpenFiles": [
     "6-AI/2-机器学习/4-逻辑回归.md",
     "6-AI/2-机器学习/2-线性回归.md",
     "6-AI/2-机器学习/6-支持向量机.md",
     "6-AI/2-机器学习/3-朴素贝叶斯.md",
+    "9-读书/计算机系统概论Yale.patt/1-第一章.md",
+    "9-读书/计算机系统概论Yale.patt/2-第二章.md",
     "6-AI/2-机器学习/9-降维.md",
     "2-计算机基础/4-计算机组成原理/1-数的表示与计算.md",
     "8-随笔/面试记录/3-中电太极.md",
@@ -195,7 +197,6 @@
     "6-AI/DeepLearning/行人重识别",
     "5-开发/6-AI",
     "6-AI/DeepLearning",
-    "9-读书/计算机系统概论Yale.patt/2-第二章.md",
     "8-随笔/英语/ob单词/1.索引.md",
     "7-环境与工具/4-信息检索/1.检索概念.md",
     "7-环境与工具/4-信息检索/2.检索工具.md",
@@ -208,7 +209,6 @@
     "8-随笔/英语/ob单词/spring.md",
     "8-随笔/英语/ob单词/specialize.md",
     "8-随笔/英语/ob单词/solely.md",
-    "8-随笔/英语/ob单词/skeptical.md",
     "8-随笔/英语/ob单词/1.索引/202307041031534794.txt",
     "8-随笔/英语/ob单词/1.索引/202307041028444753.txt",
     "8-随笔/英语/ob单词/1.索引/202307041027434792.txt",

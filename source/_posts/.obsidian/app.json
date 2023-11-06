@@ -1,6 +1,6 @@
 {
   "useMarkdownLinks": true,
-  "attachmentFolderPath": "./2-第二章",
+  "attachmentFolderPath": "./2.ceph集群部署",
   "alwaysUpdateLinks": true,
   "showLineNumber": true
 }
