@@ -11,12 +11,8 @@
             "id": "d3c92004e906ca2e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "11-分布式/分布式存储/2.ceph集群部署.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -47,9 +43,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "11-分布式/分布式存储/2.ceph集群部署.md"
-              }
+              "state": {}
             }
           },
           {
@@ -103,7 +97,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "11-分布式/分布式存储/2.ceph集群部署.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +113,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "11-分布式/分布式存储/2.ceph集群部署.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,9 +134,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "11-分布式/分布式存储/2.ceph集群部署.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -165,8 +155,27 @@
       "remotely-save:Remotely Save": false
     }
   },
-  "active": "d3c92004e906ca2e",
+  "active": "88d4faa2b3764260",
   "lastOpenFiles": [
+    "11-分布式/分布式存储/3.Ceph数据处理.md",
+    "11-分布式/分布式存储/2.ceph集群部署.md",
+    "11-分布式/分布式存储/3.Ceph数据处理/image-20231106124621383.png",
+    "11-分布式/分布式存储/3.Ceph数据处理/image-20231106124649756.png",
+    "11-分布式/分布式存储/0.从存储系统变迁分析Ceph方案.md",
+    "11-分布式/分布式存储/1.Ceph架构与组件.md",
+    "11-分布式/分布式存储/3.Ceph数据处理/image-20231106120050563.png",
+    "11-分布式/分布式存储/3.Ceph数据处理/image-20231106092455563.png",
+    "11-分布式/分布式存储/2.ceph集群部署/image-20231022201808089.png",
+    "11-分布式/分布式存储/3.Ceph数据处理/image-20231106101149852.png",
+    "11-分布式/分布式存储/2.ceph集群部署/image-20231022201652010.png",
+    "11-分布式/分布式存储/3.Ceph数据处理/image-20231106092457730.png",
+    "11-分布式/分布式存储/3.Ceph数据处理/image-20231106093326016.png",
+    "11-分布式/分布式存储/2.ceph集群部署/image-20231022193050105.png",
+    "11-分布式/分布式存储/3.Ceph数据处理",
+    "11-分布式/分布式存储/2.ceph集群部署",
+    "11-分布式/分布式存储/1.Ceph架构与组件",
+    "11-分布式/分布式存储/0.从存储系统变迁分析Ceph方案",
+    "11-分布式/分布式存储",
     "6-AI/2-机器学习/4-逻辑回归.md",
     "6-AI/2-机器学习/2-线性回归.md",
     "6-AI/2-机器学习/6-支持向量机.md",
@@ -179,24 +188,13 @@
     "8-随笔/面试记录/2-深圳中电.md",
     "6-AI/DeepLearning/行人重识别.md",
     "5-开发/6-AI/DeepLearning/行人重识别.md",
-    "6-AI/DeepLearning/行人重识别/0666EDCB.png",
-    "5-开发/6-AI/DeepLearning/行人重识别/0666EDCB.png",
-    "8-随笔/面试记录/3-中电太极/image-20220103110358028.png",
     "2-计算机基础/4-计算机组成原理/0-计算机系统概述.md",
     "6-AI/1-数学基础/1.高数.md",
-    "6-AI/1-数学基础/1.高数/RECTIFY_IMG_20230725_111955_1.jpg",
-    "6-AI/DeepLearning/行人重识别/image-20221210091641758.png",
-    "6-AI/DeepLearning/行人重识别/image-20221210091402988.png",
-    "6-AI/DeepLearning/行人重识别/image-20221210091633314.png",
-    "6-AI/DeepLearning/行人重识别/image-20221210085904250.png",
-    "6-AI/DeepLearning/行人重识别/image-20221210085732521.png",
-    "6-AI/DeepLearning/行人重识别/image-20221210085632071.png",
     "5-开发/6-AI/DeepLearning/行人重识别",
     "8-随笔/面试记录/3-中电太极",
     "5-开发/6-AI/DeepLearning",
     "6-AI/DeepLearning/行人重识别",
     "5-开发/6-AI",
-    "6-AI/DeepLearning",
     "8-随笔/英语/ob单词/1.索引.md",
     "7-环境与工具/4-信息检索/1.检索概念.md",
     "7-环境与工具/4-信息检索/2.检索工具.md",
@@ -204,15 +202,6 @@
     "7-环境与工具/hexo+NexT博客.md",
     "8-随笔/英语/ob单词/thanks (in part) to.md",
     "8-随笔/英语/ob单词/compare.md",
-    "8-随笔/英语/ob单词/subsequent.md",
-    "8-随笔/英语/ob单词/substitute.md",
-    "8-随笔/英语/ob单词/spring.md",
-    "8-随笔/英语/ob单词/specialize.md",
-    "8-随笔/英语/ob单词/solely.md",
-    "8-随笔/英语/ob单词/1.索引/202307041031534794.txt",
-    "8-随笔/英语/ob单词/1.索引/202307041028444753.txt",
-    "8-随笔/英语/ob单词/1.索引/202307041027434792.txt",
-    "8-随笔/英语/ob单词/1.索引/202307041026254748.txt",
     "未命名.canvas"
   ]
 }

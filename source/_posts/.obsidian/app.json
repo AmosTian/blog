@@ -2,5 +2,6 @@
   "useMarkdownLinks": true,
   "attachmentFolderPath": "./2.ceph集群部署",
   "alwaysUpdateLinks": true,
-  "showLineNumber": true
+  "showLineNumber": true,
+  "promptDelete": false
 }
