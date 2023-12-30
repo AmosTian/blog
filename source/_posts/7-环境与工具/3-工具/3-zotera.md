@@ -1,5 +1,5 @@
 ---
-title: zotero
+title: zotero常见配置问题
 categories:
   - 环境与工具
   - 工具
@@ -13,6 +13,8 @@ date: 2023-03-21 21:33:04
 
 > 前提：科学上网
 
+<!--more-->
+
 ## 1. Zotero简介
 
 Zotero是开源的文献管理工具，支持安装在网页上的浏览器插件，与Endnote等不同的是，它不是一个独立的软件，而是内嵌在 Firefox等浏览器中的插件应用。
@@ -23,6 +25,14 @@ Zotero是开源的文献管理工具，支持安装在网页上的浏览器插�
 - **文件夹+标签** 的双管理系统：在网页看到中意的文章可以一键导入到软件的文件夹中，而且它使用的是“文件夹+标签”的双管理系统，给文献加上标签，**可以更好地进行搜索和定位**。（比如同一对象，有做实验的，有做模拟的，有做实验＋模拟的，用文件夹来分类就很麻烦，打上标签之后就可以很方便地进行管理和查找）；
 - **可以很方便地做笔记**：可以将文献的主要思路、主要结论、图片放在笔记栏里，帮助理解，下次再看这篇文献的时候可以快速帮助你回想起文献的内容。【如果觉得内容很多，也可以单独见一个笔记文件夹，与原文件放在一起，这样方便查看，不用担心笔记丢失】；
 - 在Word中添加一个插件：在写文章的时候，可以很方便地进行文献的引用和调整。
+
+### 1.2 使用/常用功能
+
+https://blog.csdn.net/qq_36667170/article/details/124133119
+
+https://blog.csdn.net/qq_36667170/article/details/124793769
+
+BibTex暂时用不上，记录一下吧
 
 ## 1.2 配置
 
@@ -121,17 +131,23 @@ Zotero是开源的文献管理工具，支持安装在网页上的浏览器插�
 
 > 参考链接：https://zhuanlan.zhihu.com/p/564921230
 
-以上代码中，我们其实只需要重点修改“urlTemplate”的地址；**“name”、“alias”为检索引擎的名称/简称**，这个自定义就可以，比如谷歌搜索我们就都写为“Google”就可以了；**“icon”就是显示的图标**，一般在网站地址后面加上“/favicon.ico”就可以了，比如谷歌的地址为：[https://www.google.com](https://link.zhihu.com/?target=https%3A//www.google.com)那么“icon”的地址就为：ttps://[http://www.google.com/favicon.ico](https://link.zhihu.com/?target=http%3A//www.google.com/favicon.ico)
+以上代码中，我们其实只需要重点修改 `"_urlTemplate"` 的地址；
 
-对于地址不正确的检索引擎，我们可以用谷歌浏览器打开网站，按**F12**打开开发者模式来查找图标的地址；大多数都可以在 `<head>` 标签中找到**带icon属性的标签**，复制标签中的地址即可。
+`"_name"` ，`"_alias"` ：为检索引擎的名称/简称，这个自定义就可以，比如谷歌搜索我们就都写为“Google”就可以了；
 
-**“_urlTemplate”是最关键的需要修改的地方，**首先打开SCI-HUB的一个可用地址，如：[https://sci-hub.st/](https://link.zhihu.com/?target=https%3A//sci-hub.st/)
+`"_icon"` 是显示的图标，一般在网站地址后面加上 `/favicon.ico` 就可以了，比如谷歌的地址为：[https://www.google.com](https://link.zhihu.com/?target=https%3A//www.google.com)那么“icon”的地址就为：ttps://[http://www.google.com/favicon.ico](https://link.zhihu.com/?target=http%3A//www.google.com/favicon.ico)
 
-然后**输入任意文献的DOI进行搜索**，比如“10.1039/C9CP04353E”，可以注意到搜索结果的地址为：[https://sci-hub.st/10.1039/C9CP04353E](https://link.zhihu.com/?target=https%3A//sci-hub.st/10.1039/C9CP04353E)
+- 对于地址不正确的检索引擎，我们可以用谷歌浏览器打开网站，按**F12**打开开发者模式来查找图标的地址；大多数都可以在 `<head>` 标签中找到**带icon属性的标签**，复制标签中的地址即可。
 
-也就是说结果地址为**原地址+搜索字段（输入的DOI）**，那么就**可以将结果地址中的DOI进行替换，替换为“**{z:DOI}**”**，即“_urlTemplate”为：[http://sci-hub.st/](https://link.zhihu.com/?target=http%3A//sci-hub.st/){z:DOI}
+`"_urlTemplate"` 是最关键的需要修改的地方
 
-**“_description”处可以添加有关检索引擎的简单描述，**在Zotero中将鼠标移至检索引擎时，会显示该描述。其它部分基本不需要修改
+- 首先打开SCI-HUB的一个可用地址，如：[https://sci-hub.st/](https://link.zhihu.com/?target=https%3A//sci-hub.st/)
+
+- 然后**输入任意文献的DOI进行搜索**，比如“10.1039/C9CP04353E”，可以注意到搜索结果的地址为：[https://sci-hub.st/10.1039/C9CP04353E](https://link.zhihu.com/?target=https%3A//sci-hub.st/10.1039/C9CP04353E)
+
+  也就是说结果地址为**原地址+搜索字段（输入的DOI）**，那么就**可以将结果地址中的DOI进行替换，替换为“**{z:DOI}**”**，即`_urlTemplate`为：[http://sci-hub.st/](https://link.zhihu.com/?target=http%3A//sci-hub.st/){z:DOI}
+
+`_description` 处可以添加有关检索引擎的简单描述，在Zotero中将鼠标移至检索引擎时，会显示该描述。其它部分基本不需要修改
 
 ## 1.3 基本操作
 
@@ -204,13 +220,102 @@ Zotero是开源的文献管理工具，支持安装在网页上的浏览器插�
 
 【Quicklook这个软件可以预览Windows上的其他文件，比如像图片、Word之类的都可以，可以设置开机自启】
 
-### 1.4.2 ScholaCitation插件
+### 1.4.2文献获取
+
+#### sci-hub插件——英文
+
+与 1.2.4 二选一操作
+
+#### jasminum(茉莉花)——中文
+
+> 抓取中文的信息条目
+
+点击“编辑”“首选项”，在“高级”旁边会出现“茉莉花”图标，勾选“添加中文PDF/CAJ自动抓取题录”
+
+将“非官方维护中文翻译器”更新一下，这回点击中文期刊，右键就会出现“抓取知网元数据”；【隔一段时间看一下是否需要更新】【文献点右键：合并拆分姓名（中文文献作者姓名拆分）】
+
+![image-20230917234404156](3-zotera/image-20230917234404156.png)
+
+自行下载 PDFtk Sever
+
+##### 更新翻译器
+
+**更新翻译器配置**
+
+![](3-zotera/image-20230321233645536.png)
+
+**更新本地翻译器**
+
+[翻译器下载地址](https://github.com/l0o0/translators_CN)
+
+![](3-zotera/image-20230321235548736.png)
+
+用下载到的中文翻译器脚本替换原装中文网站翻译脚本
+
+```mermaid
+graph LR
+编辑---->Zotero首选项---->高级---->打开数据文件夹---->translators
+```
+
+复制后替换即可，重启 Zotero
+
+**更新浏览器插件**
+
+打开知网或者其他网站
+
+![](3-zotera/image-20230321233949384.png)
+
+
+![](3-zotera/image-20230321234001731.png)
+
+多点击几下，之后重启浏览器。
+
+再打开知网查看是否可以获取到 PDF
+
+#### 究极——下PDF拖进去
+
+### 1.4.3 英文文献翻译
+
+#### zotero-pdf-translate
+
+[插件下载地址](https://github.com/windingwind/zotero-pdf-translate/releases)
+
+![](3-zotera/image-20230321225646966.png)
+
+![](3-zotera/image-20230321225728551.png)
+
+**效果如图**
+
+![](3-zotera/image-20230321232347047.png)
+
+
+切换翻译引擎
+
+![](3-zotera/image-20230321232530135.png)
+
+#### 小绿鲸
+
+![image-20230918001339642](3-zotera/image-20230918001339642.png)
+
+![image-20230918001403329](3-zotera/image-20230918001403329.png)
+
+
+
+
+
+### 1.4.4 小功能
+
+#### 获取文献引用次数
 
 > 可以从谷歌学术当中提取文献的引用次数
 
+下载地址：https://github.com/MaxKuehn/zotero-scholar-citations
+
 选择文件点击右键选择“Update citation”，第一次使用需要验证，验证完之后就可以批量地提取了，选择左侧文件夹右键选择“Update citation”，在文件栏右上角选择要显示的信息，选择“其它”。
 
-#### 版本不兼容问题
+![image-20231230222152262](3-zotera/image-20231230222152262.png)
+
+##### 版本不兼容问题
 
 试过改xpi的最大支持版本，没用
 
@@ -218,11 +323,11 @@ Zotero是开源的文献管理工具，支持安装在网页上的浏览器插�
 
 https://www.xiaohongshu.com/explore/623939e3000000000102416a
 
-1. 按p2的截图打开首选项的设置编辑器
+1. 打开首选项的设置编辑器
 
    ![image-20230917170932598](3-zotera/image-20230917170932598.png)
 
-2. 图p3，在弹出的设置编辑器窗口，右键任意设置，在右键菜单选择New -> Boolean
+2. 在弹出的设置编辑器窗口，右键任意设置，在右键菜单选择New -> Boolean
 
    ![image-20230917170909995](3-zotera/image-20230917170909995.png)
 
@@ -232,7 +337,49 @@ https://www.xiaohongshu.com/explore/623939e3000000000102416a
 
    ![image-20230917170954963](3-zotera/image-20230917170954963.png)
 
-### 1.4.3 同步
+##### 引用次数抓取失败
+
+原因：查zotero调试日志，发现默认是从google scholar抓取，国内被墙
+
+方法：修改国内镜像源
+
+https://blog.csdn.net/qq_43210428/article/details/120457378
+
+1. 将下载的xpi解压
+
+2. 修改 **chrome/content/zsc.js** 中的 `_baseUrl`
+
+   ```
+   https://gfsoso.99lb.net/scholar.html # 我这个抓不出来
+   或
+   https://sc.panda321.com/
+   ```
+
+3. 打包为zip，修改文件后缀为xpi
+
+### 
+
+#### 设置快捷键
+
+`Zutilo` ：在**“工具”栏里**，就出现了**Zutilo首选项**，点进去就是一个快捷键的设置，根据使用习惯设置功能。也可以定义快捷键
+
+#### 中文等变英文等-delitemwithatt
+
+> 批量修改文献的格式，文献的语言
+
+点击文献右键，出现“将语言字段设为en”【多的一个功能】，在打开Word中的Zotero插件，点“Refresh”，会发现“等”变成了“et al”；
+
+![image-20231230204730991](3-zotera/image-20231230204730991.png)
+
+#### zotero笔记
+
+`zotero-better-notes` https://zhuanlan.zhihu.com/p/663491418
+
+https://www.bilibili.com/video/BV1Fg411H7ZH/
+
+由于考虑到多端同步的需求，我就使用ob了，没有用过这个插件
+
+### 1.4.5 同步
 
 > https://zhuanlan.zhihu.com/p/622518457
 
@@ -339,7 +486,7 @@ Zotero把整个同步分为两个部分：数据同步+文件同步
 
 ![image-20230917214511714](3-zotera/image-20230917214511714.png)
 
-#### Obsidian+阿里云OSS实现PDF同步
+#### Ob+OSS实现PDF多端同步
 
 科学上网，Obsidian安装 `Remotely Save` 
 
@@ -353,108 +500,15 @@ ipad做同样设置即可，然后用ipad上阅读APP笔记，相当于用OB当�
 
 ![image-20230917224633591](3-zotera/image-20230917224633591.png)
 
-### 1.4.4 文献获取
+#### ob+OSS实现笔记多端同步
 
-#### sci-hub插件——英文
+https://www.bilibili.com/video/BV1Fk4y1376L/?vd_source=260d5bbbf395fd4a9b3e978c7abde437
 
-与 1.2.4 二选一操作
+https://www.bilibili.com/video/BV1AG4y1q7hU/ betternote效果对比
 
-#### jasminum(茉莉花)——中文
+https://blog.csdn.net/weixin_43703494/article/details/131775341
 
-> 抓取中文的信息条目
-
-点击“编辑”“首选项”，在“高级”旁边会出现“茉莉花”图标，勾选“添加中文PDF/CAJ自动抓取题录”
-
-将“非官方维护中文翻译器”更新一下，这回点击中文期刊，右键就会出现“抓取知网元数据”；【隔一段时间看一下是否需要更新】【文献点右键：合并拆分姓名（中文文献作者姓名拆分）】
-
-![image-20230917234404156](3-zotera/image-20230917234404156.png)
-
-自行下载 PDFtk Sever
-
-##### 更新翻译器
-
-**更新翻译器配置**
-
-![](3-zotera/image-20230321233645536.png)
-
-**更新本地翻译器**
-
-[翻译器下载地址](https://github.com/l0o0/translators_CN)
-
-![](3-zotera/image-20230321235548736.png)
-
-用下载到的中文翻译器脚本替换原装中文网站翻译脚本
-
-```mermaid
-graph LR
-编辑---->Zotero首选项---->高级---->打开数据文件夹---->translators
-```
-
-复制后替换即可，重启 Zotero
-
-**更新浏览器插件**
-
-打开知网或者其他网站
-
-![](3-zotera/image-20230321233949384.png)
-
-
-![](3-zotera/image-20230321234001731.png)
-
-多点击几下，之后重启浏览器。
-
-再打开知网查看是否可以获取到 PDF
-
-#### 究极——下PDF拖进去
-
-### 1.4.5 英文文献翻译
-
-#### 插件——zotero-pdf-translate
-
-[插件下载地址](https://github.com/windingwind/zotero-pdf-translate/releases)
-
-![](3-zotera/image-20230321225646966.png)
-
-![](3-zotera/image-20230321225728551.png)
-
-**效果如图**
-
-![](3-zotera/image-20230321232347047.png)
-
-
-切换翻译引擎
-
-![](3-zotera/image-20230321232530135.png)
-
-#### 小绿鲸
-
-![image-20230918001339642](3-zotera/image-20230918001339642.png)
-
-![image-20230918001403329](3-zotera/image-20230918001403329.png)
-
-### 1.4.6 Delitemwithatt
-
-> 批量修改文献的格式，文献的语言
-
-点击文献右键，出现“将语言字段设为en”【多的一个功能】，在打开Word中的Zotero插件，点“Refresh”，会发现“等”变成了“et al”；
-
-### 1.4.7 Zutilo
-
-> 快捷键设置 
-
-在**“工具”栏里**，就出现了**Zutilo首选项**，点进去就是一个快捷键的设置，根据使用习惯设置功能。也可以定义快捷键
-
-
-
-
-
-### 1.4.6 zotero-better-notes
-
-
-
-
-
-
+导出文献元数据https://blog.csdn.net/PLCET/article/details/130408777
 
 ## 1.5 Zotero的学习教程和相关问题解决的文档
 

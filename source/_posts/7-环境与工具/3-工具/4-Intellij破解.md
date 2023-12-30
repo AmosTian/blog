@@ -22,8 +22,6 @@ https://www.exception.site/
 
 官网地址：[JetBrains: Essential tools for software developers and teams](https://www.jetbrains.com/)
 
-为什么推荐从官网下载呢。。。一个字：好（自己体会）
-
 ![img](4-Intellij破解/70-168060526138924.png)
 
 看到没，各种软件，要啥点就行了。
