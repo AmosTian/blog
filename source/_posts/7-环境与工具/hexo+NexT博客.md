@@ -47,7 +47,8 @@ nvm install 6.10.2  64
 ### 1.3.2 设置node的版本
 
 ```shell
-nvm use 6.10.2
+nvm use 6.10.2 
+
 ```
 
 ## 1.4 修改镜像源

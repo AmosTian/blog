@@ -1,5 +1,5 @@
 ---
-title: 1-Linux基本语法
+title: Linux基本语法
 top: 78
 categories:
   - 环境与工具
@@ -13,7 +13,7 @@ abbrlink: 1194751582
 date: 2022-09-10 10:17:32
 ---
 
-> 1-Linux概念与操作
+[TOC]
 
 <!--more-->
 
