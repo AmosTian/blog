@@ -48,7 +48,6 @@ nvm install 6.10.2  64
 
 ```shell
 nvm use 6.10.2 
-
 ```
 
 ## 1.4 修改镜像源
@@ -56,12 +55,12 @@ nvm use 6.10.2
 > `npm` 默认的镜像源在国外，安装包时会卡在 `sill idealTree buildDeps` ，最好改成国内
 
 ```shell
-npm config set registry https://registry.npm.taobao.org 
+npm config set registry https://registry.npm.taobao.org
 ```
 
 ##  1.5 安装hexo
 
-`npm install hexo-cli -g`
+`npm install hexo-cli -g` 
 
 ## 1.6 创建本地博客
 
@@ -72,6 +71,8 @@ hexo init 你的用户名.github.io
 ```
 
 ![image-20221104152601824](hexo+NexT博客/image-20221104152601824.png)
+
+
 
 ## 1.7 安装NexT主题
 
