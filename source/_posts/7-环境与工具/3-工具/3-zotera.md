@@ -629,17 +629,17 @@ https://www.bilibili.com/video/BV1HY411t7tB/：主要是了解工作流
 
 | Preference Name                                 | Value                                                        |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| extensions.mdnotes.placeholder.DOI              | {"content":"{{bullet}} DOI:: {{field_contents}}",  "field_contents": "{{content}}", "link_style":  "no-links"} |
-| extensions.mdnotes.placeholder.title            | {"content":"{{field_contents}}", "field_contents": "{{content}}", "link_style": "no-links"} |
-| extensions.mdnotes.placeholder.abstractNote     | {"content":"{{field_contents}}\n",  "field_contents": "{{content}}", "link_style":  "no-links", "list_separator": ", "} |
-| extensions.mdnotes.placeholder.author           | {"content":"{{bullet}} Authors:: {{field_contents}}",  "link_style": "wiki", "list_separator": ",  "} |
-| extensions.mdnotes.placeholder.citekey          | {"content":"{{bullet}} Cite key::  {{field_contents}}", "field_contents":  "{{content}}", "link_style": "no-links"} |
-| extensions.mdnotes.placeholder.collections      | {"content":"{{bullet}} Topics:: {{field_contents}}",  "field_contents": "[[{{content}}]]",  "link_style": "wiki", "list_separator": ",  "} |
-| extensions.mdnotes.placeholder.date             | {"content":"{{bullet}} Date:: {{field_contents}}",  "field_contents": "{{content}}", "link_style":  "no-links", "list_separator": ", "} |
+| extensions.mdnotes.placeholder.DOI              | `{"content":"{{bullet}} DOI:: {{field_contents}}",  "field_contents": "{{content}}", "link_style":  "no-links"}` |
+| extensions.mdnotes.placeholder.title            | `{"content":"{{field_contents}}", "field_contents": "{{content}}", "link_style": "no-links"}` |
+| extensions.mdnotes.placeholder.abstractNote     | `{"content":"{{field_contents}}\n",  "field_contents": "{{content}}", "link_style":  "no-links", "list_separator": ", "}` |
+| extensions.mdnotes.placeholder.author           | `{"content":"{{bullet}} Authors:: {{field_contents}}",  "link_style": "wiki", "list_separator": ",  "}` |
+| extensions.mdnotes.placeholder.citekey          | `{"content":"{{bullet}} Cite key::  {{field_contents}}", "field_contents":  "{{content}}", "link_style": "no-links"}` |
+| extensions.mdnotes.placeholder.collections      | `{"content":"{{bullet}} Topics:: {{field_contents}}",  "field_contents": "[[{{content}}]]",  "link_style": "wiki", "list_separator": ",  "}` |
+| extensions.mdnotes.placeholder.date             | `{"content":"{{bullet}} Date:: {{field_contents}}",  "field_contents": "{{content}}", "link_style":  "no-links", "list_separator": ", "}` |
 | extensions.mdnotes.placeholder.localLibrary     | `{"content":"{{field_contents}}",  "field_contents": "[Local Library]({{content}})"}` |
-| extensions.mdnotes.placeholder.pdfAttachments   | {"content":"{{field_contents}}",  "link_style": "wiki"}      |
-| extensions.mdnotes.placeholder.publicationTitle | {"content":"{{bullet}} Journal:: {{field_contents}}",  "field_contents": "{{content}}", "link_style":  "wiki", "list_separator": ", "} |
-| extensions.mdnotes.placeholder.tags             | {"content":"{{bullet}} Tags:: {{field_contents}}",  "field_contents": "[[{{content}}]]",  "link_style": "no-links", "list_separator":  ", ", "remove_spaces": "true"} |
+| extensions.mdnotes.placeholder.pdfAttachments   | `{"content":"{{field_contents}}",  "link_style": "wiki"}`    |
+| extensions.mdnotes.placeholder.publicationTitle | `{"content":"{{bullet}} Journal:: {{field_contents}}",  "field_contents": "{{content}}", "link_style":  "wiki", "list_separator": ", "}` |
+| extensions.mdnotes.placeholder.tags             | `{"content":"{{bullet}} Tags:: {{field_contents}}",  "field_contents": "[[{{content}}]]",  "link_style": "no-links", "list_separator":  ", ", "remove_spaces": "true"}` |
 
 ### 1.5.3 利用bibTex生成笔记
 

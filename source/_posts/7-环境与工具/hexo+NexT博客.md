@@ -576,6 +576,10 @@ symbols_count_time:
 
 ## 2.4 安装自动部署发布工具
 
+```
+npm install hexo-deployer-git --save
+```
+
 为了自动部署到 GithubPage，这里我们需要 `hexo-deployer-git` 工具，将 **md文件** 转化为 **静态网页文件** ，并保存在 `/public` 文件夹中，文件夹上传到 github的相应仓库 `xxx.github.io` ，等待github部署完成之后，就可以访问 `http://xxx.github.io`  查看部署完成的博客了
 
 ```
@@ -841,7 +845,7 @@ Hexo渲染主题的两个重要因素：mathjax和kramed，前者是数学公式
 [官方文档](https://github.com/webappdevelp/hexo-filter-mermaid-diagrams)
 
 ```shell
-$ npm install hexo-filter-mermaid-diagrams --save
+npm install hexo-filter-mermaid-diagrams --save
 ```
 
 ## 8.2 NexT启用Mermaid
@@ -899,7 +903,7 @@ posts.data = posts.data.sort(function(a, b) {
 在hexo根目录执行命令
 
 ```shell
-# npm install --save hexo-helper-live2d
+npm install --save hexo-helper-live2d
 ```
 
 ## 10.2 下载模型
@@ -909,7 +913,7 @@ posts.data = posts.data.sort(function(a, b) {
 需要哪个模型就安装哪个
 
 ```shell
-# npm install live2d-widget-model-hibiki
+npm install live2d-widget-model-hibiki
 ```
 
 ## 10.3 配置
@@ -1864,6 +1868,12 @@ evanyou: true
 刷新浏览器即可预览效果。
 
 ## 12.10 加入已运行时间
+
+```
+npm install hexo-symbols-count-time
+```
+
+
 
 `/blog/themes/next/layout/_custom/sidebar.swig`
 
