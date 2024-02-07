@@ -17,19 +17,15 @@ abbrlink: 202279577
 
 # 1. Py+conda+vscode
 
-## 1.1 Python解释器
+## 1.1 单文件
 
-
+### 1.1.1 指定Python解释器
 
 选用指定anaconda下的python编译器
 
-命令面板 `>python:select Interpretor `
+命令面板 `>python:select Interpretor ` 
 
-
-
-
-
-
+![image-20240202175130458](2-vscode配置py+cpp/image-20240202175130458.png)
 
 ### 1.1.2 创建vscode-python文件夹
 
@@ -51,11 +47,9 @@ abbrlink: 202279577
 
 ![image-20220123100627944](2-vscode配置py+cpp/image-20220123100627944.png)
 
-##### program
+`"program"` ：设置启动文件
 
->   设置启动文件
-
-```
+```json
 "program": "${file}",
 ```
 
@@ -83,20 +77,6 @@ sys.path.append("./") # 将当前文件夹添加到系统目录中
 ```
 
 ![image-20220123105921463](2-vscode配置py+cpp/image-20220123105921463.png)
-
-## 
-
-
-
-
-
-
-
-
-
-
-
-
 
 # 2. C++
 
@@ -134,7 +114,7 @@ https://winlibs.com/
 
 ### 2.1.3 vsc使用自己下载的编译器
 
-<img src="2-vscode配置py+cpp/image-20220128090141457.png" alt="image-20220128090141457" style="zoom: 50%;" />
+![image-20220128090141457](2-vscode配置py+cpp/image-20220128090141457.png)
 
 -   GDB为自己下载的编译器
 
