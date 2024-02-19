@@ -365,24 +365,25 @@ $$
 
 若已知马尔科夫决策过程及策略 $\pi$ ，就可以将马尔科夫决策过程转换为马尔科夫奖励过程
 
-若已知策略函数，相当于在某个状态下，已知可能采取的每个动作的可能性，进而可以知道状态转移的概率
-$$
-P_\pi(s'\vert s)=\sum\limits_{a\in A}\pi(a\vert s)P(s'\vert s,a)
-$$
-对于奖励函数，也是类似的
-$$
-R_\pi(s)=\sum\limits_{a\in A}\pi(a\vert s)R(s,a)
-$$
+- 若已知策略函数，相当于在某个状态下，已知可能采取的每个动作的可能性，进而可以知道状态转移的概率
+  $$
+  P_\pi(s'\vert s)=\sum\limits_{a\in A}\pi(a\vert s)P(s'\vert s,a)
+  $$
+
+- 对于奖励函数，也是类似的
+  $$
+  R_\pi(s)=\sum\limits_{a\in A}\pi(a\vert s)R(s,a)
+  $$
 
 ### 2.3.2 MDP中的价值函数
 
-状态价值函数：在当前状态下，基于当前策略可以获得的期望回报
-$$
-V_\pi(s)=E[G_t\vert s_t=s]
-$$
 动作价值函数：在某一状态下，基于当前策略生成的某一动作可能得到的期望回报
 $$
 Q_{\pi}(s,a)=E_{\pi}[G_t\vert s_t=s,a_t=a]
+$$
+状态价值函数：在当前状态下，基于当前策略可以获得的期望回报
+$$
+V_\pi(s)=E[G_t\vert s_t=s]
 $$
 对于一个马尔科夫过程，策略确定后，对动作采样可以使动作价值转换为状态价值
 $$
@@ -522,7 +523,7 @@ $$
 - 对于 $(b)$ ，通过 $\eqref{Q=f(V)}$ 计算，对父节点的累加，再向上备份一层。可得到当前动作的价值 $s$ 
 - 可得，$V(s)$ 的迭代式 $\eqref{BellmanExpectation_itQ}$
 
-#### 自举法收敛性证明
+#### 自举法收敛性——数值解收敛与解析解
 
 在使用自举法($\eqref{BellmanExpectation_itQ}$ 与 $\eqref{BellmanExpectation_itV}$)求解贝尔曼期望方程前，还需要考虑 **迭代是否收敛的问题**
 
@@ -608,7 +609,14 @@ $$
 
 若只是已知马尔科夫决策过程，解决控制问题相当于寻找最佳策略，从而得到最佳价值函数
 
-#### 最优策略
+#### 目标——最优价值&最优策略
+
+##### 最佳状态价值
+
+最佳价值函数定义为
+$$
+V^*(s)=\max\limits_{\pi}V_{\pi}(s)
+$$
 
 ##### 策略对比
 
@@ -617,13 +625,6 @@ $$
 V_{\pi_1}(s)\ge V_{\pi_2}(s),s\in \mathcal{S}
 $$
 则称策略 $\pi_1$ 优于 $\pi_2$ 
-
-##### 最佳状态价值
-
-最佳价值函数定义为
-$$
-V^*(s)=\max\limits_{\pi}V_{\pi}(s)
-$$
 
 ##### 最优策略
 
@@ -643,7 +644,7 @@ q_3=(c_1^*+c_2^*+c_3^*)q_3\ge c_1^*q_1+c_2^*q_2+c_3^*q_3
 $$
 受上例启发，$\sum\limits_{a\in \mathcal{A}}\pi(a\vert s)q(s,a)=\max\limits_{a\in \mathcal{A}}q(s,a)$ 
 
-在最优策略下 
+在最优策略下
 $$
 \pi^*(a\vert s)=\begin{cases}
 1&a=\mathop{\mathrm{argmax}}\limits_{a\in\mathcal{A}}q(s,a)\\
@@ -698,7 +699,7 @@ $$
 而对于随机策略，贝尔曼最优方程为
 $$
 \begin{align}
-V_{\pi}(s)&=\max\limits_{\pi}\sum\limits_{a\in \mathcal{A}}\pi(a\vert s)Q_{\pi}(s,a)\tag{BellmanOptimalityEquation}\label{BellmanOptimalityEquation}\\
+V_{\pi^*}(s)&=\max\limits_{\pi}\sum\limits_{a\in \mathcal{A}}\pi(a\vert s)Q_{\pi}(s,a)\tag{贝尔曼最优方程}\label{BellmanOptimalityEquation}\\
 &=\max\limits_{\pi}\sum\limits_{a\in \mathcal{A}}\pi(a\vert s)\left(\sum\limits_{r'}P(r'\vert s,a)r'+\gamma \sum\limits_{s’}V_{\pi}(s’)P(s’\vert s,a)\right)
 \end{align}
 $$
@@ -721,11 +722,11 @@ $$
 
 其向量形式表示为
 $$
-V=\max\limits_{\pi}(R_{\pi}+\gamma P_{\pi}V)
+\mathbf{V}=\max\limits_{\pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V})
 $$
-令 $f(V)=\max\limits_{\pi}(R_{\pi}+\gamma P_{\pi}V)$ ，则有 $V=f(V)$ ，其中 $f(V)$ 是 $N$ 维向量
+令 $f(\mathbf{V})=\max\limits_{\pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V})$ ，则有 $\mathbf{V}=f(\mathbf{V})$ ，其中 $f(\mathbf{V})$ 是 $N$ 维向量
 $$
-\vert f(V)\vert_{N}=\max\limits_{\pi}\sum\limits_{a}\pi(a\vert s)Q(s,a),s\in \mathcal{S}
+\vert f(\mathbf{V})\vert_{N}=\max\limits_{\pi}\sum\limits_{a}\pi(a\vert s)Q(s,a),s\in \mathcal{S}
 $$
 
 ##### 引理
@@ -750,13 +751,8 @@ $$
 
 - 唯一性：对于一个收缩映射，其不动点是唯一的(最优价值是唯一的)
 
-  存在多个策略可以获取最优价值
+- 数值求解方法——通过 **自举法** 可以指数级别收敛于不动点(价值迭代)
 
-- 求解方法——价值迭代
-
-  随机指定初始值 $x^{(0)}$ ，通过收缩映射 $x^{(k+1)}=f(x^{(k)})$ 产生一个随机变量序列 $\{x^{(k)}\}$ ，则有 $x^{(k)}\xrightarrow{k\rightarrow \infty}x^*$ ，且呈指数级别收敛与不动点
-
----
 
 **eg** ：对于 $f(x)=0.5x$ ，求解其不动点
 
@@ -779,7 +775,344 @@ x^{(k+1)}=f(x^{(k)})=0
 $$
 则有不动点 $x^{(*)}=x^{(k+1)}=0$
 
+###### 收缩映射定理迭代收敛证明
+
+> 随机指定初始值 $x^{(0)}$ ，通过收缩映射 $x^{(k+1)}=f(x^{(k)})$ 产生一个随机变量序列 $\{x^{(k)}\}$ ，则有 $x^{(k)}\xrightarrow{k\rightarrow \infty}x^*$ ，且呈指数级收敛于不动点 $x^*$ 
+
+**证明1** ：柯西序列一定收敛，收缩映射产生的序列是一个柯西序列
+
+- 柯西序列：当一个序列 $x_1,x_2,\cdots\in \R$ 满足对于任何足够小的 $\varepsilon>0$ ，都存在 $N$ 使得 $\Vert x^{(m)}-x^{(n)}\Vert<\varepsilon,m,n>N$ 。即存在一个整数 $N$ 使之后的元素足够接近，柯西序列一定会收敛于一个极限。
+
+  若证明一个序列是柯西序列，我们不能简单的证明 $x^{(n+1)}-x^{(n)}\rightarrow 0$ ，这只是柯西序列的必要条件，并非充要条件，例如： $x^{(n)}=\sqrt{n}$ ，虽然满足必要条件，但显然发散
+
+由于 $f$ 是一个收缩映射，因此
+$$
+\begin{aligned}
+\Vert x^{(k+1)}-x^{(k)}\Vert=\Vert f(x^{(k)})-f(x^{(k-1)})\Vert &\le \gamma \Vert x^{(k)}-x^{(k-1)}\Vert\\
+&\le \gamma^2 \Vert x^{(k-1)}-x^{(k-2)}\Vert\\
+&\vdots\\
+&\le \gamma^k\Vert x^{(1)}-x^{(0)}\Vert
+\end{aligned}
+$$
+由于 $0<\gamma<1$ ，可知给定任意的 $x_0$ ，当 $k\rightarrow \infty$ 时 $\Vert x^{(k+1)}-x^{(k)}\Vert$ 指数级收敛于0 。但是 $\Vert x^{(k+1)}-x^{(k)}\Vert$ 的收敛性并不足以推导出 $\{x^{(k)}\}$ 的收敛性，因此需要考虑对于任意的 $m>n$ 时，$\Vert x^{(m)}-x^{(n)}\Vert$  的情况
+$$
+\begin{aligned}
+\Vert x^{(m)}-x^{(n)}\Vert&=\Vert x^{(m)}-x^{(m-1)}+x^{(m-1)}-\cdots +x^{(n+1)}-x^{(n+1)}-x^{(n)}\Vert\\
+&\le \Vert x^{(m)}-x^{(m-1)}\Vert+\cdots+\Vert x^{(n+1)}-x^{(n)}\Vert\\
+&\le \gamma^{m-1}\Vert x^{(1)}-x^{(0)}\Vert+\cdots+\gamma^{n}\Vert x^{(1)}-x^{(0)}\Vert=\gamma^n(\gamma^{m-n-1}+\cdots+1)\Vert x^{(1)}-x^{(0)}\Vert\\
+&\le \gamma^n(1+\cdots+\gamma^{m-n-1}+\gamma^{m-n}+\cdots)\Vert x^{(1)}-x^{(0)}\Vert\\
+&=\frac{\gamma^n}{1-\gamma}\Vert x^{(1)}-x^{(0)}\Vert\\
+\end{aligned}
+$$
+因此，对于任意的 $\varepsilon>0$ ，我们总能找到 $N$ 使得 $m>n>N$ ，满足条件 $\Vert x^{(m)}-x^{(n)}\Vert\le \frac{\gamma^n}{1-\gamma}\Vert x^{(1)}-x^{(0)}\Vert<\varepsilon$ ，故收缩映射是一个柯西序列，且收敛于 $x^*\rightarrow \lim\limits_{k\rightarrow \infty}x^{(k)}$ 
+
+**证明2** ：收缩映射  $x=f(x)$  的极限 $x^*\rightarrow \lim\limits_{k\rightarrow \infty}x^{(k)}$ 是一个不动点
+
+因为有
+$$
+\Vert f(x^{(k)})-x^{(k)}\Vert=\Vert x^{(k+1)}-x^{(k)}\Vert\le\gamma^k\Vert x^{(1)}-x^{(0)}\Vert
+$$
+可知 $\Vert f(x^{(k)})-x^{(k)}\Vert$ 收敛于0，因此有 $x^*=f(x^*)=\lim\limits_{k\rightarrow \infty}x^{(k)}$ ，即 $x^*$ 是一个不动点
+
+**证明3** ：对于收缩映射的不动点是唯一的
+
+假设除 $x^*$ 外有另一个不动点 $x'$ 满足 $x'=f(x')$ ，有
+$$
+\Vert x'-x^*\Vert=\Vert f(x')-f(x^*)\Vert\le \gamma \Vert x'-x^* \Vert
+$$
+由于 $\gamma <1$ ，因此当且仅当 $\Vert x'-x^*\Vert=0$ 时不等式成立
+
+**证明4** ：$x^{(k)}$ 以指数级收敛于 $x^*$ （没看懂）
+
+![image-20240218220653195](2-MDP与贝尔曼方程/image-20240218220653195.png)
+
 ##### 收缩映射定理应用于求解贝尔曼最优方程
+
+> 对于一个贝尔曼最优方程 $\mathbf{V}=f(\mathbf{V})=\max\limits_{\pi\in \Pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V})$  ，一定唯一存在一个解 $\mathbf{V}^*$ 并可以通过迭代求得
+> $$
+> \mathbf{V}^{(k+1)}=f(\mathbf{V}^{(k)})=\max\limits_{\pi\in\Pi}(\mathbf{R}_{\pi}+_\gamma P_{\pi}\mathbf{V}^{(k)}),k=0,1,2,\cdots
+> $$
+> 对于任意给定的初始值 $V^{(0)}$ ， $V^{(k)}$ 一定呈指数速度收敛于 $V^*$ 
+
+1. 证明贝尔曼最优方程 $V=f(V)=\max\limits_{\pi}(R_{\pi}+\gamma P_{\pi}V)$ 是收缩映射
+2. 求解过程
+
+###### 证明贝尔曼方程是收缩映射
+
+对于两个状态价值向量 $\mathbf{V_1},\mathbf{V_2}\in \R^{\vert \mathcal{S}\vert}$ ，令相应的最优策略为 $\pi_1^*=\mathop{\mathrm{argmax}}\limits_{\pi}(\mathbf{R}_{\pi}+\gamma_{\pi}\mathbf{V_1})$ ，$\pi_2^*=\mathop{\mathrm{argmax}}\limits_{\pi}(\mathbf{R}_{\pi}+\gamma_{\pi}\mathbf{V_2})$ 
+$$
+f(\mathbf{V_1})=\max\limits_{\pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V_1})=\mathbf{R}_{\pi^*_1}+\gamma P_{\pi^*_1}\mathbf{V_1}\ge \mathbf{R}_{\pi^*_2}+\gamma P_{\pi^*_2}\mathbf{V_1}\\
+f(\mathbf{V_2})=\max\limits_{\pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V_2})=\mathbf{R}_{\pi^*_2}+\gamma P_{\pi^*_2}\mathbf{V_2}\ge \mathbf{R}_{\pi^*_1}+\gamma P_{\pi^*_1}\mathbf{V_2}
+$$
+因此，
+$$
+\begin{aligned}
+f(\mathbf{V_1})-f(\mathbf{V_2})&=\mathbf{R}_{\pi^*_1}+\gamma P_{\pi^*_1}\mathbf{V_1}-(\mathbf{R}_{\pi^*_2}+\gamma P_{\pi^*_2}\mathbf{V_2})\\
+&\le \mathbf{R}_{\pi^*_1}+\gamma P_{\pi^*_1}\mathbf{V_1}-(\mathbf{R}_{\pi^*_1}+\gamma P_{\pi^*_1}\mathbf{V_2})\\
+&=\gamma P_{\pi_1^*}(\mathbf{V_1}-\mathbf{V_2})
+\end{aligned}
+$$
+同理，有 $f(\mathbf{V_2})-f(\mathbf{V_1})\le \gamma P_{\pi_2^*}(\mathbf{V_2}-\mathbf{V_1})\Rightarrow f(\mathbf{V_1})-f(\mathbf{V_2})\ge \gamma P_{\pi_2^*}(\mathbf{V_1}-\mathbf{V_2})$ ，故
+$$
+\gamma P_{\pi_2^*}(\mathbf{V_1}-\mathbf{V_2})\le f(\mathbf{V_1})-f(\mathbf{V_2})\le \gamma P_{\pi_1^*}(\mathbf{V_1}-\mathbf{V_2})
+$$
+令 
+$$
+z=\max\{\vert \gamma P_{\pi_2^*}(\mathbf{V_1}-\mathbf{V_2})\vert,\vert \gamma P_{\pi_1^*}(\mathbf{V_1}-\mathbf{V_2})\vert\}\in \R^{\vert \mathcal{S}\vert}
+$$
+则有
+$$
+-z\le \gamma P_{\pi_2^*}(\mathbf{V_1}-\mathbf{V_2})\le f(\mathbf{V_1})-f(\mathbf{V_2})\le \gamma P_{\pi_1^*}(\mathbf{V_1}-\mathbf{V_2})\le z\\
+\downarrow\\
+\Vert f(\mathbf{V_1})-f(\mathbf{V_2})\Vert_{\infty}\le \Vert z\Vert_{\infty}\tag{2.5}\label{2.5}
+$$
+
+- 其中 $\Vert \cdot\Vert_{\infty}$ 表示无穷范数，取每一分量最大值
+
+转而证明 $\Vert z\Vert_{\infty}$ 与 $\Vert \mathbf{V_1}-\mathbf{V_2}\Vert$ 的关系
+
+令 $z_i$ 为向量 $z$ 的第 $i$ 个元素，并且 $P_i$ 与 $Q_i$ 分别为 $P_{\pi_1^*}$ 和 $P_{\pi_2^*}$ 的第 $i$ 个行向量，因此
+$$
+z_i=\max\{\vert \gamma P_i(\mathbf{V_1}-\mathbf{V_2})\vert,\vert \gamma Q_i(\mathbf{V_1}-\mathbf{V_2})\vert\}
+$$
+由于 $P_i$ 中的每个元素都非负且和为1，
+$$
+\vert P_i(\mathbf{V_1}-\mathbf{V_2})\vert\le P_i\vert\mathbf{V_1}-\mathbf{V_2}\vert\le \Vert \mathbf{V_1}-\mathbf{V_2}\Vert_{\infty}
+$$
+同理，我们有 $\vert Q_i(\mathbf{V_1}-\mathbf{V_2})\vert\le \Vert \mathbf{V_1}-\mathbf{V_2}\Vert_{\infty}$ ，故有 $z_i\le \gamma \Vert \mathbf{V_1}-\mathbf{V_2}\Vert_{\infty}$ ，即
+$$
+\Vert z\Vert_{\infty}=\max\limits_{i}\vert z_i\vert\le \gamma\Vert \mathbf{V_1}-\mathbf{V_2}\Vert_{\infty}
+$$
+代入 $\eqref{2.5}$ ，有
+$$
+\Vert f(\mathbf{V_1})-f(\mathbf{V_2})\Vert_{\infty}\le\gamma\Vert \mathbf{V_1}-\mathbf{V_2}\Vert_{\infty}
+$$
+故贝尔曼最优方程满足收缩映射性质
+
+###### BOE求解过程
+
+对于贝尔曼最优方程 $\eqref{BellmanOptimalityEquation}$ 
+$$
+\begin{aligned}
+V^{(k+1)}(s)&=\max\limits_{\pi}\sum\limits_{a\in \mathcal{A}}\pi(a\vert s)\left(\sum\limits_{r'}P(r'\vert s,a)r'+\gamma \sum\limits_{s’}P(s’\vert s,a)V^{(k)}(s’)\right)\\
+&=\max\limits_{\pi}\sum\limits_{a\in \mathcal{A}}\pi(a\vert s)Q^{(k)}(s,a)\\
+&=\max\limits_{a}Q^{(k)}(s,a)
+\end{aligned}
+$$
+
+1. 对于任意的状态 $s$ ，随机指定初始值 $V^{(0)}(s)$ /或通过前一轮迭代获取 $V^{(k)}(s)$ 
+
+2. 对于任意的 $a\in \mathcal{A}$ ，计算
+   $$
+   Q^{(k)}(s,a)=\sum\limits_{r}P(r\vert s,a)\mathbf{R}+\gamma\sum\limits_{s'}P(s'\vert s,a)\mathbf{V}^{(k)}(s')
+   $$
+
+3. 通过贪心策略计算对于每个状态的最佳策略 $\pi^{(k+1)}(a\vert s)$
+   $$
+   \pi^{(k+1)}(a\vert s)=\begin{cases}
+   1&a=\mathop{\mathrm{argmax}}\limits_{a}Q^{(k)}(s,a)\\
+   0&a\neq \mathop{\mathrm{argmax}}\limits_{a}Q^{(k)}(s,a)
+   \end{cases}
+   $$
+   更新 $V^{(k+1)}(s)=\max\limits_{a}Q^{(k)}(s,a)$
+
+---
+
+**eg**
+
+![image-20240219112136438](2-MDP与贝尔曼方程/image-20240219112136438.png)
+
+状态空间有三个状态 $s_1,s_2,s_3\in \mathcal{S}$ ，每个状态由三个动作 $a_l,a_r,a_0$ 分别代表向左、向右、不动
+
+奖励：进入目标状态 $R(s_2)=+1$ ，越界为 $-1$ ，其余为 $0$ 
+
+目标是寻找最优的状态价值 $V^*(s_i)$ 和 $\pi^*$
+
+计算 $Q$ 表
+
+![image-20240219112647532](2-MDP与贝尔曼方程/image-20240219112647532.png)
+
+1. 指定初始的状态价值 $V^{(0)}(s_1),V^{(0)}(s_2),V^{(0)}(s_3)=0$ 
+
+**k=1** 时
+
+1. 计算Q值
+
+   ![image-20240219114507084](2-MDP与贝尔曼方程/image-20240219114507084.png)
+
+2. 贪心策略，选择每个状态下的最优动作
+   $$
+   \pi^{(1)}(a_r\vert s_1)=1,\pi^{(1)}(a_0\vert s_2)=1,\pi^{(1)}(a_l\vert s_3)=1,
+   $$
+
+3. 计算状态价值：$V^{(1)}(s_1)=\max\limits_{a}Q^{(0)}(s_1,a)=1=V^{(1)}(s_2)=V^{(1)}(s_3)$
+
+**k=2** 时：
+
+1. 计算Q值
+
+   ![image-20240219115848727](2-MDP与贝尔曼方程/image-20240219115848727.png)
+
+2. 贪心策略，选择每个状态下的最优动作
+   $$
+   \pi^{(2)}(a_r\vert s_1)=1,\pi^{(2)}(a_0\vert s_2)=1,\pi^{(2)}(a_l\vert s_3)=1,
+   $$
+
+3. 计算状态价值：$V^{(2)}(s_1)=\max\limits_{a}Q^{(1)}(s_1,a)=1.9=V^{(2)}(s_2)=V^{(2)}(s_3)$
+
+  终止条件：若 $\Vert V^{(k)}-V^{(k-1)}\Vert<\varepsilon$ 时，则认为 $V^{(k)}$ 为最优状态价值
+
+###### 贝尔曼方程的解与贝尔曼方程
+
+假设 $V^*$ 是贝尔曼方程的解，有
+$$
+\mathbf{V}^*=\max\limits_{\pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}^*)
+$$
+相应的最优策略为
+$$
+\pi^*=\mathop{\mathrm{arg}}\max\limits_{\pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}^*)
+$$
+将其代入 $\eqref{BellmanEquation}$ 有
+$$
+\mathbf{V}^*=\mathbf{R}_{\pi^*}+\gamma P_{\pi^*}\mathbf{V}^*
+$$
+即，贝尔曼最优方程是一个特殊的贝尔曼方程，其策略是一个最优策略
+
+##### 贝尔曼最优方程解的最优性
+
+> 贝尔曼方程的解 $V^*$ 是最优价值函数
+
+对于所有策略，都满足 $\eqref{BellmanEquation}$ 
+$$
+\mathbf{V}_{\pi}=\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}_{\pi}
+$$
+因为 $V^*$ 为 $\eqref{BellmanOptimalityEquation}$ 的解，满足
+$$
+\mathbf{V}^*=\max\limits_{\pi}(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}^*)=\mathbf{R}_{\pi^*}+\gamma P_{\pi^*}\mathbf{V}^*\ge \mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}^*
+$$
+因此有
+$$
+\begin{aligned}
+\mathbf{V}^*-\mathbf{V}_{\pi}&\ge \mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}^*-(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}_{\pi})=\gamma P_{\pi}(\mathbf{V}^*-\mathbf{V}_{\pi})\\
+&\ge\gamma^2 P_{\pi}^2(\mathbf{V}^*-\mathbf{V}_{\pi})\\
+&\vdots\\
+&\ge\gamma^n P_{\pi}^n(\mathbf{V}^*-\mathbf{V}_{\pi})\\
+&\ge \lim\limits_{n\rightarrow \infty}\gamma^n P_{\pi}^n(\mathbf{V}^*-\mathbf{V}_{\pi})=0
+\end{aligned}
+$$
+由于 $\gamma<1$ ，且 $P_{\pi}^n$ 中的每个元素都是小于1的非负数，因此满足对于任何 $\pi$ 都有 $V^*\ge V_{\pi}$
+
+所以贝尔曼方程的解是最优解
+
+#### 最优策略求解
+
+可以使用贪心策略得出一个确定性贪心策略
+$$
+\pi^{*}(a\vert s)=\begin{cases}
+1&a=\mathop{\mathrm{argmax}}\limits_{a}Q^{*}(s,a)\\
+0&a\neq \mathop{\mathrm{argmax}}\limits_{a}Q^{*}(s,a)
+\end{cases}
+$$
+其中，$Q^*(s,a)=\sum\limits_{r'\in \mathcal{R}}P(r'\vert s,a)r'+\gamma\sum\limits_{s'\in\mathcal{S}}P(s'\vert s,a)V^*(s')$
+
+---
+
+最优价值是唯一的，但存在多个策略可以获取最优价值
+
+由贝尔曼最优方程可知，一定存在一个确定性最优策略，同时也可能存在随机性策略
+
+![image-20240219211152757](2-MDP与贝尔曼方程/image-20240219211152757.png)
+
+##### 最优策略的影响因素
+
+最优策略的求解与最优价值函数密不可分，所以最优价值函数的影响因素也会影响最优策略
+
+对于 $\eqref{BellmanOptimalityEquation}$ 的影响因素
+
+![image-20240216124252583](2-MDP与贝尔曼方程/image-20240216124252583.png)
+
+###### 系统模型
+
+系统动态特性、状态转移模型：$P(s'\vert s,a),P(r\vert s,a)$ 很难改变，一般不作为最优策略的影响因素
+
+###### 折扣因子
+
+折扣因子的设定会影响策略选择
+
+- 越大，越远视(选累积奖励大的，轨迹长)，得到的回报主要是由未来的奖励决定
+- 越小，越短视(选短期奖励大的，轨迹短)，得到的回报主要是由近期的奖励决定
+
+---
+
+![image-20240219212235238](2-MDP与贝尔曼方程/image-20240219212235238.png)
+
+在 $\gamma=0.9$ 时，由于未来奖励对状态价值的影响较大，更快地进入目标状态可以获得较大奖励，所以策略会产生进入惩罚区域的动作
+
+![image-20240219212148995](2-MDP与贝尔曼方程/image-20240219212148995.png)
+
+在 $\gamma=0.5$ 时，由于当前奖励对状态价值影响大，所以策略会避开短期负奖励的状态，从而生成比较绕远的路径
+
+![image-20240219212640956](2-MDP与贝尔曼方程/image-20240219212640956.png)
+
+在 $\gamma=0$ 时，只看一步，策略非常不好 
+
+###### 奖励设置
+
+奖励值的设定会影响状态价值与动作价值的大小，对于绝对不安全的状态，惩罚值相对足够大，则策略生成的动作进入该状态的可能性越小
+
+在 $\gamma=0.9$ 时，可以对禁入区域设置更大的惩罚，也可以避免进入禁入区域
+
+![image-20240219212844204](2-MDP与贝尔曼方程/image-20240219212844204.png)
+
+##### 最短路径
+
+除目标状态与惩罚状态，其余中间状态的奖励都设为0，即多走一步不会有惩罚。但到达目标状态的最优策略仍会选择最短路径，不会选择绕路路径（$\gamma=0.9$）
+
+![image-20240219213155312](2-MDP与贝尔曼方程/image-20240219213155312.png)
+
+为什么最优策略会选择不绕路的最短路径到达目标状态？
+
+最优策略的生成与奖励值、折扣因子的设置有关，折扣因子的一个影响就是让我们更快地获得更多地奖励
+$$
+G_a=1+\gamma1+\gamma^21+\cdots=\frac{1}{1-\gamma}=10\\
+G_b=0+\gamma0+\gamma^21+\gamma^31+\cdots=\frac{\gamma^2}{1-\gamma}=8.1
+$$
+并不一定要将奖励设置为-1，即每多走一步都有损耗才能更快获得最短路径，折扣因子决定了绕路得到的状态价值会打折，希望更快地获取尽可能大的累计奖励(到达目标状态)
+
+调大折扣因子，也会更快地获取最短路径
+
+##### 最优策略的不变性
+
+若奖励设置变为 $\mathbf{R}\rightarrow \alpha\mathbf{R}+\beta$  
+$$
+R_{boundary}=R_{forbidden}=-1,R_{target}=1,R_{other}=0\\
+\downarrow\\
+R_{boundary}=R_{forbidden}=0,R_{target}=2,R_{other}=1\\
+$$
+奖励值为 $\alpha\mathbf{R}+\beta$ 时的最优策略仍与 $\mathbf{R}$ 时的最优策略相同
+
+**奖励的绝对大小不会影响最优策略，奖励的相对大小才会影响策略** ：最优策略选择最优动作时，只会比较Q值的相对大小，选出Q值最大的动作，不会关注Q值具体有多大
+
+###### 策略不变性定理
+
+>  $\eqref{BellmanOptimalityEquation}$ 在奖励为 $\mathbf{R}$ 的解 $\mathbf{V}^*=\max\limits_{\pi}\left(\mathbf{R}_{\pi}+\gamma P_{\pi}\mathbf{V}^*\right)$ ，当奖励变为 $\alpha\mathbf{R}+\beta,\alpha,\beta\in \R且a\neq 0$ 时，其最优状态价值变为
+> $$
+> \mathbf{V}'=\alpha\mathbf{V}^*+\frac{\beta}{1-\gamma}\mathbf{1},\gamma\in (0,1)
+> $$
+
+由 $\eqref{Q=f(V)}$ 
+$$
+Q(s,a)=\sum\limits_{r'}P(r'\vert s,a)r'+\gamma \sum\limits_{s’}V_{\pi}(s’)P(s’\vert s,a)\\
+\Downarrow\\
+Q'(s,a)=\alpha Q^*(s,a)+\mathbf{K}
+$$
+可见，奖励值变化时，并不会影响最优策略，因为 $argmax$ 只关注Q值间的相对大小
+
+
+
+
+
+
 
 
 
