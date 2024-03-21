@@ -11,12 +11,8 @@
             "id": "d3c92004e906ca2e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "6-AI/4-强化学习/2-MDP与贝尔曼方程.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -47,9 +43,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "6-AI/4-强化学习/2-MDP与贝尔曼方程.md"
-              }
+              "state": {}
             }
           },
           {
@@ -103,7 +97,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6-AI/4-强化学习/2-MDP与贝尔曼方程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +113,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6-AI/4-强化学习/2-MDP与贝尔曼方程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,9 +134,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "6-AI/4-强化学习/2-MDP与贝尔曼方程.md"
-              }
+              "state": {}
             }
           }
         ]
