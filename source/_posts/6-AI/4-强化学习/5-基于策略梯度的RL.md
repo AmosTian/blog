@@ -369,7 +369,7 @@ $$
 
 ### 5.2.2 算法分析
 
-由于 $\bigtriangledown_\theta\ln\pi(a_t\vert s_t,\theta_{t})=\frac{\bigtriangledown_\theta\pi(a_t\vert s_t,\theta_{t})}{\pi(a_t\vert s_t,\theta_{t})}$
+由于 $\bigtriangledown_\theta\ln\pi(a_t\vert s_t,\theta_{t})=\frac{\bigtriangledown_\theta\pi(a_t\vert s_t,\theta_{t})}{\pi(a_t\vert s_t,\theta_{t})}$ 
 $$
 \begin{aligned}
 \theta_{t+1}&=\theta_{t}+\alpha\bigtriangledown_\theta\ln\pi(a_t\vert s_t,\theta_{t})\cdot Q_{\pi}(s_t,a_t)\\

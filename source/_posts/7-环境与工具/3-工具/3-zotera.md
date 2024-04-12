@@ -481,7 +481,7 @@ https://www.bilibili.com/video/BV1HY411t7tB/：主要是了解工作流
 
 **高级设置**
 
-> 不需要额外设置，保持默认设置即可。
+> 不需要额外设置，保持默认设置即可
 
 #### 文件迁移
 
@@ -489,11 +489,11 @@ https://www.bilibili.com/video/BV1HY411t7tB/：主要是了解工作流
 
 1. 设置链接附件的根目录
 
-   - 相当于设置相对，不同设备该目录不同。
+   - 相当于设置相对路径，不同设备该目录不同。
 
      相对路径（根目录）下目录结构与文件都相同时，就可以在不同设备上一相同结构访问某文件
-
-![image-20240116191402975](3-zotera/image-20240116191402975.png)
+   
+   ![image-20240116191402975](3-zotera/image-20240116191402975.png)
 
 2. 设置Zotero的数据存储位置，Zotero自带同步即是同步此文件夹下的内容，包括笔记、标注、附件等，附件则是存放在此文件夹下的 *storage* 文件夹中
 
@@ -653,7 +653,7 @@ https://www.bilibili.com/video/BV1HY411t7tB/：主要是了解工作流
 
 ![在这里插入图片描述](3-zotera/ae51e7ddb8524ec5bd36e8c4b27a6883.png)
 
-zotero通过 Better-BibTex 插件生成JSON文件导入ob的文件夹目录，ob插件Bibnotes Formatter 读取JSON文件信息在用户命令下生成指定文献的md格式文件
+zotero通过 Better-BibTex 插件生成JSON文件导入ob的文件夹目录，ob插件 Bibnotes Formatter 读取JSON文件信息在用户命令下生成指定文献的md格式文件
 
 - 笔记中包含 `{{localLabraryLink}}` (zotero中文献条目链接) 和 `{{file}}` (zotero中文献pdf链接) 可以从ob中直接打开文献
 
@@ -686,7 +686,7 @@ zotero通过 MarkDBConect 插件搜索OB中的 `@{{citeKey}}` 格式文件名将
 
    ![image-20240115210929817](3-zotera/image-20240115210929817.png)
 
-   *E:\zotero-amostian\@模板*
+   *E:\zotero-amostian\@模板* 
 
 2. 尝试导出
 
@@ -745,7 +745,7 @@ function createLocalFileLink(reference2) {
 
 ##### 配置
 
-![image-20240115225038593](3-zotera/image-20240115225038593.png)
+![image-20240411210656671](3-zotera/image-20240411210656671.png)
 
 ##### 模板
 
@@ -873,21 +873,31 @@ function createLocalFileLink(reference2) {
 ### 启发
 ```
 
+
+
+##### 笔记中图片问题
+
+借助 `Custom Attachment Location` 插件，
+
+![image-20240412111840202](3-zotera/image-20240412111840202.png)
+
+![image-20240412111925639](3-zotera/image-20240412111925639.png)
+
 #### MarkDBConnect
 
 [下载地址](https://github.com/stefanopagliari/bibnotes/releases)
 
 ##### 配置
 
-要填写Bibnotes Formatter配置中设置的文献笔记保存路径
+要填写 Bibnotes Formatter 配置中设置的文献笔记保存路径
 
 ![image-20240115231416842](3-zotera/image-20240115231416842.png)
 
-##### 同步步骤
+#### 同步步骤
 
 1. 通过 `citeKey` 创建笔记
 
-   obsidian中 **win+p**  打开命令面板，输入bib
+   obsidian中 **ctrl+p**  打开命令面板，输入bib
 
    ![image-20240115231535189](3-zotera/image-20240115231535189.png)
 
