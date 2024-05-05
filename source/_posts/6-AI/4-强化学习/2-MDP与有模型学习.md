@@ -22,9 +22,24 @@ updated: 2024-02-19 22:20:39
 
 ## 2.0 从随机变量到马尔科夫过程
 
+### 随机过程
+
 对于两个相互独立的随机变量 $X$ 和 $Y$ ，可以通过寻找二者的映射关系进行数据分析，即监督学习、无监督学习的方法就可以分析
 
-对于一组与时序 $t$ 相关的且相互影响的非独立随机变量 $S_t,S_{t+1},S_{t+2},\cdots$ ，无法通过拟合的方式寻找变量间的关系。这些随机变量构成一个随机过程 $\{S_t\}_{t=1}^{\infty}$ 
+随机过程的研究对象是随时间演变的随机现象，随机现象在某时刻 $t$ 的取值是一个状态向量 $S_t$ ，所有可能的状态组成状态集合 $\mathcal{S}$ 。
+
+对于一组与时序 $t$ 相关的且相互影响的非独立随机变量 $S_t,S_{t+1},S_{t+2},\cdots$ ，这些随机变量构成一个随机过程 $\{S_t\}_{t=1}^{\infty}$ 
+
+- 通过自回归模型只能实现数据分布不变的序列预测任务
+- 但RL解决的问题是序列决策任务，数据分布会变化
+
+**历史** 
+$$
+H_t=\{S_0,a_0,r_1,S_1,\cdots,S_{T-1},a_{T-1},r_T\}
+$$
+智能体在采取当前动作是会依赖于之前的历史，所以整个环境的状态可以看做这个历史的函数 $S_t=f(H_t)$ 
+
+### 马尔科夫决策过程
 
 具有马尔科夫性质的随机过程称为马尔科夫链/马尔科夫过程
 
@@ -39,7 +54,7 @@ updated: 2024-02-19 22:20:39
 
 马尔科夫过程(Markov process, MP)以及马尔科夫奖励过程(Markov reward process, MRP) 是马尔科夫决策过程(Markov decision process,MDP) 的简化过程
 
-马尔科夫决策过程通过策略影响获得的累积奖励
+智能体的策略影响马尔科夫决策过程的 *状态-动作* 对分布，进而影响获得的累积奖励
 
 > Markov——马尔科夫性质
 >
@@ -58,7 +73,7 @@ updated: 2024-02-19 22:20:39
   P(s'\vert s,a)=\sum\limits_{r'\in \mathcal{R}}P(s',r'\vert s,a)
   $$
 
-强化学习中，智能体与环境的交互过程可以用马尔科夫决策过程表示
+### RL中智能体与环境的交互过程是马尔科夫决策过程
 
 - 预测(策略评估)和控制是马尔科夫决策过程中的两种价值函数计算方法
 
@@ -75,6 +90,36 @@ updated: 2024-02-19 22:20:39
 
 - 很多时候，环境中有些量是不可观测的，这种部分可预测的问题也可以转换成马尔科夫决策过程
 
+#### 状态/观测与序列决策的关系
+
+**状态** 是对环境的完整描述，不会隐藏世界的信息
+
+**观测** 是对环境的部分描述，可能会遗漏一些信息
+
+- 在DRL中，用实值的向量、矩阵或更高阶的张量来表示状态和观测
+
+环境有真实的函数 $s_t^e=f^e(H_t)$ ，在智能体内部也有一个函数 $s_t^a=f^a(H_t)$ 来更新对环境的理解
+
+当智能体的状态与环境的状态等价的时候，即智能体能够观察到环境的所有状态时，称这个环境是 **完全可观测的** 。此时，强化学习通常被建模成一个 **马尔科夫决策过程(Markov decision process,MDP)** 问题。在马尔科夫决策过程中，$o_t=s^e_t=s^a_t$ 
+
+但有时候，智体的观测并不能包含环境运行的所有状态，当智体只能看到部分观测，称这个环境是 **部分可观测的** 。此时，强化学习通常被建模为 **部分可观测马尔科夫决策过程(partially observable Markov decision process, POMDP)** 
+
+- 部分马尔科夫决策过程可以用一个七元组描述：$(S,A,T,R,\Omega,O,\gamma)$ 
+
+  $S$ 表示状态空间，为隐变量
+
+  $A$ 为动作空间
+
+  $T(s'\vert s,a)$ 为状态转移概率
+
+  $R$ 为奖励函数
+
+  $\Omega(o\vert s,a)$ 为观测概率
+
+  $O$ 为观测空间
+
+  $\gamma$ 为折扣因子
+
 ## 2.1 马尔可夫过程
 
 ### 2.1.1 马尔可夫性质
@@ -87,6 +132,8 @@ P(S_{t+1}=s_{t+1}\vert S_{0:t}=s_{0:t})=P(S_{t+1}=s_{t+1}\vert S_t=s_t)
 $$
 则该随机过程具有马尔科夫性质
 
+$t$ 时刻的状态其实包含了 $t-1$ 时刻的状态信息，通过链式关系，历史的信息被传递到当前
+
 ### 2.1.2 马尔可夫过程的数学表示
 
 马尔科夫过程是一组具有马尔科夫性质的随机变量序列 $S_1,S_2,\cdots,S_t$ ，其中下一个时刻的状态 $S_{t+1}$ 只取决于当前状态 $S_t$ ，设状态历史为 $H_t=\{S_1,S_2,\cdots,S_t\}$ ，则马尔科夫过程满足：
@@ -96,9 +143,9 @@ $$
 
 - 离散时间的马尔科夫过程称为马尔科夫链(Markov chain)，其状态是有限的
 
-用状态转移矩阵(state transition matrix) $\mathbf{P}$ 表示状态转移 $P(S_{t+1}=s'\vert S_t=s)$ ，假设有 $N$ 个状态，$P(s_i\vert s_j)$ 中的状态表示具体的状态值
+用状态转移矩阵(state transition matrix) $\mathcal{P}$ 表示状态转移 $P(S_{t+1}=s'\vert S_t=s)$ ，假设有 $N$ 个状态，$P(s_i\vert s_j)$ 中的状态表示具体的状态值
 $$
-\mathbf{P}=\begin{pmatrix}
+\mathcal{P}=\begin{pmatrix}
 P(s_1\vert s_1)&P(s_2\vert s_1)&\cdots&P(s_N\vert s_1)\\
 P(s_1\vert s_2)&P(s_2\vert s_2)&\cdots&P(s_N\vert s_2)\\
 \vdots&\vdots&\ddots&\vdots\\
@@ -106,6 +153,8 @@ P(s_1\vert s_N)&P(s_2\vert s_N)&\cdots&P(s_N\vert s_N)\\
 \end{pmatrix}
 $$
 ![image-20240120181930032](2-MDP与有模型学习/image-20240120181930032.png)
+
+一个马尔科夫过程用元组表示为 $<\mathcal{S},\mathcal{P}>$ 
 
 在给定马尔科夫链后，对马尔科夫链的一次采样，即可得到一个轨迹
 
@@ -117,7 +166,13 @@ $$
 
 奖励函数用期望 $R(s)$ 表示，当到达某一个状态时可以获得多大的奖励，一般用向量表示
 
-### 2.2.1 回报与价值函数
+由四元组 $<\mathcal{S},\mathcal{P},\mathcal{R},\gamma>$ 表示一个马尔科夫奖励过程
+
+- $\mathcal{S}$ 为状态空间，$S_t$ 表示在 $t$ 时刻的状态
+- $\mathcal{P}$ 为状态转移概率，$P(S_t\vert S_{t-1})$ 表示从 $t-1$ 时刻的状态 $S_{t-1}$ 转移到 $t$ 时刻的状态 $S_{t}$ 的概率
+- $\mathcal{R}$ 为奖励函数，$R(s)$ 指转移到某个状态 $s$ 时可获得奖励的期望，奖励是延迟的，只有进入 $S_t$ 状态，才能返回进入状态 $S_{t-1}$ 的奖励
+
+### 2.2.1 回报与R价值函数
 
 **范围** ：每个回合的最大时间步数，用 $T$ 表示
 
@@ -363,13 +418,17 @@ $$
 
 ### 2.3.1 MDP与MP/MRP
 
-马尔科夫决策过程在马尔科夫奖励的过程基础上多了决策 $a_t$ 
+马尔科夫过程与马尔科夫奖励过程都是自发改变的随机过程，马尔科夫决策过程加入了一个外界 “刺激” 共同改变这个随机过程。
 
-- 马尔科夫性质：$P(S_{t+1}\vert S_t,A_t)=P(S_{t+1}\vert H_t,A_t)$ 
+在RL中，这个 “刺激” 为智能体的决策（动作），且满足马尔科夫性质 $P(S_{t+1}\vert S_t,A_t)=P(S_{t+1}\vert H_t,A_t)$ 
 
-- 奖励函数：$R(S_t=s,A_t=a)$ 
+马尔科夫决策过程在马尔科夫奖励的过程基础上多了决策 $a_t$ ，用五元组 $<\mathcal{S},\mathcal{A},\mathcal{P},\mathcal{R},\gamma>$ 表示
 
-- 状态转移：$P(S_{t+1}=s'\vert S_t=s,A_t=a)$ 
+- $\mathcal{S}$ 为状态空间，$S_t=s$ 表示在 $t$ 时刻的状态向量 $s$ 
+
+- $\mathcal{R}$ 为奖励函数：$R(S_t=s,A_t=a)$ ，在状态 $s$ 采取动作 $a$ 进入下一状态 $s'$ 时，返回这个 *状态-动作* 对的奖励
+
+- $\mathcal{P}$ 为状态转移函数：$P(S_{t+1}=s'\vert S_t=s,A_t=a)$ 
 
   - 马尔科夫奖励过程/马尔科夫过程的状态转移是直接的，直接通过状态转移概率决定下一状态 $S_{t+1}$ 
 
@@ -393,7 +452,8 @@ $$
   随机性策略&\pi(a\vert s)=P(A_t=a\vert S_t=s)\\
   \end{array}
   $$
-
+  在每个状态下输出关于动作的概率分布，表示当前状态下采取每个动作的概率，对动作的概率分布采样得到一个动作
+  
 - 直接输出当前状态应该采取那种动作
   $$
   \begin{array}{ll}
@@ -436,6 +496,12 @@ $$
 
 - 可以将状态价值函数理解为动作价值函数的加权平均，权重为策略
 
+#### 不同策略下同一状态价值不同
+
+对于两个不同的策略，同一状态的价值很可能不同
+
+因为不同策略会采取不同的动作，之后会有不同的状态序列，进而获得不同的奖励，所以它们累积奖励的期望也是不同的，即状态价值不同
+
 #### 贝尔曼期望方程
 
 ##### 贝尔曼动作价值期望方程
@@ -446,7 +512,7 @@ $$
 Q_\pi(s,a)&=E_\pi[G_t\vert S_t=s,A_t=a]\\
 &=E_\pi[r_{t+1}+\gamma r_{t+2}+\gamma^2r_{t+3}+\cdots\vert s,a]\\
 &=E_\pi\left[r_{t+1}+\gamma G_{t+1}\big\vert S_t=s,A_t=a\right]\\
-&=E[r_{t+1}+\gamma Q_{\pi}(s',a')\vert s,a]\tag{贝尔曼期望方程-动作}\label{BellmanExpectation_Q}\\
+&=E[r_{t+1}+\gamma Q_{\pi}(s',a')\vert s,a]\tag{动作价值}\label{Q_value}\\
 \end{align}
 $$
 
@@ -474,7 +540,7 @@ $$
   \end{align}
   $$
 
-将 $\eqref{Q_immediate_reward}$ 与 $\eqref{Q_discounted_reward}$ 代入 $\eqref{BellmanExpectation_Q}$ 可得
+将 $\eqref{Q_immediate_reward}$ 与 $\eqref{Q_discounted_reward}$ 代入 $\eqref{Q_value}$ 可得
 $$
 \begin{align}
 Q_\pi(s,a)&=E_\pi\left[r_{t+1}\big\vert s,a\right]+\gamma E_\pi\left[G_{t+1}\big\vert S_t=s,A_t=a\right]\\
@@ -493,7 +559,7 @@ $$
 V_\pi(s)&=E_\pi[G_{t}\vert S_t=s]\\
 &=E_\pi\left[r_{t+1}+\gamma r_{t+2}+\gamma^2r_{t+3}+\cdots\big\vert S_t=s\right]\\
 &=E_\pi\left[r_{t+1}+\gamma G_{t+1}\big\vert S_t=s\right]\\
-&=E[r_{t+1}+\gamma V_{\pi}(s')\vert s]\tag{贝尔曼期望方程-状态}\label{BellmanExpectation_V}\\
+&=E[r_{t+1}+\gamma V_{\pi}(s')\vert s]\tag{状态价值}\label{State_value}\\
 \end{align}
 $$
 
@@ -524,7 +590,7 @@ $$
   \end{align}
   $$
 
-将 $\eqref{V_immediate_reward}$ 与 $\eqref{V_discounted_reward}$ 代入 $\eqref{BellmanExpectation_V}$ 可得
+将 $\eqref{V_immediate_reward}$ 与 $\eqref{V_discounted_reward}$ 代入 $\eqref{State_value}$ 可得
 $$
 \begin{align}
 V_\pi(s)&=E_\pi\left[r_{t+1}\big\vert s_t=s\right]+\gamma E_\pi\left[G_{t+1}\big\vert s_t=s\right]\\
@@ -541,9 +607,9 @@ $$
 $$
 \begin{align}
 V_\pi(s)&=\sum\limits_{a\in A}\pi(a\vert s)Q_\pi(s,a)\\
-&=\sum\limits_{a\in A}\pi(a\vert s)\left(R(s,a)+\gamma \sum\limits_{s'\in S}P(s'\vert s,a)\cdot V_\pi(s')\right)\tag{贝尔曼期望方程-状态迭代式}\label{BellmanExpectation_itV}\\
+&=\sum\limits_{a\in A}\pi(a\vert s)\left(R(s,a)+\gamma \sum\limits_{s'\in S}P(s'\vert s,a)\cdot V_\pi(s')\right)\tag{贝尔曼期望方程-状态}\label{BellmanExpectation_itV}\\
 Q_\pi(s)&=R(s,a)+\gamma \sum\limits_{s'\in S}P(s'\vert s,a)\cdot V_\pi(s')\\
-&=R(s,a)+\gamma \sum\limits_{s'\in S}P(s'\vert s,a)\cdot\sum\limits_{a'\in A}\pi(a'\vert s')Q_\pi(s',a')\tag{贝尔曼期望方程-动作迭代式}\label{BellmanExpectation_itQ}
+&=R(s,a)+\gamma \sum\limits_{s'\in S}P(s'\vert s,a)\cdot\sum\limits_{a'\in A}\pi(a'\vert s')Q_\pi(s',a')\tag{贝尔曼期望方程-动作}\label{BellmanExpectation_itQ}
 \end{align}
 $$
 
@@ -582,6 +648,8 @@ $$
 | 输出 | 价值函数 $V_{\pi}$                                           | 最佳价值函数 $V^{*}$ 和最佳策略 $\pi^*$                      |
 
 在马尔科夫决策过程中，预测和控制二者是递进关系，通过解决预测问题进而解决控制问题。预测问题和控制问题都可以通过动态规划方法解决
+
+策略评估是一个预测问题，希望准确估计当前策略下的状态价值
 
 ##### MDP与动态规划
 
@@ -679,6 +747,7 @@ $$
 > 当采取 $\mathop{\mathrm{argmax}}$ 操作时，会得到单调递增的 $V$ 与 $Q$ ：对 $\forall s$ ，若 $Q_{\pi}(s,\pi'(s))\ge V_\pi(s)$ ，则策略 $\pi'$ 一定优于 $\pi$ 
 >
 > - 相当于证明：从给定状态 $s$ 基于 $\pi'$ 的状态价值一定优于基于 $\pi$ 的状态价值
+> - $V(s)$ 是 $Q(s,a)$ 的加权和，所以 $Q(s,a')\ge V(s)$ 
 
 - 确定性策略：当前策略下最优动作的 $Q$ 值大于非最优动作的 $Q$ 值，且由于 $\pi'$ 是一种确定性策略，当前状态下最优动作 $a$ 的概率 $\pi(a)=1$ ，故 $V_\pi(s)=\sum\limits_{a\in A}\pi(a\vert s)Q_{\pi}(s,a)\iff Q_{\pi}(s,a)$ 
   $$

@@ -114,6 +114,12 @@ https://blog.csdn.net/NRWHF/article/details/127809132
 
 ![在这里插入图片描述](0-VMware安装系统/7.png)
 
+```shell
+sudo apt upgrade
+sudo apt install open-vm-tools-desktop -y
+sudo reboot
+```
+
 ### 0.5.2 修改静态IP
 
 因为原系统设置的是动态 ip(BOOTPROTO="dhcp")，所以新系统默认也是动态 ip，自动分配了 ip，克隆后并没有与系统的 ip 地址冲突，但为了集群搭建，需要改为可控的静态ip
@@ -202,13 +208,6 @@ https://blog.csdn.net/m0_46474019/article/details/117569364
 
 https://zhuanlan.zhihu.com/p/630601853
 
-密码（登录用户需要修改）
-
-1. 进入Ubuntu，打开一个终端，输入 sudo su转为root用户。 注意，必须先转为root用户！！！
-2. sudo passwd user(user 是对应的用户名)
-3. 输入新密码，确认密码。
-4. 修改密码成功，重启，输入新密码进入Ubuntu。
-
 用户名
 
 ```shell
@@ -231,5 +230,10 @@ mv /home/ceph_admin/ /home/
 
 
 
+密码（登录用户需要修改）
 
+1. 进入Ubuntu，打开一个终端，输入 sudo su转为root用户。 注意，必须先转为root用户！！！
+2. sudo passwd user(user 是对应的用户名)
+3. 输入新密码，确认密码。
+4. 修改密码成功，重启，输入新密码进入Ubuntu。
 
