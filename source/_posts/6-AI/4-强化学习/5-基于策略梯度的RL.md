@@ -35,6 +35,8 @@ updated: 2024-03-12 17:34:01
 之前的方法以策略为核心，基于价值产生策略，并用表格表示策略
 
 > **策略梯度** (policy gradient) 是基于策略的方法，用策略函数近似策略
+>
+> **利用机器学习模型的泛化能力，将已知状态上的策略泛化到未知状态上的策略**
 
 目标函数是策略的函数，通过优化目标函数直接获取最优策略
 
@@ -68,8 +70,15 @@ $$
 
 最优的策略可以通过最优化度量标量的目标函数获取，这种方法称为 **策略梯度** 
 
-- 更适合处理大状态-动作空间
+- 更适合处理高维度或连续的动作空间
 - 具有更强大的泛化能力
+- 具有更好的收敛性质和稳定性
+- 能够学习随机策略
+
+缺点：
+
+- 通常会收敛到局部最优，而非全局最优，所以需要加噪音扰动
+- 评价一个策略通常不高效，且方差较大（受数据分布影响大，策略一直变，所以数据分布一直变）
 
 #### 表格型VS函数型
 
@@ -317,6 +326,44 @@ $$
 - 由于 $\pi(a\vert s,\theta)>0,\forall a$ ，所以策略是随机性及探索性的
 - 策略梯度也可改为确定性策略
 
+softmax策略的梯度
+$$
+\begin{aligned}
+\bigtriangledown_\theta\ln\pi(a\vert s,\theta)&=\bigtriangledown_\theta h(s,a,\theta)-\frac{1}{\sum\limits_{a\in \mathcal{A}(s)}e^{h(s,a,\theta)}}\sum\limits_{a\in \mathcal{A}(s)}e^{h(s,a,\theta)}\bigtriangledown_\theta h(s,a,\theta)\\
+&=\bigtriangledown_\theta h(s,a,\theta)-E_{a\sim \pi(a\vert s,\theta)}\left[\bigtriangledown_\theta h(s,a,\theta)\right]
+\end{aligned}
+$$
+因此，策略网络的梯度为
+$$
+\begin{aligned}
+\bigtriangledown_\theta J(\theta)&=E_{S\sim \eta,A\sim\pi(A\vert S,\theta)}\left[\bigtriangledown_\theta\ln\pi(A\vert S,\theta)\cdot Q_{\pi}(S,A)\right]\\
+&=E_{S\sim \eta,A\sim\pi(A\vert S,\theta)}\left[\left(\bigtriangledown_\theta h(S,A,\theta)-E_{a\sim \pi(A\vert S,\theta)}\left[\bigtriangledown_\theta h(S,A,\theta)\right]\right)Q_{\pi}(S,A)\right]
+\end{aligned}
+$$
+
+### 5.1.4 与基于价值的学习对比
+
+**基于价值的学习**由一个 $w$ 为参数的价值函数 $Q(s,a,w)$ 
+
+优化目标为最小化TD误差：
+$$
+J(w)=E_{\pi}\left[\frac{1}{2}\left(r_{t+1}+\gamma \max\limits_{a'\in \mathcal{A}(s')}\hat{Q}(s',a',w)-\hat{Q}(s,a,w)\right)^2\right]
+$$
+更新方式
+$$
+w_{t+1}=w_{t}+\alpha_t\left[r_{t+1}+\gamma \max\limits_{a\in \mathcal{A}(s_{t+1})} \hat{Q}_{\pi}\left(s_{t+1},a,w_t\right)-\hat{Q}\left(s_t,a_t,w_t\right)\right]\bigtriangledown_w\hat{Q}\left(s_t,a_t,w_t\right)
+$$
+**基于策略梯度的学习** 由一个 $\theta$ 为参数的策略函数 $\pi(a\vert s,\theta)$
+
+优化目标为最大化策略度量指标
+$$
+\max\limits_{\theta}J(\theta)=E_{\pi_\theta}\left[\pi(a\vert s,\theta)\hat{\delta}_{\pi}(s,a)\right]
+$$
+更新方式
+$$
+\theta_{t+1}=\theta_{t}+\alpha E_{S\sim \eta,A\sim\pi(A\vert S,\theta_{t})}\left[ \bigtriangledown_\theta\ln\pi(a_t\vert s_t,\theta_{t})\cdot \hat{\delta}_{t}^{\pi}(s_t,a_t)\right]
+$$
+
 ## 5.2 基于蒙特卡洛的策略梯度——REINFORCE
 
 不管采用哪种策略度量指标，对策略函数的优化方法通过梯度上升法最大化 $J(\theta)$ 
@@ -331,7 +378,7 @@ $$
 
 - 基于MC方法去近似动作价值，称为 **REINFORCE** 算法
 
-  用 $Q_{t}(s_t,a_t)$ 去近似 $Q_{\pi}(s_t,a_t)$ 
+  用累积奖励值的无偏采样 $Q_{t}(s_t,a_t)=G_t$ 去近似 $Q_{\pi}(s_t,a_t)$ 
 
 - 基于TD方法去近似，称为AC算法
 
@@ -366,6 +413,16 @@ $$
 #### REINFORCE是离线方法
 
 基于蒙特卡洛方法，必须将所有的回合数据采集完后才能开始运行，所以策略 $\theta_{t+1}$ 更新后，并没有立即产生数据，即REINFORCE算法是一种离线算法
+
+**缺点**：
+
+- 基于片段式数据的任务，任务需要终止状态，才能去计算回报
+
+- 低数据利用效率：需要大量的训练数据
+
+- **高训练方差** 
+
+  从单个或多个片段中采样到的回报去估计动作价值有很高的方差
 
 ### 5.2.2 算法分析
 
@@ -410,10 +467,14 @@ $$
 ## 5.3 AC方法
 
 > 将价值近似函数引入到策略梯度中，得到了 Actor-Critic 方法
-
-Actor：策略更新，策略会被应用于决策/动作选择
-
-Critic：策略评估/价值评估，用度量指标衡量策略的优劣
+>
+> Actor：策略更新，策略会被应用于决策/动作选择
+>
+> - 生成使评论家满意的策略
+>
+> Critic：策略评估/价值评估，用度量指标衡量策略的优劣
+>
+> - 学会准确估计演员策略所采取动作的价值函数
 
 - QAC
 - A2C：通过引入偏置量减少估计的方差
@@ -425,22 +486,29 @@ Critic：策略评估/价值评估，用度量指标衡量策略的优劣
 
 1. 用于度量策略好坏的策略度量指标函数/目标函数 $J(\theta)$ ，如：$\overline{V}_{\pi},\overline{r}_{\pi}$ 
 
-2. 通过梯度上升法最大化 $J(\theta)$ 
+2. Critic（策略评估）：最小化价值函数与价值的损失
+   $$
+   Q(s,a)\simeq \hat{Q}_{w}(s,a)= r(s,a)+\gamma E_{s'\sim P(s'\vert s,a),a'\sim \pi_{w}(a'\vert s')}\left[Q_{w}(s',a')\right]\\
+   w_{t+1}=w_{t}+\alpha_w \left[r_{t+1}+\gamma \hat{Q}_t(s_{t+1},a_{t+1},w_{t})-\hat{Q}_t(s_t,a_t,w_{t})\right]\bigtriangledown_w \hat{Q}(s_t,a_t,w_{t})
+   $$
+
+3. Actor（策略更新）
+
+   通过梯度上升法最大化 $J(\theta)$ 
    $$
    \begin{aligned}
    \theta_{t+1}&=\theta_{t}+\alpha\bigtriangledown_\theta J(\theta_{t})\\
    &=\theta_{t}+\alpha E_{S\sim \eta,A\sim\pi(A\vert S,\theta)}\left[\bigtriangledown_\theta\ln\pi(A\vert S,\theta)\cdot Q_{\pi}(S,A)\right]
    \end{aligned}
    $$
-
-3. 为便于计算，使用随机梯度上升法
+   为便于计算，使用随机梯度上升法
    $$
-    \theta_{t+1}=\theta_{t}+\alpha\bigtriangledown_\theta\ln\pi(a_t\vert s_t,\theta)\cdot Q_{t}(s_t,a_t)
+   \theta_{t+1}=\theta_{t}+\alpha\bigtriangledown_\theta\ln\pi(a_t\vert s_t,\theta)\cdot Q_{t}(s_t,a_t)
    $$
 
 策略梯度的方法为 **Actor** ，其中 $Q_t(s_t,a_t)$ 作为价值评估/策略评估，对应 **Critic** 
 
-对于 $Q_t(s_t,a_t)$ 的获取，若使用TD方法，这类算法统称为 AC 方法
+对于 $\hat{Q}_{w}(s,a)$ 的获取，若使用TD方法，这类算法统称为 AC 方法
 
 ### 5.3.1 QAC
 
@@ -465,7 +533,9 @@ $$
 
 #### QAC是同策略 on-policy 算法
 
-在求最优化时，由于存在一个期望 $\bigtriangledown_\theta J(\theta_{t})=E_{S\sim \eta,A\sim\pi(A\vert S,\theta)}\left[\bigtriangledown_\theta\ln\pi(A\vert S,\theta)Q_{\pi}(S,A)\right]$  ，故将算法修改为随机梯度上升法，动作需要按照策略 $\pi^{(t)}$ 的分布采样，所以 $\pi^{(t)}$ 是探索策略，同时又是不断改进的策略，所以是目标策略，因此 QAC 是同策略算法
+在求最优化时，由于存在一个期望 $\bigtriangledown_\theta J(\theta_{t})=E_{S\sim \eta,A\sim\pi(A\vert S,\theta)}\left[\bigtriangledown_\theta\ln\pi(A\vert S,\theta)Q_{\pi}(S,A)\right]$  ，故将算法修改为随机梯度上升法
+
+动作需要按照策略 $\pi^{(t)}$ 的分布采样，所以 $\pi^{(t)}$ 是探索策略，同时又是不断改进的策略，所以是目标策略，因此 QAC 是同策略算法
 
 #### QAC是随机性策略
 
@@ -475,7 +545,7 @@ $$
 
 ### 5.3.2 A2C
 
-advantage actor-critic(A2C)：核心思想是通过引入一个偏置量 baseline 减小方差，即
+advantage actor-critic(A2C)：核心思想是通过引入一个偏置量 bias 减小方差，即
 
 **策略梯度对于额外的偏置量是不变的** 
 $$
@@ -522,7 +592,7 @@ $$
   $$
   \begin{aligned}
   &E_{A\sim \pi}\left[\Vert \bigtriangledown_\theta\ln\pi\Vert^2_2 \cdot \left(Q_{\pi}(s,A)-b(s)\right)\right]=0,s\in \mathcal{S}\\
-  \Rightarrow&b^*=\frac{E_{A\sim \pi}\left[\Vert \bigtriangledown_\theta\ln\pi\Vert^2_2\right]Q_{\pi}((s,A)}{E_{A\sim \pi}\left[\Vert \bigtriangledown_\theta\ln\pi\Vert^2_2\right]},s\in \mathcal{S}
+  \Rightarrow&b^*=\frac{E_{A\sim \pi}\left[\Vert \bigtriangledown_\theta\ln\pi\Vert^2_2\right]Q_{\pi}(s,A)}{E_{A\sim \pi}\left[\Vert \bigtriangledown_\theta\ln\pi\Vert^2_2\right]},s\in \mathcal{S}
   \end{aligned}
   $$
   且 $b(S)=0$ 不是好的偏置
@@ -573,7 +643,7 @@ $$
 \Longrightarrow&\hat{\delta}(s_t,w_{t})=r_{t+1}+\gamma \hat{V}_t(s_{t+1},w_{t})-\hat{V}_{t}(s_t,w_{t})
 \end{aligned}
 $$
-因此，我们仅需要一个神经网络来近似 $V_{\pi}(S)$ 而再需要动作价值网络 $Q_{\pi}(S,A)$ 
+因此，我们仅需要一个神经网络来近似 $V_{\pi}(S)$ 而不再需要动作价值网络 $Q_{\pi}(S,A)$ 
 
 #### 伪代码
 
@@ -637,63 +707,6 @@ $$
 
 对于异策略算法，我们希望估计 $E_{A\sim \pi}[*],(A\sim p_0)$ ，其中 $\pi$ 是目标策略，而样本基于探索策略 $\mu,(\{a_i\}\sim p_1)$ 
 
-#### 重要性采样
-
-如果随机变量 $X\sim \mathcal{X}=\{+1,-1\}$ ，则其概率分布为 $p_0$ ，则 $X$ 的期望为 $E[X]=(+1)\cdot 0.5+(-1)\cdot 0.5=0$ 
-
-若不知道 $p_0$ 的具体表达式或 $p_0$ 很复杂时，可以通过采样的方法求 $E[X]$ 
-
-- 一种方法是MC方法，基于大数定律，$n\rightarrow\infty$ 时， $\overline{x}=\frac{1}{n}\sum\limits_{i=1}^nx_i$ 是 $E[X]$ 的无偏估计，但要求样本 $\{x_i\}\sim p_0$ 
-
-  若使用另一分布的样本  $\{x_i\}\sim p_1$ 去估计，则结果显然不正确
-
-  > 假设 $p_1(X=+1)=0.8,p_1(X=-1)=0.2$ ，则期望为
-  > $$
-  > E_{X\sim p_1}[X]=0.8\cdot(+1)+0.2\cdot(-1)=0.6
-  > $$
-  > 若仍使用样本的均值，则
-  > $$
-  > \overline{x}\rightarrow E_{X\sim p_1}[X]=0.6\neq E_{X\sim p_0}[X]
-  > $$
-  > ![image-20240308105426764](5-基于策略梯度的RL/image-20240308105426764.png)
-  >
-  > 若不采用重要性采样技巧，均值为蓝色线；若采用，则为红色线
-
-- 另一种方法是 **重要性采样** 
-
-$$
-E_{X\sim p_0}[X]=\sum\limits_{x}xp_0(x)=\sum\limits_{x}p_1(x)\underbrace{\frac{p_0(x)}{p_1(x)}x}_{f(x)}=E_{X\sim p_1}[f(X)]
-$$
-
-因此，可以用 $E_{X\sim p_1}[f(X)]$ 去估计 $E_{X\sim p_0}[X]$ 
-
-> 若有样本集 $\{x_i\}\sim p_1$ 
->
-> - 对于 $E_{X\sim p_1}[f(X)]$ 的计算，仍可基于大数定律，用MC方法估计
->   $$
->   \overline{f}=\frac{1}{n}\sum\limits_{i=1}^nf(x_i)\\
->   E_{X\sim p_1}[\overline{f}]=E_{X\sim p_1}[f(X)]\\
->   var_{X\sim p_1}[\overline{f}]=\frac{1}{n}var_{X\sim p_1}[f(X)]
->   $$
->   即 $\overline{f}$ 是 $E[f(X)]$ 的无偏估计
->
-> - $\overline{f}$ 是 $E_{X\sim p_1}[f(X)]=E_{X\sim p_0}[X]$ 的近似
->   $$
->   E_{X\sim p_0}[X]=E_{X\sim p_1}[f(X)]\approx\overline{f}=\frac{1}{n}\sum\limits_{i=1}^nf(x_i)=\frac{1}{n}\sum\limits_{i=1}^n\frac{p_0(x_i)}{p_1(x_i)}x_i
->   $$
-
-其中，$\frac{p_0(x_i)}{p_1(x_i)}$ 被称为权重
-
-- 若 $p_0(x_i)=p_1(x_i)$ ，则权重为1，$\overline{f}=\overline{x}$ 
-
-- 若 $p_0(x_i)\ge p_1(x_i)$​ ，对于一个样本 $x_i$ ， $p_0(x_i)>P_1(x_i)$ 说明在 $p_0$ 分布下采到 $x_i$ 的概率比较大；$p_1(x_i)$ 比较小，说明 $x_i$ 在 $p_1$ 分布下很难采集到
-
-  要计算 $p_0$ 下的期望，就要很重视 $x_i$ ，给他比较大的权重 。这样才能将 $x_i$ 在 $p_1$ 下的期望拉到 $p_0$ 下的期望
-
-$\overline{f}=\frac{1}{n}\sum\limits_{i=1}^n\frac{p_0(x_i)}{p_1(x_i)}x_i$ 的计算需要这个样本 $x_i$ 在分布 $p_0$ 中的概率 $p_0(x_i)$ ，但不能直接通过积分/求和去计算期望 $E_{X\sim p_0}[X]$ 
-
-- 对于连续的随机变量，此时需要通过积分去计算期望，这对 $p_0$ 的表达式有很高要求，若 $p_0$ 的表达式( 策略函数 $\pi(a,\theta)$ )很复杂或者根本不存在表达式(使用神经网络表示策略函数)，则无法计算
-
 #### 异策略策略梯度
 
 1. 策略梯度表达式
@@ -701,9 +714,8 @@ $\overline{f}=\frac{1}{n}\sum\limits_{i=1}^n\frac{p_0(x_i)}{p_1(x_i)}x_i$ 的计
 
 ##### 异策略梯度表达式
 
-设 $\mu$ 为探索策略用于生成经验样本
+设 $\mu$ 为探索策略用于生成经验样本，目标是使用这些经验样本去更新目标策略 $\pi$ ，使得策略度量指标 $J(\theta)$ 最小化
 
-目标是使用这些样本去更新探索策略 $\pi$ 最小化策略度量指标 $J(\theta)$
 $$
 J(\theta)=\sum\limits_{s\in \mathcal{S}}d_{\mu}(s)V_{\pi}(s)=E_{S\sim d_\mu}[V_{\pi}(S)]
 $$
@@ -789,6 +801,8 @@ $$
 - $\pi$ 为从状态空间 $\mathcal{S}$ 到动作空间 $\mathcal{A}$ 的映射 $\pi:\mathcal{S}\mapsto \mathcal{A}$
 - $\pi$ 也可以是一个神经网络，其输入是状态 $s$ ，输出是一个动作 $a$ ，其参数为 $\theta$ 
 
+![image-20240512000149033](5-基于策略梯度的RL/image-20240512000149033.png)
+
 #### 梯度的计算
 
 之前的梯度仅是针对随机策略的梯度，若策略是确定性的，需要重新计算梯度
@@ -801,7 +815,7 @@ $$
 \end{aligned}
 $$
 
-- $\eta$ 为状态 $s$ 的分布，具体表达式由探索策略的稳态分布与基于策略 $\pi$ 的状态转移确定
+- $\eta$ 为状态 $s$ 的分布，具体表达式由探索策略下状态的稳态分布与基于策略 $\pi$ 的状态转移确定
 - 对于策略 $\pi$ 下的动作价值 $Q_{\pi}(s,a)$ ，先对 $a$ 求梯度，然后将所有的动作替换为 $\pi(s)$ ——二者是等价的
 
 ##### DPG天然是异策略
@@ -913,9 +927,9 @@ $$
 
 每次得到一个 $\pi(s)$ 后，因为 $\pi$ 本身是确定性是，不能探索，所以加上一些噪音，可以有一定的随机性，下一个动作的生成就与目标策略 $\pi$ 有了关系
 
-此时，DPG可以变为同策略算法
-
 - 实质上，$\pi+噪音$ 与 $\varepsilon-贪心$ 非常类似，但这里不能用贪心算法，因为此处应对的时动作空间连续的情况，不能给无限的连续动作赋予一定探索概率
+
+此时，DPG可以变为同策略算法
 
 #### DPG的进一步改进
 
@@ -925,4 +939,4 @@ $$
 
   线性近似基函数的难点在于基函数(特征向量)的选择，由于函数结构的限制，逼近动作价值的能力有限
 
-- 神经网络 ：DDP
+- 神经网络 ：DDPG

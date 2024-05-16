@@ -140,7 +140,9 @@ $$
 $$
 J(w)=E\left[\left(V_{\pi}(S)-\hat{V}_{\pi}(S,w)\right)^2\right]=\frac{1}{\vert \mathcal{S}\vert}\sum\limits_{s\in \mathcal{S}}\left(V_{\pi}(S)-\hat{V}_{\pi}(S,w)\right)^2
 $$
-缺点：均匀分布的状态分布并没有考虑到MDP在给定策略下的真实动态特性。事实上，状态并不是同等重要的，目标状态与接近目标状态的那些状态更重要，出现的可能性更大；离目标状态远的状态并不重要，因为出现的可能性更小。我们希望给重要的状态更大的权重，使之估计的误差更小，不重要的状态即使估计误差大也没太大关系
+缺点：均匀分布的状态分布并没有考虑到MDP在给定策略下的真实动态特性。事实上，状态并不是同等重要的，目标状态与接近目标状态的那些状态更重要，出现的可能性更大；离目标状态远的状态并不重要，因为出现的可能性更小。
+
+我们希望给重要的状态更大的权重，使之估计的误差更小，不重要的状态即使估计误差大也没太大关系
 
 ###### 稳态分布
 
@@ -210,16 +212,18 @@ $$
 
 ###### MC方法
 
-> 回报代替状态价值
+> 在训练数据上运用监督学习对价值函数进行预测 $<s_1,G_1>,<s_2,G_2>,\cdots,<s_T,G_T>$ ，用随机回报 $g_t$ 代替真实价值 $V_{\pi}(s_t)$
 
 令 $g_t$ 是一个回合中，从状态 $s_t$ 开始基于策略 $\pi$ 的折扣回报，因此可以用 $g_{t}$ 去代替真实的状态价值，即算法变为
 $$
-w_{t+1}=w_t+\alpha_t\left(g_t-\hat{V}_{\pi}(s_t,w_t)\right)\bigtriangledown_w\hat{V}_{\pi}(s_t,w_t)
+w_{t+1}=w_t+\alpha_t\left(G_t-\hat{V}_{\pi}(s_t,w_t)\right)\bigtriangledown_w\hat{V}_{\pi}(s_t,w_t)
 $$
+
+MC预测至少能手镰刀一个局部最优解
 
 ###### TD方法
 
-> 可将 $V_{\pi}(s_t)$ 作为TD目标
+> 可将TD目标作为 $V_{\pi}(s_t)$ 的有偏估计
 
 $$
 w_{t+1}=w_t+\alpha_t\left(\overbrace{\underbrace{r_{t+1}+\gamma \hat{V}(s_{t+1},w_t)}_{\mbox{TD target}}-\hat{V}_{\pi}(s_t,w_t)}^{\mbox{TD error}}\right)\bigtriangledown_w\hat{V}_{\pi}(s_t,w)
@@ -248,7 +252,9 @@ $$
 \hat{V}(s,w)=\phi^T(s)w
 $$
 
-- $\phi(s)$ 可以是多项式基函数、傅里叶基函数
+- $\phi(s)$ 可以是一般的线性模型（多项式基函数）、傅里叶/小波基函数、最近邻，神经网络
+- 可微的函数：线性模型、神经网络
+- 树模型不合适，我们希望值函数模型适合在非稳态、非独立分布的数据上训练
 
 目前广泛使用是关于 $w$ 的非线性函数——神经网络，虽然不知道函数的具体形式，但给定一个输入 $s$ ，可以给出这个状态的近似状态价值 $\hat{V}(s)$ 
 
@@ -260,7 +266,7 @@ $$
 $$
 \bigtriangledown_w\hat{V}(S,w)=\phi(S)
 $$
-带入TD方法的优化函数
+代入TD方法的优化函数
 $$
 w_{t+1}=w_{t}+\alpha_t\left[r_{t+1}+\gamma \phi^T(s_{t+1})w_{t}-\phi^T(s_{t})w_{t}\right]\phi(s_t)
 $$
@@ -337,6 +343,8 @@ $$
 w_1\\w_2\\w_3
 \end{bmatrix}=w_1+w_2x+w_3y
 $$
+
+
 **TD-Linear** 算法的执行结果如图
 
 ![image-20240304234302772](4-基于价值函数的RL/image-20240304234302772.png)
@@ -367,17 +375,26 @@ $$
 
 #### 总结
 
+**价值函数将已知的状态泛化到其他未知的状态上** ，用以表示连续的价值函数
+
 基于价值函数近似的TD-learning，其目标函数
 $$
-J(w)=E\left[\left(V_{\pi}(s)-\hat{V}_{\pi}(S,w)\right)^2\right]
+J(w)=E\left[\frac{1}{2}\left(V_{\pi}(s)-\hat{V}_{\pi}(S,w)\right)^2\right]
 $$
-基于随机梯度下降法，求解最优解
+求损失的最小值
 $$
-w_{t+1}=w_t+\alpha_{t}\left[V_{\pi}(s)-\hat{V}_{\pi}(s_t,w_t)\right]\bigtriangledown_w\hat{V}(s_t,w_t)
+-\frac{\partial J(w)}{\partial w}=E\left[\left(V_{\pi}(s)-\hat{V}_{\pi}(S,w)\right)\bigtriangledown_w\hat{V}_{\pi}(s_t,w_t)\right]
+$$
+采用随机梯度下降法，求解损失最小值
+$$
+\begin{aligned}
+w_{t+1}&=w-\alpha\frac{\partial J(w)}{\partial w}\\
+&=w_t+\alpha_{t}\left[V_{\pi}(s)-\hat{V}_{\pi}(s_t,w_t)\right]\bigtriangledown_w\hat{V}_{\pi}(s_t,w_t)
+\end{aligned}
 $$
 而真实的价值函数 $V_{\pi}(s)$ 是未知的，所以在此算法中，需要将其代替
 $$
-w_{t+1}=w_{t}+\alpha_t\left[r_{t+1}+\gamma\hat{V}(s_{t+1},w_t)-\hat{V}_{\pi}(s_t,w_t)\right]\bigtriangledown_w\hat{V}(s_t,w_t)
+w_{t+1}=w_{t}+\alpha_t\left[r_{t+1}+\gamma\hat{V}(s_{t+1},w_t)-\hat{V}_{\pi}(s_t,w_t)\right]\bigtriangledown_w\hat{V}_{\pi}(s_t,w_t)
 $$
 
 这样的故事线在数学上是不严谨的：首先，最优化算法与目标函数并不对应；其次，将 $r_{t+1}+\gamma\hat{V}(s_{t+1},w_t)$ 最为TD target 是否依然收敛
@@ -410,7 +427,7 @@ J_{PBE}(w)=\left\Vert \hat{\mathbf{V}}_{\pi}(S,w)-\mathbf{M}\cdot T_{\pi}\left(\
 $$
 其中 $\mathbf{M}$ 为投影矩阵，将 $T_{\pi}\left(\hat{\mathbf{V}}_{\pi}(S',w)\right)$ 投影到以 $w$ 为参数的 $\hat{V}_{\pi}(w)$ 组成的空间，此时误差可能为0
 
-上述求解算法是 **基于贝尔曼方程的状态价值投影误差** 的随机梯度下降法
+所以上述求解算法实质上是 **基于贝尔曼方程的状态价值投影误差** 的随机梯度下降法
 
 ##### 收敛性分析
 
@@ -463,7 +480,7 @@ $$
 $$
 E\left[R_{t+1}\phi(s)\vert S_t=s\right]=\phi(s)E[R_{t+1}\vert S_t=s]=\phi(s)\sum\limits_{a\in\mathcal{A}(s)}\pi(a\vert s)\sum\limits_{r'}r'P(r'\vert s,a)=\phi(s)r_{\pi}(s)
 $$
- 故有
+故有
 $$
 \sum\limits_{s\in \mathcal{S}}d_{\pi}(s)E\left[R_{t+1}\phi(s)\vert S_t=s\right]=\sum\limits_{s\in \mathcal{S}}d_{\pi}(s)\phi(s)r_{\pi}(s)=\Phi^T\mathbf{D}\mathbf{r}_{\pi}\in\R^m,\quad \mathbf{r}_{\pi}=\begin{bmatrix}
 \vdots\\r_{\pi}(s)\\\vdots
@@ -609,135 +626,6 @@ $$
 $$
 
 ![image-20240305150458437](4-基于价值函数的RL/image-20240305150458437.png)
-
-## 4.4 Deep Q-learning Network
-
-> 最早和最成功地将神经网络引入RL，且引入的技巧被后续更多的DRL采用
-
-### 4.4.1 原理
-
-对于最优的动作满足贝尔曼最优方程
-$$
-\overline{Q}(s,a)=E\left[R_{t+1}+\gamma \max\limits_{a\in \mathcal{A}(S_{t+1})}Q(S_{t+1},a)\bigg\vert S_t=s,A_t=a\right],\forall s,a
-$$
-我们希望最优动作价值 $\overline{Q}(s,a)$ 与其价值近似函数 $\hat{Q}(S,A,w)$ 在 $(S_t,A_t)=(s,a)$ 时在期望上误差为0
-
-DQN目标是最小化目标函数（损失函数）——贝尔曼最优误差
-$$
-J(w)=E\left[\left(R+\gamma \max\limits_{a\in \mathcal{A}(S')}\hat{Q}\left(S',a,w\right)-\hat{Q}\left(S,A,w\right)\right)^2\right]
-$$
-使用梯度下降法求解最小化损失函数，但由于涉及两处对 $w$ 求梯度，可以先固定一处 $w$ ，设 $y$ 中的 $w$ 为一个常数
-$$
-y=R+\gamma \max\limits_{a\in \mathcal{A}(S')}\hat{Q}\left(S',a,w\right)
-$$
-对 $J(w)$ 求解关于 $w$ 的梯度 $\bigtriangledown_w J(w)$ ，只是关于 $\hat{Q}\left(S,A,w\right)$ 中 $w$ 的函数
-
-为此，引入两个网络
-
-- 一个是 main network  $\hat{Q}\left(S,A,w\right)$ 
-- 另一个是 target network 为 $y$ 中的 $\hat{Q}\left(S,A,w_T\right)$ 
-
-main network中的 $w$ 会随着回合的每一步进行更新，target network 中的参数 $w_T$ 会先当做常数，每隔一段时间将 main network 中的参数值复制 $w_T=w$ 再基于更新后的 $w_T$ 作为常数，更新 $w$ ，最后二者都会收敛到最优值 。即目标函数变为
-$$
-J(w)=E\left[\left(R+\gamma \max\limits_{a\in \mathcal{A}(S')}\hat{Q}\left(S',a,w_T\right)-\hat{Q}\left(S,A,w\right)\right)^2\right]
-$$
-$J(w)$ 的梯度下降变为
-$$
-\bigtriangledown_wJ(w)=E\left[\left(R+\gamma \max\limits_{a\in\mathcal{A}(S')}\hat{Q}\left(S',a,w_T\right)-\hat{Q}\left(S,A,w\right)\right)\bigtriangledown_w\hat{Q}\left(S,A,w\right)\right]
-$$
-
-### 4.4.2 DQN的两个技巧
-
-#### 引入两个网络
-
-> 引入原因：带有价值近似函数的 Q-learning 算法是带有梯度的，可以用于DQN思路的指导，但不适合用于训练，神经网络会批量训练一些黑盒模型，然后更高效地训练神经网络
-
-main network 与 target network
-
-因为对目标函数中的两个位置求解参数在数学上比较复杂，所以采取异步更新
-
-初始：$w=w_T$
-
-每轮迭代，从经验回放池 $\mathcal{B}=\{(s,a,r',s')\}$ 中取出使用少批量样本进行训练
-
-训练：
-
-1. 输入：$s,a$ ；target network输出：$y(w_T)=r'+\gamma \max\limits_{a\in \mathcal{A}(s')}\hat{Q}(s',a,w_T)$ 
-
-2. 在少批量经验集上 $\{(s,a,y(w_T))\}$ 上最小化TD误差 / 损失函数 $\left(y(w_T)-\hat{Q}(s,a,w)\right)^2$ ，更新 $w$ 相当于训练 main network
-   $$
-   \bigtriangledown_wJ(w)=E\left[\left(y(w_T)-\hat{Q}\left(S,A,w\right)\right)\bigtriangledown_w\hat{Q}\left(S,A,w\right)\right]
-   $$
-
-3. 训练一段时间后，$w$ 已经发生了变化，再将其赋值给 $w_T=w$ ，重复执行 $1,2$ 
-
-#### 经验回放
-
-> 当收集到经验数据后，并不是按照采集顺序使用这些经验，将这些经验存储在成为经验缓存池的集合中 $\mathcal{B}=\{(s,a,r',s')\}$ ，每次训练神经网络时，从经验缓存池中取出少批量随机经验
-
-##### 经验回放中的分布
-
-> 经验回放的必要性与均匀地经验回放
-
-$(s,a)$ 给定之后，$(r',s')$ 要服从系统模型的动态特性 $P(r',s'\vert s,a)$ ，若知道哪些访问会接近目标状态这个先验知识前提下，这些访问对应该被多采样。若没有这个先验知识，则对于所有访问都要一视同仁，保证探索的充分性，即这些经验应该 **按均匀分布组成少批量训练经验集**
-
-基于某个策略生成的经验池并不是均匀分布，为打破经验之间的时序关系，采用经验回放技巧，从经验缓存池中均匀地取出经验
-
-##### 表格型Q-learning中无经验回放
-
-表格型Q-learning中并未涉及到 $(S,A)$ 的分布
-
-因为DQN是一类价值函数近似方法，数学上解决优化问题，需要有一个标量的目标函数去优化，价值函数近似中的标量目标函数是一个期望，会涉及到 $(S,A)$ 的分布。
-
-在基于表格的方法中，如 **Q-learning** 中求解贝尔曼最优公式，对于每个 $(S,A)$ 都有一组等式去求解，进而得出最优的动作价值
-
-##### 经验回放技术也可应用与表格型方法
-
-对于确定性策略，每个访问对只需要被访问一次就可以，所以并不需要过多的访问
-
-但先前介绍的算法按照时序使用经验，之前所有的经验都不会被使用，在一定程度上是一种浪费
-
-### 4.4.3 伪代码
-
-$$
-\begin{array}{ll}
-\hline
-&目标：从基于探索策略\mu生成的经验集中学习最优的 \mbox{target network}去近似最优动作价值\\
-&将基于策略\mu生成的经验放入经验回放池\mathcal{B}=\{(s,a,r',s')\}\\
-&\quad 对于每轮迭代:\\
-&\qquad 均匀地从经验回放池\mathcal{B}中取出少批量样本:\\
-&\quad \qquad 对每个样本(s,a,r',s')，计算目标价值y(w_T)=r'+\gamma \max\limits_{a\in \mathcal{A}(S')}\hat{Q}(s',a,w_T)\\
-&\quad \qquad 更新 \mbox{main network}:使用少批量样本集\{(s,a,y(w_T))\}  去最小化 \left(y(w_T)-\hat{Q}(s,a,w)\right)^2\\
-&\qquad 在C轮迭代后，令w_T=w\\
-\hline
-\end{array}
-$$
-
-异策略的 **Q-learning** 不需要在每轮迭代后更新策略，因为更新后的策略不会用于生成经验数据
-
-Q-learning解决的是控制问题，在价值更新收敛后，可以直接求解出最优策略
-
-#### 与DQN论文的不同
-
-在于对目标价值的计算，DQN的计算效率更高，输入状态 $s$ 即可得出 $\mathbf{y}(w_T)$ ，在此处，为求解最大的目标动作价值，需要代入 $\vert \mathcal{A}(s)\vert$ 次，再求出最大值
-
-![image-20240304100543544](4-基于价值函数的RL/image-20240304100543544.png)
-
-### 4.4.4 示例
-
-为每个访问对 $(s,a)$ 学习最优的动作价值，只要获取到最优动作价值，贪心策略就能求出最优策略
-
-基于探索策略生成的一个回合训练网络，这个回合有1000步，而表格型 Q-learning需要100000步
-
-非线性价值近似网络 $\hat{Q}(s,a,w)$ 结构：三层网络，输入层-隐藏层(100神经元)-输出层
-
-![image-20240305170620192](4-基于价值函数的RL/image-20240305170620192.png)
-
-探索不充分，虽然TD误差为0，但状态误差并未收敛到0
-
-![image-20240305170633924](4-基于价值函数的RL/image-20240305170633924.png)
-
-
 
 
 
