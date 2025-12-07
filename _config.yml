@@ -33,6 +33,10 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - _posts/*README.md
+  - _posts/10-随笔/阅读归纳/2-本科.md
+  - .gitignore
+  - node_modules/**/*
 
 # Writing
 new_post_name: :title.md # 默认博文名

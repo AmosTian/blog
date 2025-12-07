@@ -1,3 +1,6 @@
+---
+abbrlink: 5
+---
 https://luyuhuang.tech/2020/12/09/kcp.html
 
 https://zhuanlan.zhihu.com/p/10153049382

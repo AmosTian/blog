@@ -1,3 +1,6 @@
+---
+abbrlink: 2
+---
 ## targetcli块设备
 
 服务端配置

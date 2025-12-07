@@ -1,11 +1,12 @@
 ---
-title: github权限
+title: github相关
 top: 88
 categories:
-  - 问题
-  - github相关
+  - 随笔
+  - 常见问题
 tags:
-  - 问题
+  - 随笔
+  - 常见问题
 abbrlink: 3097253091
 date: 2022-12-15 19:05:24
 ---

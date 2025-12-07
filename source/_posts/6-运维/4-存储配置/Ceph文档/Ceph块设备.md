@@ -1,3 +1,6 @@
+---
+abbrlink: 6
+---
 https://docs.ceph.com/en/latest/rbd/rbd-openstack/
 
 

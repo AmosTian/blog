@@ -2,12 +2,12 @@
 title: navicat15 pre破解
 top: 83
 categories:
-  - 环境与工具
-  - IDE配置
+  - 随笔
+  - 软件破解
 tags:
-  - 环境与工具
-  - IDE配置
-date: '2022-11-4 10:25:464'
+  - 随笔
+  - 软件破解
+date: 2022-11-4 10:25:46
 abbrlink: 2360085019
 ---
 

@@ -1,3 +1,6 @@
+---
+abbrlink: 4
+---
 ## fio离线安装
 
 ```shell
