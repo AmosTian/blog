@@ -199,7 +199,7 @@ double *TMatrix(double *M, int n){
 
 **运行截图**
 
-![](图像DCT算法的实现/image-20230323232704487.png)
+![](1-图像DCT算法的实现/image-20230323232704487.png)
 
 
 
@@ -369,13 +369,13 @@ double *TMatrix(double *M, int n){
 }
 ```
 
-![](图像DCT算法的实现/image-20230323232713005.png)
+![](1-图像DCT算法的实现/image-20230323232713005.png)
 
 # DCT大作业
 
 ## 流程图
 
-![](图像DCT算法的实现/image-20230323232725034.png)
+![](1-/image-20230323232725034.png)
 
 
 
@@ -582,7 +582,7 @@ double *TMatrix(double *M, int n){
 }
 ```
 
-![](图像DCT算法的实现/image-20230323232732987.png)
+![](1-图像DCT算法的实现/image-20230323232732987.png)
 
 
 
