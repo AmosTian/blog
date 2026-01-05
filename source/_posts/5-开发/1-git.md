@@ -544,6 +544,42 @@ git merge [远程跟踪分支]
 
 ![image-20210127085426129](1-git/image-20210127085426129-1645540708879.png)
 
+### 3.4 本地远程库
+
+```shell
+# 切换到目标用户，当前为git用户
+su - git
+
+# 创建裸仓库
+mkdir -p /home/git/repos
+cd /home/git/repos
+git init --bare my_project.git
+
+# 设置默认分支名
+ git config init.defaultBranch main
+
+# 确保git用户对仓库有访问权限
+sudo chown -R git:git /home/git/repos/my_project.git
+sudo chmod -R 755 /home/git/repos/my_project.git
+
+# 确保git用户开启ssh
+在家目录下，ssh-keygen
+```
+
+```shell
+# 客户端1 clone远端
+git clone git@ip:/path/to/git/repos/my_project
+
+# 或配置remote，push到远端
+git remote add local git@ip:/path/to/git/repos/my_project
+git push local main
+```
+
+```shell
+# 客户端2 从远端pull
+git pull local main
+```
+
 # 4. git实现机制
 
 ## 4.1 git版本生成机制
@@ -558,7 +594,7 @@ git merge [远程跟踪分支]
 
 #### 2. 快照流(git)
 
--   版本迭代的是每个修改文件的副本
+-   迭代的是每个修改文件的副本
 
 >   快照：同一文件的不同版本
 

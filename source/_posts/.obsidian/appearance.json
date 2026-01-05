@@ -1,4 +1,9 @@
 {
   "accentColor": "",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "cssTheme": "Typora-Vue",
+  "interfaceFontFamily": "Comic Sans MS,Adobe 宋体 Std",
+  "baseFontSizeAction": true,
+  "textFontFamily": "Comic Sans MS",
+  "monospaceFontFamily": "Consolas"
 }

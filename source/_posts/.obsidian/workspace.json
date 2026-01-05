@@ -11,8 +11,12 @@
             "id": "d3c92004e906ca2e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "8-Linux/鸟哥Linux基础/2.Linux文件系统.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -43,7 +47,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "8-Linux/鸟哥Linux基础/2.Linux文件系统.md"
+              }
             }
           },
           {
@@ -52,7 +58,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "https://img-blog.csdnimg.cn/3e5a70843f1541eba3eb8df821897f0b.png)",
+                "query": "tag:#AI",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,6 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "8-Linux/鸟哥Linux基础/2.Linux文件系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "8-Linux/鸟哥Linux基础/2.Linux文件系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,14 +142,25 @@
             "type": "leaf",
             "state": {
               "type": "outline",
+              "state": {
+                "file": "8-Linux/鸟哥Linux基础/2.Linux文件系统.md"
+              }
+            }
+          },
+          {
+            "id": "61a4798660681f5f",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -152,33 +171,48 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
   "active": "d3c92004e906ca2e",
   "lastOpenFiles": [
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/image-20251219214138693.png",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/image-20251219214121574.png",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统.md",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/-image-20251219214057591.png",
+    "8-Linux/鸟哥Linux基础/xfsdump原理.png",
+    "image-20251219213837421.png.md",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/-image-20251218223028189.png",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/image-20251218221834889.png",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/image-20251218215712781.png",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/image-20251219213837421.png",
+    "8-Linux/鸟哥Linux基础/assets/2.Linux文件系统",
+    "8-Linux/鸟哥Linux基础/assets",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/xfsdump原理.png",
+    "8-Linux/鸟哥Linux基础/远程操作.md",
+    "noteFolderPath/2.Linux文件系统/image-20251218220959097.png",
+    "noteFolderPath/2.Linux文件系统",
+    "noteFolderPath",
+    "5-开发/1-git/xfsdump原理.png",
+    "8-Linux/鸟哥Linux基础/2.Linux文件系统/xfsdump.drawio",
+    "8-Linux/鸟哥Linux基础/未被记录的内容.md",
+    "7-AI/4-强化学习/0-强化学习资料.md",
+    "6-运维/4-存储配置/Ceph原理与分析/5.存储配置.md",
+    "menu.md",
+    "README.md",
+    "未命名.md",
+    "8-Linux/鸟哥Linux基础/1-Linux.md",
+    "8-Linux/鸟哥Linux基础/1.Linux简介、安装、简单使用.md",
+    "8-Linux/linux/Linux.md",
+    "1-数学/2-矩阵论/3.矩阵函数.md",
+    "skip_render_README.md",
     "6-AI/4-强化学习/2-MDP与贝尔曼方程",
     "2-计算机基础/4-计算机组成原理/2-存储器.md",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824375.png",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824374.png",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824373.png",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824372.png",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824271.png",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824270.png",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824476.png",
-    "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNDc5MDM3,size_16,color_FFFFFF,t_70-167863170824268.png",
-    "5-开发/6-Java项目/公费医疗报销系统/1.环境/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ2MDU5Ng==,size_16,color_FFFFFF,t_70#pic_center-166807408001712.png",
-    "5-开发/6-Java项目/公费医疗报销系统/1.环境/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ2MDU5Ng==,size_16,color_FFFFFF,t_70#pic_center-166807407714810.png",
     "2-计算机基础/5-体系结构/1-ISA课程/4-流水线设计",
     "2-计算机基础/5-体系结构/1-ISA课程/3-微体系结构基础",
     "5-开发/1-前端工程/3-微信小程序/2-微信小程序-知晓云等产品导出excel",
     "2-计算机基础/5-体系结构/1-ISA课程/2-ISA设计原则",
-    "4-算法/1-刷题/杂项/图像DCT算法的实现",
-    "5-开发/5-中间件/消息队列/RocketMQ",
-    "5-开发/5-中间件/搜索引擎/ElasticSearch",
-    "5-开发/6-Java项目/毕设项目/3-消息队列与微聊",
-    "5-开发/1-前端工程/3-微信小程序/1-微信小程序笔记",
-    "2-计算机基础/5-体系结构/1-ISA课程/1-概论",
     "6-AI/4-强化学习/0-强化学习资料.md",
     "6-AI/4-强化学习/1-强化学习概念与原理.md",
     "6-AI/4-强化学习/2-MDP与贝尔曼方程.md",
@@ -189,20 +223,6 @@
     "7-环境与工具/3-工具/3-zotera.md",
     "7-环境与工具/2-IDE配置/3-navicat破解.md",
     "7-环境与工具/2-IDE配置/2-vscode配置py+cpp.md",
-    "7-环境与工具/2-IDE配置/2-vscode配置.md",
-    "6-AI/2-机器学习/9-降维.md",
-    "6-AI/2-机器学习/5-决策树.md",
-    "6-AI/2-机器学习/1-机器学习.md",
-    "6-AI/2-机器学习/7-集成学习.md",
-    "6-AI/2-机器学习/8-聚类分析.md",
-    "6-AI/2-机器学习/2-线性回归.md",
-    "6-AI/2-机器学习/4-逻辑回归.md",
-    "6-AI/2-机器学习/2-朴素贝叶斯.md",
-    "6-AI/2-机器学习/6-支持向量机.md",
-    "6-AI/2-机器学习/3-朴素贝叶斯.md",
-    "6-AI/2-机器学习/4-线性分类模型.md",
-    "6-AI/2-机器学习/3-线性回归模型.md",
-    "11-分布式/分布式存储/3.Ceph数据处理.md",
     "未命名.canvas"
   ]
 }

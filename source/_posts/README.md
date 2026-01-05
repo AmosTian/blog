@@ -1,29 +1,33 @@
-结构：
+## 一些必须遵守的约定
+
+### _post的目录结构
 
 - 在笔记目录下，不能有图片，否则在自动生成menu.md时，会被过滤掉
 
-
-
-md文件命名规则：
+### md文件命名规则
 
 - 序号后，可以用-或.间隔md文件名
 - 文件名不能包含空格，文件名中不能包含-
   - 需要优化序号识别程序
 
+## 自定义项
 
-
-不会被渲染的md文件
+### 不会被渲染的md文件
 
 目前，配置 *_posts/* 目录下、以 *README.md* 结尾的文件会被跳过，不会显示在github page上
 
 ```shell
+# /path/to/AmosTian.github.io/_config.xml
+
 skip_render:
   - _posts/*README.md
   - .gitignore
   - node_modules/**/*
 ```
 
+## 上传
 
+### github
 
 git上传到github时，需要开梯子，并设置代理
 
@@ -36,6 +40,8 @@ git config --global --get https.proxy
 
 git push github master
 ```
+
+### gitee
 
 git 上传到gitee时，需要取消代理
 

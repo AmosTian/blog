@@ -86,8 +86,6 @@ man proc# 获取proc文件系统的文档
 
 ## 防火墙
 
-<span id="firewall"></span>>
-
 ```shell
 # 安装 firewalld
 sudo apt install firewalld
