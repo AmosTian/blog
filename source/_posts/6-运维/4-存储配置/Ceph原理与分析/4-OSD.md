@@ -1546,7 +1546,7 @@ void ReplicatedBackend::do_repop(OpRequestRef op){
 
 
 
-## 3.4 后端存储Object Store（不重要）
+## 3.4 后端存储Object Store
 
 Object Store完成实际的数据存储，封装了所有对底层IO的操作
 

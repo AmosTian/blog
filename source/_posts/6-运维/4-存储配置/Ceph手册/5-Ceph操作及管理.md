@@ -590,11 +590,11 @@ device 2 osd.2
 
 - 节点bucket(nodes)表示物理位置，叶子bucket(leaves)表示OSD(ceph-osd+底层物理设备)
 
-![image-20231106093326016](4.Ceph操作及管理/image-20231106093326016.png)
+![image-20231106093326016](5-Ceph操作及管理/image-20231106093326016.png)
 
 Bucket由物理位置（磁盘、节点、机架(rack)、行(row)、开关、电源电路、房间、数据中心）的分层聚合以及它们被分配的权重（weights）组成。
 
-![image-20231110001821973](4.Ceph操作及管理/image-20231110001821973.png)
+![image-20231110001821973](5-Ceph操作及管理/image-20231110001821973.png)
 
 CRUSH map包含很多默认的bucket类型，可以自行添加或删除bucket类型
 
@@ -634,7 +634,7 @@ type 10 root 	#Ceph集群名
 
 如：
 
-![image-20231107213320736](4.Ceph操作及管理/image-20231107213320736.png)
+![image-20231107213320736](5-Ceph操作及管理/image-20231107213320736.png)
 
 **weight** ：CRUSH算法为每个OSD分配一个权重，OSD权重越大，则物理存储容量越大。权重表示物理设备间的相对差异
 
@@ -715,7 +715,7 @@ rule <rulename>{//规则名称，Pool基于规则名称与规则关联
 }
 ```
 
-![image-20231107214400837](4.Ceph操作及管理/image-20231107214400837.png)
+![image-20231107214400837](5-Ceph操作及管理/image-20231107214400837.png)
 
 **step chooseleaf firstn {num} type {bucket-type}** 
 
@@ -749,7 +749,7 @@ ceph osd pool set PoolName crush_rule <rulename>
 
 CRUSH定位就是确定一个OSD在CRUSH map中的位置
 
-![image-20231107174927914](4.Ceph操作及管理/image-20231107174927914.png)
+![image-20231107174927914](5-Ceph操作及管理/image-20231107174927914.png)
 
 #### Ceph中的各种map
 
@@ -990,7 +990,7 @@ ceph osd map sata sata_data_object
 
 - 向现有的集群添加节点，包括：磁盘、CPU、内存
 
-![image-20231107162139487](4.Ceph操作及管理/image-20231107162139487.png)
+![image-20231107162139487](5-Ceph操作及管理/image-20231107162139487.png)
 
 Ceph是一个无缝可扩展的存储系统，允许在线添加monitor和OSD节点到现有集群中，同时不造成服务下线
 
@@ -1161,7 +1161,7 @@ $ ceph df #输出集群的空间利用率统计信息
 集群总容量、可用容量、已用容量和百分比
 ```
 
-![image-20231108095303503](4.Ceph操作及管理/image-20231108095303503.png)
+![image-20231108095303503](5-Ceph操作及管理/image-20231108095303503.png)
 
 ##### 集群组件状态
 
@@ -1228,7 +1228,7 @@ monmap{	集群的monmap
 $ ceph mon dump #导出Ceph monitor信息
 ```
 
-![image-20240721155625856](4.Ceph操作及管理/image-20240721155625856.png)
+![image-20240721155625856](5-Ceph操作及管理/image-20240721155625856.png)
 
 > 集群 fsid、各个监控器的位置、名称、地址和端口，以及映射时间戳
 >
@@ -1561,7 +1561,7 @@ OSD 存储PG，PG包含对象
 
 **clean** ：主OSD和顺位OSD已经彼此确认；所有PG都在正确位置上，未发生偏移；所有都按副本级复制完成
 
-![img](4.Ceph操作及管理/70.jpeg)
+![img](5-Ceph操作及管理/70.jpeg)
 
 ###### 监控PG
 
@@ -1696,7 +1696,7 @@ curl localhost:5000/api/v0.1/osd/stat
 curl localhost:5000/api/v0.1/mon/stat
 ```
 
-![image-20231111005247522](4.Ceph操作及管理/image-20231111005247522.png)
+![image-20231111005247522](5-Ceph操作及管理/image-20231111005247522.png)
 
 ceph-rest-api 支持大多数 Ceph CLI。
 
