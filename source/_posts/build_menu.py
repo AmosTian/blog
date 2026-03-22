@@ -7,7 +7,9 @@ jump_dir = [
     ".obsidian",
     "README.md",
     "2-本科.md",
-    "build_menu.py"
+    "build_menu.py",
+    "skip_render_README.md",
+    ".trash"
 ]
 
 img_formats = [".png", ".jpg", ".jpeg", ".webp", ".drawio", ".svg"]
@@ -261,7 +263,7 @@ if __name__ == "__main__":
     with open("directory_tree.json", "w") as f:
         f.write(json_data)
 
-    with open("menu.md", "w") as f:
+    with open("menu.md", "w", encoding="utf-8") as f:
         f.write(pre_content)
 
         """
