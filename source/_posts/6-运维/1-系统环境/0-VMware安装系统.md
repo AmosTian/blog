@@ -24,17 +24,7 @@ date: 2023-10-18 20:29:51
 1. 从 [VMware官网](https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html) 下载安装包 
 2. 照着点就行
 
-## 0.2 下载ubuntu镜像
-
-[官网](https://ubuntu.com/download/desktop)
-
-[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/)
-
-[阿里云开源镜像站](https://mirrors.aliyun.com/ubuntu-releases/)
-
-Ubuntu 22.04
-
-## 0.3 创建系统实例
+### 0.1.1 创建系统实例
 
 ![在这里插入图片描述](0-VMware安装系统/3cffc05a1c0f4458bae096a7d01b13de.png)
 
@@ -68,7 +58,84 @@ Ubuntu 22.04
 
 ![在这里插入图片描述](0-VMware安装系统/f5179bc353694eeda7557b12d1386f7d.png)
 
-## 0.4 安装ubuntu
+### 0.1.2 实例克隆
+
+https://blog.csdn.net/m0_46474019/article/details/117569364
+
+#### 克隆实例
+
+无法为已经开启或者挂起的虚拟机克隆，所以克隆前需要关闭虚拟机。
+
+![image-20231018214304297](0-VMware安装系统/image-20231018214304297.png)
+
+![image-20231018214317329](0-VMware安装系统/image-20231018214317329.png)
+
+![image-20231018214327019](0-VMware安装系统/image-20231018214327019.png)
+
+![image-20231018214402252](0-VMware安装系统/image-20231018214402252.png)
+
+![image-20231018214411748](0-VMware安装系统/image-20231018214411748.png)
+
+克隆完成即可启动新系统，因为原系统使用的是动态 IP，所以新系统也会自动分配一个 IP，不会原系统冲突，而且新系统的 MAC 地址也与原系统不一致。所以可以直接启动新老系统，双方都能 ping 通。
+
+#### 生成MAC地址
+
+配网卡
+
+![image-20231019100632255](0-VMware安装系统/image-20231019100632255.png)
+
+关机状态下，生成MAC地址
+
+![image-20231019100717266](0-VMware安装系统/image-20231019100717266.png)
+
+#### 修改静态ip
+
+##### 修改主机密码名称
+
+https://zhuanlan.zhihu.com/p/630601853
+
+用户名
+
+```shell
+hostname #查看系统主机名称
+hostnamectl set-hostname xx #修改主机名称	
+	#执行命令之后，会自动修改 /etc/hostname 文件
+	#执行命令之后，会立即生效，且重启系统也会生效
+cat /etc/hostname	#查看 /etc/hostname 文件内容，里面配置的就是系统主机名称
+```
+
+```shell
+su root
+sudo gedit /etc/passwd # 找到原先的用户名，将其改为自己的用户名（一行全部都改）
+sudo  gedit /etc/shadow #找到原先用户名（所有的名字都要改），改为自己的用户名
+sudo gedit /etc/group #你应该发现你的用户名在很多个组中，全部修改！
+mv /home/原用户名/ /home/新用户名
+
+mv /home/ceph_admin/ /home/
+```
+
+
+
+密码（登录用户需要修改）
+
+1. 进入Ubuntu，打开一个终端，输入 sudo su转为root用户。 注意，必须先转为root用户！！！
+2. sudo passwd user(user 是对应的用户名)
+3. 输入新密码，确认密码。
+4. 修改密码成功，重启，输入新密码进入Ubuntu。
+
+## 0.2 ubuntu
+
+### 0.2.1 下载ubuntu镜像
+
+[官网](https://ubuntu.com/download/desktop)
+
+[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/)
+
+[阿里云开源镜像站](https://mirrors.aliyun.com/ubuntu-releases/)
+
+Ubuntu 22.04
+
+### 0.2.2 安装ubuntu
 
 ![在这里插入图片描述](0-VMware安装系统/4fb9b0898b76438282d5592c21c03189.png)
 
@@ -86,9 +153,9 @@ Ubuntu 22.04
 
 ![在这里插入图片描述](0-VMware安装系统/3a2d7a6ce60246df8a540e1215987a9b.png)
 
-## 0.5 实例配置项
+### 0.2.3 实例配置项
 
-### 修改root密码
+#### 修改root密码
 
 ubuntu默认不设置root密码
 
@@ -101,10 +168,9 @@ root@tzj-virtual-machine:~# passwd root
 New password: 
 Retype new password: 
 passwd: password updated successfully
-
 ```
 
-### 修改国内源
+#### 修改国内源
 
 出现“仓库没有数字签名，所以禁用该源”，大致的错误，具体如图所示
 
@@ -152,7 +218,7 @@ deb https://mirrors.ustc.edu.cn/ubuntu/ jammy-backports main restricted universe
 apt-get update
 ```
 
-### 安装VMware tools
+#### 安装VMware tools
 
 https://blog.csdn.net/NRWHF/article/details/127809132
 
@@ -186,7 +252,7 @@ sudo reboot
 
 安装完成后，会自适应窗户，同时Windows与虚拟机可互相复制、粘贴
 
-### Vmware全屏显示
+#### Vmware全屏显示
 
 > 这一步骤需在VMware Tools之后，
 
@@ -196,7 +262,7 @@ sudo reboot
 
 修改UBUNTU的显示器分辨率与物理显示器分辨率一致
 
-### 设置网卡自启动
+#### 设置网卡自启动
 
 异常关机时，网卡会掉，所以需要删除旧的NetworkManager文件。重新启动后会好
 
@@ -213,7 +279,7 @@ sudo service NetworkManager start
 网络默认由NetworkManager进程接管，系统默认首先会检查链路状态，插好网线，才会配置IP
 ```
 
-### 修改静态IP
+#### 修改静态IP
 
 因为原系统设置的是动态 ip(BOOTPROTO="dhcp")，所以新系统默认也是动态 ip，自动分配了 ip，克隆后并没有与系统的 ip 地址冲突，但为了集群搭建，需要改为可控的静态ip
 
@@ -243,7 +309,7 @@ network:
 sudo netplan apply 
 ```
 
-### ssh连接
+#### ssh连接
 
 1. ssh安装
 
@@ -296,68 +362,130 @@ sudo netplan apply
    sudo ufw status
    ```
 
-## 0.6 克隆
+## 0.3 centos
 
-https://blog.csdn.net/m0_46474019/article/details/117569364
+### 0.3.1 修改镜像源
 
-### 0.6.1 克隆实例
-
-无法为已经开启或者挂起的虚拟机克隆，所以克隆前需要关闭虚拟机。
-
-![image-20231018214304297](0-VMware安装系统/image-20231018214304297.png)
-
-![image-20231018214317329](0-VMware安装系统/image-20231018214317329.png)
-
-![image-20231018214327019](0-VMware安装系统/image-20231018214327019.png)
-
-![image-20231018214402252](0-VMware安装系统/image-20231018214402252.png)
-
-![image-20231018214411748](0-VMware安装系统/image-20231018214411748.png)
-
-克隆完成即可启动新系统，因为原系统使用的是动态 IP，所以新系统也会自动分配一个 IP，不会原系统冲突，而且新系统的 MAC 地址也与原系统不一致。所以可以直接启动新老系统，双方都能 ping 通。
-
-#### 生成MAC地址
-
-配网卡
-
-![image-20231019100632255](0-VMware安装系统/image-20231019100632255.png)
-
-关机状态下，生成MAC地址
-
-![image-20231019100717266](0-VMware安装系统/image-20231019100717266.png)
-
-### 0.6.2 修改静态ip
-
-### 0.6.3 修改主机密码名称
-
-https://zhuanlan.zhihu.com/p/630601853
-
-用户名
+#### 修改国内镜像仓库
 
 ```shell
-hostname #查看系统主机名称
-hostnamectl set-hostname xx #修改主机名称	
-	#执行命令之后，会自动修改 /etc/hostname 文件
-	#执行命令之后，会立即生效，且重启系统也会生效
-cat /etc/hostname	#查看 /etc/hostname 文件内容，里面配置的就是系统主机名称
+#  Centos 6
+minorver=6.10
+sudo sed -e "s|^mirrorlist=|#mirrorlist=|g" \
+         -e "s|^#baseurl=http://mirror.centos.org/centos/\$releasever|baseurl=https://mirrors.aliyun.com/centos-vault/$minorver|g" \
+         -i.bak \
+         /etc/yum.repos.d/CentOS-*.repo
+
+# CentOS 8 
+minorver=8.2.2004
+sed -e "s|^mirrorlist=|#mirrorlist=|g" \
+         -e "s|^#baseurl=http://mirror.centos.org/\$contentdir/\$releasever|baseurl=https://mirrors.aliyun.com/centos-vault/$minorver|g" \
+         -i.bak \
+         /etc/yum.repos.d/CentOS-*.repo
 ```
+
+#### 配置本地镜像源
 
 ```shell
-su root
-sudo gedit /etc/passwd # 找到原先的用户名，将其改为自己的用户名（一行全部都改）
-sudo  gedit /etc/shadow #找到原先用户名（所有的名字都要改），改为自己的用户名
-sudo gedit /etc/group #你应该发现你的用户名在很多个组中，全部修改！
-mv /home/原用户名/ /home/新用户名
+[root@tzj ~]# cd /etc/yum.repos.d/
+[root@tzj yum.repos.d]# mkdir bak
+[root@tzj yum.repos.d]# mv * bak
+[root@tzj yum.repos.d]# cp bak/CentOS-Base.repo ./
+[root@tzj yum.repos.d]# ls
+bak  CentOS-Base.repo
+# 修改 CentOS.repo内容
+[AppStream]
+name=CentOS-$releasever - AppStream
+#baseurl=http://mirror.centos.org/$contentdir/$releasever/AppStream/$basearch/os/
+baseurl=file:///opt/iso/AppStream
+gpgcheck=0
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 
-mv /home/ceph_admin/ /home/
+[BaseOS]
+name=CentOS-$releasever - Base
+#baseurl=http://mirror.centos.org/$contentdir/$releasever/BaseOS/$basearch/os/
+baseurl=file:///opt/iso/BaseOS
+gpgcheck=0
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+```
+
+更新镜像源
+
+```shell
+[root@tzj yum.repos.d]# yum clean all
+yum0 files removed
+[root@tzj yum.repos.d]# yum makecache
+```
+
+设置开机自动挂载
+
+```shell
+[root@tzj ~]# vim /etc/fstab
+# 更新内容
+UUID=dd02b4b3-2e8b-4776-8a76-bfaa35bd835a /                       xfs     defaults        0 0
+UUID=4b745fc2-f369-4c9e-b971-af86b83cf689 /boot                   ext4    defaults        1 2
+UUID=e5e1ba5c-d8a4-4bbd-bfb2-8889734c7296 swap                    swap    defaults        0 0
+/root/CentOS-8.2.2004-x86_64-dvd1.iso /opt/iso iso9660 defaults 0 0
+```
+
+#### 配置epel源
+
+```shell
+wget https://mirrors.aliyun.com/epel/epel-release-latest-8.noarch.rpm
 ```
 
 
 
-密码（登录用户需要修改）
 
-1. 进入Ubuntu，打开一个终端，输入 sudo su转为root用户。 注意，必须先转为root用户！！！
-2. sudo passwd user(user 是对应的用户名)
-3. 输入新密码，确认密码。
-4. 修改密码成功，重启，输入新密码进入Ubuntu。
+
+#### 配置pip3国内源
+
+```shell
+# 查看镜像地址
+pip3 config list
+
+mkdir ~/.pip
+vim ~/.pip/pip.conf
+
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+```
+
+
+
+
+
+### 0.3.2 下载离线包
+
+#### 下载pip包
+
+```shell
+# 下载到指定目录，
+pip3 download -d [指定目录] [依赖名] -i [pip源]
+pip3 download -d ./extras streamlit -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+
+
+
+
+#### 下载rpm包
+
+```shell
+# 从本机yum源中下载安装包， –destdir指定下载路径
+# 获取httpd安装包及依赖,并放到指定目录中
+yumdownloader --resolve --destdir=/root/mypackages/ httpd
+```
+
+
+
+
+
+### 文件系统扩容
+
+使用新硬盘给某个目录扩容
 

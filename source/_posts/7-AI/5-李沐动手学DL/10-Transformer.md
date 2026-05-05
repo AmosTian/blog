@@ -163,7 +163,7 @@ Transformer模型将输入序列中的 `token` 与本序列中的其他 `token` 
 ![Data-1](10-Transformer/Data-1-17132884884491.png)
 
 1. 在送入第一个 **Encoder块** 前，源输入序列 `src_seq` 先经过 **Embedding层** ，并加入位置编码，产生词嵌入表示 `src_position_embed` 之后送入第一个 **Encoder块** 
-2. 按 **Encoder Stack** 中 **Encoder 块** 的顺序对 *词嵌入表示*  进行处理，产生 **Encoders** 的输出 `enc_outputs` 
+2. 按 **Encoder Stack** 中 **Encoder 块** 的顺序，对 *词嵌入表示*  进行处理，产生 **Encoders** 的输出 `enc_outputs` 
 3. 在右侧的 **Decoder Stack** 中，目标输入序列 `tgt_seq` 首先加一个句首标记，被转换为（带位置编码）的词嵌入表示 `tgt_position_embed` ，送入第一个 **Decoder 块**
 4. 按 **Decoder Stack** 中 **Decoder 块** 的顺序，将目标输入序列的词嵌入表示与 **Encoder Stack** 的输出 `enc_outputs` 一起处理，产生目标序列的解码表示 `dec_outputs`
 5. 输出层将解码器输出转换为 `token` 概率和最终的输出序列 `out_seq`
@@ -259,7 +259,7 @@ Transformer的输入层会提取 `token` 的两个信息：
 
 Embedding 层将序列中每个数字索引的 `token` 映射为等长的 *embedding向量* ，
 
-若语料集中所有词元组成的词表为 $\mathbf{VC}$ ，在 *embedding 层* 将词表映射到稠密空间 $\mathbf{E}=\mathbf{VC}\cdot \mathbf{W}_{EX}$ 。embed矩阵 $\mathbf{E}\in \mathbb{R}^{vocab\_size\times embed\_size}\iff \mathbb{R}^{\text{len(词表)}\times \text{len(embedding向量)}}$ 
+若语料集中所有词元组成的词表为 $\mathbf{VC}$ ，在 *embedding 层* 将词表映射到稠密空间 $\mathbf{E}=\mathbf{VC}\cdot \mathbf{W}_{EX}$ 。embed矩阵 $\mathbf{E}\in \mathbb{R}^{vocab\_size\times embed\_size}\iff \mathbb{R}^{\text{len(词表)}\times \text{sizeof(embedding向量)}}$ 
 
 即 **embedding 层将词元向量从离散的、高维的空间映射到连续的、低维的空间** 
 
