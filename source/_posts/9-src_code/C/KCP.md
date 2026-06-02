@@ -1,9 +1,19 @@
 ---
-abbrlink: 5
+title: KCP
+categories:
+  - src_code
+  - C
+tags:
+  - src_code
+  - C
+mathjax: true
+date: 2025年10月31日22:14:47
 ---
 https://luyuhuang.tech/2020/12/09/kcp.html
 
 https://zhuanlan.zhihu.com/p/10153049382
+
+<!--more-->
 
 ## KCP整体流程
 

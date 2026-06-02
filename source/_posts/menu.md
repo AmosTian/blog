@@ -1,9 +1,8 @@
 ---
 title: menu
-top: 10000000000000000
+top: 9999999999999999
 mathjax: true
-date: '2025年11月30日11:18:08'
-abbrlink: 2097494675
+date: 2025年11月30日11:18:08
 ---
 
 > 笔记目录
@@ -253,86 +252,94 @@ abbrlink: 2097494675
 1. [git](1-git.md)
 
 
-### 2-Java
-2. [JavaWeb](2-JavaWeb.md)
-
-
-#### 1-前端工程
+### 2-前端工程
 1. [ReactJS](1-ReactJS.md)
 
 2. [layui](2-layui.md)
 
+3. [vue](3-vue.md)
 
-##### 3-微信小程序
-1. [微信小程序笔记](./5-开发/2-Java/1-前端工程/3-微信小程序/1-微信小程序笔记.md)
+4. [uniapp](4-uniapp.md)
 
-2. [微信小程序、知晓云等产品导出excel](./5-开发/2-Java/1-前端工程/3-微信小程序/2-微信小程序、知晓云等产品导出excel.md)
+
+#### 5-微信小程序
+1. [微信小程序笔记](./5-开发/2-前端工程/5-微信小程序/1-微信小程序笔记.md)
+
+2. [微信小程序、知晓云等产品导出excel](./5-开发/2-前端工程/5-微信小程序/2-微信小程序、知晓云等产品导出excel.md)
+
+3. [uni](./5-开发/2-前端工程/5-微信小程序/3-uni-app+微信小程序.md)
+
+
+### 3-Java
+2. [JavaWeb](2-JavaWeb.md)
 
 
 #### 3-项目构建工具
-1. [maven](./5-开发/2-Java/3-项目构建工具/1-maven.md)
+1. [maven](./5-开发/3-Java/3-项目构建工具/1-maven.md)
+
+2. [npm](./5-开发/3-Java/3-项目构建工具/2-npm.md)
 
 
 #### 4-后端框架
-0. [学习路线](./5-开发/2-Java/4-后端框架/0-学习路线.md)
+0. [学习路线](./5-开发/3-Java/4-后端框架/0-学习路线.md)
 
-1. [Mybatis](./5-开发/2-Java/4-后端框架/1-Mybatis.md)
+1. [Mybatis](./5-开发/3-Java/4-后端框架/1-Mybatis.md)
 
-2. [Spring](./5-开发/2-Java/4-后端框架/2-Spring.md)
+2. [Spring](./5-开发/3-Java/4-后端框架/2-Spring.md)
 
-3. [SpringMVC](./5-开发/2-Java/4-后端框架/3-SpringMVC.md)
+3. [SpringMVC](./5-开发/3-Java/4-后端框架/3-SpringMVC.md)
 
-4. [微服务](./5-开发/2-Java/4-后端框架/4-微服务.md)
+4. [微服务](./5-开发/3-Java/4-后端框架/4-微服务.md)
 
-5. [SpringBoot](./5-开发/2-Java/4-后端框架/5-SpringBoot.md)
+5. [SpringBoot](./5-开发/3-Java/4-后端框架/5-SpringBoot.md)
 
-6. [Dubbo](./5-开发/2-Java/4-后端框架/6-Dubbo.md)
+6. [Dubbo](./5-开发/3-Java/4-后端框架/6-Dubbo.md)
 
 
 #### 5-中间件
 
 ##### 搜索引擎
-[ElasticSearch](./5-开发/2-Java/5-中间件/搜索引擎/ElasticSearch.md)
+[ElasticSearch](./5-开发/3-Java/5-中间件/搜索引擎/ElasticSearch.md)
 
-[ElasticStack](./5-开发/2-Java/5-中间件/搜索引擎/ElasticStack.md)
+[ElasticStack](./5-开发/3-Java/5-中间件/搜索引擎/ElasticStack.md)
 
 
 ##### 消息队列
-[RocketMQ](./5-开发/2-Java/5-中间件/消息队列/RocketMQ.md)
+[RocketMQ](./5-开发/3-Java/5-中间件/消息队列/RocketMQ.md)
 
 
 ##### 缓存库
-[MongoDB](./5-开发/2-Java/5-中间件/缓存库/MongoDB.md)
+[MongoDB](./5-开发/3-Java/5-中间件/缓存库/MongoDB.md)
 
 
 #### 6-Java项目
 
 ##### 公费医疗报销系统
-1. [环境](./5-开发/2-Java/6-Java项目/公费医疗报销系统/1.环境.md)
+1. [环境](./5-开发/3-Java/6-Java项目/公费医疗报销系统/1.环境.md)
 
 
 ##### 毕设项目
-1. [前端](./5-开发/2-Java/6-Java项目/毕设项目/1-前端.md)
+1. [前端](./5-开发/3-Java/6-Java项目/毕设项目/1-前端.md)
 
-2. [后台系统](./5-开发/2-Java/6-Java项目/毕设项目/2-后台系统.md)
+2. [后台系统](./5-开发/3-Java/6-Java项目/毕设项目/2-后台系统.md)
 
-3. [消息队列与微聊](./5-开发/2-Java/6-Java项目/毕设项目/3-消息队列与微聊.md)
+3. [消息队列与微聊](./5-开发/3-Java/6-Java项目/毕设项目/3-消息队列与微聊.md)
 
-4. [前台](./5-开发/2-Java/6-Java项目/毕设项目/4-前台.md)
+4. [前台](./5-开发/3-Java/6-Java项目/毕设项目/4-前台.md)
 
-5. [数据库集群](./5-开发/2-Java/6-Java项目/毕设项目/5-数据库集群.md)
+5. [数据库集群](./5-开发/3-Java/6-Java项目/毕设项目/5-数据库集群.md)
 
-6. [部署](./5-开发/2-Java/6-Java项目/毕设项目/6-部署.md)
+6. [部署](./5-开发/3-Java/6-Java项目/毕设项目/6-部署.md)
 
 
 #### 7-Java面试题
-1. [计算机基础](./5-开发/2-Java/7-Java面试题/1-计算机基础.md)
+1. [计算机基础](./5-开发/3-Java/7-Java面试题/1-计算机基础.md)
 
-2. [Java](./5-开发/2-Java/7-Java面试题/2-Java.md)
+2. [Java](./5-开发/3-Java/7-Java面试题/2-Java.md)
 
-3. [mysql](./5-开发/2-Java/7-Java面试题/3-mysql.md)
+3. [mysql](./5-开发/3-Java/7-Java面试题/3-mysql.md)
 
-4. [Spring](./5-开发/2-Java/7-Java面试题/4-Spring.md)
+4. [Spring](./5-开发/3-Java/7-Java面试题/4-Spring.md)
 
 
 ## 6-运维
@@ -425,6 +432,8 @@ abbrlink: 2097494675
 
 #### 文件存储
 [CentOS8配置NFS](./6-运维/4-存储配置/文件存储/CentOS8配置NFS.md)
+
+[nfs-ganesha配置](./6-运维/4-存储配置/文件存储/nfs-ganesha配置.md)
 
 
 ### 5-测试工具
@@ -541,10 +550,18 @@ abbrlink: 2097494675
 8. [无模型](./7-AI/6-动手学RL/8-无模型-AC算法.md)
 
 
+### 7-vibecoding
+1. [claude code](./7-AI/7-vibecoding/1-claude code.md)
+
+
 ## 8-Linux
 
 ### linux
 [Linux](./8-Linux/linux/Linux.md)
+
+
+### Linux系统编程
+[系统调用](./8-Linux/Linux系统编程/系统调用.md)
 
 
 ### 鸟哥Linux基础
@@ -553,6 +570,8 @@ abbrlink: 2097494675
 2. [Linux文件系统](./8-Linux/鸟哥Linux基础/2.Linux文件系统.md)
 
 3. [Vim与Shell](./8-Linux/鸟哥Linux基础/3.Vim与Shell.md)
+
+3. [Vim与Shell_script](./8-Linux/鸟哥Linux基础/3.Vim与Shell_script.md)
 
 [远程操作](./8-Linux/鸟哥Linux基础/远程操作.md)
 

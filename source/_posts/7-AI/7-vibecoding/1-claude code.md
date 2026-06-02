@@ -5,7 +5,8 @@ tags:
   - AI
 mathjax: true
 title: claude code
-date: 2026-5-4 16:25:48
+abbrlink: 1989319079
+date: 2026-05-04 16:25:48
 ---
 
 [TOC]
