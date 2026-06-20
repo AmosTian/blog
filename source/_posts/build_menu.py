@@ -1,5 +1,6 @@
 import os
 import json
+from datetime import datetime
 from functools import cmp_to_key
 
 jump_dir = [
@@ -9,7 +10,10 @@ jump_dir = [
     "2-本科.md",
     "build_menu.py",
     "skip_render_README.md",
-    ".trash"
+    ".trash",
+    ".git",
+    "directory.json",
+    "menu.md"
 ]
 
 img_formats = [".png", ".jpg", ".jpeg", ".webp", ".drawio", ".svg"]
@@ -23,6 +27,7 @@ title: menu
 top: 9999999999999999
 mathjax: true
 date: 2025年11月30日11:18:08
+updated: {updated}
 ---
 
 > 笔记目录
@@ -252,6 +257,13 @@ class MakeMenu():
 
 
 if __name__ == "__main__":
+    # 删除脚本同级目录下的 menu.md 与 directory_tree.json（若存在）
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    for fname in ["menu.md", "directory_tree.json"]:
+        fpath = os.path.join(script_dir, fname)
+        if os.path.exists(fpath):
+            os.remove(fpath)
+
     mm = MakeMenu(directory_path)
 
     # 将tree按照title1进行排序
@@ -264,7 +276,8 @@ if __name__ == "__main__":
         f.write(json_data)
 
     with open("menu.md", "w", encoding="utf-8") as f:
-        f.write(pre_content)
+        current_time = datetime.now().strftime("%Y年%m月%d日%H:%M:%S")
+        f.write(pre_content.format(updated=current_time))
 
         """
         解决同级目录下，md的排序问题

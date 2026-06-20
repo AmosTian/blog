@@ -1,8 +1,10 @@
 ---
 title: menu
-top: 9999999999999999
+top: 10000000000000000
 mathjax: true
-date: 2025年11月30日11:18:08
+date: '2025年11月30日11:18:08'
+updated: '2026年06月20日19:51:23'
+abbrlink: 2097494675
 ---
 
 > 笔记目录
@@ -568,8 +570,6 @@ date: 2025年11月30日11:18:08
 1. [Linux简介、安装、简单使用](./8-Linux/鸟哥Linux基础/1.Linux简介、安装、简单使用.md)
 
 2. [Linux文件系统](./8-Linux/鸟哥Linux基础/2.Linux文件系统.md)
-
-3. [Vim与Shell](./8-Linux/鸟哥Linux基础/3.Vim与Shell.md)
 
 3. [Vim与Shell_script](./8-Linux/鸟哥Linux基础/3.Vim与Shell_script.md)
 
