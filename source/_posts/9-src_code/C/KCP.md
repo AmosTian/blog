@@ -7,7 +7,8 @@ tags:
   - src_code
   - C
 mathjax: true
-date: 2025年10月31日22:14:47
+date: '2025年10月31日22:14:47'
+abbrlink: 867300865
 ---
 https://luyuhuang.tech/2020/12/09/kcp.html
 
