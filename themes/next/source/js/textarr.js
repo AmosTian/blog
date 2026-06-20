@@ -16,7 +16,7 @@ let textArr = [{
             text: '姓名：AmosTian'
         }, {
             name: 'div',
-            text: '年龄：23'
+            text: '年龄：28'
         }]
     }, {
         name: 'div',
@@ -25,7 +25,7 @@ let textArr = [{
             text: '本科院校：太原理工大学'
         }, {
             name: 'div',
-            text: '联系邮箱：17636679561@163.com'
+            text: '联系邮箱：tianzj1123@163.com'
         }]
     }]
 }, {
